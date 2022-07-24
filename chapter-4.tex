@@ -160,7 +160,7 @@ The second application of the heat kernel estimate is the following resolvent es
 %
 where $ \varphi (x) = (v (B_1 (x))  ^{-\frac{1}{2}} $.
 \end{theorem}
-\noindent{\bf Proof.} First, using the heat kernel $ H (x, t)$ we can write 
+\begin{proof} First, using the heat kernel $ H (x, t)$ we can write 
 %
 \[g _{\alpha} ^{(\frac{n}{2})}(x, y) = C _2 \int ^\infty_0 H (x, y, t) t  ^{ \frac{n}{2}-1   } e ^{\alpha t} \, dt.\]
 %
@@ -182,6 +182,7 @@ which implies
 \[g _{\alpha} ^{(\frac{n}{2})}  (x, y) \leq C_t \phi ^2 (x)   e ^{-\beta  d (x, y)}.\]
 %
 Cheeger-Yau's heat kernel comparison theorem. 
+\end{proof}
 
 \begin{theorem} Let $M$ be a complete Riemannian manifold such that  Ric$(M) \geq 0$. Fixing $ x \in M , r_0 > 0 $. The heat kernel $ H (x, y, t) $ in $ B(x, r_0) $ and the heat kernel $ \varepsilon (r (x, y) , t) $ in $ V (k, r_0) $ satisfies the following
 %
@@ -189,7 +190,7 @@ Cheeger-Yau's heat kernel comparison theorem.
 %
 (For both Dirichlet and Neumann conditions).
 \end{theorem}
-\noindent{\bf Proof.} Using the property of the heat kernel, we have 
+\begin{proof} Using the property of the heat kernel, we have 
 %
 \begin{eqnarray*}
 \lefteqn{H(x, y, t) - \varepsilon (x, y, t)} \\
@@ -229,7 +230,7 @@ we have
 \[ \tilde{\Delta} \varepsilon (r, t-s) \leq \Delta \varepsilon (r, t - s). \]
 
 In the above proof, we didn't take the cut-locus into account. Using some kind of limiting process, we can overcome the difficulty.
-\qed
+\end{proof}
 
 \begin{theorem}Let $M$ be a complete Riemannian manifold such that $ Ricci (M) \geq (n-1) k , n = \dim M$. We use $ B (x_0, r) $ to denote the ball centered at $ x _0$ with radius $r$. Let $ V (k, r)$ be the ball of radius $r$ in a simply connected space form. Then with the Dirichlet boundary condition, we have 
 %
@@ -273,7 +274,7 @@ Proof of a theorem of Brascamp and Lieb.
 Then $ \log u$ must be concave.
 
 \end{theorem}
-\noindent{\bf Proof.} We choose any function $ u_0 > 0 , u _0 |_{\partial \Omega} = 0 $ such that $ - 
+\begin{proof} We choose any function $ u_0 > 0 , u _0 |_{\partial \Omega} = 0 $ such that $ - 
 \log u_0 $ is concave. Such a function always exists. For example, we can take the convex hull of the graph of $ - \log u$.
 
 Consider the flow
@@ -297,6 +298,8 @@ However, by convexity, $ \varphi_{ki}^2 \leq \varphi_{ii} \cdot \varphi_{kk}=0, 
 The theorem follows from strong maximum principle.
 
 Let $ \Omega $ be a bounded domain with smooth boundary. Let $ u$ be the first Dirichlet eigenfunction with eigenvalue $ \lambda _1$. Then
+
+\end{proof}
 
 \begin{lemma} $ u \geq 0. $ 
 \end{lemma}
@@ -330,7 +333,8 @@ Since $ u (x) \geq 0 $, we have $ p^N (x) \geq 0 $. This contradicts to the maxi
 $ \frac{\partial u}{\partial n} \neq 0. $
 \end{lemma}
 
-\noindent{\bf Proof.} Using Taylor's expansion
+\begin{proof}
+   Using Taylor's expansion
 \[ u(x) = p ^N (x) + 0 ( x ^{N+ \epsilon)} ).\]
 %
 Again, $ \Delta p^N (x) = 0 , p^N (x) > 0 $ in $ \Omega $. By the Hopf lemma 
@@ -340,12 +344,13 @@ Again, $ \Delta p^N (x) = 0 , p^N (x) > 0 $ in $ \Omega $. By the Hopf lemma
 Consider the flow 
 %
 \[ \frac{\partial u}{\partial t} = \Delta u = \lambda _1 u, \frac{u}{\partial \Omega} = 0 .\]
+\end{proof}
 We have 
 \begin{lemma} 
 For any smooth initial $ u _0 > 0 $, the flow exists and converges to the first eigenfunction. 
 \end{lemma}
 
-\noindent{\bf Proof.}
+\begin{proof}
 Let 
 %
 \[ u_0 = \sum a _i f _i (x).\]
@@ -359,16 +364,18 @@ solves the flow equation. Obviously,
 \[ \lim_{t \rightarrow  \infty} u(t, x) =  a _i f_1 (x). \]
 %
 If  we choose the $u_0$ such that $ a _i \neq 0 $. Then the flow converges to the first eigenfunction.
+\end{proof}
 
 \begin{lemma} If $ u_0 > 0 $, then $ u (t, x) >0 $.
 \end{lemma}
 
-\noindent{\bf Proof.} Maximum principle.
-\qed
+\begin{proof} Maximum principle.
+\end{proof}
 
 \begin{lemma} If $ \Omega$ is convex, then near $ \partial \Omega  (-\log u) $ is convex.
 \end{lemma}
-\noindent{\bf Proof.}
+
+\begin{proof}
 We solve $ u ( x_1 \ldots, x_n) = 0 $ to get 
 %
 \[ x _n = x_n (x _1 , \ldots , x _{n-1} ) \]
@@ -396,7 +403,7 @@ For the maximal principle, see page 84--A.
 
 For initial function, take any $ \frac{u}{\partial \Omega } = 0 \   u e ^{- c \sum x_i ^2}$.
 
-
+\end{proof}
 
 
 
@@ -452,7 +459,7 @@ Then
 \[ \lim_{R\rightarrow \infty} \int_E |\nabla f|^2 \rightarrow 0. \]
 \end{theorem}
 
-\noindent{\bf Proof.}
+\begin{proof}
 Using the Green's formula, we have 
 %
 \[\int _E |\nabla f|^2 = - \int _E \frac{\partial f}{\partial r}  \]
@@ -467,6 +474,7 @@ Then $f$ must be a positive harmonic function. By the parabolicity, $f \equiv 1$
 \[ \frac{\partial f_i}{\partial r} \rightarrow 0\]
 %
 as $ i \rightarrow \infty$.
+\end{proof}
 
 \noindent Examples: $ \mathbb{R}^2 $ and $ \mathbb{R}^n $.
 
@@ -482,7 +490,7 @@ for any $ f \in F(R) $. If $ n = 2 $, then for any $ \varepsilon > 0 $ there exi
 \[ \int_{\mathbb{R}^2} | \nabla f|^2 < 
 \varepsilon.\]
 
-\noindent{\bf Proof.} If $ n > 2 $, then 
+\begin{proof} If $ n > 2 $, then 
 %
 \[ \int ^\infty_{\mathbb{R}^2} \frac{1}{r^{n-1}} \, d r = \frac{1}{n-2} \frac{1}{R^{n-2}}.\]
 Thus we have 
@@ -501,7 +509,7 @@ Then a straightforward computation gives
 %
 \[\int^\infty_0 + | \sigma ^\prime _R (t) |^2 dt \leq \frac{4}{3} \frac{1}{\log R} \; \;\;\; \mbox{for}\; R >>0 .\]
 The main result of this section is the following characterization of parabolicity.
-\qed
+\end{proof}
 
 \begin{theorem} Let $M$ be a complete manifold. If $ M$ is non-parabolic, then for any point $ p \in M$, we have 
 %
@@ -510,8 +518,8 @@ The main result of this section is the following characterization of parabolicit
 where $ A_p (r) $ denotes the area of $ \partial B_p (r) $.
 \end{theorem}
 
-\noindent{\bf Proof} For $ p\in M $, let $ G(p, y) $ be the Green's function (assuming that it exists). Let $ G_i (p, y) $ be the Green's function on $ B_p (R_i) $ with the Dirichlet boundary condition, where $ R_i \rightarrow   \infty $.
-\qed
+\begin{proof} For $ p\in M $, let $ G(p, y) $ be the Green's function (assuming that it exists). Let $ G_i (p, y) $ be the Green's function on $ B_p (R_i) $ with the Dirichlet boundary condition, where $ R_i \rightarrow   \infty $.
+\end{proof}
 
 For any $ |< R< R_i $, let's denote that 
 \begin{eqnarray*}
