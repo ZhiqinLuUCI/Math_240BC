@@ -1,7 +1,7 @@
 
  \chapter{Special topics}\label{Special_topics}
  \section{The Reverse H\"older Inequality}\label{Reverse_holder}
- In this section, we prove the classical Reverse H\"older inequality of Gehring~\cite{gehring}.
+ In this section, we prove the classical Reverse H\"older inequality of Gehring (cite gehring).
  
  
     Let $Q$ be a tube in $\R^n$. Let $f(x)$ be a measurable, bounded, and nonnegative function. Define the \emph{maximum function} by
@@ -55,12 +55,12 @@ decomposition}. We then  define  a sequence of cubes $Q_j\subset Q$ such that
 \begin{enumerate}
 \item each side of $Q_j$ is parallel to a side of $Q$; the interior of $Q_j$ are disjoint;
 \item
-\begin{equation}\label{1-1}
+\begin{equation}\label{1-1-a}
 s^q<\fint_{Q_j} f^q(x) dx\leq 2^n s^q.
 \end{equation}
 \item for \emph{a.e.} $x\not\in \bigcup_j Q_j$, we have $f(x)\leq s$.
 \end{enumerate}
- Briefly speaking, the sequences can be defined inductively in the following way: we first divide $Q$ into $2^n$ sub-cubes like in Figure~\ref{fig2}. 
+ Briefly speaking, the sequences can be defined inductively in the following way: we first divide $Q$ into $2^n$ sub-cubes like in Figure (ref fig2)
  
 \begin{center}
 \begin{tikzpicture}
@@ -86,7 +86,7 @@ s^q<\fint_{Q_j} f^q(x) dx\leq 2^n s^q.
  \[
  \fint_{Q'} f^q(x) dx\leq s^q,
  \]
- we can repeat the division as above. In this way, we get a sequence $\{Q_j\}$ such that they satisfy ~\eqref{1-1}. Now for all $x\not\in \bigcup_j Q_j$, there is a sequence $Q_j''$ shrinking to $x$ such that
+ we can repeat the division as above. In this way, we get a sequence $\{Q_j\}$ such that they satisfy ~\eqref{1-1-a}. Now for all $x\not\in \bigcup_j Q_j$, there is a sequence $Q_j''$ shrinking to $x$ such that
  \[
  \fint_{Q_j''} f^q(x)dx\leq s^q.
  \]
@@ -155,7 +155,7 @@ Then it is easy to verify that
 \int_{E(t)} f^r(x) dx=-\int_t^\infty s^{r-1} dh(s).
 \]
 Thus the lemma can be written as
-\begin{equation}\label{2}
+\begin{equation}\label{2a}
 -\int_t^\infty s^{q-1} dh(s)\leq at^{q-1} h(t).
 \end{equation}
 
@@ -167,7 +167,7 @@ and for $p>q>0$, define
 \[
 J=(p-q)\int_1^\infty t^{p-q-1}\left(-\int_t^\infty s^{q-1}dh(s)\right) dt.
 \]
-Then by~\eqref{2}, we have
+Then by~\eqref{2a}, we have
 \[
 J\leq (p-q)\int_1^\infty at^{p-2} h(t) dt=\frac{a(p-q)}{p-1}\int_1^\infty h(t) dt^{p-1}=
 \frac{a(p-q)}{p-1}(-I(1)+I(p)).
@@ -223,11 +223,11 @@ So the theorem is proved by assuming that $\eps>0$ is sufficiently small.
 
  
  \section{The Grigor'yan-Netrusov-Yau cover}\label{GNY_cover}
-In this section, we give a simplified proof of~\cite{GNY}*{Theorem 3.5}. 
+In this section, we give a simplified proof of (CITE GNY) {Theorem 3.5}. 
 
 \begin{theorem}
 Let a pseudo-metric space $(X,d)$ satisfy $(2,P)$-covering property. Let $m$ be a Borel measure on $X$, and assume that there exist a positive real number $v$ and $\rho$ such that 
-\begin{equation}\label{1}
+\begin{equation}\label{1a}
 \forall x\in X,\quad m(B(x,\rho/2))\leq v,\quad and\quad \exists x_0\in X, m(B(x_0,\rho))>v.
 \end{equation}
 Then, for any $\lambda>1$, there exists a family $\mathfrak A$ of $[\eps_0m(X)/v]$ annuli 
@@ -258,7 +258,7 @@ for a constant $C_1>0$ independent to $v$.
 Here $C_3$ is the constant such that when the radius is multiple by $8$, then the volume is increased by $C_3$ times. 
 \vspace{.3in}
 
-By~\eqref{1}, we know that the family of annuli exists at least for $N=1$.\\
+By~\eqref{1a}, we know that the family of annuli exists at least for $N=1$.\\
 
 We shall get a contradiction by 
 assuming that
