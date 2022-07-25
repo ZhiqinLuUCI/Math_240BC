@@ -2,7 +2,8 @@
   <title>The Reverse H&#xf6;lder Inequality</title>
   <p>
     In this section,
-    we prove the classical Reverse H&#xf6;lder inequality of Gehring<nbsp/><xref ref="gehring"/>.
+    we prove the classical Reverse H&#xf6;lder inequality of Gehring
+    (cite gehring).
   </p>
   <p>
     Let <m>Q</m> be a tube in <m>\R^n</m>.
@@ -83,7 +84,7 @@
         </li>
         <li>
           <p>
-            <men xml:id="x1-1">
+            <men xml:id="x1-1-a">
               s^q\lt \fint_{Q_j} f^q(x) dx\leq 2^n s^q
             </men>.
           </p>
@@ -99,7 +100,7 @@
     <p>
       Briefly speaking,
       the sequences can be defined inductively in the following way:
-      we first divide <m>Q</m> into <m>2^n</m> sub-cubes like in <xref ref="fig2">Figure</xref>.
+      we first divide <m>Q</m> into <m>2^n</m> sub-cubes like in Figure (ref fig2)
     </p>
     <image>
 <latex-image>
@@ -130,7 +131,7 @@
       </me>,
       we can repeat the division as above.
       In this way,
-      we get a sequence <m>\{Q_j\}</m> such that they satisfy <nbsp/><xref ref="x1-1"/>.
+      we get a sequence <m>\{Q_j\}</m> such that they satisfy <nbsp/><xref ref="x1-1-a"/>.
       Now for all <m>x\not\in \bigcup_j Q_j</m>,
       there is a sequence <m>Q_j''</m> shrinking to <m>x</m> such that
       <me>
@@ -234,7 +235,7 @@
     </p>
     <p>
       Thus the lemma can be written as
-      <men xml:id="x2">
+      <men xml:id="x2a">
         -\int_t^\infty s^{q-1} dh(s)\leq at^{q-1} h(t)
       </men>.
     </p>
@@ -249,7 +250,7 @@
       </me>.
     </p>
     <p>
-      Then by<nbsp/><xref ref="x2"/>, we have
+      Then by<nbsp/><xref ref="x2a"/>, we have
       <me>
         J\leq (p-q)\int_1^\infty at^{p-2} h(t) dt=\frac{a(p-q)}{p-1}\int_1^\infty h(t) dt^{p-1}= \frac{a(p-q)}{p-1}(-I(1)+I(p))
       </me>.

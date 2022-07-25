@@ -2,7 +2,7 @@
   <title>The Grigor'yan-Netrusov-Yau cover</title>
   <p>
     In this section,
-    we give a simplified proof of<nbsp/><xref ref="GNY"/>.
+    we give a simplified proof of (CITE GNY) {Theorem 3.5}.
   </p>
   <theorem>
     <statement>
@@ -10,7 +10,7 @@
         Let a pseudo-metric space <m>(X,d)</m> satisfy <m>(2,P)</m>-covering property.
         Let <m>m</m> be a Borel measure on <m>X</m>,
         and assume that there exist a positive real number <m>v</m> and <m>\rho</m> such that
-        <men xml:id="x1">
+        <men xml:id="x1a">
           \forall x\in X, m(B(x,\rho/2))\leq v, and \exists x_0\in X, m(B(x_0,\rho))>v
         </men>.
       </p>
@@ -64,7 +64,7 @@
     then the volume is increased by <m>C_3</m> times.
   </p>
   <p>
-    By<nbsp/><xref ref="x1"/>,
+    By<nbsp/><xref ref="x1a"/>,
     we know that the family of annuli exists at least for <m>N=1</m>.
   </p>
   <p>
@@ -265,7 +265,7 @@
   <remark>
     <title>Final Remark</title>
     <p>
-      This is a lecture note for the Math 240B at UCI. It is not a book or intended to be a book.
+      This is a lecture note for the Math 240BC at UCI. It is not a book or intended to be a book.
       The materials in this lecture note, I believe,
       are essential to differential geometers.
       Some of the materials are not standard so as to be easily found in any text books.

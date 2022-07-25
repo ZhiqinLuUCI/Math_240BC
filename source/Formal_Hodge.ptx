@@ -16,7 +16,7 @@
   <p>
     We consider the following variational problem for a fixed element <m>[a]</m> of <m>\Lambda^p(M)</m>:
     finding an <m>\eta_0</m> such that
-    <men xml:id="x2-1">
+    <men xml:id="x2-1-4">
       ||\eta_0||^2 =\underset{\eta\in[a]}{ inf}\,\int_X\langle\eta,\eta\rangle dV_g
     </men>.
   </p>
@@ -33,7 +33,7 @@
     <me>
       ||\xi_0+d\xi_1'||^2=\underset{\eta\in[a]}{ inf} ||\eta||^2
     </me>,
-    and the variational problem<nbsp/><xref ref="x2-1"/> would have been solved.
+    and the variational problem<nbsp/><xref ref="x2-1-4"/> would have been solved.
   </p>
   <p>
     Now let's <em>assume</em> that there is a unique <m>p</m> form <m>\eta_0</m> that solves problem<nbsp/><xref ref="x2-1"/>.

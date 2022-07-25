@@ -110,7 +110,7 @@
     <p>
       We have
       <me>
-        \Delta_0e^{i\langle x,\xi\rangle }=\|\xi\|^2e^{i\langle x,\xi\rangle }
+        \Delta_0 e^{i\langle x,\xi\rangle}=\|\xi\|^2e^{i\langle x,\xi\rangle}
       </me>.
     </p>
     <p>

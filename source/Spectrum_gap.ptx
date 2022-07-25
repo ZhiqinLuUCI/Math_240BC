@@ -278,7 +278,7 @@
     </p>
     <p>
       The flow of <m>\phi</m> is
-      <men xml:id="x2-1">
+      <men xml:id="x2-1-2">
         \frac{\partial\phi}{\partial t} = \Delta\phi - |\nabla\phi|^2 - \lambda_1
       </men>.
     </p>
