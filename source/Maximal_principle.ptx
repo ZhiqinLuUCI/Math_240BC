@@ -1,0 +1,558 @@
+<section xml:id="Maximal_principle">
+  <title>Gradient estimates and maximal principle</title>
+  <p>
+    If <m>X</m> is a compact manifold,
+    then any smooth real function on <m>X</m> reaches its maximum point.
+    At the maximum point, the first derivatives are zero,
+    and the Hessian matrix at the point is non-positive.
+  </p>
+  <p>
+    For non-compact manifold, the above statement is not true in general.
+    In order to estimate a function we sometimes need a differential inequality.
+    Usually such a differential inequality is obtained by doing the so-called gradient estimate.
+  </p>
+  <p>
+    We start with the following generalized maximum principle:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>f</m> be a positive smooth function on a complex non-compact Riemannian manifold <m>X</m>.
+        We assume that <m>{ Ric} (X) \geq - (n-1) k^2</m> for some number <m>k</m>.
+        Let <m>\phi_1, \phi_2</m> be two smooth functions on <m>X</m> with <m>\phi_1</m> bounded.
+        Assume that there are constants <m>\alpha > 0 , C_1, C_2</m> such that
+      </p>
+    </statement>
+  </theorem>
+  <men>
+    \nabla f \geq C_1 f ^{l+ \alpha} + \phi _0 \nabla \phi_1 \nabla f - C_2 .\tag{$\star$}
+  </men>
+  <p>
+    Then <m>f</m> is bounded.
+    Furthermore, there is a constant
+    <me>
+      C = C (\alpha, C_1, C_2 \Vert \phi _0 \Vert C_0 \nabla \phi _1 )
+    </me>
+    such that
+    <me>
+      f \leq C
+    </me>.
+  </p>
+  <p>
+    \begin{proof} We first assume that <m>f</m> is bounded.
+    That is
+    <me>
+      \sup f \lt  + \infty
+    </me>.
+  </p>
+  <p>
+    We claim that there is a sequence
+    <m>\{ x_k\}</m> in <m>X</m> such that for any <m>\varepsilon > 0</m>,
+    if <m>k</m> is large enough, we have
+    <md>
+      <mrow>\amp \amp f(x_k) > \sup f - \varepsilon</mrow>
+      <mrow>\amp \amp  | \nabla f | (x_k) \lt  \varepsilon</mrow>
+      <mrow>\amp \amp \Delta f (x_k) \lt  \varepsilon</mrow>
+    </md>.
+  </p>
+  <p>
+    To prove the claim, we first take a sequence <m>\{ y_k\}</m> such that
+    <me>
+      \lim_{k \rightarrow \infty}  f (y_k) = \sup f
+    </me>.
+  </p>
+  <p>
+    Define the cut-off function <m>\rho</m> as follows
+    <me>
+      \phi : \mathbb{R} \rightarrow \mathbb{R}
+    </me>
+    smooth, <m>0 \leq \rho \leq 1, \rho (t) = 1</m> for <m>0 \leq t \leq 1</m>.
+    <m>\rho (t) = 0</m> for <m>t > 2</m> and
+    <m>\rho^\prime (t) \leq 0</m> for all <m>t \in \mathbb{R}</m>.
+    Let <m>R</m> be a large number to be determined later.
+    Let <m>d(x) = { dist}  (x, y_k)</m> be the distance function.
+    In general, the function <m>d(x)</m> is only a continuous function.
+    But let
+    <me>
+      g(x) = \rho \left( \frac{d^2(x)}{R^2} \right) f (x)
+    </me>.
+  </p>
+  <p>
+    If the maximum point of <m>g(x)</m> happens to be not smooth,
+    we can always perturb the reference point by a little.
+    So without loss of generality,
+    we assume that <m>g(x)</m> is smooth.
+    Let <m>x_k</m> be the maximum point of <m>g(x)</m>.
+    By the definition of <m>x_k</m>, we have
+    <me>
+      g(x_k) \geq g (y_k) = f (y_k) \geq \sup f - \varepsilon
+    </me>.
+  </p>
+  <p>
+    Using the definition, we also have
+    <me>
+      1 - \rho \left( \frac{d^2 (x_k) }{R^2} \right) \ \lt  \frac{\varepsilon }{\sup f }
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      0 = \nabla g (x_k) = \rho^\prime \frac{2}{k^2} d \nabla d f (x_k) + \rho \nabla f (x_k)
+    </me>
+    we have
+    <me>
+      |\nabla f| (x_k)= - \frac{\rho^\prime}{\rho} \frac{2}{k^2} d | \nabla d |f (x_k)
+    </me>.
+  </p>
+  <p>
+    Because <m>| \nabla d | = 1</m>,
+    if <m>R</m> is big enough, we have
+    <me>
+      |\nabla f| (x_k) \lt  \varepsilon
+    </me>.
+  </p>
+  <p>
+    Finally, we have
+    <me>
+      0 \geq \Delta g (x_k) = \rho f + 2 \nabla \rho \nabla f + f \Delta \rho
+    </me>.
+  </p>
+  <p>
+    In order to prove the claim, we just need to prove that
+    <me>
+      \Delta \rho \left( \frac{d^2 (x, y_k )}{R^2} \right) \lt  \varepsilon
+    </me>
+    for <m>k</m> large enough.
+    A straight forward computation gives that
+    <me>
+      \Delta \rho = \frac{2}{R^2} \rho^\prime + \frac{4d^2}{R^4} \rho^{\prime \prime} + \frac{2}{R^2} \rho^\prime d \Delta d
+    </me>.
+  </p>
+  <p>
+    Since the Ricci curvature of <m>X</m> is bounded from below,
+    by Laplacian comparison theorem, we have
+    <me>
+      d \Delta d \geq -C
+    </me>
+    for some constant <m>C</m> depending only on the lower bound of the Ricci curvature.
+    Since <m>\rho^\prime  \leq 0</m>,
+    for <m>R</m> large enough we have
+    <me>
+      \Delta \rho \lt  \varepsilon
+    </me>
+    for any <m>\varepsilon</m>.
+    The claim is proved.
+  </p>
+  <p>
+    Using the differentiable inequality (<m>\star</m>), we have
+    <me>
+      \varepsilon \geq C_1 f (x_k) ^{1 + \alpha} = \Vert \phi_0 \Vert \, \Vert \nabla \phi_1 \Vert \varepsilon - C_2
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      f (x_k) \leq {}^{1+\alpha}\sqrt{\frac{C_2 + \Vert\phi _0\Vert \,\Vert  \nabla \phi _1 \Vert}{C_1}} \
+    </me>.
+  </p>
+  <p>
+    Taking <m>k \rightarrow \infty</m>,
+    we get the effective bound for <m>f</m>.
+  </p>
+  <p>
+    Now we assume that <m>\sup f =   + \infty</m>.
+    Let
+    <me>
+      v = 1 - \frac{1}{(1+f) ^\beta}
+    </me>
+    for <m>\beta > 0</m> to be determined later.
+    Then by the previous result,
+    there is a sequence <m>\{ x_k\}</m> such that for any <m>\varepsilon > 0</m>,
+    if <m>k</m> is large enough, we have
+    <md>
+      <mrow>\amp \amp v (x_k) > 1 - \varepsilon</mrow>
+      <mrow>\amp \amp  |\nabla v | (x_k) \lt  \varepsilon</mrow>
+      <mrow>\amp \amp  \Delta v (x_k) \lt  \varepsilon </mrow>
+    </md>.
+  </p>
+  <p>
+    By the definition of <m>v</m>, we have
+    <me>
+      \Delta  v = \beta \frac{\Delta f }{(1+ \delta )^{1+ \beta}} - \frac{1+\beta}{\beta} | \nabla v|^2 (1 +f )^\beta
+    </me>
+  </p>
+  <p>
+    Applying the above inequality to <m>(\star)</m>, we get
+    <me>
+      \varepsilon > \beta \frac{C_1 f^{1+\alpha}- \Vert\phi _0\Vert \,\Vert \nabla \phi _1 \Vert \cdot \varepsilon - C_2}{(1+f ) ^{1 + \beta}} - \frac{1+\beta }{\beta} \cdot \varepsilon (1 + f)^\beta
+    </me>.
+  </p>
+  <p>
+    Letting <m>k \rightarrow \infty</m>,
+    we get a uniform bound of <m>\sup f</m> from the above inequality.
+  </p>
+  <p>
+    Let <m>f</m> be a smooth function on a complete non-compact manifold.
+    We say that <m>f</m> is a harmonic function, if
+    <me>
+      \Delta f = 0
+    </me>.
+  </p>
+  <p>
+    Then we have the following:
+  </p>
+  <theorem>
+    <title>Yau</title>
+    <statement>
+      <p>
+        Let <m>p > 1</m>, if <m>f \in L ^p , \Delta f = 0</m>.
+        Then <m>f</m> is a constant.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    For the sake of simplicity, we only prove the theorem for <m>p = 2</m>.
+  </p>
+  <p>
+    Let <m>f</m> be an <m>L^2</m> harmonic function.
+    Take a fixed point <m>x_0</m>.
+    Let
+    <me>
+      d (x) = { dist} (x, x_0)
+    </me>.
+  </p>
+  <p>
+    Let <m>\rho</m> be a cut-off function such that <m>{ supp} \rho</m> is compact.
+    We consider
+    <me>
+      g (x) = \rho \left( \frac{d(x)}{R} \right) f (x)
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \int_M \rho ^2 | \nabla f (x) |^2 = - 2 \int \rho f \nabla \rho \nabla f \frac{1}{R}
+    </me>.
+  </p>
+  <p>
+    Using the Cauchy inequality, we get
+    <me>
+      \int_M \rho^2 | \nabla f | ^2 \leq \frac{2}{R} \left( \int_M \rho^2 |\nabla f|^2 \right) ^{\frac{1}{2}} \int_M |\nabla \rho| ^2 f
+    </me>.
+  </p>
+  <p>
+    Since <m>| \nabla \rho | \leq C</m>.
+    We get
+    <me>
+      \int_M \rho^2 |\nabla f | ^2 \leq C \frac{1}{R} \int_M f^2
+    </me>.
+  </p>
+  <p>
+    Letting <m>R\rightarrow \infty</m>,
+    we get <m>\nabla f \equiv 0</m> so <m>f</m> is a constant.
+  </p>
+  <p>
+    By the above theorem, for a complete manifold,
+    the only interesting harmonic functions may be bounded harmonic functions.
+  </p>
+  <p>
+    In order to study the bounded harmonic functions,
+    we first introduce the Ricci identity.
+  </p>
+  <p>
+    Let <m>f</m> be a smooth function of <m>M</m>.
+    Define the derivative of <m>f</m> using the following formula
+    <me>
+      f_i \omega _i = df
+    </me>.
+  </p>
+  <p>
+    Using the same idea, we define
+    <me>
+      f_{ij} \omega _j = d f_i - f _s \omega _{s j}
+    </me>.
+  </p>
+  <p>
+    The matrix <m>(f_{ij} )</m> is called the Hessian matrix.
+    We have
+    <me>
+      f_{ij} \omega _j \wedge \omega _i = d f _i \wedge \omega _i - f _s \omega _{s j} \wedge \omega _i = 0
+    </me>.
+  </p>
+  <p>
+    Thus the Hessian matrix is always symmetric.
+  </p>
+  <p>
+    The 3<m>^{ rd}</m> order co-variant derivatives are defined as
+    <me>
+      f_{ijk} \omega _k = d f _{ij} - f _{is} \wedge \omega  _{sj} - f  _{sj} \wedge \omega _{si}
+    </me>.
+  </p>
+  <p>
+    A careful computation gives
+    <me>
+      f_{ijk} \omega _k   \wedge \omega  _{j}= - \frac{1}{2}f_s   R_{si kj}   \omega _k \wedge \omega _j
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      f_{ijk} - f _{ikj} = + f _s R_{sikk}
+    </me>
+  </p>
+  <p>
+    In particular, we have the following Ricci identity
+    <me>
+      f_{iik} - f _{kii} = - f_s { Ric} _{sk}
+    </me>
+  </p>
+  <remark>
+    <p>
+      We have <m>\Delta f = f _{ii}</m>.
+    </p>
+  </remark>
+  <p>
+    With the preparation above, we prove the following.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold, <m>\dim M = n \geq 2</m>.
+        <m>{ Ric}(M) \geq - (n-1) k , k \geq 0</m>.
+        Let <m>u</m> be a positive harmonic function.
+        Then on any geodesic ball <m>B_a (x)</m>, we have
+      </p>
+    </statement>
+  </theorem>
+  <me>
+    \frac{|\nabla u|}{u}  \leq C_n \left( \frac{1+ a k ^{\frac{1}{2}}}{a} \right)
+  </me>.
+  <p>
+    where <m>C_n</m> is a constant only depends on <m>n</m>.
+    We first prove that
+    <men>
+      \frac{1}{2} \Delta |\nabla u | ^2 \geq \sum _{ij} u_{ij} ^2 - (n-1) k | \nabla u|^2. \tag{$\triangle$}
+    </men>
+  </p>
+  <p>
+    To see this, we do the following
+    <me>
+      \left( \sum u^2_j\right) _i = 2 u_j u_{ji}
+    </me>.
+  </p>
+  <p>
+    Thus,
+    <me>
+      \frac{1}{2} \Delta |\nabla u | ^2 + ( u_j u_{ji} )_i = u ^2_{ji} + u_j u_{jii}
+    </me>.
+  </p>
+  <p>
+    Using the Ricci identity, we have
+    <me>
+      \frac{1}{2} \Delta |\nabla u| ^2 = u^2_{ji} + u _j (\Delta u)_j + { Ric} (\nabla u, \nabla u)
+    </me>.
+  </p>
+  <p>
+    Thus <m>(\triangle)</m> follows from the assumption on the Ricci curvature and harmonicity of <m>u</m>.
+  </p>
+  <p>
+    We now consider the points such that <m>\nabla u \neq 0</m>.
+    By changing a frame, we may assume that
+    <me>
+      u_i \neq 0 , \ u_j = 0 \ \mbox{for} \ \ j \lt  1
+    </me>.
+  </p>
+  <p>
+    From <m>(\triangle)</m>, we conclude that
+    <me>
+      \Delta | \nabla u| = \frac{\Delta | \nabla u|^2}{2 | \nabla u|} - \frac{1}{4} \frac{| \nabla | \nabla u| ^2 |^2}{| \nabla u|^3}
+    </me>.
+  </p>
+  <p>
+    Using the above information, we get
+    <me>
+      \Delta |\nabla u| \geq \frac{1}{| \nabla u|} \left( \sum_{j > 1} u^2_{ij} + \sum _{j>1} u^2_{jj} \right) - (n-1) k |u_1|
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      \sum _{j>1} u^2_{jj} \geq \frac{1}{n-1} \left( \sum_{j>1} u_{jj} \right) ^2 = \frac{1}{n-1} u^2_{11}
+    </me>.
+    we have
+    <me>
+      \Delta |\nabla u| \geq \frac{1}{n-1} \frac{1}{|\nabla u|} \sum_j u^2_{ij} - (n-1) k |u_1|
+    </me>.
+  </p>
+  <p>
+    Now we assume that <m>\phi = |\nabla u|/u</m>.
+    Then we have
+    <me>
+      \Delta \phi = \frac{\Delta |\nabla u|}{u} + 2 \nabla |\nabla u| \nabla \frac{1}{u} + |\nabla u| \Delta \left( \frac{1}{u} \right)
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      2   \nabla  | \nabla u| \nabla \frac{1}{u} =  2 \nabla (\phi u) \nabla   \left(\frac{1}{u} \right) = - 2 \frac{\nabla \phi \nabla u}{u} - 2 \phi ^3
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \nabla \phi = \frac{\Delta |\nabla u|}{u} - 2 \frac{\nabla \phi \nabla u}{u}
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \frac{\nabla \phi \nabla u}{u} = - \phi ^3 - 2 \nabla |\nabla u| \nabla \frac{1}{u}
+    </me>.
+  </p>
+  <p>
+    Thus if <m>\varepsilon > 0</m> is small enough
+    <me>
+      \frac{\Delta |\nabla u|}{u} - \varepsilon \frac{\nabla \phi \nabla u}{u} \geq \varepsilon \phi ^3
+    </me>.
+  </p>
+  <p>
+    Thus we get
+    <me>
+      \Delta \phi \geq - (n-1) k \phi - (2 - \varepsilon ) \frac{\nabla \phi \nabla u}{u} + \varepsilon \phi^3
+    </me>.
+  </p>
+  <p>
+    Using the maximum principle, we have <m>\phi</m> is bounded.
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold,
+        if <m>{ Ric} (M) \geq 0</m>.
+        Then any positive harmonic function is a constant.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      If <m>{ Ric} \geq 0</m> then <m>k = 0</m>.
+      We have
+      <me>
+        \Delta \phi \geq - (2 - \varepsilon ) \frac{\nabla \phi \nabla u}{u} + \varepsilon \phi^3
+      </me>.
+    </p>
+    <p>
+      For <m>\varepsilon = \frac{2}{n-1}</m>.
+      Thus using the generalized maximal principal, <m>\phi \equiv 0</m>.
+    </p>
+  </proof>
+  <corollary>
+    <title>Harnack **</title>
+    <statement>
+      <p>
+        Let <m>M</m> be <m>n</m>-dimensional Riemannian manifold,
+        <m>{ Ric} (M) \geq - (n-1) k</m>.
+        If <m>u</m> is a positive harmonic function in <m>Ba</m>.
+        Then
+        <me>
+          \sup_{Ba/2} u \leq C (n, a, k) \inf_{B a/2}  u
+        </me>
+        where <m>C (n, a, k)</m> are constants depending only on <m>n,
+        a, k</m>.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    \begin{proof} By the above theorem, we have
+    <me>
+      \sup_{Ba} \frac{|\nabla  u|}{u} \leq C (n, a, k)
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      | \nabla lg u |\leq C (n, a, k)
+    </me>
+    the conclusion follows.
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        Suppose <m>{ Ric} (M) \geq 0</m>.
+        Then any positive harmonic function must be constant.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    Let the Riemann metric be written as
+    <me>
+      (dr)^2 + h_{ij} (r, \theta) \, d \theta _i d \theta _j
+    </me>.
+  </p>
+  <p>
+    What is the asymptotic behavior of
+    <m>h_{ij} (r, \theta)</m> when <m>r \rightarrow 0</m>.
+  </p>
+  <p>
+    Note that the Riemannian metric at the reference point is regular.
+    Thus we can define <m>( \theta _2, \ldots, \theta _n)</m> as
+    <me>
+      \theta _j = \frac{x_j}{r}, \;\; r = \sqrt{\sum x^2_j}
+    </me>.
+  </p>
+  <p>
+    Suppose
+    <me>
+      ds ^2 = g_{ij} d x_i dx_j
+    </me>.
+  </p>
+  <p>
+    Let's compare
+    <me>
+      g_{ij} d x_i dx_j \sim (dr ) ^2 + h_{ij} d \theta _i d \theta _j
+    </me>.
+  </p>
+  <p>
+    We have
+    <md>
+      <mrow>g_{ij} d x _i dx_j    \amp  = \amp  g_{ij} ( dr \theta _i + r d \theta _i ) ( d r \theta _j + r d \theta _j )</mrow>
+      <mrow>\amp  = \amp  g _{ij} \theta_i \theta_j (dr) ^2 + 2 g _{ij} x_i dr d \theta _j + g _{ij} r ^2 d \theta _i d \theta _j </mrow>
+    </md>.
+  </p>
+  <p>
+    By comparison, we have
+    <md>
+      <mrow>\amp \amp g_{ij} \theta_i \theta _j = 1</mrow>
+      <mrow>\amp \amp  \sum _i g_{ij} x _i = 0</mrow>
+    </md>
+    and
+    <me>
+      h_{ij} = r^2 \left(g_{ij} - g_{ij} \frac{\theta_i}{\theta_1} - g_{i1} \frac{\theta_j}{\theta_1} + g_{11} \frac{\theta_i \theta_j}{\theta^2_1} \right)
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \sqrt{{ det} ( h _{ij} ) } = \gamma ^{n-1} \cdot \mu
+    </me>
+    for <m>\mu</m> being a regular function
+    (at least for fixed <m>\theta_i</m>).
+    Thus
+    <me>
+      \Delta \rho = \frac{\partial f}{\partial r} \sim \frac{n-1}{r} + \ \mbox{small terms}
+    </me>.
+  </p>
+  <p>
+    If we choose <m>(g_{ij})</m> to be normal, we can actually compute
+    <me>
+      { det}\left( \delta_{ij} + \frac{\theta_i \theta_j}{\theta^2_1} \right) = \frac{1}{\theta^2_1}
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \sqrt{{ det}\,h_{ij}}
+    </me>
+    can be extended as a regular function near 0.
+  </p>
+</section>

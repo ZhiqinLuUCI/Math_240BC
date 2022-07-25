@@ -1,0 +1,796 @@
+<section xml:id="Spectrum_gap">
+  <title>Spectrum gap of the first two eigenvalues</title>
+  <subsection>
+    <title>Heat flow proof of a theorem of Brascamp-Lieb</title>
+    <p>
+      The following result was first proved by Brascamp-Lieb<nbsp/><xref ref="blieb"/>.
+      In Singer-Wong-Yau-Yau<nbsp/><xref ref="swyy"/>, a simplified proof was given.
+      In this subsection, we give a heat flow proof.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>\Omega</m> be a bounded convex domain of <m>\mathbb{R}^n</m>.
+          Let <m>u</m> be the first Dirichlet eigenfunction with the eigenvalue <m>\lambda_1</m>.
+          Then (up to a sign), <m>u</m> is positive and <m>\log u</m> is concave.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We begin by the following lemmas.
+    </p>
+    <lemma>
+      <statement>
+        <p>
+          Up to a sign, <m>u \geqslant 0</m>.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        Otherwise, we may use <m>|u|</m> in place of <m>u</m>, From Kato's inequality, we have
+        <me>
+          |\nabla|u|| \leqslant |\nabla u|
+        </me>.
+      </p>
+      <p>
+        Thus we have
+        <me>
+          \frac{\int |\nabla|u||^2}{\int u^2} \leqslant \frac{\int |\nabla u|^2}{\int u^2}
+        </me>.
+      </p>
+      <p>
+        By the variational characterizing of the first eigenvalue,
+        we know that the right side of the above is minimized.
+        Thus the equality must hold and <m>|u|</m> is an eigenfunction of the first eigenvalue.
+      </p>
+      <p>
+        The multiplicity of the first eigenfunction must be one.
+        Thus up to a sign, the eigenfunction must be non-negative.
+      </p>
+    </proof>
+    <lemma>
+      <statement>
+        <p>
+          <m>u > 0</m> inside <m>\Omega</m>.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        If not, assume that <m>u(x_0) = 0</m> at a point <m>x_0</m> in the interior of <m>\Omega</m>.
+        Let
+        <me>
+          u(x) = p^N(x) + O(x^{N+\varepsilon})
+        </me>
+        be the Taylor's expansion of the eigenfunction at <m>x_0</m>,
+        where <m>p^N(x)</m> is the polynomial of degree <m>N</m>.
+        From the equation <m>\Delta u = -\lambda_1 u</m>,
+        we have <m>\Delta p^2(x) = 0</m>.
+        Since <m>u(x) \geqslant 0</m>,
+        we must have <m>p^2(x)\geqslant 0</m>,
+        a contradiction to the maximal principal.
+      </p>
+    </proof>
+    <lemma>
+      <statement>
+        <p>
+          Using the above notations, we have
+          <me>
+            \frac{\partial u}{\partial n} \lt  0
+          </me>
+          on <m>\partial\Omega</m>, the boundary of <m>\Omega</m>.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        This follows from the strong maximum principle.
+        By the above lemma, we have
+        <me>
+          \frac{\partial u}{\partial n} \leqslant 0
+        </me>
+      </p>
+      <p>
+        If <m>\frac{\partial u}{\partial n} = 0</m>,
+        then since the function <m>u</m> vanishes on the boundary,
+        we have <m>\nabla u = 0</m> at the point.
+        Using the Taylor's expansion for the boundary point,
+        we get <m>p^2 \geqslant 0</m> and <m>\Delta p^2 = 0</m>.
+        Since <m>p^2</m> is harmonic,
+        by the strong maximum principle,
+        <m>\partial p^2/\partial n \lt 0</m> unless <m>p^2 =0</m>.
+        But if <m>p^2 \equiv 0</m> then <m>u \equiv 0</m>.
+        This completes the proof.
+      </p>
+    </proof>
+    <p>
+      \end{proof}
+    </p>
+    <p>
+      We now consider the heat flow
+      <me>
+        \frac{\partial u}{\partial t} = \Delta u + \lambda_1 u, \ \ u|_{\partial\Omega} = 0
+      </me>.
+      we have
+    </p>
+    <lemma>
+      <statement>
+        <p>
+          For any smooth initial function <m>u_0 > 0</m>,
+          the flow exists and converges to the first eigenfunction.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        Let
+        <me>
+          u_1 = \sum a_j f_j(x)
+        </me>,
+        where <m>f_j(x)</m> is the eigenfunction of the <m>j</m>-th eigenvalue.
+        Then the solution of the equation is
+        <me>
+          u(t, x) = \sum a_j e^{-(\lambda_j-\lambda_i)t}f_j(x)
+        </me>
+      </p>
+      <p>
+        Obviously, we have
+        <me>
+          \lim_{t\rightarrow\infty} u(t,x) = a_1 f_1(x)
+        </me>.
+      </p>
+      <p>
+        If we choose <m>u_0</m> such that <m>a_1 \neq 0</m>,
+        then the flow converges to the first eigenfunction.
+        <m>f_1(x) > 0</m> by the above lemmas.
+        By our choice of <m>u_0</m>
+        <me>
+          a_1 = \int_{\Omega} u_0 f_1(x) > 0
+        </me>.
+      </p>
+      <p>
+        The proof is complete.
+      </p>
+    </proof>
+    <lemma>
+      <statement>
+        <p>
+          Let <m>w</m> be any smooth positive function on <m>\Omega</m> such that
+          <me>
+            w|_{\partial\Omega} = 0 \mbox{ and }  \nabla w|_{\partial\Omega} \neq 0
+          </me>
+        </p>
+        <p>
+          Then near the boundary of <m>\Omega</m>, <m>\log w</m> is concave.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        Since <m>w</m> is a smooth function vanishes on the boundary,
+        it can be viewed as the defining function of <m>\Omega</m>.
+        By the implicit function theorem, we solve the equation
+        <me>
+          w(x_1, \cdots, x_n) = 0
+        </me>
+        to get the function
+        <me>
+          x_n = x_n(x_1, \cdots, x_{n-1})
+        </me>.
+      </p>
+      <p>
+        If <m>\Omega</m> is convex, then
+        <me>
+          \frac{\partial^2 x_n}{\partial x_i \partial x_j} > 0
+        </me>,
+        is a positive definite matrix.
+        Using the chain rule, the above inequality is equivalent to
+        <me>
+          -\frac{w_{ij}}{w_n} + \frac{w_{in} w_j}{w_n^2} + \frac{w_{jn} w_i}{w_n^2} -\frac{w_i w_j w_{nn}}{w_n^3} > 0
+        </me>.
+        where <m>1\leqslant i, j \leqslant n-1</m>.
+        However, if we allow <m>i</m> or <m>j</m> to be <m>n</m>,
+        then as the <m>n\times n</m> matrix, we still have
+        <me>
+          -\frac{w_{ij}}{w_n} + \frac{w_{in}w_j}{w_n^2} + \frac{w_{jn}w_i}{w_n^2} -\frac{w_i w_j w_{nn}}{w_n^3} \geqslant 0
+        </me>.
+      </p>
+      <p>
+        Moreover, for any <m>(a_1, \cdots, a_n)</m>,
+        if <m>\sum a_j w_j = 0</m>, we have
+        <me>
+          -w_{ij} a_i a_j \geqslant \varepsilon |a|^2
+        </me>
+        for some positive <m>\varepsilon > 0</m>.
+        A generic vector has the form <m>a+\mu b</m>,
+        where <m>b = (w_1, \cdots, w_n)</m>.
+        For <m>w</m> small enough, we have
+        <me>
+          -w_{ij}(a_i + \mu b_i)(a_j + \mu b_j) + \frac{1}{w} |\mu|^2 |b|^4 > 0
+        </me>.
+      </p>
+      <p>
+        Thus <m>\nabla^2\log w</m>, whose matrix entries are
+        <me>
+          \frac{w_{ij}}{w} - \frac{w_i w_j}{w^2}
+        </me>,
+        is negative definite for <m>w</m> small enough.
+      </p>
+    </proof>
+    <remark>
+      <p>
+        The above proof is purely elementary.
+        We can use differential geometry to give another proof.
+        Assume <m>e_1, \cdots,
+        e_n</m> are the local frame fields at the boundary point such that <m>e_n</m> is normal to the boundary and the rest are tangent to the boundary.
+        Then for <m>1\leqslant i, j \leqslant n-1</m>, we have
+        <me>
+          \nabla^2 (e_i,e_j) w = e_i(e_j(w)) - \nabla e_i e_j w = h_{ij} \frac{\partial w}{\partial n}
+        </me>,
+        where <m>h_{ij}</m> is the second fundamental form,
+        and <m>\frac{\partial}{\partial n}</m> is the outward normal vector field.
+        Thus <m>\frac{\partial w}{\partial n} \leqslant 0</m>.
+        To prove
+        <me>
+          \frac{w_{ij}}{w} - \frac{w_i w_j}{w^2}
+        </me>
+        is negative definite, we write <m>V=V_1 + \mu e_n</m>,
+        where <m>V_1</m> is tangent to <m>\partial\Omega</m>.
+        Then there is a constant <m>C</m> such that
+        <me>
+          \nabla^2 \log w(V,V) \leqslant w^{-1}\left|\frac{\partial w}{\partial n}\right| (\pi(V_1, V_1) + C \mu \|V_1\| +C \mu^2) - w^{-2} \mu^2 \left|\frac{\partial w}{\partial n}\right|^4
+        </me>.
+      </p>
+      <p>
+        Since <m>\frac{\partial w}{\partial n} \neq 0</m>,
+        for points sufficient close to the boundary, <m>w</m> is small enough.
+        Using the Cauchy inequality, we can prove the above negativeness.
+      </p>
+    </remark>
+    <p>
+      Now we begin to prove the theorem: We will choose a function <m>u_0</m> such that <m>u_0 > 0</m> and <m>\log u_0</m> is concave.
+      Then we shall prove that the log-concavity is preserved under the heat flow.
+      The theorem thus follows from the above lemmas.
+    </p>
+    <p>
+      To construct the required <m>u_0</m>,
+      we first pick up any smooth function <m>w>0</m> on <m>\Omega</m> with <m>w|_{\partial\Omega} = 0</m>,
+      <m>\nabla w|_{\partial \Omega} \neq 0</m>.
+      Let
+      <me>
+        u_0 = w e^{-C\sum x_j^2}
+      </me>
+      for a constant <m>C > 0</m> sufficiently large.
+      By the above lemma, the function is log-concave near the boundary.
+      Away from the boundary, since
+      <m>w > \delta > 0</m> for some constant <m>\delta > 0</m>,
+      we can choose <m>C</m> large enough so that <m>u_0</m> is log-concave.
+    </p>
+    <p>
+      Using the matrix version of the maximum principle,
+      we can prove that the flow keeps the log-concavity.
+      Let <m>\phi = \log u</m>,
+      where <m>u</m> is the solution of the heat equation
+      <me>
+        \frac{\partial u}{\partial t} = \Delta u + \lambda_1 u
+      </me>.
+    </p>
+    <p>
+      The flow of <m>\phi</m> is
+      <men xml:id="x2-1">
+        \frac{\partial\phi}{\partial t} = \Delta\phi - |\nabla\phi|^2 - \lambda_1
+      </men>.
+    </p>
+    <p>
+      By the maximum principle,
+      if <m>T</m> is the first time the matrix <m>\nabla^2\phi</m> is generated,
+      then there is an <m>x_0\in M</m> and a direction <m>i</m> such that
+      <me>
+        -\phi_{ii} = 0
+      </me>
+      and for other <m>j</m>'s, <m>-\phi_{jj} \geqslant 0</m>.
+      Moreover, at <m>x_0</m>, <m>\phi_{iik} = 0</m>,
+      <m>\frac{\partial\phi_{ii}}{\partial t} \leqslant 0</m> and <m>\Delta\phi_{ii} \geqslant 0</m>.
+    </p>
+    <p>
+      Differentiating<nbsp/><xref ref="x2-1"/> by <m>i,i</m>, we have
+      <me>
+        0 \geqslant \frac{\partial\phi_{ii}}{\partial t} = \Delta\phi_{ii} - 2\phi_k\phi_{kii} - 2\phi_{ki}^2 \geqslant -2\phi_{ki}^2
+      </me>.
+    </p>
+    <p>
+      By the convexity,
+      <m>\phi_{ki}^2 \leqslant \phi_{ii}\phi_{kk} = 0</m>.
+      Thus <m>\phi_{ki} = 0</m> for <m>k\neq i</m>.
+      The theorem follows from the strong maximum principle.
+    </p>
+    <p>
+      This completes the proof of the Brascamp-Lieb theorem.
+    </p>
+    <p>
+      \end{proof}
+    </p>
+  </subsection>
+  <subsection>
+    <title>Gap of the first two eigenvalues</title>
+    <p>
+      For the sake of simplicity,
+      we only consider bounded smooth domain in <m>\mathbb{R}^n</m>.
+    </p>
+    <p>
+      Let <m>\Omega</m> be a bounded domain in
+      <m>\mathbb{R}^n</m> with smooth boundary.
+      Let <m>\lambda_1, \lambda_2</m> be the Dirichlet first two eigenvalues.
+      Since <m>\lambda_1</m> must be simple
+      (of multiplicity one)
+      we have
+      <me>
+        \lambda_2 - \lambda_1> 0
+      </me>.
+    </p>
+    <p>
+      The question we would like to answer is that,
+      how to get the lower bound estimate of <m>\lambda_2 - \lambda_1</m>?
+    </p>
+    <p>
+      Let <m>\phi_1, \phi_2</m> be the eigenfunctions with respect to <m>\lambda_1, \lambda_2</m>.
+      We set
+      <me>
+        \phi = \frac{\phi_2}{\phi_1}
+      </me>.
+    </p>
+    <p>
+      Then a straightforward computation gives
+      <me>
+        \Delta\phi + \partial\nabla\log\phi_1\nabla\phi = -\lambda\phi
+      </me>,
+      where <m>\lambda = \lambda_2 - \lambda_1</m>.
+      Moreover, since <m>\phi_1|_{\partial\Omega} = 0</m>, we must have
+      <me>
+        \left.\frac{\partial\phi}{\partial n}\right|_{\partial\Omega} = 0
+      </me>.
+    </p>
+    <p>
+      We have a notion of Bakry-&#xc9;mery Ricci tensor.
+      Let
+      <me>
+        f = \phi_1^2
+      </me>
+    </p>
+    <p>
+      Then the Bakry-&#xc9;mery Laplacian is defined as
+      <me>
+        \Delta f = \Delta + \nabla\log f\nabla
+      </me>
+      which is a self-adjoint operator with respect to the volume form <m>\phi_1^2 dV</m>.
+    </p>
+    <p>
+      The Bakry-&#xc9;mery Ricci tensor is defined as
+      <me>
+        -\nabla^2 \log f
+      </me>
+    </p>
+    <p>
+      By the Brascamp-Lieb theorem,
+      the Barkey-Emery Ricci curvature is non-negative.
+    </p>
+    <p>
+      We make the following conjecture:
+    </p>
+    <conjecture>
+      <p>
+        The method of gradient estimates can be generalized to the Bakry-&#xc9;mery case without additional difficulties.
+      </p>
+    </conjecture>
+    <p>
+      The above conjecture, if true,
+      will give a unified proof between the estimation of the first eigenvalue and gap estimate.
+    </p>
+    <p>
+      We can go one more step further.
+      Since the Barkey-Emery Ricci tensor comes from the setting <m>(M, ds^2, e^f dV)</m>,
+      which can be considered as the limit of the wrap product
+      <me>
+        e^f dr^2 + ds^2
+      </me>
+      we make the following definition.
+    </p>
+    <p>
+      Let
+      <me>
+        \Omega_\varepsilon = \{(x,y)|x\in \Omega, 0\leqslant y \leqslant \varepsilon \phi_1^2(x)\}
+      </me>.
+    </p>
+    <p>
+      Let <m>\mu_\varepsilon</m> be the first Neumann eigenvalue.
+      Then
+    </p>
+    <conjecture xml:id="conj4">
+      <p>
+        Using the above notations, we have
+        <me>
+          \lambda_2 - \lambda_1 = \lim_{\varepsilon\rightarrow 0} \mu_\varepsilon
+        </me>.
+      </p>
+    </conjecture>
+    <p>
+      Similarly, we make the following
+    </p>
+    <conjecture>
+      <p>
+        Let <m>(\mu_\varepsilon)^k</m> be the <m>k</m>-th Neumann eigenvalue of <m>\Omega_\varepsilon</m>.
+        Then
+        <me>
+          \lim_{\varepsilon\rightarrow 0}(\mu_\varepsilon)^k = \lambda_{k+1} - \lambda_1
+        </me>.
+      </p>
+    </conjecture>
+    <p>
+      We can prove the following
+    </p>
+    <theorem>
+      <statement>
+        <me>
+          \lambda_2 - \lambda_1 \geqslant \lim_{\varepsilon\rightarrow 0}\mu_\varepsilon
+        </me>.
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We first note that <m>\frac{\partial h}{\partial n}|_{\partial\Omega_\varepsilon} = 0</m> on the part <m>y = \varepsilon\phi_1(x)^2</m> can be written as
+        <me>
+          \nabla h(\varepsilon\nabla\phi_1^2, -1) = 0
+        </me>.
+      </p>
+      <p>
+        We define <m>\widetilde{U}_\varepsilon</m> as follows
+        <me>
+          \widetilde{U}_\varepsilon = \phi + y^2 \nabla\log\phi_1\nabla\phi
+        </me>.
+      </p>
+      <p>
+        Then a straightforward computation gives
+        <me>
+          \left\{\begin{array}{rcl} \Delta\widetilde{U}_\varepsilon + \lambda\widetilde{U}_\varepsilon \amp  = \amp O(\varepsilon^2) \\ \left.\frac{\partial\widetilde{U}_\varepsilon}{\partial n} \right|_{\partial\Omega_\varepsilon} \amp  = \amp  O(\varepsilon^2) \end{array} \right.
+        </me>.
+      </p>
+      <p>
+        From the above, we have
+        <me>
+          \int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon = O(\varepsilon^2)
+        </me>.
+      </p>
+      <p>
+        Let <m>\alpha</m> be a number such that
+        <me>
+          \int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha) = 0
+        </me>.
+      </p>
+      <p>
+        Then <m>\alpha = O(\varepsilon)</m>.
+        By the variational principle, we have
+        <me>
+          \mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}|\nabla\widetilde{U}_\varepsilon|^2} {\int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha)^2}
+        </me>.
+      </p>
+      <p>
+        However, since
+        <me>
+          \int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2 \geqq C\varepsilon
+        </me>.
+      </p>
+      <p>
+        We have
+        <me>
+          \mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}\lambda\widetilde{U}_\varepsilon^2} {\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2} + O(\varepsilon)
+        </me>.
+        and the theorem is proved.
+      </p>
+    </proof>
+    <p>
+      \end{proof}
+    </p>
+    <remark>
+      <p>
+        We consider the wrap product
+        <me>
+          e^f dr^2 + d^2
+        </me>
+        over <m>\Omega_\varepsilon</m>,
+        we see the relation between two settings.
+        This also gives the relation between the Barkey-Emery geometry with respect to the ordinary Riemannian geometry.
+      </p>
+    </remark>
+    <p>
+      Some applications.
+    </p>
+    <theorem>
+      <title>Singer-Wong-Yau-Yau, Yu-Zhong</title>
+      <statement>
+        <p>
+          Let <m>\Omega</m> be a convex domain in <m>\mathbb{R}^n</m>.
+          Then
+          <me>
+            \lambda_2 - \lambda_1 \geqslant \frac{\pi^2}{d^2}
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        We consider the domain <m>\Omega_\varepsilon</m> and let
+        <m>U_\varepsilon</m> be the first Neumann eigenfunction.
+        By what we proved in the last lecture, we have
+        <me>
+          \mu_\varepsilon \geqslant \frac{\pi^2}{d_\varepsilon^2}
+        </me>
+        where <m>d_\varepsilon</m> is the diameter of <m>\Omega_\varepsilon</m>.
+        Since <m>d_\varepsilon\rightarrow d</m>, the theorem is proved.
+      </p>
+    </proof>
+    <question>
+      <statement>
+        <p>
+          How to recover the recent result of Yau?
+        </p>
+      </statement>
+    </question>
+    <p>
+      We are going to use the following result of Chen-Li.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>M</m> be an <m>m</m>-dimensional domain in <m>\mathbb{R}^m</m>.
+          Let <m>M</m> be star-shaped.
+          Let <m>R</m> be the radius of the largest ball centered at <m>p\in M</m> contained in <m>M</m> and let <m>R_0</m> be the smallest ball centered at <m>p</m> containing <m>M</m>.
+          Then there is a constant <m>C</m>,
+          depending only on <m>m</m>, such that
+          <me>
+            \eta_1 \geqslant C\frac{R^m}{R_0^{m+2}}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let <m>U_\varepsilon</m> be the first Neumann eigenfunction of <m>\Omega_\varepsilon</m>.
+      Then asymptotically we can write
+      <me>
+        U_\varepsilon \sim \phi + y^2 \nabla\log \phi_1 \nabla\phi
+      </me>
+    </p>
+    <p>
+      In general, power series method can be used to prove the conjecture.
+    </p>
+    <remark>
+      <p>
+        <xref ref="conj4">Conjecture</xref>
+        was proved by Lu-Rowlett<nbsp/><xref ref="lu-rowlett"/>.
+      </p>
+    </remark>
+  </subsection>
+  <subsection>
+    <title>Appendix: Eigenvalues of collapsing domain</title>
+    <p>
+      It is important to study the asymptotic behavior of eigenvalues when a domain collapses.
+      In this appendix,
+      we give some preliminary results in this direction.
+    </p>
+    <p>
+      We begin with the following observation.
+      Consider the sector
+    </p>
+    <p>
+      What is the asymptotic behavior of the Dirichlet eigenvalues when <m>\alpha\rightarrow 0</m>?
+    </p>
+    <p>
+      As is well-known, the eigenfunctions of the sector are of the form
+      <me>
+        f(r)\sin\frac{\theta}{\alpha}
+      </me>
+      where <m>f(r)</m> is the so-called Bessel function
+      <me>
+        f'' + \frac{1}{r}f' + \frac{1}{r^2}(r^2 - \frac{1}{\alpha^2})f = -\lambda f
+      </me>
+    </p>
+    <p>
+      If we set
+      <me>
+        g(r) = \sqrt{r} f(r)
+      </me>
+    </p>
+    <p>
+      Then the corresponding equation becomes
+      <me>
+        -g''(r) + \frac{1}{r^2}(\frac{1}{\alpha^2}-\frac{1}{4})g = \lambda g
+      </me>
+    </p>
+    <p>
+      When <m>\alpha\rightarrow 0</m>,
+      we take the following renomorization:
+      set <m>1 - r = \alpha^{2/3}x</m>.
+      Then we have
+      <me>
+        \frac{1}{r^2} - 1 \sim 2x\alpha^{2/3}
+      </me>
+    </p>
+    <p>
+      Let <m>\lambda = \widetilde\lambda + \frac{1}{\alpha^2}</m>.
+      Then we have
+      <me>
+        -g''(r) + \left(\frac{1}{r^2}\left(\frac{1}{\alpha^2}-\frac{1}{4}\right)- \frac{1}{\alpha^2}\right)g = \widetilde\lambda g
+      </me>
+      and if <m>\alpha\rightarrow 0</m>, we have
+      <me>
+        -g'' + 2xg = \lambda g
+      </me>
+    </p>
+    <p>
+      This is the Airy's function.
+    </p>
+    <p>
+      Friedlander and Solomyak was able to generalize the above result in the following setting:
+    </p>
+    <p>
+      Let <m>h(x) > 0</m> be a piecewise linear function defined on <m>[-a, b]</m>,
+      where <m>a,
+      b > 0</m>.
+      We assume that
+      <me>
+        h(x) = \left\{ \begin{array}{ll} M-C_+x \amp  x > 0 \\ M-C_-x \amp  x \lt  0 \end{array} \right.
+      </me>
+      where the choice of <m>M, C_+, C_-</m> are so that <m>h(-a) = h(b) = 0</m>.
+    </p>
+    <p>
+      For any positive <m>\varepsilon > 0</m>, let
+      <me>
+        \Omega_\varepsilon = \{(x,y)|x\in I, 0\leqslant y \leqslant \varepsilon h(x)\}
+      </me>
+    </p>
+    <theorem>
+      <title>Friedlander-Solomyak</title>
+      <statement>
+        <p>
+          Let <m>\alpha = 2/3</m>.
+          Let <m>l_j(\varepsilon)</m> be the Dirichlet eigenvalues of <m>\Omega_\varepsilon</m>.
+          Let
+          <me>
+            \mu_j = \lim_{\varepsilon\rightarrow 0} \varepsilon^{2\alpha} \left(l_j(\varepsilon) - \frac{\pi^2}{M^2\varepsilon^2}\right)
+          </me>.
+          exists.
+          Then <m>\{\mu_j\}</m> are eigenvalues of the Schr&#xf6;dinger operator <m>H</m> on <m>L^2(\mathbb{R})</m>, where
+          <me>
+            H = -\frac{d^2}{dx^2} + q(x)
+          </me>
+          where
+          <me>
+            q(x) = \left\{ \begin{array}{ll} 2\pi^2 M^{-3} C_+x \amp  x > 0 \\ 2\pi^2 M^{-3} C_-x \amp  x \lt  0 \end{array} \right.
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Note that if <m>C_+ = C_-</m>,
+      then <m>H</m> turns to the harmonic oscillator.
+      If <m>C_+ = +\infty</m>, then it turns to the above discussed case.
+    </p>
+    <theorem>
+      <title>Lu-Rowlett</title>
+      <statement>
+        <p>
+          Let <m>M</m> be a triangle and let <m>d</m> be the diameter of <m>M</m>.
+          Then
+          <me>
+            d^2(\lambda_2 - \lambda_1) \rightarrow +\infty
+          </me>
+          if the triangle collapses.
+          In other words, the
+          <q>gap</q>
+          function is a proper function on the moduli space of triangles.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The original proof of the above result is independent to the work of Friedlander <em>et.la.</em>
+    </p>
+    <question>
+      <statement>
+        <p>
+          Let <m>h(x) > 0</m> be a piecewise smooth function on a bounded domain <m>\Omega</m> of <m>\mathbb{R}^n</m>.
+          Let
+          <me>
+            \Omega_\varepsilon = \{(x,y)|x\in\Omega, 0\leqslant y\leqslant\varepsilon h(x)\}
+          </me>
+        </p>
+        <p>
+          Then what is the asymptotical behavior of the Dirichlet (Neumann) eigenvalues of <m>\Omega_\varepsilon</m>.
+        </p>
+      </statement>
+    </question>
+    <p>
+      The question is very important in answering the following conjecture of Van den Berg and Yau.
+    </p>
+    <conjecture>
+      <p>
+        Let <m>\Omega</m> be a convex bounded domain in <m>\mathbb{R}^n</m>.
+        Then
+        <me>
+          \lambda_2 - \lambda_1 \geqslant \frac{3\pi^2}{d^2}
+        </me>
+      </p>
+    </conjecture>
+    <p>
+      The conjecture is asymptotically optimal for thin rectangles.
+    </p>
+    <p>
+      In some sense,
+      the result of Friedlander gives the compactification of the Laplacians on the moduli space.
+      Namely, if <m>\alpha\rightarrow 0</m>,
+      then the Laplace operators tend to the Schr&#xf6;dinger operator defined above.
+    </p>
+    <p>
+      As an application, we relate the result to the following conjecture.
+    </p>
+    <conjecture>
+      <p>
+        Does it exist a number <m>N</m> such that the first <m>N</m> Dirichlet eigenvalues determine to triangle.
+      </p>
+    </conjecture>
+    <p>
+      The result of Chang-Deturck gives partial answer to the above conjecture:
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          There exists <m>N = N(\lambda_1, \lambda_2)</m> such that
+          <m>\lambda_1, \cdots, \lambda_N</m> determines the triangle.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Unfortunately, if <m>\alpha\rightarrow 0</m>,
+      <m>N = N(\lambda_1,\lambda_2)\rightarrow +\infty</m>.
+    </p>
+    <p>
+      In order to solve this
+      <q>hearing the shape of a triangle</q>
+      problem, we consider the following parametrization of the moduli space of a triangle when one of the angle is small
+    </p>
+    <p>
+      where <m>b\leqslant 1</m>, and we use <m>(\alpha, b)</m> as coordinates.
+    </p>
+    <conjecture>
+      <p>
+        Let <m>\xi = \alpha^{2/3}</m>.
+        Define two functions
+        <md>
+          <mrow>\nonumber P(\zeta, b) \amp  = \amp  \lambda_2 / \lambda_1</mrow>
+          <mrow>\nonumber Q(\zeta, b) \amp  = \amp  (\lambda_3 - \lambda_2)/(\lambda_2 - \lambda_1)</mrow>
+        </md>
+      </p>
+      <p>
+        Then <m>P,Q</m> are analytic functions on <m>[0, \varepsilon) \times[\frac{1}{2}, 1]</m>.
+      </p>
+    </conjecture>
+    <p>
+      Note that by the result of Friedlander-Solomyak, we know that
+      <md>
+        <mrow>\nonumber P(\zeta, b) \amp  = \amp  1 + a\zeta + O(\zeta)</mrow>
+        <mrow>\nonumber Q(\zeta, b) \amp  = \amp  1 + o(1)</mrow>
+      </md>
+    </p>
+    <p>
+      The hearing problem is implied by proving
+      <me>
+        (\zeta, b) \mapsto (P,Q)
+      </me>
+      is invertible.
+    </p>
+    <p>
+      Since the limit of the Laplacian is the <m>1</m>-d Schr&#xf6;dinger operator,
+      we must first solve the problem of hearing the Schr&#xf6;dinger operator.
+      Gelfand-Levitan theory doesn't apply directly here.
+    </p>
+  </subsection>
+</section>

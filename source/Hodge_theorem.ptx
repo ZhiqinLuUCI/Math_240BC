@@ -1,0 +1,9 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Hodge_theorem">
+  <title>The Hodge Thoerem</title>
+  <xi:include  href="Poincare_Lemma.ptx"/>
+  <xi:include  href="de-Rham_theorem.ptx"/>
+  <xi:include  href="Formal_Hodge.ptx"/>
+  <xi:include  href="State_Hodge.ptx"/>
+  <xi:include  href="Proof_Hodge.ptx"/>
+  <xi:include  href="Ellipticity.ptx"/>
+</chapter>

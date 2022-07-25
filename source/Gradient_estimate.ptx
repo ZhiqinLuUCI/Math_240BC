@@ -1,0 +1,6 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Gradient_estimate">
+  <title>Gradient estimates</title>
+  <xi:include  href="Comparison_theorems.ptx"/>
+  <xi:include  href="Maximal_principle.ptx"/>
+  <xi:include  href="Harmonic_functions.ptx"/>
+</chapter>

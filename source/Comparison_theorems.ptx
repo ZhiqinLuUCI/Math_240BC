@@ -1,0 +1,490 @@
+<section xml:id="Comparison_theorems">
+  <title>Comparison Theorems</title>
+  <p>
+    Let <m>X</m> be a Riemannian manifold with the Riemannian metric <m>ds^2</m>.
+    Let <m>\omega_1, \ldots, \omega_n</m> be one forms such that
+    <me>
+      d s^2 = \omega ^2_1 + \cdots + \omega ^2_n
+    </me>.
+  </p>
+  <p>
+    Then by the theorem of Cartan,
+    there are one forms <m>\{ \omega_{ij} \}</m> with <m>\omega_{ij} = - \omega _{ji}</m>,
+    called the connection forms, such that
+    <me>
+      \left\{ \begin{array}{ll} d \omega_i = - \omega_{ij} \wedge \omega_j \\ d \omega _{ij} = - \omega _{ik} \wedge \omega_{kj} + \frac{1}{2} R_{ij kl} \, \omega _k \wedge \omega _l \end{array}  \right.
+    </me>.
+  </p>
+  <p>
+    The tensor <m>R_{ij k l}</m> is called the curvature tensor of the Riemannian metric <m>d s^2</m>.
+  </p>
+  <p>
+    Let <m>U \subset \mathbb{R} ^{n-1}</m> be an open set.
+    Let <m>\eta _2 , \ldots, \eta _n</m> be smooth one forms on <m>U</m> such that
+    <me>
+      (ds^1)^2 = \eta ^2_2 + \cdots + \eta ^2_n
+    </me>
+    defines a Riemannian metric on <m>U</m>.
+    Let <m>\theta _2, \ldots, \theta _n</m> be local coordinates of <m>U</m>.
+    Let <m>f (r, \theta)</m> be a positive function on <m>\mathbb{R}^+ \times U</m>.
+    Define a Riemannian metric
+    <me>
+      ds^2 = d r ^2 + f^2 (r, \theta) \sum ^n _{i=2} \eta ^2 _i
+    </me>
+    on <m>\mathbb{R} ^+ \times U</m>.
+  </p>
+  <p>
+    Example of the above setting appears in the Euclidean metric under polar coordinates.
+    For example, in <m>\mathbb{R} ^2</m>,
+    the Euclidean metric can be written as
+    <me>
+      d s^2 = d r^2 + r ^2 d \theta^2
+    </me>.
+  </p>
+  <p>
+    For this particular example,
+    of course, the curvature of the above metric is zero.
+    We shall see that, even in the more general setting,
+    certainly components of the curvature tensor appear to be quite simple.
+  </p>
+  <p>
+    We let
+    <md>
+      <mrow>\omega_1 \amp  = \amp d r</mrow>
+      <mrow>\omega_k \amp  = \amp f (t , \theta ) \eta_k</mrow>
+    </md>
+    for <m>k>1</m>.
+    Then
+    <me>
+      d s^2 = \omega ^2_1 + \cdots +\omega ^2_n
+    </me>.
+  </p>
+  <p>
+    Let <m>e_1 , \ldots,
+    e _n</m> be the dual basis of <m>\omega_1, \ldots, \omega_n</m>,
+    and let <m>\eta_{kl}</m> be the connection form for <m>(ds^1)^2</m>.
+    Define
+    <md>
+      <mrow>\omega_{1l} \amp  = \amp  - e _1 (\log f) \omega_l;</mrow>
+      <mrow>\omega_{kl} \amp  = \amp  \eta _{kl} - e _k (\log f) \omega_l + e _l (\log f) \omega _k</mrow>
+    </md>
+    for <m>k , l > 1</m>.
+    A straightforward computation gives
+    <me>
+      d \omega_i = - \omega_{ij} \wedge \omega_j
+    </me>.
+  </p>
+  <p>
+    Note that <m>e_1 = \frac{\partial }{\partial r}</m>.
+    We claim that
+    <me>
+      d \omega _{1l} + \omega _{1k} \wedge \omega _{kl} = - \frac{e_k \left( \frac{\partial f}{\partial r} \right)}{f} \omega _k \wedge \omega _l
+    </me>.
+  </p>
+  <p>
+    Verification: Since
+    <me>
+      \omega _{1l} = - \frac{\partial }{\partial r} (lg f) \omega_l
+    </me>,
+    we have
+    <me>
+      d \omega _{1l} = - e _{k}  \left(\frac{\partial }{\partial r}( \log f)  \right) \omega _k \wedge \omega_l - \frac{\partial }{\partial r}( \log f)  d\omega_l
+    </me>.
+  </p>
+  <p>
+    On the other hand, we have
+    <md>
+      <mrow>\lefteqn{\omega_{1k} \wedge \omega_{kl} }</mrow>
+      <mrow>\amp \amp  = -\frac{\partial }{\partial r}( \log f)   \omega_k \wedge \left( \eta _{kl} - {e}_k (\log f) \omega_l +    e _l (\log f) \omega _k \right)</mrow>
+      <mrow>\amp   \amp = \frac{\partial }{\partial r}   d \eta_l +  \frac{\partial }{\partial r}( \log f)     e _k (\log f) \omega_k \wedge \omega_l </mrow>
+    </md>.
+  </p>
+  <p>
+    Since
+    <me>
+      {e} _m \left(\frac{\partial }{\partial r}  \log f\right)    = f^{-1} {e}_m \frac{\partial f}{\partial r}( \log f)    - { e}_m (\log f) \frac{\partial }{\partial r}( \log f)
+    </me>,
+    we have
+    <me>
+      d \omega _{1l} + \omega _{1k} \wedge \omega_{kl} = - \frac{{e}_m \left( \frac{\partial f}{\partial r} \right) }{f} \omega _m \wedge \omega_l
+    </me>.
+  </p>
+  <p>
+    The claim is proved.
+    By the Cartan's formula, we have
+    <me>
+      R _{1l  m n} = - \delta _{ln}  \frac{{e}_m \left( \frac{\partial f}{\partial r} \right) }{f}  + \delta _{lm} \frac{{e}_n \left( \frac{\partial f}{\partial r} \right) }{f}
+    </me>.
+  </p>
+  <p>
+    The Ricci curvature at <m>\frac{\partial }{\partial r}</m> direction is
+    <me>
+      R_{11} = R_{1 l 1 l} = - (n-1) \frac{1}{f} \frac{\partial ^2 f}{\partial r^2}
+    </me>.
+  </p>
+  <p>
+    In general, A Riemannian metric under the polar coordinates can be written as
+    <me>
+      ds^2 = (dr)^2 + h _{ij} (r, \theta) d \theta _i d \theta_j
+    </me>.
+  </p>
+  <p>
+    In order to compute/estimate the curvature,
+    we use Uhlenbeck's trick which we introduce now.
+  </p>
+  <p>
+    Let <m>\omega _1 = dr</m> and <m>\omega _2 , \ldots, \omega_n</m> be defined such that
+    <me>
+      h_{ij} d \theta_i d \theta_j = \sum_{j > 1} \omega ^2 _j
+    </me>.
+  </p>
+  <p>
+    We write
+    <me>
+      \frac{\partial \omega _j}{\partial r} =\sum_{j>1} a_{ij} \omega _j
+    </me>
+    for <m>i>1</m> for some matrix valued function <m>(a_{ij})</m>.
+    The Uhlenbeck's trick is that,
+    by an orthogonal change of the co-frame,
+    we can make <m>(a_{ij})</m> a symmetric matrix.
+  </p>
+  <p>
+    To see this, we write the above equations into matrix form.
+    Let
+    <me>
+      \omega = \left( \begin{array}{c} \omega_2 \\ \vdots\\ \omega_n \end{array} \right),   A = (a_{ij})
+    </me>.
+  </p>
+  <p>
+    Then
+    <me>
+      \frac{\partial \omega}{\partial r } = A \omega
+    </me>.
+  </p>
+  <p>
+    Let <m>A = B+C</m> be the decomposition of the matrix <m>A</m> into symmetric and skew-symmetric parts.
+    Let <m>Q</m> be an orthogonal matrix-valued function.
+    We solve the equation
+    <me>
+      \frac{\partial Q}{\partial r}    = - QC
+    </me>
+    with the initial value <m>Q(0)=I</m>.
+    It is not hard to verify that <m>Q</m> are orthogonal matrices: we have
+    <me>
+      \frac{\partial (Q^TQ)}{\partial r}  = -\frac{\pa Q^T}{\pa r}Q+Q^T\frac{\pa Q}{\pa r}=0
+    </me>
+    using the differential equation and the fact that <m>C</m> is skew-symmetric.
+  </p>
+  <p>
+    Changing the co-frame from <m>\omega</m> to <m>Q\omega</m>, we have
+    <me>
+      \frac{\pa}{\pa r}(Q\omega)=QBQ^T(Q\omega)
+    </me>.
+  </p>
+  <p>
+    Since <m>QBQ^T</m> is symmetric,
+    up to an orthogonal change of the co-frame,
+    we may assume thst the matrix <m>A</m> is symmetric.
+    This proves the Uhlenbeck's trick.
+  </p>
+  <p>
+    Now back to the computation of the curvature.
+    Let <m>(\eta _{ij} )( i , j > 1)</m> be the connection forms of the Riemannian metric
+    <me>
+      h_{ij} d \theta _i d \theta _j
+    </me>.
+  </p>
+  <p>
+    Define
+    <md>
+      <mrow>\omega_{i1} \amp  = \amp  \frac{\partial \omega_i}{\partial r};</mrow>
+      <mrow>\omega _{ij } \amp  = \amp \eta_{ij}</mrow>
+    </md>
+    for <m>i,j>1</m>.
+    Then we have
+    <me>
+      d \omega _i = - \sum_{j=1}^n\omega_{ij} \wedge \omega_j
+    </me>
+    for <m>i > 1</m>.
+    On the other hand, since <m>A</m> is symmetric, we have
+    <me>
+      \omega_{i1}\wedge\omega_i=0
+    </me>.
+  </p>
+  <p>
+    Therefore, <m>d\omega_1=0=-\omega_{1j}\wedge\omega_j</m>.
+    Thus <m>(\omega_{ij})</m> is connection forms of <m>(ds)^2</m> with respect to the co-frame <m>(\omega_1,\cdots,\omega_n)</m>.
+  </p>
+  <p>
+    We compute
+    <me>
+      d \omega _{i1} + \omega _{ik}  \wedge \omega _{k 1} = \frac{1}{2} R_{il  kl} \omega _k \wedge \omega _l
+    </me>.
+  </p>
+  <p>
+    If we only count the terms of the form
+    <m>\{ d r \wedge \omega_i \}</m> in the above equation, we have
+    <me>
+      dr\wedge\frac{\pa w_{i1}}{\pa r}=R_{i11j}\omega_1\wedge\omega_j
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      { Ric}\,\left(\frac{\pa}{\pa r}, \frac{\pa}{\pa r}\right)=R_{11}=\frac{\pa}{\pa r}\left(\sum_{i>1}a_{ii}\right) +\sum_{i,j>1}a_{ij}^2
+    </me>.
+  </p>
+  <p>
+    On the other hand, we have
+    <me>
+      \frac{\pa}{\pa r}(\omega_1\wedge\cdots\wedge\omega_n)=(\sum_{i>1} a_{ii})\omega_1\wedge\cdots\wedge\omega_n
+    </me>.
+  </p>
+  <p>
+    Therefore we have
+    <me>
+      {\partial\over \partial r} \sqrt{\det h_{ij}}  =\sum a_{ii}  \sqrt{\det h_{ij}}
+    </me>.
+  </p>
+  <p>
+    Using the Cauchy inequality, we have
+    <men xml:id="x1">
+      { Ric} \left( \frac{\partial }{\partial r}, \frac{\partial }{\partial r} \right) \geq\frac{\pa^2}{\pa r^2}\sqrt{\det h_{ij}}+\frac{1}{n-1}\left(\frac{\pa}{\pa r}\sqrt{\det h_{ij}}\right)^2
+    </men>.
+  </p>
+  <p>
+    Using the above computation, we get the following comparison theorem.
+  </p>
+  <theorem>
+    <title>Laplacian comparison theorem</title>
+    <statement>
+      <p>
+        Let <m>X</m> be a complete Riemannian manifold of dimension <m>n</m>.
+        Let
+        <me>
+          { Ric} (X) \geq - (n - 1) K
+        </me>.
+      </p>
+      <p>
+        Let <m>N</m> be an <m>n</m>-dimensional simply connected space form of constant sectional curvature <m>-K</m>.
+        Let <m>\rho_M, \rho_N</m> be the distance functions to fixed reference points,
+        respectively.
+        If <m>x \in X</m> and <m>y \in N</m> such that
+        <me>
+          \rho_M (x) = \rho _N (y)
+        </me>.
+      </p>
+      <p>
+        Then in the sense of distribution, we have
+        <me>
+          \Delta \rho _M (x) \leq \Delta \rho _N (y)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Outside the cut-locus and the reference points,
+      the function <m>\rho_M</m> is smooth.
+      Since <m>\rho_M</m> is the distance function,
+      <me>
+        |\nabla \rho_M|=1
+      </me>.
+    </p>
+    <p>
+      The Laplacian can be written as
+      <me>
+        \Delta_M = \frac{1}{\sqrt{g}} \frac{\partial }{\partial x_i} \left( g^{ij} \sqrt{g} \frac{\partial }{\partial x_j}\right)
+      </me>.
+    </p>
+    <p>
+      Under the assumption that
+      <me>
+        ds^2 = d\rho^2 +\sum_{i,j} h_{ij}\, d \theta_i d \theta_j
+      </me>,
+      we have
+      <me>
+        \Delta \rho = \frac{\partial f}{\partial r}
+      </me>,
+      where <m>f=\sqrt{\det h_{ij}}</m>.
+      By <nbsp/><xref ref="x1"/>, we have
+      <me>
+        \frac{\partial^2 f}{\partial r^2} + \left( \frac{\partial f}{\partial r} \right) ^2 \geq - { Ric} \left( \frac{\partial }{\partial r} , \frac{\partial }{\partial r} \right)
+      </me>.
+    </p>
+    <p>
+      The corresponding function on <m>N</m> satisfies the <em>equality</em>
+      <men xml:id="x2">
+        \frac{\partial^2 f_0}{\partial r^2} + \left( \frac{\partial f_0}{\partial r} \right) ^2 = ( n-1) K
+      </men>.
+    </p>
+    <p>
+      If <m>r\to 0</m>, the asympototics <m>f</m> and <m>f_0</m> are
+      <me>
+        \frac{\partial f}{\partial r}  \sim \frac{n-1}{  r} ,  \;\;  \frac{\partial f_0}{\partial r} \sim  \frac{n-1}{\partial r}
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        - { Ric} \left(    \frac{\partial }{\partial r} ,  \frac{\partial }{\partial r}  \right) \leq ( n - 1) K
+      </me>,
+    </p>
+    <p>
+      By the maximum principle
+      <me>
+        \frac{\partial f}{\partial r}  \leq \frac{\partial f_0}{\partial r_0}
+      </me>.
+    </p>
+    <p>
+      This proves the comparison theorem at the smooth points of <m>f</m>.
+    </p>
+    <p>
+      Solving the equation<nbsp/><xref ref="x2"/>, we get
+      <me>
+        f_0(r) = \frac{1}{\cosh \,  \sqrt K} \cdot \sinh \, \sqrt K r
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \Delta _N \rho = \frac{n-1}{\rho} k \rho \coth k\rho \leq \frac{n-1}{\rho}  (1 + k \rho)
+      </me>.
+    </p>
+    <p>
+      Thus the Laplacian comparison theorem can be written in the following more useful form:
+      <me>
+        \Delta _M \rho \leq \frac{n-1}{\rho} ( 1 + k \rho)
+      </me>.
+    </p>
+    <p>
+      We shall prove that the above inequality is true even at singular points of <m>\rho</m>,
+      in the sense of distribution.
+      To see this,
+      we let <m>\Omega</m> be the domain in <m>X</m> such that <m>\rho</m> is smooth on <m>\Omega</m>.
+      <m>\Omega</m> is a star-like domain in <m>X</m>.
+      Apparently
+      <me>
+        X = \Omega \cup C u t (p)
+      </me>
+      where <m>Cut(p)</m> is the cut-locus of <m>X</m>.
+      Since <m>\rho</m> is at least continuous,
+      and since the measure of <m>Cut (p)</m> is zero, we must have
+      <me>
+        \int _X \rho \Delta \phi = \int _{\Omega}  \rho \Delta \phi
+      </me>
+      for any smooth function <m>\phi</m>.
+      Let <m>\Omega _\varepsilon</m> be an exhaustion of <m>\Omega</m> in the sense that <m>\Omega _\varepsilon  \subset \Omega</m>.
+      <m>\Omega _\varepsilon \subset \Omega  _{\varepsilon^{\prime}}</m> if <m>\varepsilon > \varepsilon ^\prime</m>, and
+      <me>
+        \lim_{\varepsilon \rightarrow 0} \Omega _\varepsilon = \Omega
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <md>
+        <mrow>\int_X \rho \Delta \phi \amp  = \amp  - \int_X \nabla \rho \nabla \rho</mrow>
+        <mrow>\amp  = \amp  \lim _{\varepsilon \rightarrow 0} (-1) \int _{ \Omega \varepsilon} \nabla \rho \nabla \phi </mrow>
+      </md>.
+    </p>
+    <p>
+      Using the Green's formula, we have
+      <me>
+        - \int _\Omega \nabla \rho \nabla \phi = \int _ \Omega \nabla u \cdot \phi - \int _{\partial \Omega \varepsilon } \phi \frac{\partial \rho}{\partial r}
+      </me>.
+    </p>
+    <p>
+      On the boundary <m>\partial \Omega \varepsilon</m>, we have
+      <me>
+        \frac{\partial \rho}{\partial r} \geq 0
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        - \int _\Omega \nabla \rho \nabla \phi \leq \int _ {\Omega \varepsilon} \Delta  \rho \cdot \phi \leq   \int _{\Omega \varepsilon } \frac{n-1}{\rho }  ( 1+k\rho)\phi
+      </me>
+    </p>
+    <p>
+      Finally, we get
+      <md>
+        <mrow>\int_X \rho \nabla \phi  \amp  \leq \amp  \lim_{\varepsilon \rightarrow 0} \int _{\Omega \varepsilon} \frac{n-1}{\rho} ( 1 + k \rho) \phi</mrow>
+        <mrow>\amp  = \amp  \int_X \frac{n-1}{\rho}(1+ k \rho) \phi</mrow>
+      </md>
+      which finishes the proof of the theorem.
+    </p>
+  </proof>
+  <p>
+    Using exactly the same method,
+    we have the following volume comparison theorem of Bishop.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>X</m> be an <m>n</m>-dimensional complete Riemannian manifold.
+        Let
+        <me>
+          { Ric}(X) \geq - (n-1) k^2
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \frac{{ vol} \, \partial B(R)}{{ vol} _k \,( \partial B (R))} \downarrow
+        </me>
+        is a decreasing function.
+      </p>
+    </statement>
+  </theorem>
+  <corollary>
+    <title>Bishop</title>
+    <statement>
+      <p>
+        Let <m>X</m> be an <m>n</m>-dimensional Riemannian manifold.
+        If <m>{ Ric} \geq (n-1) k</m>.
+        Then for any <m>R > 0</m>
+      </p>
+    </statement>
+  </corollary>
+  <me>
+    \frac{{ vol}\, (B_X (R))}{{ vol} (k, R)}
+  </me>
+  <p>
+    is a decreasing function.
+    In particular
+    <me>
+      { vol} B_X (R) \leq V (k, R)
+    </me>
+    where <m>V(k, R)</m> is the volume of ball of radius <m>R</m> in space form of curvature <m>k</m>.
+  </p>
+  <remark>
+    <p>
+      The Bochner formula gives another proof of <nbsp/><xref ref="x1"/>.
+      Let <m>f</m> be a smooth function.
+      Then we have
+      <me>
+        \frac{1}{2} \Delta |\nabla f| ^2 = |\nabla ^2 f |^2 + \frac{\partial }{\partial r} \Delta f + { Ric} ( \nabla  f, \nabla f )
+      </me>.
+    </p>
+    <p>
+      If we specialize <m>f</m> to be <m>r</m>,
+      then <m>|\nabla r |^2 = 1</m> and <m>\Delta |\nabla r| ^2 \equiv 0</m>.
+      On the other hand
+      <me>
+        | \nabla ^2 f |^2 \geq \sum_i f_{ii}^2 \geq \frac{1}{n-1} \left( \sum f_{ii} \right) ^2 = \frac{1}{n-1} ( \Delta f ) ^2
+      </me>,
+      and the inequality follows.
+    </p>
+  </remark>
+  <remark>
+    <p>
+      The proof of the laplacian comparison theorem in this section is not that far away from the usual proof using the second variational formula of the geodesic distance.
+      The fact that we can write the Riemannian metric in the form
+      <me>
+        dr^2 + h_{ij} d \theta_i d \theta_j
+      </me>
+      is ensured by the Gauss Lemma,
+      which is proved by the first variational formula of the geodesic distance function.
+    </p>
+  </remark>
+</section>

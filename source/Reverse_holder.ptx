@@ -1,0 +1,311 @@
+<section xml:id="Reverse_holder">
+  <title>The Reverse H&#xf6;lder Inequality</title>
+  <p>
+    In this section,
+    we prove the classical Reverse H&#xf6;lder inequality of Gehring<nbsp/><xref ref="gehring"/>.
+  </p>
+  <p>
+    Let <m>Q</m> be a tube in <m>\R^n</m>.
+    Let <m>f(x)</m> be a measurable,
+    bounded, and nonnegative function.
+    Define the <em>maximum function</em> by
+    <me>
+      M(f, x)=\sup_{r>0}\,\fint_{B(x,r)} f(x) dx
+    </me>.
+  </p>
+  <p>
+    In this section, we shall prove
+  </p>
+  <theorem>
+    <title>Reverse H&#xf6;lder Inequality</title>
+    <statement>
+      <p>
+        Let <m>q>1</m> such that
+        <me>
+          (M(f^q,x))^{1/q}\leq b M(f,x)
+        </me>
+        a.e.
+        <m>x</m>, where <m>b</m> is a constant.
+        Then there is an <m>\eps=\eps(n,b,q)>0</m> such that
+        <me>
+          \fint_Q f^{q+\eps}(x) dx\leq C \left(\fint_Q f(x) dx\right)^{q+\eps}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    By rescaling, we may assume that
+    <men xml:id="x0">
+      \fint_Q f^q(x) dx=1
+    </men>.
+  </p>
+  <p>
+    Define
+    <me>
+      E(t)=\{x\in Q\mid f(x)>t\}
+    </me>.
+  </p>
+  <p>
+    We first prove the following lemma
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        For all <m>t>1</m>, there is a constant <m>a=a(n,b,q)>0</m> such that
+        <me>
+          \int_{E(t)} f^q(x) dx\leq at^{q-1}\int_{E(t)} f(x) dx
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Define
+      <me>
+        s=\alpha t
+      </me>,
+      where <m>\alpha>1</m> is a constant to be determined.
+      By assumption
+      <me>
+        \fint_Q f^q(x) dx=1\leq s^q
+      </me>.
+    </p>
+    <p>
+      We use the function <m>f(x)</m> and the number <m>s^q</m> to perform the
+      <em>Calder&#xf3;n-Zygmund decomposition</em>.
+      We then define a sequence of cubes <m>Q_j\subset Q</m> such that
+      <ol>
+        <li>
+          <p>
+            each side of <m>Q_j</m> is parallel to a side of <m>Q</m>;
+            the interior of <m>Q_j</m> are disjoint;
+          </p>
+        </li>
+        <li>
+          <p>
+            <men xml:id="x1-1">
+              s^q\lt \fint_{Q_j} f^q(x) dx\leq 2^n s^q
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            for <em>a.e.</em> <m>x\not\in \bigcup_j Q_j</m>,
+            we have <m>f(x)\leq s</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Briefly speaking,
+      the sequences can be defined inductively in the following way:
+      we first divide <m>Q</m> into <m>2^n</m> sub-cubes like in <xref ref="fig2">Figure</xref>.
+    </p>
+    <image>
+<latex-image>
+          <![CDATA[\begin{tikzpicture}\tkzInit[xmax=1,ymax=1,xmin=-1,ymin=-1]
+   \tkzGrid
+ \tkzText[above](0.5,0.1){\(Q'\)}\end{tikzpicture}]]>
+</latex-image>
+    </image>
+    <p>
+      Let <m>Q'</m> be one of the sub-cubes.
+      Then
+      <me>
+        \fint_{Q'} f^q(x) dx\leq \frac{1}{m(Q')}\int_Q f^q(x)dx\leq 2^n s^q
+      </me>.
+    </p>
+    <p>
+      If
+      <me>
+        \fint_{Q'} f^q(x) dx>s^q
+      </me>,
+      we say <m>Q'</m> is
+      <q>good</q>
+      and we assign <m>Q'</m> as one of the <m>Q_j</m>'s.
+      If <m>Q'</m> is not
+      <q>good</q>, then since
+      <me>
+        \fint_{Q'} f^q(x) dx\leq s^q
+      </me>,
+      we can repeat the division as above.
+      In this way,
+      we get a sequence <m>\{Q_j\}</m> such that they satisfy <nbsp/><xref ref="x1-1"/>.
+      Now for all <m>x\not\in \bigcup_j Q_j</m>,
+      there is a sequence <m>Q_j''</m> shrinking to <m>x</m> such that
+      <me>
+        \fint_{Q_j''} f^q(x)dx\leq s^q
+      </me>.
+    </p>
+    <p>
+      Thus by the Lebesgue Theorem,
+      for <em>a.e.</em> <m>x</m>, <m>f(x)\leq s</m>.
+    </p>
+    <p>
+      We define
+      <me>
+        G=\bigcup_jQ_j
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        \int_{E(s)} f^q(x) dx=\int_G f^q(x)dx=\sum_j\int_{Q_j} f^q(x) dx\leq 2^n s^q m(G)
+      </me>.
+    </p>
+    <p>
+      On the other hand, let <m>x\in Q_j</m> and let <m>r={ diam}(Q_j)</m>.
+      Then
+      <me>
+        \frac{1}{m(B(x,r))}\int_{B(x,r)} f^q(x) dx\geq \frac{1}{m(B(x,r))}\, m(Q_j) s^q\geq c_1 s^q
+      </me>,
+      where <m>c_1=c_1(n)>0</m> is a constant.
+      By the definition of the maximum function, we have
+      <me>
+        M(f^q,x)\geq\fint_{B(x,r)} f^q(x) dx\geq c_1 s^q
+      </me>.
+    </p>
+    <p>
+      Thus by the assumption of the theorem, we have
+      <me>
+        M(f,x)\geq (c_1/b)^{1/q} s=(c_1/b)^{1/q} \alpha t>\beta t
+      </me>.
+    </p>
+    <p>
+      If we choose <m>\alpha</m> large enough,
+      we can assume that <m>\beta>1</m>.
+      By definition of the maximum function,
+      for any <m>x</m>, there is an <m>r_x>0</m> such that
+      <me>
+        \fint_{B(x,r_x)} f(x)dx\geq \beta t
+      </me>.
+    </p>
+    <p>
+      Such a collection of balls <m>B(x,r_x)</m> covers <m>Q_j</m>.
+      Thus by the Vitali Covering Theorem,
+      there is a countable subset of balls <m>B_j</m> which are disjoint and the union of <m>5B_j</m> covers <m>Q</m>.
+      We therefore have the inequality
+      <me>
+        m(G)\leq 5^n\sum_j m(B_j)
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \beta tm(B_j)\leq\int_{B_j} f(x) dx\leq\int_{B_j\cap E(t)} f(x) dx+tm(B_j)
+      </me>.
+    </p>
+    <p>
+      We therefore have
+      <me>
+        m(B_j)\leq\frac{1}{(\beta-1) t}\int_{B_j\cap E(t)} f(x) dx
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        <md>
+          \amp \int_{E(s)} f^q(x)dx\leq 2^n s^qm(G)\\ \amp \leq 10^n s^q\frac{1}{(\beta-1) t}\sum_j\int_{B_j\cap E(t)} f(x) dx\\\amp \leq 10^n s^q\frac{1}{(\beta-1) t}\int_{ E(t)} f(x) dx.
+        </md>
+      </me>
+    </p>
+    <p>
+      On the other hand, we have
+      <me>
+        \int_{E(t)\backslash E(s)} f^q(x) dx\leq s^{q-1}\int_{E(t)} f(x) dx
+      </me>.
+    </p>
+    <p>
+      Combining the above two inequalities completes the proof of the lemma.
+    </p>
+  </proof>
+  <proof>
+    <p>
+      Define
+      <me>
+        h(t)=\int_{E(t)} f(x) dx
+      </me>.
+    </p>
+    <p>
+      Then it is easy to verify that
+      <me>
+        \int_{E(t)} f^r(x) dx=-\int_t^\infty s^{r-1} dh(s)
+      </me>.
+    </p>
+    <p>
+      Thus the lemma can be written as
+      <men xml:id="x2">
+        -\int_t^\infty s^{q-1} dh(s)\leq at^{q-1} h(t)
+      </men>.
+    </p>
+    <p>
+      Define
+      <me>
+        I(r)=-\int_1^\infty t^{r-1}dh(t)
+      </me>.
+      and for <m>p>q>0</m>, define
+      <me>
+        J=(p-q)\int_1^\infty t^{p-q-1}\left(-\int_t^\infty s^{q-1}dh(s)\right) dt
+      </me>.
+    </p>
+    <p>
+      Then by<nbsp/><xref ref="x2"/>, we have
+      <me>
+        J\leq (p-q)\int_1^\infty at^{p-2} h(t) dt=\frac{a(p-q)}{p-1}\int_1^\infty h(t) dt^{p-1}= \frac{a(p-q)}{p-1}(-I(1)+I(p))
+      </me>.
+    </p>
+    <p>
+      On the other hand, we use integration by parts to get
+      <me>
+        J=\int_1^\infty\left(-\int_t^\infty s^{q-1}dh(s)\right)dt^{p-q}=I(p)-I(q)
+      </me>.
+    </p>
+    <p>
+      Thus we get
+      <me>
+        I(p)-I(q)\leq \frac{a(p-q)}{p-1}(-I(1)+I(p))
+      </me>.
+    </p>
+    <p>
+      Thus for <m>p</m> sufficiently close to <m>q</m>, we get
+      <me>
+        I(p)\leq C(I(q)+I(1))
+      </me>.
+    </p>
+  </proof>
+  <proof>
+    <p>
+      Since
+      <me>
+        \int_{E(t)}f^q(x)dx\leq at^{q-1}\int_{E(t)} f(x) dx
+      </me>,
+      for any <m>\eps>0</m>, we have
+      <me>
+        \int_1^\infty\left(t^{\eps-1}\int_{E(t)}f^q(x)dx\right) dt\leq a \int_1^\infty\left(t^{q-2+\eps}\int_{E(t)} f(x) dx \right)
+      </me>.
+    </p>
+    <p>
+      We have
+      <me>
+        <md>
+          \amp LHS=\int_1^\infty\int_X t^{\eps-1}1_{\{f(x)>t\}}f^q(x) dxdt =\int_X\int_1^\infty t^{\eps-1}1_{\{f(x)>t\}}f^q(x) dtdx\\ \amp =\frac{1}{\eps}\int_X (f^{q+\eps}(x)-f^q(x))dx.
+        </md>
+      </me>
+    </p>
+    <p>
+      Similarly, we have
+      <me>
+        RHS=\frac{a}{q-1+\eps}\int_X(f^{q+\eps}(x)-f^{q-1+\eps}(x))dx
+      </me>.
+    </p>
+    <p>
+      So the theorem is proved by assuming that <m>\eps>0</m> is sufficiently small.
+    </p>
+  </proof>
+  <remark>
+    <p>
+      Note that the last inequality is not homogeneous, which is fine,
+      because we normalize the integral into<nbsp/><xref ref="x0"/>.
+    </p>
+  </remark>
+</section>

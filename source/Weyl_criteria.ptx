@@ -1,0 +1,313 @@
+<section xml:id="Weyl_criteria">
+  <title>The new Weyl criteria</title>
+  <p>
+    Let <m>\mathfrak X</m> be Hilbert space.
+    Let <m>\mathscr B(\mathbb C)</m> and let
+    <m>\mathcal P(X)</m> be the space of self-adjoint projection operators.
+    A spectral measure is a function
+    <me>
+      E: \mathscr(\mathbb C)\to \mathcal (X)
+    </me>
+    satisfying the following properties
+    <ol>
+      <li>
+        <p>
+          <m>E(\emptyset)=0, E(\mathbb C)=I</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>E(\bigcup B_n)=\sum E(B_n)</m> for disjoint Borel sets <m>\{B_n\}</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Let <m>f</m> be a measurable function and let <m>x,y\in X</m>.
+    Define the operator
+    <me>
+      A=\int_{-\infty}^\infty f\,dE
+    </me>
+    such that
+    <me>
+      (Ax,y)=\int_{-\infty}^\infty f \,dE_{(x,y)}
+    </me>.
+  </p>
+  <p>
+    Let<nbsp/><m>H</m> be a self-adjoint operator on a Hilbert space <m>X</m>.
+    The norm and inner product in <m>X</m> are respectively denoted by<nbsp/><m>\|\cdot\|</m> and <m>(\cdot,\cdot)</m>.
+    Let <m>\sigma(H), \sigma_\mathrm{ess}(H)</m> be the spectrum and the essential spectrum of <m>H</m>,
+    respectively.
+    Let <m>{ Dom}\,(H)</m> be the domain of <m>H</m>.
+    The Classical Weyl criterion states that
+  </p>
+  <theorem xml:id="Thm_Weyl">
+    <title>Classical Weyl's criterion</title>
+    <statement>
+      <p>
+        A nonnegative real number<nbsp/><m>\lambda</m> belongs to <m>\sigma(H)</m> if,
+        and only if,
+        there exists a sequence <m>\{\psi_n\}_{n \in \mathbb N} \subset { Dom}(H)</m> such that
+        <ol>
+          <li>
+            <p>
+              <m>\forall n\in\mathbb N, \|\psi_n\|=1</m> ,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(H-\lambda)\psi_n \to 0, \text{ as } n\to\infty \text{ in } \mathcal H</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Moreover, <m>\lambda</m> belongs to
+        <m>\sigma_\mathrm{ess}(H)</m> of <m>H</m> if, and only if,
+        in addition to the above properties
+        <ol>
+          <li>
+            <p>
+              <m>\psi_n \to 0 \text{ weakly as } n\to\infty \text{ in } \mathcal H</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We have the following functional analytic result,
+    which generalizes the weak Weyl criterion.
+    To the authors' knowledge, this result seems to be new.
+  </p>
+  <theorem xml:id="Thm_Weyl_bis-2">
+    <title>Charalambous-Lu</title>
+    <statement>
+      <p>
+        Let <m>f</m> be a bounded positive continuous function over <m>[0,\infty)</m>.
+        A nonnegative real number <m>\lambda</m> belongs to the spectrum <m>\sigma(H)</m> if,
+        and only if,
+        there exists a sequence <m>\{\psi_n\}_{n \in \mathbb N} \subset { Dom}(H)</m> such that
+        <ol>
+          <li>
+            <p>
+              <m>\forall n\in\mathbb N, \|\psi_n\|=1</m> ,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)\to 0, \text{ as } n\to\infty {and}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\psi_n, (H-\lambda)\psi_n) \to 0, \text{ as } n\to\infty</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Moreover, <m>\lambda</m> belongs to
+        <m>\sigma_\mathrm{ess}(H)</m> of <m>H</m> if, and only if,
+        in addition to the above properties
+        <ol>
+          <li>
+            <p>
+              <m>\psi_n \to 0, \text{ weakly as } n\to\infty</m> \text{ in } <m>\mathcal H</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Since <m>H</m> is a densely defined self-adjoint operator,
+      the spectral measure <m>E</m> exists and we can write
+      <men xml:id="decomp">
+        H=\int_0^\infty \lambda\, dE
+      </men>.
+    </p>
+    <p>
+      Assume that <m>\lambda\in\sigma(H)</m>.
+      Then by Weyl's criterion,
+      there exists a sequence <m>\{\psi_n\}</m> such that
+      <me>
+        \|(H-\lambda)\psi_n\|\to 0,  \|\psi_n\|=1
+      </me>
+      as <m>n\to\infty</m>.
+    </p>
+    <p>
+      We write
+      <me>
+        \psi_n=\int_0^\infty d E(t)\psi_n
+      </me>
+      as its spectral decomposition.
+      Then
+      <me>
+        (f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)=\int_0^\infty f(t)(t-\lambda)^2 d\|E(t)\psi_n\|^2
+      </me>.
+    </p>
+    <p>
+      Since <m>f</m> is a bounded positive function, we have
+      <me>
+        (f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)\leq C\int_0^\infty (t-\lambda)^2 d\|E(t)\psi_n\|^2=C\|(H-\lambda)\psi_n\|^2
+      </me>.
+    </p>
+    <p>
+      Moreover,
+      <me>
+        (\psi_n, (H-\lambda)\psi_n)\leq C\,\|\psi_n\|\cdot\|(H-\lambda)\psi_n\|
+      </me>.
+    </p>
+    <p>
+      Thus the necessary part of the theorem is proved.
+    </p>
+    <p>
+      Now assume that <m>\lambda>0</m> and <m>\lambda\notin\sigma(H)</m>.
+      Then there is a <m>\lambda>\eps>0</m> such that <m>E(\lambda+\eps)-E(\lambda-\eps)=0</m>.
+      We write
+      <men xml:id="fgh">
+        \psi_n=\psi_n^1+\psi_n^2
+      </men>,
+      where
+      <me>
+        \psi_n^1=\int_0^{\lambda-\eps} dE(t)\psi_n
+      </me>,
+      and <m>\psi_n^2=\psi_n-\psi_n^1</m>.
+    </p>
+    <p>
+      Then
+      <md>
+        <mrow>\amp (f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)</mrow>
+        <mrow>\amp =(f(H) (H-\lambda)\psi_n^1, (H-\lambda)\psi_n^1) +(f(H) (H-\lambda)\psi^2_n, (H-\lambda)\psi_n^2)</mrow>
+        <mrow>\amp  \geq c_1\|\psi_n^1\|^2+(f(H) (H-\lambda)\psi^2_n, (H-\lambda)\psi_n^2)\geq c_1\|\psi_n^1\|^2</mrow>
+      </md>,
+      where the positive number <m>c_1</m> is the infimum of the function
+      <m>f(t)(t-\lambda)^2</m> on <m>[0,\lambda-\eps]</m>.
+      Therefore
+      <me>
+        \|\psi_n^1\|\to 0
+      </me>
+      by <em>(2)</em>.
+      On the other hand, we similarly get
+      <me>
+        (\psi_n, (H-\lambda)\psi_n)\geq \eps\|\psi_n^2\|^2-\lambda\|\psi_n^1\|^2
+      </me>.
+    </p>
+    <p>
+      If the criteria <em>(2), (3)</em> are satisfied,
+      then, by the two {estimates} above,
+      we conclude that both <m>\psi_n^1, \psi_n^2</m> go to zero.
+      This contradicts <m>\|\psi_n\|=1</m>,
+      and the theorem is proved.
+    </p>
+    <p>
+      Note that for <m>\lambda=0</m>,
+      <m>\psi_n^1</m> is automatically zero,
+      and the second half of the proof would give the contradiction.
+    </p>
+  </proof>
+  <theorem>
+    <title>Charalambous-Lu</title>
+    <statement>
+      <p>
+        Let <m>\sigma_p(M)</m> be the spectrum of the Laplacian on <m>p</m>-forms.
+        If <m>\lambda\in\sigma_p(\Delta)</m> and <m>\lambda\neq 0</m>,
+        then <m>\lambda\in\sigma_{p-1}(\Delta)</m> or <m>\lambda \in\sigma_{p+1}(\Delta)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <remark>
+    <p>
+      If <m>M</m> is a compact manifold,
+      then the result is trivially true:
+      if <m>f\neq 0</m> is the eigenform of the eigenvalue <m>\lambda</m>.
+      <me>
+        \Delta f-\lambda f=0
+      </me>.
+    </p>
+    <p>
+      Since <m>d\Delta=\Delta d</m>,
+      <m>\delta\Delta=\Delta\delta</m>, we have
+      <me>
+        \Delta df-\lambda df=0,  \Delta\delta f-\lambda \delta f=0
+      </me>.
+    </p>
+    <p>
+      Since <m>\lambda\neq 0</m>,
+      we have either <m>df\neq 0</m>, or <m>\delta f\neq 0</m>.
+      The result follows.
+    </p>
+  </remark>
+  <proof>
+    <p>
+      If <m>0\neq\lambda\in\sigma_p(\Delta)</m>,
+      then for any <m>\eps>0</m>,
+      there exists <m>f\neq 0</m> smooth with compact support,
+      such that
+      <me>
+        \|\Delta f-\lambda f\|_{L^2}\leq\eps\|f\|_{L^2}
+      </me>.
+    </p>
+    <p>
+      We then have
+      <me>
+        \left|\|df\|^2_{L^2}+\|\delta f\|^2_{L^2}-\lambda\|f\|^2_{L^2}\right|=|(f,\Delta f-\lambda f)|\leq\eps \|f\|_{L^2}^2
+      </me>.
+    </p>
+    <p>
+      In particular,
+      if <m>\eps</m> is small enough, we must have either
+      <me>
+        \|df\|^2_{L^2}\geq\frac\lambda 4\|f\|^2_{L^2}
+      </me>,
+      or
+      <me>
+        \|\delta f\|^2_{L^2}\geq\frac\lambda 4\|f\|^2_{L^2}
+      </me>.
+    </p>
+    <p>
+      For the rest of the proof, we assume that the former is correct.
+      Using our new Weyl Criterion, we need to prove
+      <me>
+        (df, (\Delta-\lambda) df)|\leq\eps\|f\|^2_{L^2}
+      </me>.
+    </p>
+    <p>
+      But this follows from
+      <me>
+        |(\delta df, (\Delta-\lambda)f)|\leq\|(\Delta-\lambda)f\|_{L^2}\cdot\|\delta df\|_{L^2}
+      </me>,
+      and the fact that
+      <me>
+        \int_M|\Delta f|^2=\int_M |df|^2+\int_M|\delta f|^2\geq \int_M | df|^2
+      </me>.
+    </p>
+    <p>
+      Similarly, we can prove that for function <m>g(t)=(t+1)^{-1}</m>, we have
+      <me>
+        |(g(\Delta)(\Delta-\lambda) df, (\Delta-\lambda) df)|\leq\eps\|df\|^2_{L^2}
+      </me>.
+    </p>
+  </proof>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>X</m> be a K&#xe4;hler manifold and let <m>L\to X</m> be a positive line bundle.
+        Let <m>\Delta_0</m>,
+        <m>\Delta_1</m> be the Laplacians of <m>L^m</m>-valued sections and <m>(0,1)</m>-forms,
+        respectively.
+        We assume that both of them are self-adjoint.
+        Then
+        <me>
+          \sigma_0(\Delta_0)\subset \{0\}\cup\sigma_1(\Delta_1)
+        </me>.
+      </p>
+      <p>
+        Moreover, if <m>0\in\sigma_0(\Delta_0)</m>,
+        then holomorphic sections exists.
+      </p>
+    </statement>
+  </corollary>
+</section>

@@ -1,0 +1,449 @@
+<section xml:id="Moser_iteration">
+  <title>De Giorgi-Nash-Moser Estimates</title>
+  <p>
+    In classical Schauder estimates or <m>W^{2,p}</m> estimates,
+    the continuity of the coefficients is required.
+    Therefore, the methods are not usable in nonlinear case.
+    In 1957, De Giorgi obtained the H&#xf6;lder estimate on elliptic equations of divergence form with
+    <em>measurable</em> coefficients.
+    In 1958, Nash independently got the similar estimates on parabolic equations.
+    In 1960, Moser obtained a simplified proof and the Harnark inequality.
+    These methods now becomes crucial in geometric analysis.
+  </p>
+  <p>
+    We consider the following elliptic equation of divergence form:
+    <men xml:id="div">
+      -D_j(a^{ij}D_iu)+b^iD_i u+cu=0
+    </men>
+    such that
+    <md>
+      <mrow>\amp  \lambda|\xi|^2\leq a^{ij}\xi_i\xi_j\leq\Lambda|\xi|^2,\qquad \forall x\in\Omega,\,\xi\in\R^n</mrow>
+      <mrow>\amp \sum_{i,j}||a^{ij}||_{L^\infty}+\sum_i||b^i||_{L^\infty}+||c||_{L^\infty}\leq\Lambda</mrow>
+    </md>.
+  </p>
+  <p>
+    For the sake of simplicity, we only consider the following equation
+    <men xml:id="div-1">
+      -D_j(a^{ij}D_iu)=0
+    </men>.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>\phi(s)\in C_{loc}^{0,1}(\R)</m> be a convex function
+        <ol>
+          <li>
+            <p>
+              If <m>u</m> is<nbsp/><xref ref="div-1"/>'s weak subsolution,
+              <m>\phi'(s)\geq 0</m>.
+              Then <m>v=\phi(u)</m> is also a weak subsolution;
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>u</m> is<nbsp/><xref ref="div-1"/>'s weak supersolution,
+              <m>\phi'(s)\leq 0</m>.
+              Then <m>v=\phi(u)</m> is also a weak subsolution.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \end{proof}
+  </p>
+  <lemma>
+    <title>Local maximum principle</title>
+    <statement>
+      <p>
+        Let <m>v\in H^{1,2}(B_R)</m> be a weak subsolution.
+        Then for any <m>p>0</m>, <m>0\lt \theta\lt 1</m>, we have
+        <me>
+          \underset{{B_{\theta R}}}{ess\,sup}\, v\leq C\left(\fint_{B_R}(v^+)^p\right)^{1/p}
+        </me>,
+        where <m>C</m> only depends on <m>n</m>,
+        <m>\Lambda/\lambda</m>, <m>p</m>,
+        and <m>(1-\theta)^{-1}</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \begin{proof} The lemma is true even if <m>v</m> is not bounded.
+    However, for the sake of simplicity,
+    we assume that <m>v</m> is essentially bounded.
+  </p>
+  <p>
+    We first assume that <m>p\geq 2</m>.
+    Since <m>v</m> is a weak subsolution, so is <m>v^+</m>.
+    Thus we can assume that <m>v\geq 0</m>.
+  </p>
+  <p>
+    For any testing function <m>\phi\geq 0</m>, we have
+    <me>
+      \int_{B_R} a^{ij}D_ivD_j\phi \leq 0
+    </me>.
+  </p>
+  <p>
+    We let <m>\xi\in C_0^\infty(B_R)</m> and <m>\phi=\xi^2v^{p-1}</m>.
+    Then we have
+    <me>
+      (p-1)\int_{B_R}(a^{ij} D_i v D_j v)v^{p-2}\xi^2 dx \leq -2\int_{B_R}a^{ij} v^{p-1}\xi D_i v D_j\xi dx
+    </me>.
+  </p>
+  <p>
+    Thus there is a constant <m>C</m> such that
+    <me>
+      \int_{B_R}|D(\xi v^{p/2})|^2 dx\leq C\int_{B_R}|D\xi|^2v^p dx
+    </me>.
+  </p>
+  <p>
+    Using the Sobolev inequality, we have
+    <me>
+      \left(\int_{B_R}(\xi v^{p/2})^{2^*} dx\right)^{2/2^*}\leq C\int_{B_R}|D\xi|^2 v^p dx
+    </me>,
+    where
+    <me>
+      2^*=\frac{2n}{n-2}
+    </me>.
+  </p>
+  <p>
+    Let
+    <me>
+      R_k=R\left(\theta+\frac{1-\theta}{2^k}\right)
+    </me>.
+  </p>
+  <p>
+    Define <m>\xi_k\in C_0^\infty(B_{R_k})</m> such that
+    <m>\xi_k\equiv 1</m> on <m>B_{R_{k+1}}</m>.
+    Then
+    <me>
+      |D\xi_k|\leq\frac{2^{k+1}}{(1-\theta) R}
+    </me>.
+  </p>
+  <p>
+    Using this we have
+    <me>
+      \left(\int_{B_{R_{k+1}}}v^{\frac{np}{n-2}}dx\right)^{\frac{n-2}{n}}\leq\frac{C\cdot 4^k}{(1-\theta)^2R^2}\int_{B_{R_k}}v^p dx
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      ||v||_{L^{\frac{np}{n-2}}}(B_{R_{k+1}})\leq (C\cdot 4^k)^{1/p}||v||_{L^p}(B_{R_k})
+    </me>.
+  </p>
+  <p>
+    We let
+    <me>
+      p_1=\frac{np}{n-2},\cdots, p_k=\left(\frac{n}{n-2}\right)^k p
+    </me>.
+  </p>
+  <p>
+    Then we have
+    <me>
+      ||v||_{L^{p_{k+1}}}(B_{R_{k+1}})\leq (C\cdot 4^k)^{1/p_k}||v||_{L^{p_k}}(B_{R_k})
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      \log\left(\prod_{k=1}^\infty (C\cdot 4^k)^{1/p_k}\right) =\sum_{k=1}^\infty\frac{1}{p_k}(\log C+k\log 4)\lt C
+    </me>,
+    there is a constant <m>C</m> such that
+    <me>
+      ||v||_{L^\infty}(B_{\theta R})\leq\frac{C}{((1-\theta)R)^{n/p}}\frac{1}{R^n}||v||_{L^p}(B_R)
+    </me>.
+  </p>
+  <p>
+    It remains to prove that the lemma is true for <m>0\lt p\lt 2</m>.
+    To see this we first use the inequality for <m>p=2</m>.
+    That is
+    <me>
+      \sup_{B_{\theta R}}\, v\leq\frac{C}{(1-\theta)^{n/2}}\left(\fint_{B_R}u^2\right)^{1/2}
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \left(\int_{B_R}v^2\right)^{1/2}\leq\sup_{B_R}\, v^{1-p/2}\cdot\left(\int_{B_R}v^p\right)^{1/2}
+    </me>.
+  </p>
+  <p>
+    Using Young's inequality, we have
+    <me>
+      \phi(\theta R)=(1-\frac p2)\phi(R)+\frac{C}{((1-\theta)R)^{n/p}}||v||_{L^p}
+    </me>,
+    where
+    <me>
+      \phi(s)=\sup_{B_s}\, v
+    </me>.
+  </p>
+  <p>
+    Thus we have the inequality
+    <me>
+      \phi(t)\leq (1-\frac p2)\phi(s)+\frac{A}{(t-s)^\alpha}||v||_{L^p}
+    </me>
+    for any <m>t\geq s</m>.
+    Let
+    <me>
+      t_0=R_0\lt R,\qquad t_{i+1}=t_i+(1-\tau)t^i(R-R_0)
+    </me>
+    and <m>0\lt \tau\lt 1</m> to be determined later.
+    Then we have
+    <me>
+      \phi(t_i)\leq(1-\frac p2)\phi(t_{i+1})+\frac{A}{((1-\tau)t^i(R-R_0))^\alpha}||u||_{L^2}
+    </me>.
+  </p>
+  <p>
+    By iteration, we know that
+    <me>
+      \phi(R_0)\leq A||u||_{L^2}\frac{1}{((1-\tau)t^i(R-R_0))^\alpha} \left((1-\frac p2)\tau^\alpha+(1-\frac p2)^2\tau^{-2\alpha}+\cdots\right)
+    </me>.
+  </p>
+  <p>
+    We can choose <m>\tau</m> close to <m>1</m> such that <m>(1-p/2)t^{-\alpha}\lt 1</m>.
+    Then the above sequence is convergent and the theorem is proved.
+  </p>
+  <lemma>
+    <title>Weak Harnarck inequality</title>
+    <statement>
+      <p>
+        Let <m>v</m> be the weak supersolution of<nbsp/><xref ref="div-1"/>.
+        Then there is a <m>p_0>0</m> such that
+        <me>
+          \underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq\frac{1}{C}\left(\fint_{B_R}v^{p_0} dx\right)^{1/p_0}
+        </me>
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      We assume that <m>v>0</m> on <m>B_R</m>.
+      Otherwise we can use <m>v+\eps</m> instead.
+    </p>
+    <p>
+      Since <m>v</m> is a supersolution,
+      <m>v^{-1}</m> is a subsolution.
+      By the above lemma, we have
+      <me>
+        \underset{B_{\theta R}}{{ ess}\,\sup}\, v^{-p}\leq C\fint_{B_R} v^{-p} dx
+      </me>,
+      which is equivalent to
+      <me>
+        \underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}
+      </me>
+    </p>
+    <p>
+      We write
+      <md>
+        <mrow>\amp \underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}</mrow>
+        <mrow>\amp =C\left(\fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\right)^{-1/p}\cdot\left(\fint_{B_R}v^p dx\right)^{1/p}</mrow>
+      </md>.
+    </p>
+    <p>
+      We just need to prove that there exists a <m>p_0>0</m> such that
+      <me>
+        \fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\leq C
+      </me>.
+    </p>
+    <p>
+      We let <m>w=\log v-\beta</m>,
+      where <m>\beta</m> is a constant to be determined.
+      We wish to prove that
+      <men xml:id="wish">
+        \int_{B_R}e^{p|w|} dx\leq C
+      </men>
+      for some <m>p>0</m>.
+      If the above inequality is true then we have
+      <me>
+        \int_{B_R}e^{p\log v-p\beta} dx\leq C,\qquad \int_{B_R}e^{-p\log v+p\beta} dx\leq C
+      </me>,
+      and the lemma follows.
+    </p>
+    <p>
+      The proof of <nbsp/><xref ref="wish"/> is somewhat complicated but the basic idea is still Moser iteration.
+      Let <m>v^{-1}\xi^2</m> be a test function,
+      where <m>\xi \in C_0^\infty(B_R)</m>, we have
+      <me>
+        0\geq\int a^{ij} v_i(v^{-1}\xi^2)_j=-\int \xi^2a^{ij}w_i w_j+2\int a^{ij} w_i \xi\xi_j
+      </me>.
+    </p>
+    <p>
+      Without loss of generality, we assume that <m>R=1</m>.
+      Then we have
+      <me>
+        \int_{B_\sigma}|Dw|^2\leq C
+      </me>
+      for any <m>0\lt \sigma\lt 1</m>.
+      By choosing suitable <m>\beta</m>,
+      we have the Poincar&#xe9; inequality
+      <me>
+        \int_{B_\sigma}|w|^2 dx\leq C
+      </me>.
+    </p>
+    <p>
+      Let <m>\xi\in C_0^\infty(B_1)</m> and let <m>\phi=\xi^2|w|^{2q}</m>.
+      Then we have
+      <me>
+        \int_{B_\sigma}\xi^2|w|^{2q}|D_i w|^2\leq 2q\int_{B_\sigma}\xi^2|w|^{2q-1} D_i w D_i|w|+2\int_{B_\sigma}\xi|w|^{2q}D_i wD_i \xi
+      </me>.
+    </p>
+    <p>
+      Using the Young's inequality, we have
+      <me>
+        2q|w|^{2q-1}\leq\frac{2q-1}{2q}|w|^{2q}+(2q)^{2q-1}
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \frac{1}{2q}\int_{B_\sigma}\xi^2|w|^{2q}|D_iw|^2\leq (2q)^{2q-1}\int_{B_\sigma}|D_i w|^2+4q\int_{B_\sigma}|w|^{2q}|D_i\xi|^2
+      </me>.
+    </p>
+    <p>
+      Finally, we get
+      <me>
+        \int_{B_\sigma}|D(\xi^2|w|^{2q})|^2 dx\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx
+      </me>,
+      where <m>C</m> only depends on <m>n</m>,
+      <m>\Lambda/\lambda</m>, and <m>(1-\sigma)^{-1}</m>.
+      Let <m>\kappa=n/(n-1)</m>.
+      By Sobolev inequality, we have
+      <me>
+        \left(\int_{B_\sigma}|w|^{2q\kappa} dx\right)^{1/\kappa}\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx
+      </me>.
+    </p>
+    <p>
+      We let
+      <me>
+        q_i=\kappa^{i-1},\delta_0=\sigma, \delta_i=\delta_{i-1}-\frac{\sigma-1}{2^i}
+      </me>
+    </p>
+    <p>
+      Then
+      <me>
+        \left(\int_{B_{\delta_i}}|w|^{2\kappa^i} dx\right)^{1/\kappa} \leq C(\kappa)^{2(i-1)\kappa^{i-1}}+C(4\kappa)^i\int_{B_{\delta_{i-1}}}|w|^{2\kappa^{i-1}}dx
+      </me>
+    </p>
+    <p>
+      Let
+      <me>
+        I_j=\left(\int_{B_{\delta_j}}|w|^{2\kappa^j}\right)^{1/2\kappa^j}
+      </me>.
+    </p>
+    <p>
+      Then
+      <me>
+        I_i\leq C^{1/\kappa^{i-1}}\kappa^{i-1}+C^{1/\kappa^{i-1}}(4\kappa)^{i/\kappa^{i-1}}I_{i-1}
+      </me>.
+    </p>
+    <p>
+      Running the iteration we get
+      <me>
+        I_j\leq C\kappa^j+cI_0
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        ||w||_{L^q(B_1)}\leq Cq
+      </me>.
+    </p>
+    <p>
+      If <m>pCe\lt 1</m>, then we must have
+      <me>
+        \int_{B_1}e^{p|w|}\leq C
+      </me>.
+    </p>
+  </proof>
+  <theorem>
+    <title>Harnack Inequality</title>
+    <statement>
+      <p>
+        Let <m>u</m> be a nonnegative solution of <nbsp/><xref ref="div-1"/>.
+        Then we have
+        <me>
+          \underset{B_{\theta R}}{{ ess}\,\sup}\,u\leq C \underset{B_{\theta R}}{{ ess}\,\inf}\,u
+        </me>
+        where <m>C</m> only depends on <m>n, \lambda/\lambda, (1-\theta)^{-1}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <theorem>
+    <title>H&#xf6;lder estimate</title>
+    <statement>
+      <p>
+        Using the above notations,
+        <m>u</m> is H&#xf6;lder continuous in <m>B_{\theta R}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let
+      <me>
+        M(R)=\underset{B_{\theta R}}{{ ess}\,\sup}\,u, m(R)=\underset{B_{\theta R}}{{ ess}\,\inf}\,u
+      </me>.
+    </p>
+    <p>
+      Let <m>w(R)=M(R)-m(R)</m>.
+      Then
+      <me>
+        u-m(R)\geq 0
+      </me>
+      on <m>B_{\theta R}</m>.
+      Thus
+      <me>
+        M(\theta R)-m(R)\leq C(m(\theta R)-m(R))
+      </me>.
+    </p>
+    <p>
+      Therefore
+      <me>
+        w(\theta R)\leq \left(1-\frac 1C\right)w(R)
+      </me>
+      hence
+      <me>
+        w(\theta^s R)\leq \left(1-\frac 1C\right)^sw(R)
+      </me>.
+    </p>
+    <p>
+      Let <m>R'\lt R</m>.
+      Let <m>s</m> be such that
+      <me>
+        \theta^{s+1}R\leq R'\lt \theta^s R
+      </me>.
+    </p>
+    <p>
+      Then
+      <me>
+        w(R')\leq w(\theta^sR)\leq \left(1-\frac 1C\right)^sw(R)
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        s=\left[\frac{\log (R'/R)}{\log\theta}\right]-1
+      </me>,
+    </p>
+    <p>
+      We have
+      <me>
+        w(R')\leq\left(\frac{R'}{R}\right)^rw(R)
+      </me>,
+      where
+      <me>
+        r=\left(1-\frac 1C\right)^{(\log\theta)^{-1}}\lt 1
+      </me>
+    </p>
+    <p>
+      Let <m>x,y\in  B(\theta R)</m>.
+      Then we have
+      <me>
+        |u(x)-u(y)|\leq C|x-y|^r
+      </me>
+      and the H&#xf6;lder continuity follows.
+    </p>
+  </proof>
+</section>

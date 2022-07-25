@@ -1,0 +1,274 @@
+<section xml:id="GNY_cover">
+  <title>The Grigor'yan-Netrusov-Yau cover</title>
+  <p>
+    In this section,
+    we give a simplified proof of<nbsp/><xref ref="GNY"/>.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let a pseudo-metric space <m>(X,d)</m> satisfy <m>(2,P)</m>-covering property.
+        Let <m>m</m> be a Borel measure on <m>X</m>,
+        and assume that there exist a positive real number <m>v</m> and <m>\rho</m> such that
+        <men xml:id="x1">
+          \forall x\in X, m(B(x,\rho/2))\leq v, and \exists x_0\in X, m(B(x_0,\rho))>v
+        </men>.
+      </p>
+      <p>
+        Then, for any <m>\lambda>1</m>,
+        there exists a family <m>\mathfrak A</m> of
+        <m>[\eps_0m(X)/v]</m> annuli in <m>X</m> satisfying the following properties
+        <ol>
+          <li>
+            <p>
+              <m>m(A)\geq v</m> for any <m>A\in\mathfrak A</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              the annuli <m>\{\lambda A\}_{A\in\mathfrak A}</m> are disjoint.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Here <m>\eps_0</m> is a number independent to <m>v</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Let <m>N\geq 1</m> be the maximum number such that there exists a family of annuli <m>\{A_i=B(x_i, r_i, R_i)\}</m> with
+    <ol>
+      <li>
+        <p>
+          <m>2C_3v>m(A_i)>C_3v</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\{\lambda A_i\}</m> disjoint;
+        </p>
+      </li>
+      <li>
+        <p>
+          <me>
+            m(\bigcup_{i=1}^NB(x_i, 2\lambda^2 R_i))\lt C_1Nv
+          </me>
+          for a constant <m>C_1>0</m> independent to <m>v</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Here <m>C_3</m> is the constant such that when the radius is multiple by <m>8</m>,
+    then the volume is increased by <m>C_3</m> times.
+  </p>
+  <p>
+    By<nbsp/><xref ref="x1"/>,
+    we know that the family of annuli exists at least for <m>N=1</m>.
+  </p>
+  <p>
+    We shall get a contradiction by assuming that
+    <men xml:id="x0-0">
+      N\lt \eps_0 m(X)/v
+    </men>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        We say a subset
+        <me>
+          x_{i_1},\cdots, x_{i_p}
+        </me>
+        of <m>\{x_1,\cdots, x_N\}</m> is
+        <term>\red{admissible}</term>,
+        if there are positive numbers <m>T_{i_j}>0</m> such that
+        <ol>
+          <li>
+            <p>
+              <me>
+                \bigcup_{j=1}^{p} B(x_{i_j}, \frac{1}{2\lambda}T_{i_j})\supset \bigcup_{i=1}^{N} B(x_i,   \lambda^2R_i);
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              <me>
+                m(\bigcup_{j=1}^{p} B(x_{i_j}, T_{i_j}))\leq C_1Nv+C_2v(N-p)
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <definition>
+    <statement>
+      <p>
+        Let
+        <me>
+          \sigma=\sup \{r\mid m(B(x,r)\backslash \bigcup_{j=1} ^p B(x_{i_j}, T_{i_j})\leq v,  \forall x\in X \}
+        </me>.
+      </p>
+      <p>
+        Then <m>\sigma\lt \infty</m>.
+        We call <m>\sigma</m> the <term>\red{Lu's number}</term>
+        with respect to the balls
+        <me>
+          B(x_{i_1}, T_{i_1}),\cdots, B(x_{i_p}, T_{i_p})
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Let <m>x\in X</m> be a point such that
+    <me>
+      m(B(x,2\sigma)\backslash \bigcup_{j=1} ^p B(x_{i_j}, T_{i_j})>v
+    </me>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A subset, say, <m>x_{i_s},\cdots,
+        x_{i_p}</m>, of <m>x_{i_1},\cdots,
+        x_{i_p}</m> is called <term>\red{selected}</term>, if
+        <me>
+          B(x,17\lambda^2 \sigma)\cap B(x_{i_j}, \frac 12 T_{i_j})\neq\emptyset
+        </me>
+        for <m>j\geq s</m>.
+        In this case,
+        we also call <m>x_{i_j}</m> selected if <m>j\geq s</m>,
+        and <m>B(x_{i_j}, T_{i_j})</m> selected if <m>x_{i_j}</m> is selected.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Note that there must be at least one selected ball, otherwise,
+    we can add <m>B(x,3/2\sigma)</m> to <m>\mathfrak A</m>,
+    a contradiction.
+  </p>
+  <p>
+    If there are more than one selected points,
+    say <m>x_{i_{p-1}}, x_{i_p}</m>,
+    then we remove <m>x_{i_p}</m>,
+    and replace <m>B(x_{i_{p-1}}, T_{i_{p-1}})</m> by
+    <me>
+      B(x_{i_{p-1}}, \max(300\lambda^3\sigma, T_{i_{p-1}}) )
+    </me>.
+  </p>
+  <p>
+    We claim that the new set of balls is still admissible.
+  </p>
+  <p>
+    First, we know that
+    <me>
+      m(\bigcup_{j=1}^{p-2} B(x_i,T_{i_j} )\bigcup B(x_{i_{p-1}}, 300\lambda^3\sigma))\leq C_1Nv+C_2(n-p+1)v
+    </me>.
+  </p>
+  <p>
+    We shall prove
+    <me>
+      \bigcup_{j=1} ^{p-2} B(x_{i_j}, \frac{1}{2\lambda}T_{i_j})\bigcup B(x_{i_{p-1}}, 150\lambda^2\sigma)\supset \bigcup_{i=1}^{N} B(x_i,  \lambda^2 R_i)
+    </me>.
+  </p>
+  <p>
+    To see this we first observe that
+    <me>
+      d(x,x_{i_j})\leq 17\lambda^2\sigma+\frac 12 T_{i_j}
+    </me>
+    for <m>j=p-1,p</m>.
+    On the other hand,
+    <me>
+      d(x,x_{i_j})>T_{i_j}-2\sigma
+    </me>
+    for any <m>j</m>.
+    Therefore, we have
+    <me>
+      T_{i_j}\leq (34\lambda^2+4)\sigma, d(x,x_{i_j})\leq (34\lambda^2+2)\sigma
+    </me>
+    for <m>j=p-1,p</m>.
+    Thus <m>B(x_{i_p}, T_{i_p})\subset B(x_{i_{p-1}}, 150\lambda^2\sigma)</m>,
+    the reduced set is still admissible.
+  </p>
+  <p>
+    Using the procedure, we can get a
+    <em>minimal</em> admissible set
+    <me>
+      B(x_1,T_1),\cdots, B(x_k, T_k)
+    </me>.
+  </p>
+  <p>
+    Without loss of generality, we can assume that
+    <men xml:id="x20-2">
+      m(B(x_j, T_j))>C_3 v
+    </men>.
+  </p>
+  <p>
+    Let <m>x\in X</m> such that
+    <me>
+      m(B(x,2\sigma')\backslash \bigcup_{j=1} ^k B(x_{j}, T_{j}))>v
+    </me>,
+    where <m>\sigma'</m> is the Lu's number for the minimal admissible set.
+  </p>
+  <p>
+    If <m>B(x,2\lambda\sigma')</m> doesn't touch any balls,
+    then we can place one more ball <m>B(x,2\sigma')</m>.
+    If <m>B(x,2\lambda\sigma')</m> touch one of the balls,
+    it has to touch only one of them,
+    say, <m>B(x_1,T_1)</m> otherwise the sequence is not minimal.
+  </p>
+  <p>
+    By the above same computation
+    <me>
+      T_1\leq 4(\lambda+1)\sigma', d(x,x_1)\leq (4\lambda+2)\sigma'
+    </me>.
+  </p>
+  <p>
+    We consider the annulus
+    <me>
+      B(x_1,\frac 12T_1, d(x,x_1)+2\sigma')
+    </me>.
+  </p>
+  <p>
+    We claim
+    <me>
+      B(x_1,\frac 12T_1, d(x,x_1)+2\sigma')\supset B(x,2\sigma')
+    </me>.
+  </p>
+  <p>
+    To prove this, we first observe that <m>T_1>8\sigma'</m>,
+    otherwise it contradicts to<nbsp/><xref ref="x20-2"/>.
+    Let <m>z\in B(x,2\sigma')\backslash \bigcup_{j=1} ^k B(x_{j}, T_{j})</m>.
+    Then for any <m>y\in B(x,2\sigma')</m>, we have
+    <me>
+      d(y,x_1)\geq d(z,x_1)-4\sigma'\geq T_1-4\sigma'\geq \frac 12 T_1
+    </me>.
+  </p>
+  <p>
+    The inequality <m>d(y,x_1)\leq d(x,x_1)+2\sigma'</m> is obvious.
+    The claim is proved.
+  </p>
+  <p>
+    It remains to prove that the annulus
+    <me>
+      B(x_1,\frac{1}{2\lambda}T_1, \lambda(d(x,x_1)+2\sigma'))
+    </me>
+    doesn't touch any other elements in <m>\mathfrak \lambda A</m>.
+  </p>
+  <p>
+    To see this,
+    we first observe that if <m>y\in B(x_2, \frac 12T_2)</m>, then
+    <me>
+      d(y, x_1)\geq d(x_2, x)-d(x, x_1)-\frac 12 T_2>17\lambda^2\sigma'-d(x,x_1)>\lambda(d(x,x_1)+2\sigma')
+    </me>.
+  </p>
+  <remark>
+    <title>Final Remark</title>
+    <p>
+      This is a lecture note for the Math 240B at UCI. It is not a book or intended to be a book.
+      The materials in this lecture note, I believe,
+      are essential to differential geometers.
+      Some of the materials are not standard so as to be easily found in any text books.
+    </p>
+  </remark>
+</section>

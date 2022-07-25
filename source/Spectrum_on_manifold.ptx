@@ -1,0 +1,789 @@
+<section xml:id="Spectrum_on_manifold">
+  <title>Spectrum on complete non-compact manifolds</title>
+  <p>
+    Unlike in the case of compact manifold,
+    in general, a complete manifold doesn't admit any eigenvalues.
+    For example,
+    there are no <m>L^2</m>-eigenvalue on <m>\mathbb{R}^n</m>.
+    That is, <m>\forall \lambda \in \mathbb{R}</m>.
+    If
+    <me>
+      \Delta f + \lambda f = 0
+    </me>
+    and <m>f \in L^2 (\mathbb{R}^n)</m>, then <m>f \equiv 0</m>.
+  </p>
+  <p>
+    Escobar proved that if <m>M</m> has a rotational symmetric metric,
+    then there is no <m>L^2</m>-eigenvalue.
+    Let <m>\Delta</m> be the Laplace operator on a complete non-compact manifold <m>M</m>.
+    By the argument before,
+    <m>\Delta</m> naturally extends to a self-adjoint densely defined operator,
+    which we still denote <m>\Delta</m> for the sake of simplicity.
+  </p>
+  <p>
+    It is well-known that there is a spectrum measure such that
+    <me>
+      \Delta = \int^\infty _0 \lambda d E
+    </me>
+  </p>
+  <p>
+    (Here we assume <m>\Delta</m> is the geometric Laplacian,
+    which is a positive operator).
+  </p>
+  <p>
+    Define <m>e^{-\Delta t}</m> for any <m>t > 0</m>.
+    Obviously, it is a bounded operator.
+    Thus by the Hahn-Banach <m>e^{-\Delta t}</m> is a bounded operator.
+  </p>
+  <p>
+    The heat kernel is defined as
+    <me>
+      e^{-\Delta t}   f(x) = \int H(x, y, t) f (y) \, dy
+    </me>.
+  </p>
+  <p>
+    The Green's function is defined as
+    <me>
+      G(x, y) = \int^\infty_0 H (x, y, t) \, dt
+    </me>.
+  </p>
+  <p>
+    Of course, we need to prove the existence of these functions when <m>M</m> is complete non-compact.
+  </p>
+  <p>
+    The pure point spectrum of <m>\Delta</m> are those <m>\lambda \in \mathbb{R}</m> such that
+    <ol>
+      <li>
+        <p>
+          There exist a <m>L^2</m> function <m>f \neq 0</m> such that
+          <me>
+            \Delta f + \lambda f = 0
+          </me>
+        </p>
+      </li>
+      <li>
+        <p>
+          The multiplicity of <m>\lambda</m> is finite
+        </p>
+      </li>
+      <li>
+        <p>
+          In a neighborhood of <m>\lambda</m>,
+          it is the only spectrum point.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    We define
+    <me>
+      \rho (\Delta ) = \left\{ y \in \mathbb{R} \left| \begin{array}{r} (\Delta - y ) ^{-1} \ \mbox{is a bounded } \\ \mbox{operator} \end{array}  \right. \right\}
+    </me>
+  </p>
+  <p>
+    <m>\sigma (\Delta ) = \mathbb{R} - \rho (\Delta)</m> is the spectrum set of <m>\Delta</m>.
+    From the above discussion,
+    <m>\sigma (\Delta )</m> decomposes
+    <m>\emptyset</m> as the union of pure point spectrum,
+    and the so-called essential spectrum,
+    which is by definition, the complement of pure point spectrum.
+  </p>
+  <p>
+    Using the above definition,
+    <m>\lambda \in \sigma (\Delta )</m> belongs to the set <m>\sigma _{ess} ( \Delta )</m>,
+    if either
+    <ol>
+      <li>
+        <p>
+          <m>\lambda</m> is an eigenvalue of infinite multiplicity, or
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\lambda</m> is the limiting point of <m>\sigma (\Delta ) </m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The following theorems in functional analysis characterizing the essential spectrum.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        A necessary and sufficient condition for the interval
+        <m>( - \infty , \lambda )</m> to intersect the essential spec of an self-adjoint densely defined operator <m>A</m> is that,
+        for all <m>\varepsilon > 0</m>,
+        there exists an infinite dimensional subspace <m>G _\varepsilon \subset { Dom} (A)</m>,
+        for which <m>( A f - \lambda f - \varepsilon f, f) \lt 0</m>.
+      </p>
+    </statement>
+  </theorem>
+  <theorem>
+    <statement>
+      <p>
+        A necessary and sufficient condition for the interval
+        <m>( \lambda - \sigma , \lambda + \sigma )</m> to intersect the essential spectrum of <m>A</m> is that there exists an infinite dimensional subspace
+        <m>G \lt { Dom} (A)</m> for which <m>\Vert A - \lambda I) f \Vert \lt \sigma\Vert f\Vert,
+        f \in G</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    For reference, see Donnelly, Topology 20, 1<ndash/>14, 1981.
+  </p>
+  <p>
+    Using the above result,
+    we give the following variational characterization of the lower bound of spectrum and the lower bound of essential spectrum.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let
+        <me>
+          \lambda_0 = \inf_{f \in C^\infty_0 (M)} \frac{\int_M |\nabla f| ^2}{\int_M f ^2}
+        </me>
+        and
+        <me>
+          \int_{ess} =  \sup_k \inf_{f \in C^\infty_0 (M\backslash k)} \frac{\int_M |\nabla f| ^2}{\int_M f ^2}
+        </me>
+        where <m>k</m> is a compact set running through an exhaustion of the manifold.
+        Then <m>\lambda _0</m> and
+        <m>\lambda_{ess}</m> are the lower bound of
+        <m>\sigma (\Delta )</m> and <m>\sigma _{ess} ( \Delta )</m> respectively.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} We first prove the formula for <m>\lambda _{ess}</m>.
+    Let
+    <me>
+      \lambda _{ess} ^\prime = \inf \sigma_{ess} ( \Delta )
+    </me>
+    is <m>\sigma _{ess} (\Delta ) = \emptyset</m>,
+    we define, <m>\lambda _{ess} ^\prime  = + \infty</m>.
+    By the definition,
+    <m>\forall \epsilon > 0 , ( - \infty, \lambda ^\prime _{ess} + \varepsilon ) \cap \sigma _{ess} (\Delta ) \neq \emptyset</m>.
+    Then we can find infinite dimensional space <m>V</m>such that for any <m>f \in V</m>
+    <men>
+      \langle \Delta f - ( \lambda _{ess} ^\prime + \varepsilon ) f , f\rangle \lt 0. \tag{$\star$}
+    </men>
+  </p>
+  <p>
+    Without loss of generality, we may assume that
+    <me>
+      \int_M f ^2 = 1
+    </me>.
+  </p>
+  <p>
+    Also, without loss of generality,
+    we may assume that all elements in <m>V</m> are smooth.
+  </p>
+  <p>
+    We leave as an exercise, to prove that (<m>\star</m>) implies
+    <me>
+      \int_M |\nabla f | ^2 \leq  ( \lambda _{ess}^\prime  + \varepsilon )
+    </me>.
+  </p>
+  <p>
+    Now we assume that <m>k</m> is a compact set.
+    Let <m>k  ^\prime</m> be a larger ball containing <m>k</m>.
+    Let <m>\rho</m> be the cut-off function such that <m>\rho \equiv 1</m> on <m>k</m> but
+    <m>\rho \equiv 0</m> outside <m>k^\prime</m>.
+    We claim (***) that <m>\forall \varepsilon > 0</m>,
+    there is an <m>f \in V</m> with <m>\int f^2 = 1</m> but
+    <me>
+      \int _M \rho ^2 f^2 \lt  \varepsilon
+    </me>.
+  </p>
+  <p>
+    If the above is not true, then for any <m>f \in V </m>.
+    <me>
+      \int_M \rho^2 f ^2 \geq \varepsilon _0, \; \mbox{if}  \; \int f ^2 = 1
+    </me>.
+  </p>
+  <p>
+    Since the set <m>f \in V</m> is of infinite dimensional,
+    the set <m>\rho f</m> is of infinite dimensional.
+    Thus we can find an orthogonal basis
+    <me>
+      \int\rho^2 f _i f _j = 0 \;\; i \neq j
+    </me>
+    while we can still keep <m>\int f _i^2 = 1</m>.
+    We consider
+    <md>
+      <mrow>\int | \nabla (\phi f_i )| ^2 \amp  \leq \amp  2 \int | \nabla \rho |^2 f^2_i + 2 \int \rho ^2 |\nabla f_i |^2</mrow>
+      <mrow>\amp  \leq \amp  2 C + 2 (\lambda _{ess} ^\prime + \varepsilon ) </mrow>
+    </md>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \frac{\int \nabla ( \rho f_i )^2}{\int ( \rho f_i )^2 } \leq \frac{2C + 2 ( \lambda _{ess} ^\prime + \varepsilon }{\varepsilon _0}
+    </me>
+    for infinitely dimensional space.
+    This is a contradiction because on the compact set
+    <m>k ^\prime</m> the eigenvalues go to infinity.
+  </p>
+  <p>
+    With the above preparation,
+    we can prove our theorem <m>\forall \varepsilon > 0</m>.
+    We find an <m>f</m> with <m>\int f ^2 = 1</m> but
+    <me>
+      \int \rho ^2 f ^2 \lt  \varepsilon
+    </me>.
+  </p>
+  <p>
+    Consider <m>\rho_1 = 1 - \rho</m>
+    <md>
+      <mrow>\int ( \nabla (\rho _1 f ) |^2 \amp = \amp \int \rho^2_1 | \nabla f |^2 + 2 \int \rho_1 f  \nabla \rho _1 \nabla f</mrow>
+      <mrow>\amp \amp  + \int f ^2 |\nabla \rho_1 |^2 </mrow>
+    </md>.
+  </p>
+  <p>
+    Using the above inequality, we have
+    <md>
+      <mrow>\lefteqn{\int f ^2 |\nabla \rho_1 |^2 \leq C \varepsilon }</mrow>
+      <mrow>\amp \amp  2 \int \rho_1 f \nabla \rho _1 \nabla f = - \frac{1}{2} \int \Delta \rho^2 _1 \cdot f ^2</mrow>
+      <mrow>\amp \amp  \leq C \varepsilon</mrow>
+    </md>
+    because the supp of <m>\nabla \rho_1, \Delta \rho^2_1</m>,
+    are within <m>k^\prime</m>.
+    Thus
+    <md>
+      <mrow>\int |\nabla ( \rho _1 f ) |^2 \amp \leq \amp  ( \lambda _{ess}^\prime + \varepsilon ) + C \varepsilon</mrow>
+      <mrow>\int \rho^2 _1 f ^2 \amp  \geq \amp  1 - \varepsilon</mrow>
+    </md>.
+  </p>
+  <p>
+    Using the definition, we get
+    <me>
+      \lambda _{ess} \leq \lambda _{ess} ^\prime + \varepsilon
+    </me>
+    and thus <m>\lambda _{ess} \leq \lambda _{ess} ^\prime</m>.
+    The other direction is easier to prove.
+  </p>
+  <p>
+    Using the same method, we can prove the case for <m>\lambda _0</m>,
+    provided that we need a similar theorem like Theorem 1.
+  </p>
+  <p>
+    It is an interesting question to compute the set of essential.
+    It is particularly interesting to get the lower bound estimate for the essential spectrum because of the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Suppose <m>\lambda _0 \lt \lambda _{ess}</m>,
+        then <m>\lambda _ 0</m> is an eigenvalue of <m>M</m> with finite dimensional eigenspace.
+      </p>
+      <p>
+        That is, there exists an <m>L^2</m> function <m>f \neq 0</m>,
+        such that
+        <me>
+          \Delta f = - \lambda _0 f
+        </me>
+        which is a very strong result.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    In what follows we use <m>\mathbb{R}^n</m> to elaborate our theorem.
+  </p>
+  <p>
+    First let's compute <m>\lambda _{ess}</m> for <m>\mathbb{R}^n</m>.
+    We claim that <m>\lambda _{ess} = 0</m>.
+    By definition,
+    this is equivalent to say that <m>\forall \varepsilon > 0  \, \forall \, R > 0</m>,
+    there is a function <m>f \in C^\infty_0 ( \mathbb{R} ^n - B (R))</m> such that
+    <me>
+      \int |\nabla f |^2 \lt  \varepsilon \int f ^2
+    </me>.
+  </p>
+  <p>
+    This is obvious: let <m>B (x_0, R ^\prime )</m> be a ball of radius
+    <m>R^\prime</m> with center <m>x _0</m> such that <m>|x_0| >  2 R+ 1 + R^\prime</m>.
+    Then
+    <me>
+      B(x_0, R^\prime ) \subset \mathbb{R}^n \backslash (R)
+    </me>.
+  </p>
+  <p>
+    Let <m>f</m> be the first Dirichlet eigenfunction of <m>B (X_0, R^\prime )</m>.
+    Then if <m>R^\prime \rightarrow \infty</m>
+    <me>
+      \int |\nabla f |^2 /\int f ^2 \lt  \varepsilon
+    </me>
+    zero extending <m>f</m> to <m>\mathbb{R} ^n \backslash B(R)</m> we get the result.
+  </p>
+  <p>
+    Using Theorem 2, we can even prove that
+    <me>
+      \sigma _{ess} ( \Delta ) = [ 0, + \infty)
+    </me>.
+  </p>
+  <p>
+    To prove the above,
+    we make the following observation <m>\forall \lambda > 0 , \forall m \in \mathbb{Z}</m>,
+    we can find a square of size <m>m \bar{\pi} \sqrt{ \frac{\lambda }{n}}</m> such that
+    <me>
+      f = \sin \sqrt{ \frac{\lambda }{n}} x _1 \cdot \sin \sqrt{ \frac{\lambda }{n}} x_2 \ldots \sin \sqrt{ \frac{\lambda }{n}} x_n
+    </me>
+    is an eigenfunction with Dirichlet condition:
+    <m>\Delta f + \lambda f = 0</m>.
+  </p>
+  <p>
+    However, we can't use Theorem 2 directly.
+    The reason is that <m>f</m> is <em>not</em>
+    second differentiable near the boundary.
+    Thus we need to use cut-off function.
+    Without loss of generality,
+    we may assume that the square is in the first quadratic.
+    We denote such a square to be <m>s</m>.
+  </p>
+  <figure>
+    <caption>S Square</caption>
+    \vspace{0.2in}
+  </figure>
+  <p>
+    Let <m>s _1</m> be a square with the same center as <m>s_1</m> but with smaller size.
+    We assume that the distance of the boundary of <m>s_1</m> to <m>s</m> is <m>d</m>,
+    which is to be determined later.
+  </p>
+  <p>
+    We choose a cut-off function <m>\rho</m> such that
+    <m>\rho\equiv 1</m> on <m>s_1</m> and <m>\rho \equiv 0</m> outside <m>s</m>.
+    By the same argument as before, we can prove that
+    <me>
+      \Vert \Delta ( \rho f ) + \lambda \rho f \Vert _{L_{2}} \subset \varepsilon \Vert \rho  f \Vert_{L_{2}}
+    </me>.
+  </p>
+  <p>
+    Thus <m>ess (\Delta ) = [ 0 , + \infty)</m>.
+  </p>
+  <p>
+    Unfortunately,
+    the above argument doesn't apply to the general case.
+    Thus the following result of *** is very surprising and interesting.
+  </p>
+  <theorem>
+    <title>J-P. Wang</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete manifold with non-negative Ricci curvature.
+        Then
+        <me>
+          ess (\Delta ) = [ 0, \infty)
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Note that <m>\lambda _{ess}</m> was known before, e.g., P.Li-Wang, Brooks.
+  </p>
+  <p>
+    In this lecture,
+    we study the essential spectrum of a complete non-compact manifold with non-negative Ricci curvature.
+    We are going to prove that the set of essential spectrum is <m>[ 0 , \infty)</m>.
+    The reference papers for this lecture are
+    <ol>
+      <li>
+        <p>
+          Sturm, J. Funct.
+          Anal. 118, 442<ndash/>453, 1993
+        </p>
+      </li>
+      <li>
+        <p>
+          Wang, Math.
+          Research Letters. 4, 473<ndash/>479, 1997
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Through this lecture,
+    <m>M</m> is a complete Riemannian manifold with non-negative Ricci curvature.
+    We say the volume <m>(M, g)</m> grows uniformly sub-exponentially,
+    if for any <m>\varepsilon > 0</m>,
+    there is a constant <m>C \lt  \infty</m> such that for all <m>r > 0</m> and all <m>x \in M</m>
+    <me>
+      v (B_r (x)) \leq C e ^{\varepsilon r} v (B, (x))
+    </me>
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        If the volume of <m>(M, g)</m> grow uniformly sub exponentially,
+        then the spectrum <m>\sigma (\Delta p )</m> of
+        <m>\Delta p</m> acting on <m>L^p (M)</m> is independent of <m>p \in [1, \infty)</m>.
+        In particular, it is a subset of the real line.
+      </p>
+      <p>
+        Note that by the Bishop volume comparison theorem, Ricci non-negative implies uniformly sub-exponentially volume growth.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The theorem can be proved using the resolvent estimates,
+    which are based on the previous heat kernel estimate.
+  </p>
+  <p>
+    We begin with the following.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        If the volume of <m>(M, g)</m> grows uniformly subexponentially,
+        then for any <m>\varepsilon > 0</m>
+        <me>
+          \sup_{x \in M} \int_M e ^{-\varepsilon d (x, y)} (v (B_1 (x))) ^{-\frac{1}{2}} ( v (B _1 (y))) ^{-\frac{1}{2}} d \nu (y) \lt  \infty
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \begin{proof} We take <m>r = d (x, y)</m>.
+    Then since
+    <me>
+      B_1 (y) \subset B_{r+1} (x)
+    </me>
+    we must have
+    <me>
+      \nu (B_1 (y)) ^{-\frac{1}{2}} \geq \nu (B_{r+1} (x)) ^{-\frac{1}{2}} \geq C e ^{-\frac{1}{2}(r+1)}\nu (B_1(x)) ^{-\frac{1}{2}}
+    </me>
+    for any <m>x</m>.
+    Thus the integration in the lemma if less than
+    <me>
+      C \int_M e^{-\varepsilon  r} \cdot e ^{\frac{1}{2}\varepsilon (r + 1)} \nu (B_1(x)) ^{-1} dy
+    </me>.
+  </p>
+  <p>
+    We let <m>f (r) = { vol} (\partial B_r (x))</m> and <m>F (r) = \int^r_0 f(t) \, dt</m>.
+    Then up to a constant, the above expression is less than
+    <me>
+      (\nu (B_1 (x)) ) ^{-1} \int^\infty_0 e ^{-\frac{1}{2}\varepsilon r} f (f) \, dr
+    </me>.
+  </p>
+  <p>
+    By volume comparison again <m>f(r) \leq c r ^{n-1} \nu (B _1 (x)) </m>.
+    The lemma follows.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        For any <m>\beta > 0</m>,
+        there is an <m>n \in N, \alpha \lt  0 , c \lt  \infty</m> such that the integral kernel
+        <m>g _\alpha ^{(\frac{n}{2})} (x, y)</m> of <m>(\Delta - \alpha) ^{-\frac{n}{2}}</m> exists and satisfies
+        <me>
+          g_\alpha ^{\frac{n}{2}} (x, y) \leq C e ^{-\beta d (x, y)} \phi(x)^2
+        </me>
+        where <m>\phi (x) = ( \nu (B_1 (x))) ^{-\frac{1}{2}}</m>.
+      </p>
+      <p>
+        The lemma was proved on page 67,
+        using the heat kernel estimates.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    Before going further,
+    let's make some remarks on the kernel of an operator.
+    Let <m>A</m> be an operator on functions.
+    If there is a function <m>g(x, y)</m> such that
+    <me>
+      A f (x) = \int_M g (x, y) f (y) \, dy
+    </me>
+    then we call <m>g (x, y)</m> the
+    <q>kernel</q>
+    of <m>A</m>.
+    However, in general, the kernel doesn't exist.
+  </p>
+  <p>
+    To see why the kernel in general does not exist,
+    we let <m>\xi \in \rho (\Delta )</m>.
+    To be more specific,
+    <m>\Delta</m> is an operator on <m>L^2 (M)</m> so we assume that <m>\xi \in \rho (\Delta_2)</m>.
+    The operator <m>( \Delta _2 - \xi) ^{-1}</m> is called the resolvent.
+    It is a bounded operator form
+    <m>L^2(M) \rightarrow L^2 (M)</m>. (By Hahn-Banach theorem,
+    it can be extended to whole <m>L^2(M)</m>.
+    However, in general, the kernel doesn't exist:
+    if not, we let <m>f_i \rightarrow \delta</m> be a sequence converges to the <m>\delta</m>-function in <m>L^1(M)</m> then
+    <m>\Delta _2f_i</m> could have been bounded.
+    We need an estimate to extend
+    <m>\Delta _2</m> from <m>L^2 (M)</m> to <m>L^1(M)</m>.
+  </p>
+  <p>
+    Lemma 2 told us that for <m>\alpha \lt 0 , (\Delta - \alpha ) ^{- \frac{n}{2}}</m> has a kernel.
+    The operator can be extended to <m>L^1(M)</m>.
+    Further more, the kernel exponentially decays.
+  </p>
+  <p>
+    The Laplacian we used here is the geometric Laplacian.
+    That is, it is a positive operator.
+  </p>
+  <p>
+    For our purpose,
+    we just need to prove <m>\sigma (\Delta _1) \subset \sigma (\Delta _2)</m>,
+    which is also the major part of the paper of Sturm.
+  </p>
+  <p>
+    Recall that <m>x \in (A)</m>, if,
+    <m>(A - x I ) ^{-1}</m> is a bounded operator.
+    We define the spectrum <m>\sigma (A) = \mathbb{R} - \rho (A)</m>.
+    Note that <m>\sigma (\Delta _2) \subset [ 0 , \infty)</m>.
+    Then for <m>\alpha \lt  0 , (\Delta _2 - \alpha I) ^{-1}</m> is bounded.
+    Since
+    <me>
+      \Delta - \alpha I = (\Delta - \zeta I) ( 1 - (\alpha - \zeta ) ( \Delta - \zeta I)^{-1})
+    </me>.
+    we have
+    <me>
+      (\Delta - \zeta I ) ^{-1} =   ( 1 - (\alpha - \zeta ) ( \Delta - \zeta )^{-1}  ( \Delta - \alpha I)^{-1}
+    </me>.
+    or for any <m>n</m>
+    <me>
+      ( \Delta - \zeta I ) ^{-n} =  ( 1 - (\alpha - \zeta ) ( \Delta - \zeta )^{-1})^n (\Delta - \alpha I) ^{-n}
+    </me>.
+  </p>
+  <p>
+    From the above identity,
+    the kernel for <m>(\Delta - \zeta I) ^{-n}</m> exists.
+    Let
+    <me>
+      A = ( 1 - ( \alpha - \zeta )( \Delta - \zeta )^{-1} )^n
+    </me>.
+  </p>
+  <p>
+    Then
+    <me>
+      A _x ( g _{\alpha} ^{(\frac{n}{2})} (x, y )
+    </me>
+    is a kernel of <m>(\Delta - \zeta I) ^{-n}</m>.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>g (x, y)</m> be the kernel of <m>(\Delta - \zeta I) ^{-n}</m>.
+        Then
+        <me>
+          |g (x, y)|\leq C e ^{- \varepsilon d (x, y)} \phi (x) \phi (y)
+        </me>
+        where <m>\phi (x) = v (B _1 (x))  ^{-\frac{1}{2}}</m>.
+      </p>
+      <p>
+        We omit the proof of the above lemma.
+        By Lemma 1,
+        <me>
+          \sup_x \int | g (x, y) \\, dy \lt  + \infty
+        </me>.
+      </p>
+      <p>
+        Thus <m>(\Delta _2 - \zeta )^{-n}</m> is an operator from <m>L^1 \rightarrow L^1</m>.
+      </p>
+      <p>
+        Since <m>\Delta _2</m> and
+        <m>\Delta _1</m> are the same acting on <m>C^\infty</m> functions,
+        <m>(\Delta _1 - \zeta )^{-n}</m> is a bounded operator from <m>L^1 (M) \rightarrow L^1 (M)</m>.
+      </p>
+    </statement>
+  </lemma>
+  <lemma>
+    <statement>
+      <p>
+        If <m>( \Delta_1 - \zeta) ^{-n}</m> is a bounded operator,
+        then <m>\zeta \in \rho (\Delta _1)</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \begin{proof} Since <m>( \Delta _1 - \zeta )^{-n}</m> is bounded,
+    there is a neighborhood of <m>\zeta</m> such that for any <m>\zeta^\prime</m> in the neighborhood,
+    <m>(\Delta _1 - \zeta ^\prime )^{-n}</m> is also bounded.
+    By
+    <me>
+      ( \Delta _1 - \zeta )^{-1} = ( \Delta _1 - \zeta^\prime )^{-1} ( 1 - ( \zeta - \zeta ^\prime )( \Delta _1 - \zeta^\prime  )^{-1}) ^{-1}
+    </me>
+    and the fact that the latter can be expended to a convergent series,
+    <m>( \Delta _1 - \zeta )^{-1}</m> is bounded in <m>L^\prime (M)</m>.
+    Thus <m>\zeta \in \rho (\Delta _1)</m>.
+  </p>
+  <p>
+    From the above lemma, we have
+    <me>
+      \sigma (\Delta _1) \subset \sigma (\Delta _2 ) \subset [ 0, \infty)
+    </me>.
+  </p>
+  <p>
+    The theorem thus follows from
+  </p>
+  <theorem>
+    <title>Wang</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold with non-negative Ricci curvature.
+        Then
+        <me>
+          \sigma (\Delta_1) = [0, \infty)
+        </me>.
+      </p>
+      <p>
+        Before giving the proof, we use the following theorem.
+      </p>
+    </statement>
+  </theorem>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete non-compact Riemannian manifold.
+        Ric<m>(M) \geq 0</m>.
+        Then
+        <me>
+          { vol} B_p (R) \geq C (n , { vol} B_p (1) ) R
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} Fixing <m>x_0 \in \partial B_p (R)</m>.
+    Using the comparison theorem, we have
+    <me>
+      \Delta p^2 \leq 2 n
+    </me>.
+  </p>
+  <p>
+    For any <m>\phi \in C^\infty _0 (M), \phi \geq 0</m>, we have
+    <me>
+      \int _M \phi \Delta \rho^2 \leq  2 n \int_M \phi
+    </me>.
+  </p>
+  <p>
+    We choose a standard cut-off function <m>\phi = \psi ( \rho (x))</m>, where
+    <me>
+      \psi (t) = \left\{ \begin{array}{ll} 1 \amp  0 \leq t \leq R - 1\\ \frac{1}{2} (R+1 - t), \amp  R-1 \leq t \leq R+1 \\ 0 \amp  t \geq R + 1 \end{array}  \right.
+    </me>.
+  </p>
+  <p>
+    By Stokes theorem
+    <md>
+      <mrow>\int_M \phi \Delta \rho^2 \amp  = \amp  - \int \nabla \phi \nabla \rho^2 = - 2 \int \psi ^\prime \rho |\nabla \rho| ^2</mrow>
+      <mrow>\amp  = \amp  \int_{Bx_{0} (R + 1) \backslash B x_{0} (R-1) } \rho</mrow>
+      <mrow>\amp  \geq \amp  (R - 1) { vol} ( x_0 (R+1) \backslash Bx_0 (R-1)) </mrow>
+    </md>.
+  </p>
+  <p>
+    Thus
+    <me>
+      (R-1) { vol} (B x_{0} (R+1)- B x_{0} (R-1) ) \leq 2 n \int \phi \leq 2 n \, { vol} B x_{0} (R+1)
+    </me>
+  </p>
+  <p>
+    Obviously
+    <me>
+      B_p (1) \subset B x_{0} (R+1) \backslash B x_{0} (R-1)
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      2 n\,  { vol} B x_{0} (R+1) \geq (R-1) { vol} B _p (1)
+    </me>.
+  </p>
+  <p>
+    Since <m>B_p (2 (R+1) \supset B x_{0} (R+1)</m>, we have
+    <md>
+      <mrow>2 n \, { vol} B _p(2 (R+1))\amp  \geq \amp  (R-1) { vol} B _p (1)</mrow>
+      <mrow>{ vol} B_p (2 ( R+1)) \amp  \geq \amp  \frac{R-1}{2n} { vol} B_p (1)</mrow>
+    </md>.
+  </p>
+  <p>
+    Wang modified the above argument and proved that
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        There is a constant <m>C(n)</m> such that for <m>a \leq r \leq R</m>
+      </p>
+    </statement>
+  </lemma>
+  <men>
+    V_q (r) \leq C \frac{r}{R} V_1 (R). \tag{$\star$}
+  </men>
+  <p>
+    If we choose <m>r = \varepsilon R</m> such that <m>C \varepsilon \lt  \frac{1}{2}</m>, we have
+    <me>
+      V_q (\varepsilon ) \lt  \frac{1}{2} V_q (R)
+    </me>
+  </p>
+  <p>
+    Furthermore, we have
+    <men>
+      A_q (\varepsilon r) \leq \frac{C}{R} (V_q (2r) - V_q (\varepsilon r)). \tag{$\star \star$}
+    </men>
+  </p>
+  <p>
+    This is inverse Laplacian comparison theorem!!!
+  </p>
+  <p>
+    We pick a cut-off function <m>\psi</m> such that <m>\psi (r) = 1</m> for
+    <m>2 \varepsilon \lt  r \lt  2 , \psi (r) = 0</m> for <m>r > 2 , r \lt  \varepsilon , 0 \leq \psi \leq 1, |\psi ^\prime |+| \psi ^{\prime \prime } \lt  C(s)</m>.
+    From now on, we fix <m>\varepsilon > 0</m>.
+    Let
+    <me>
+      \phi _k = \psi \left( \frac{r(x)}{k} \right) \sin \sqrt{\lambda} r
+    </me>.
+  </p>
+  <p>
+    Then <m>\{ \phi _k\}</m> forms an infinite dimensional vector space.
+  </p>
+  <p>
+    A straightforward computation gives
+    <me>
+      |\Delta \phi _k + \lambda \phi_k |\leq \frac{C}{k} + C | \Delta r|
+    </me>.
+  </p>
+  <p>
+    We have known <m>\Delta r \leq \frac{n-1}{r}</m>.
+    Thus
+    <me>
+      |\Delta r| \leqq \frac{n-1}{r} - \Delta r + \frac{n-1}{r} = \frac{2(n-1)}{r} - \Delta r
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <md>
+      <mrow>|\Delta \phi _k + \lambda \phi _k |\amp \leq\amp  \frac{C}{k} - \frac{C}{k} \Delta r</mrow>
+      <mrow>|\Delta \phi _k + \lambda \phi _k |_{L^\prime (M)}\amp \leq\amp  \frac{C}{k}   (V (2k) - V ( \varepsilon k)) - \frac{C}{k} \int_{B(2k) - B (\varepsilon k) }\Delta r</mrow>
+    </md>
+  </p>
+  <p>
+    On the other hand,
+    <me>
+      | \phi _k |_{L^{\prime}} \leq C ( V(k) - V ( \varepsilon k))
+    </me>.
+  </p>
+  <p>
+    By the volume comparison (<m>\star</m>)
+    <me>
+      \frac{C}{k}( V(2k) - V (2 (\varepsilon k)) \leq \frac{C}{k}|\phi _k |_{L^{\prime}}
+    </me>
+  </p>
+  <p>
+    On the other hand
+    <md>
+      <mrow>- \int_{B(2k) - B (\varepsilon k) }  = \amp  \int_{\partial B(\varepsilon k)  } 1 - \int_{\partial B(2k)   } 1</mrow>
+      <mrow>^ \leq \amp  \int_{\partial B(\varepsilon k) } 1 = A_q (\varepsilon k) </mrow>
+    </md>.
+  </p>
+  <p>
+    Using (<m>\star</m>)(<m>\star</m>),
+    we get the desired estimate.
+  </p>
+  <p>
+    Further readings:
+  </p>
+  <p>
+    Griffiths-Harris: Principle of algebraic geometry.
+  </p>
+</section>

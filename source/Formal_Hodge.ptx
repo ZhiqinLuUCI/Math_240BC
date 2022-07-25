@@ -1,0 +1,79 @@
+<section xml:id="Formal_Hodge">
+  <title>Formal Hodge Theorem</title>
+  <p>
+    The de Rham Theorem introduced in the last section is among the very fundamental results of compact manifolds.
+    However, in terms of the concrete computation of the cohomology groups,
+    they are not very efficient.
+    The elements of the groups are classes of differential forms.
+  </p>
+  <p>
+    The Hodge Theorem provides the way to pick up the best possible candidates in the classes.
+    It asserts that, among the class of the form <m>\omega+d\eta</m>,
+    there is a unique representative,
+    called the <em>harmonic form</em>,
+    which is better than other representatives of the class in the following sense.
+  </p>
+  <p>
+    We consider the following variational problem for a fixed element <m>[a]</m> of <m>\Lambda^p(M)</m>:
+    finding an <m>\eta_0</m> such that
+    <men xml:id="x2-1">
+      ||\eta_0||^2 =\underset{\eta\in[a]}{ inf}\,\int_X\langle\eta,\eta\rangle dV_g
+    </men>.
+  </p>
+  <p>
+    By definition, each <m>\eta\in [a]</m> can be represented by
+    <me>
+      \eta=\xi_0+d\xi_1
+    </me>.
+  </p>
+  <p>
+    If the space of <m>\xi_1</m> were of finite dimensional,
+    then since <m>||\eta||^2\geq 0</m>,
+    we could have found a <m>\xi_1'</m> such that
+    <me>
+      ||\xi_0+d\xi_1'||^2=\underset{\eta\in[a]}{ inf} ||\eta||^2
+    </me>,
+    and the variational problem<nbsp/><xref ref="x2-1"/> would have been solved.
+  </p>
+  <p>
+    Now let's <em>assume</em> that there is a unique <m>p</m> form <m>\eta_0</m> that solves problem<nbsp/><xref ref="x2-1"/>.
+    Let <m>\xi_1</m> be an arbitrary <m>p-1</m> form.
+    Then we have the inequality
+    <me>
+      ||\eta_0+\eps d\xi_1||^2\geq||\eta_0||^2
+    </me>.
+  </p>
+  <p>
+    Since <m>\eps</m> is arbitrary, we have
+    <me>
+      (\eta_0,d\xi_1)=0
+    </me>.
+  </p>
+  <p>
+    Then
+    <men xml:id="x2-2">
+      \delta\eta_0=0
+    </men>.
+  </p>
+  <p>
+    Then from<nbsp/><xref ref="x2-2"/>,
+    <m>\eta_0</m> is harmonic, i.e., <m>\Delta\eta_0=0</m>.
+    Thus the solution of the problem<nbsp/><xref ref="x2-1"/> must be harmonic.
+    For any element <m>\eta</m> in a fixed cohomologyical class <m>[a]</m>,
+    we have the following Hodge decomposition
+    <me>
+      \eta=\eta_0+d \eta_1
+    </me>,
+    where <m>\eta_0</m> is the harmonic form,
+    and <m>\eta_1</m> is a <m>p-1</m> form.
+    In general, for arbitrary <m>p</m> form <m>\eta</m>,
+    we have the following Hodge decomposition:
+    <me>
+      \eta=\eta_0+d\xi_1+\delta\xi_2
+    </me>,
+    where <m>\eta_0</m>, <m>\xi_1</m>,
+    and <m>\xi_2</m> are smooth <m>p</m>, <m>p-1</m>,
+    and <m>p+1</m> forms, respectively,
+    and <m>\eta_0</m> is harmonic.
+  </p>
+</section>

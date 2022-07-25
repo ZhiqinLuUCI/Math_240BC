@@ -1,0 +1,278 @@
+<section xml:id="Integration">
+  <title>Integration on manifolds</title>
+  <p>
+    Let <m>M</m> be an <m>n</m>-dimensional manifold and let <m>\omega</m> be an <m>n</m>-form on <m>M</m> with compact support.
+    The integration of <m>\omega</m> over <m>M</m> can be defined in the following way.
+  </p>
+  <p>
+    Let <m>\{ U_j\}</m> be a locally finite cover of <m>M</m> and let
+    <m>\{\rho_j\}</m> be the partition of unity subordinating to the cover.
+    That is
+    <ol>
+      <li>
+        <p>
+          <m>\rho_j\geq 0</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>{ supp}\,\rho_i\subset U_j</m> for all <m>j</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\sum _j\rho_j=1</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Then we can define
+    <me>
+      \int_M\omega=\sum_j\int_{U_j}\rho_j\omega
+    </me>,
+    where the right hand side is a sum of integrations on Euclidean space,
+    hence well defined.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove that the definition of integral is independent to the choices of cover and the partition of unity.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The definition of integration can be generalized to manifold with boundary.
+    A manifold with boundary is a topological space such that
+    <ol>
+      <li>
+        <p>
+          It  can be covered by  <m>\{U_j\}</m>,
+          where <m>U_j</m> is either the unit ball of <m>\mathbb R^n</m>,
+          or the upper half of the unit ball of <m>\mathbb R^n</m> defined by
+          <me>
+            \{(x_1,\cdots,x_n)\mid\sum x_i^2\lt 1,x_n\geq 0\}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The transition functions are smooth
+          (up to the boundary).
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Let <m>M</m> be a manifold with boundary.
+    Let <m>\pa M</m> be the boundary of <m>M</m>.
+    Then we have
+    <ol>
+      <li>
+        <p>
+          <m>\pa M</m> is a smooth manifold;
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\pa M</m> is a manifold without boundary.
+          That is <m>\pa\pa M=0</m>, or <m>\pa^2=0</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The theorem of partition of unity can be generalized into the following setting.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\{U_j\}_I</m> be a locally finite cover of <m>M</m>.
+        Then there exists a partition of unity subordinating to the cover <m>\{\rho_j\}</m>.
+        Moreover, let
+        <me>
+          J=\{j\in I\mid U_j\cap \pa M=\emptyset\}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \{U_j\cap\pa M\}_{j\in J},\qquad \rho_j|_{\pa M\cap U_j}
+        </me>
+        is a partition of unity subordinating to the corresponding cover.
+      </p>
+    </statement>
+  </theorem>
+  <exercise>
+    <statement>
+      <p>
+        Prove the above theorem.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    A manifold is called orientable,
+    if there is a cover <m>\{U_j\}</m> on <m>M</m> such that if
+    <m>x_j^1,\cdots,x_j^n</m> are the coordinates on <m>U_j</m>,
+    then we have
+    <me>
+      \det\frac{\pa (x_j^1,\cdots,x_j^n)}{\pa(x_i^1,\cdots,x_i^n)}>0
+    </me>
+    for any <m>U_i\cap U_j\neq\emptyset</m>.
+    Such a set of coordinate charts is called an orientation of the manifold.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        If <m>M</m> is an orientable manifold with boundary,
+        prove that <m>\pa M</m> is also an orientable manifold.
+      </p>
+    </statement>
+  </exercise>
+  <theorem>
+    <title>Stokes' Theorem</title>
+    <statement>
+      <p>
+        Let <m>M</m> be an orientable manifold with the given orientation.
+        Then there is a natural orientation on <m>\pa M</m> such that
+        <me>
+          \int_M d\omega=\int_{\pa M}\omega
+        </me>
+        for any <m>(n-1)</m> forms on <m>M</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\{U_i\}</m> be a locally finite cover and let
+      <m>\{\phi_i\}</m> be the partition of unity subordinating to the cover.
+      Since
+      <me>
+        d\sum_j\rho_j=0
+      </me>,
+      we have
+      <md>
+        <mrow>\amp \int_M d\omega=\sum_{j\in I}\int_{U_j}\rho_jd\omega=\sum_{j\in I}\int_{U_j}d(\rho_j\omega), \qquad and</mrow>
+        <mrow>\amp \int_{\pa M}\omega=\sum_{j\in J}\int_{\pa M\cap U_j}\rho_j\omega</mrow>
+      </md>.
+    </p>
+    <p>
+      The Stokes' theorem follows from the following statements:
+      <ol>
+        <li>
+          <p>
+            <me>
+              \int_{U_j}d(\rho_j\omega)=0,\qquad j\not\in J;
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            <me>
+              \int_{U_j}d(\rho_j\omega)=\int_{U_j\cap\{x_n=0\}}\rho_j\omega,\qquad j\in J
+            </me>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      In the first case,
+      we may assume that <m>U_j</m> is the unit ball of <m>\mathbb R^n</m>,
+      and <m>{ supp}\,(\rho_j\omega)\subset U_j</m>.
+      Write
+      <me>
+        \rho_j\omega=\sum_i (-1)^i f_i dx_1\wedge\cdots \hat{dx_i}\wedge\cdots\wedge dx_n
+      </me>,
+      where <m>\hat{}</m> means omit the term.
+      Then
+      <me>
+        \int_{U_j} d(\rho_j\omega)=\sum_{i=1}^n\frac{\pa f_i}{\pa x_i} dx_1\wedge\cdots\wedge dx_n
+      </me>.
+    </p>
+    <p>
+      Since <m>f_j</m> vanishes on the boundary of <m>\pa U_j</m>, we have
+      <me>
+        \int_{U_j}d(\rho_j\omega)=0
+      </me>
+      by the fundamental theorem of Calculus.
+    </p>
+    <p>
+      The proof of the second assertion is similar.
+      We assume that
+      <me>
+        U_j=\{(x_1,\cdots,x_n)\mid\sum x_j^2\lt 1, x_n\geq 0\}
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        d(\rho_j\omega)=\sum_{i=1}^n \frac{\pa f_i}{\pa x_i}dx_1\wedge\cdots\wedge dx_n
+      </me>.
+    </p>
+    <p>
+      If <m>i\neq n</m>, then
+      <me>
+        \int_{U_j}\frac{\pa f_i}{\pa x_i}dx_1\wedge\cdots\wedge dx_n=0
+      </me>.
+    </p>
+    <p>
+      With the appropriate orientation, we have
+      <me>
+        \int_{U_j}\frac{\pa f_n}{\pa x_n}dx_1\wedge\cdots\wedge dx_n=\int_{U_j\cap \{x_n=0\}} f_n dx_1\wedge\cdots\wedge d x_{n-1}
+      </me>.
+    </p>
+    <p>
+      The theorem follows from the above two equations.
+    </p>
+  </proof>
+  <exercise>
+    <statement>
+      <p>
+        Provided the details in the last part of the proof of Stokes' Theorem.
+      </p>
+    </statement>
+  </exercise>
+  <lemma>
+    <statement>
+      <p>
+        On an orientable Riemannian manifold, the <m>n</m>-form
+        <me>
+          \sqrt{\det(g_{ij})}\, dx_1\wedge\cdots\wedge dx_n
+        </me>
+        is globally defined.
+      </p>
+    </statement>
+  </lemma>
+  <definition>
+    <statement>
+      <p>
+        Let <m>f</m> be a smooth function with compact support in a Riemannian manifold.
+        Then
+        <me>
+          \int_M fdV_M=\int_M f\sqrt{\det(g_{ij})} \,dx_1\wedge\cdots\wedge dx_n
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <exercise>
+    <statement>
+      <p>
+        Let
+        <me>
+          X=\sum a^i\frac{\pa}{\pa x_i}
+        </me>
+        be a vector field of <m>M</m>.
+        The divergence of the vector field <m>X</m> is defined to be
+        <me>
+          { div}\, X=\sum_i\frac{\pa a^i}{\pa x^i}+\frac 12 a^i\frac{\pa}{\pa x_i}\log\det(g_{k\ell})
+        </me>.
+      </p>
+      <p>
+        Prove that
+        <me>
+          \int_M{ div}\, X dV_M=0
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+</section>

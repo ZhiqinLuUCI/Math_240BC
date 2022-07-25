@@ -1,0 +1,348 @@
+<section xml:id="Eigenvalue_gap">
+  <title>The lower bound of <m>\lambda_2 - \lambda _1</m></title>
+  <p>
+    Let <m>\Omega</m> be a smooth bounded domain in
+    <m>\mathbb{R}^n , \lambda _1 \lambda _2</m> be the first two eigenvalues with respect to the Dirichlet boundary condition.
+    Then
+    <me>
+      \lambda _2 - \lambda _1 \geq \frac{\bar{\pi}^2}{4 d ^2}
+    </me>
+    where <m>d</m> is the diameter.
+  </p>
+  <p>
+    \begin{proof} Let <m>u_2, u_1</m> be the second and the first eigenfunctions,
+    respectively.
+    By the variational principle,
+    we must have <m>u_1 (x) > 0</m>.
+    Furthermore, near the boundary,
+    we must have <m>\nabla u_1 (x) \neq 0</m>.
+    Thus the function
+    <me>
+      v = \frac{u_2}{u_1}
+    </me>
+    is smooth up to the boundary.
+    By a simple computation, we obtained
+    <me>
+      \Delta v = - \lambda v - 2 ( \nabla v \cdot \nabla \log u_1)
+    </me>
+    where <m>\lambda = \lambda _2 - \lambda _1 > 0</m>.
+    Let <m>G</m> be the function <m>\bar{\Omega} \rightarrow \mathbb{R}</m>
+    <me>
+      G = |\nabla v | ^2 + \lambda (u - v ) ^2 \; \mu > \sup v
+    </me>.
+  </p>
+  <p>
+    Then <m>G</m> is a smooth function.
+    Let <m>x_0 \in \bar{\Omega}</m> be the maximum point of <m>G</m>.
+    Then we claim that
+    <me>
+      G \leq \sup_{\Omega} \lambda ( u - v )^2
+    </me>.
+  </p>
+  <p>
+    In fact, if <m>x_0 \in \partial \Omega</m>.
+    By choosing an orthonormal frame
+    <m>\{ \ln_1 , \ldots, \ln_n \}</m> such that <m>\ln_1</m> be the out normal direction if we let <m>\frac{\ln_1}{\partial \Omega} = \frac{\partial }{\partial x _1}</m>.
+    Then
+    <me>
+      \frac{\partial G}{\partial x _1} (x_0)  = 2 \sum^n_{i=1} v_i v_{i1} -  2 \lambda v _1 (\mu - v )
+    </me>.
+  </p>
+  <p>
+    We claim that
+    <me>
+      \frac{\partial G}{\partial x _1} (x_0) \geq 0
+    </me>.
+  </p>
+  <p>
+    To see this,
+    we first observed that <m>\frac{\partial v }{\partial x _1} = 0</m>.
+    This can be proved using the variational principle.
+    Thus
+    <me>
+      \frac{\partial G}{\partial x _1} (x_0)  = 2 \sum^n_{i=2} v_i v_{i1}
+    </me>.
+  </p>
+  <p>
+    Using the definition of the second fundamental form, we get
+    <me>
+      v _{i1} = - \sum h_{ij} v _j
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      0 \leq \frac{\partial G}{\partial x _1} (x_0)  = -2 \sum   h_{ij} v_{j}
+    </me>.
+  </p>
+  <p>
+    Since <m>\Omega</m> is assumed to be convex, all <m>v_i = 0</m>.
+    Thus
+    <me>
+      G(x) \leq \sup_{x \in \bar{\Omega}} \lambda ( \mu - v )^2
+    </me>.
+  </p>
+  <p>
+    Next we assume that <m>x_0 \in \Omega</m>.
+    Then at the maximum point, we have
+    <me>
+      \nabla G (x_0) = 0 , \; \Delta G (x_0) \leq 0
+    </me>.
+  </p>
+  <p>
+    We apply the standard gradient estimate:
+    assume that at <m>x_o, \nabla v \neq 0</m>.
+    Then we have
+    <md>
+      <mrow>0 \amp = \amp G_i (x_0) = 2 v_j v_{ji} - 2  \lambda ( \mu - v ) v _i</mrow>
+      <mrow>0 \geq \Delta G \amp = \amp 2 \sum v ^2 _{ij} + 2 v _j v_{jii} + 2 \lambda \sum v ^2_i - 2 \lambda ( \mu - v) \sum v_{ii} </mrow>
+    </md>.
+  </p>
+  <p>
+    Since <m>\nabla v \neq 0</m>,
+    we can choose local orthonormal frame such that <m>v _1 \neq 0 , v _i = 0 (i > 1)</m>.
+    Thus at <m>x_0</m>, we have
+    <md>
+      <mrow>\amp \amp  v _{11} (x_0) = \lambda ( \mu - v )</mrow>
+      <mrow>\amp \amp  v_{i1} (x_0) = 0 \;  2 \leq i \leq n </mrow>
+    </md>.
+  </p>
+  <p>
+    Thus
+    <me>
+      0 \geq \Delta G = 2 \sum v^2_{ij} + 2 \lambda ( \mu - v) v - 4 v ^2_1 (\log u_1 ) _{11}
+    </me>.
+  </p>
+  <p>
+    Using a result of Brascamp and Lieb,
+    <m>\log u_1</m> is a concave function.
+    Thus <m>(\log u) _{11} (x_0) \leq 0</m>.
+    Thus
+    <me>
+      \sum v ^2 _{ij} + \lambda ^2 ( \mu - v) \nu \leq 0
+    </me>
+    or, in other words,
+    <me>
+      v^2_{11} + \lambda ^2 v (\mu - v ) |_{x_{0}} \leq 0
+    </me>.
+    which is not possible.
+    Thus we must have <m>\nabla v = 0</m> at <m>x_0</m> and thus
+    <me>
+      G(x) \leq \sup \lambda ( \mu - r) ^2
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \sqrt{\lambda} \geq \frac{|\nabla v |^2}{\sqrt{(\sup v - \inf v )^2 - (\sup v - v )^2}}
+    </me>.
+  </p>
+  <p>
+    Using the same method as in the estimate of the first eigenvalue, we get
+    <me>
+      \lambda _1 \geq \frac{\pi^2}{4d^2}
+    </me>.
+  </p>
+  <remark>
+    <p>
+      Using the method of Zhong-Yang, Zhong-Yu was able to modify the above estimate to
+      <me>
+        \lambda _2 - \lambda _1 \geq \frac{\pi^2}{d^2}
+      </me>.
+    </p>
+  </remark>
+  <p>
+    However, even the above estimate is not optimal.
+    Van de Berg
+    (see also Yau, Problem session)
+    conjectured that
+    <me>
+      \lambda _2 - \lambda _1 \geq \frac{3\pi^2}{d^2}
+    </me>.
+  </p>
+  <p>
+    The estimate is asymptotically accurate for a very thin rectangular.
+  </p>
+  <p>
+    Not much progress was made in the direction of this conjecture.
+    In JFA, 176, 368<ndash/>399 (2000).
+    Banuelos and Mendez-Hernandez proved that if <m>\Omega</m> is a convex domain in
+    <m>\mathbb{R} ^2</m> which is symmetric with respect to both <m>x</m>- and <m>y</m>-axises,
+    then the Van der Berg conjecture is true.
+  </p>
+  <p>
+    For a triangle, Lu and Rowlett proved the following.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\triangle</m> be a triangle and let
+        <m>d = d (\triangle)</m> be the diameter of <m>\triangle</m>.
+        That is, <m>d</m> is the longest side of the triangle.
+        Then <m>\forall  C > 0</m>.
+        <me>
+          ( \lambda _2 (\triangle ) - \lambda _1 (\triangle )) d^2 (\triangle ) \leq C
+        </me>
+        is a compact set.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      When a sequence of triangles doesn't converge,
+      then the smallest angle must go to zero.
+      We assume that the smallest angle is
+      <m>\alpha \pi</m> and we assume that the diameter <m>d = 1</m>.
+    </p>
+  </proof>
+  <figure>
+    <caption>Figure</caption>
+    \vspace{0.2in}
+  </figure>
+  <p>
+    The key part of the proof is the following cutting lemma.
+    Let <m>P_1, P_2</m> be two points on <m>BC</m> such that
+    <me>
+      | P_1 C| = \alpha ^3 , \; |P_2 C |= 2 \alpha ^\varepsilon
+    </me>
+    where <m>\varepsilon > \frac{2}{q}</m>.
+    For the sake of simplicity, we assume that <m>\lt  A CB = \pi/2</m>.
+    We are going to prove that the eigenvalues of <m>ABC</m> and <m>A \theta_2 P_2 C</m> are almost the same,
+    thus cutting an acute angle won't make too much difference.
+  </p>
+  <p>
+    We let <m>U - A \theta _1 P_1 C</m> and <m>U^\prime = A \theta _2 P_2 C</m>.
+  </p>
+  <p>
+    Let <m>f_i</m> be the eigenfunctions for <m>\lambda _i = \lambda _i (ABC), i = 1, 2</m>.
+    The height of <m>V = ABC \backslash U</m> is at most
+    <me>
+      ( 1 - \alpha ^\varepsilon ) \tan \alpha \pi\approx (1 - a ^\varepsilon ) a
+    </me>.
+  </p>
+  <p>
+    Above we have dropped a constant factor of <m>\pi</m> on the right side for simplicity in the arguments to follow.
+    By the one-dimensional Poincar&#xe9; inequality
+    <me>
+      \frac{\int _u {|\nabla f_i|^2}}{\int_V f_i^2 } \geq \frac{1}{( 1 - \alpha ^\varepsilon )^2 \alpha ^2} \frac{\int _{V^{\prime}}  |\nabla f_i|^2}{\int_{V^{\prime}} |f_i|^2 } \geq \frac{1}{( 1 - 2 d ^\varepsilon )^2 \alpha ^2}
+    </me>
+    where as before <m>V = ABC\backslash U , V ^\prime = ABC \backslash V^\prime</m>.
+  </p>
+  <p>
+    On the other hand, we always have
+    <me>
+      \frac{\int_u | \nabla f _i|^2}{\int_u f_i^2 } \geq \frac{1}{\alpha^2} , \; \frac{\int_{u^{\prime}} | \nabla f _i|^2}{\int_{u^{\prime}} f_i^2 }\geq \frac{1}{\alpha^2}
+    </me>.
+  </p>
+  <p>
+    We normalize <m>f_i</m> to be
+    <me>
+      \int_{ABC} f _i ^2 = 1
+    </me>.
+  </p>
+  <p>
+    Let
+    <me>
+      \int _V f_i^2 = \beta
+    </me>.
+  </p>
+  <p>
+    Then by the variational principle, we have
+    <me>
+      \frac{\beta}{(1- a ^{\varepsilon} )^2 \alpha ^2} + \frac{1-\beta}{\alpha ^2} \leq \int_V | \nabla f_i |^2 + \int_u |\nabla f _i |^2 = \lambda _i
+    </me>.
+  </p>
+  <p>
+    By the asymptotic estimate of the eigenvalues using the Bessel functions, we have
+    <me>
+      \lambda _i (ABC) \sim \frac{1}{\alpha^2} + \frac{C_2 }{\alpha ^\frac{4}{3}}
+    </me>.
+  </p>
+  <p>
+    Therefore we have
+    <me>
+      \beta \leq \frac{\alpha ^{\frac{2}{3}} C_2 ( 1 - \alpha ^\varepsilon )^2}{\alpha ^\varepsilon ( 2 - \alpha ^\varepsilon)} \leq \frac{C_2}{2} \alpha ^{\frac{2}{3} - \varepsilon}
+    </me>.
+  </p>
+  <p>
+    For simplicity in the arguments to follow,
+    we will replace the constant factor <m>C_2 / 2</m> by a constant factor 1, since we are considering <m>\alpha \rightarrow 0</m>.
+  </p>
+  <p>
+    Let <m>\rho</m> be a smooth compactly supported function so that
+    <me>
+      \rho |_v \equiv 1, \; \rho |_{v^{\prime }}  \equiv 0
+    </me>.
+  </p>
+  <p>
+    We may also assume that
+    <me>
+      | \nabla \rho | \leq \frac{1}{d ^\varepsilon} , |\Delta \rho |, | \Delta \rho^2 |\leq \frac{1}{d ^{ 2 \varepsilon }}
+    </me>.
+  </p>
+  <p>
+    For the arguments to follow,
+    we use the sign convention for Euclidean Laplacian so that
+    <m>- \Delta</m> has positive spectrum.
+    Note that
+    <me>
+      - ( \rho f_i) \Delta ( \rho f_i) = \lambda _i \rho ^2 f _i ^2 - f _i ^2 \rho \Delta \rho - 2 f _i \rho \nabla \rho \nabla f _i
+    </me>.
+  </p>
+  <p>
+    In the estimates to follow,
+    we will absorb all constants multiplying factors of <m>a ^\delta</m> for
+    <m>\delta > 0</m> into a factor of one,
+    since it is clear that as <m>\alpha \rightarrow 0</m>,
+    no generality is lost by this assumption.
+  </p>
+  <p>
+    1. Estimate for <m>\lambda _i (v ^\prime)</m>.
+    We may use <m>\rho f_i</m> as a test function for the Rayleigh quotient on
+    <m>v ^\prime</m> to estimate <m>\lambda _1 (v^\prime)</m> for above.
+    By (<m>\star</m>), we have
+    <me>
+      \lambda_1 (v ^\prime) \leq \lambda _1 (ABC) + \frac{\int_{v^{\prime}} - \rho \Delta \rho f _1^2 - 2 \rho \nabla \rho f _1 \nabla f_1}{\int _{v^{\prime}} \rho ^2 f ^2_1}
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      \int _{v^{\prime}} \rho \nabla \rho f _1 \nabla f_1 = \frac{1}{2} \int _{v^{\prime}} \nabla \rho^2 \nabla f_1^2 = - \frac{1}{2} \int _{v^{\prime}} \Delta \rho^2   f_1^2
+    </me>
+    and <m>\nabla \rho, \Delta \rho = 0</m> on <m>v</m>, we must have
+    <me>
+      \int _{u^{\prime}} -\rho \Delta \rho f _1^2 - 2  \rho\nabla \rho f_1  \nabla f _1 \leq  \frac{1}{d^{2 \varepsilon}} \int _{v^{\prime} - v}   f _1^2 \leq  \alpha ^{\frac{2}{3} - 3 \varepsilon}
+    </me>.
+  </p>
+  <p>
+    Noting that
+    <me>
+      \int _{u^{\prime}}  \rho ^2 f ^2_1 \geq \int_u \rho^2 f ^2_1 \geq 1 - \beta \geq 1 - \alpha ^{\frac{2}{3} - \gamma}
+    </me>
+    we then have
+    <me>
+      \lambda _1 (v^\prime) \leq \lambda _1 (ABC) + \frac{\alpha ^{\frac{2}{3} - 3 \varepsilon}}{1 - \alpha _{\frac{2}{3} - \varepsilon}} \leq \lambda _1 (ABC) + \alpha ^{ \frac{2}{3} -  3 \varepsilon}
+    </me>.
+  </p>
+  <p>
+    By modifying the above argument, we are able to prove that
+    <me>
+      \lambda _2 (v ^\prime) - \lambda _2 (ABC) \leq \alpha ^{ \frac{2}{3} -  3 \varepsilon}  + ( \lambda _2 - \lambda _1) \alpha ^{ \frac{2}{3} -  3 \varepsilon}
+    </me>.
+  </p>
+  <p>
+    Solving the above inequality, we have
+    <me>
+      \lambda _2 - \lambda _1 \geq \lambda _2 (v ^\prime) - \lambda _1 ( v ^\prime) - 0 (\alpha ^{ \frac{2}{3} -  3 \varepsilon} )
+    </me>.
+  </p>
+  <p>
+    By the gap theorem, and using the fact that the diameter of
+    <m>v ^\prime</m> is at most <m>4 \alpha ^\varepsilon</m>, we get
+    <me>
+      \lambda _2  (v ^\prime) - \lambda _1 ( v ^\prime)  \geq \frac{\pi^2}{16 \alpha ^{2 \varepsilon}}
+    </me>
+    the compactness theorem follows.
+  </p>
+</section>

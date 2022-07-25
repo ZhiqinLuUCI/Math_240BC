@@ -1,0 +1,584 @@
+<section xml:id="Eigenvalue">
+  <title>Eigenvalue</title>
+  <p>
+    We first make different notations of the Laplace operator.
+  </p>
+  <p>
+    We assume that <m>M</m> is a Riemannian manifold with the Riemannian metric
+    <me>
+      ds^2 = \sum g_{ij} d x _i d x _j
+    </me>.
+  </p>
+  <p>
+    Let <m>(g^{ij}</m>) be the inverse matrix of <m>(g_{ij}</m>) and let <m>g = { det}  (g_{ij})</m>.
+    Then under the local coordinates <m>(x _1, \ldots, x _n )</m>,
+    we define
+    <me>
+      \Delta = \frac{1}{\sqrt{g}} \frac{\partial }{\partial x_i} \left( g ^{ij} \sqrt{g} \frac{\partial }{\partial x_j} \right)
+    </me>.
+  </p>
+  <p>
+    Apparently, we can write
+    <me>
+      \Delta =   g^{ij}\frac{\partial^2 }{\partial x_i \partial x _j} +\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i} \left( g ^{ij} \sqrt{g} \right)\frac{\partial }{\partial x_j}
+    </me>.
+  </p>
+  <p>
+    As before, we have the following computation
+    <md>
+      <mrow>\lefteqn{\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i}  ( g^{ij} \sqrt{g} )}</mrow>
+      <mrow>\amp \amp  = \frac{1}{2} g^{ij} \frac{\partial}{\partial x_i} \log g + \frac{\partial }{\partial x_i}  g ^{ij}</mrow>
+      <mrow>\amp \amp  = \frac{1}{2} g^{ij}g^{kl}\frac{\partial g _{kl} }{\partial x_i} - g^{in} g^{jm} \frac{\partial g _{mn} }{\partial x_i}</mrow>
+      <mrow>\amp \amp  = - g^{kl} \Gamma ^j _{kl} </mrow>
+    </md>.
+  </p>
+  <p>
+    Thus we also have the following formula
+    <me>
+      \Delta = g^{ij}   \frac{\partial^2 }{\partial x_i \partial x _j} - g ^{kl} \Gamma ^j_{kl}  \frac{\partial }{\partial x_j}
+    </me>.
+  </p>
+  <p>
+    From the above representation,
+    we have the following third formula for the Laplace operator.
+  </p>
+  <p>
+    Let <m>ds^2 = \sum^n _{j=1} \omega ^2_j</m>.
+    With respect to the frame,
+    the connection <m>(\omega _{ij} )</m> is well-defined.
+    We are above the define the covariant derivatives of a function like the following
+    <md>
+      <mrow>df \amp  = \amp  f _i \omega _i</mrow>
+      <mrow>f_{ij} \omega _j \amp  = \amp  d f _i - f _s \omega _{si}</mrow>
+    </md>.
+  </p>
+  <p>
+    Using the above notations, we can define
+    <me>
+      \Delta f = \sum^n_{i=1} f _{ii} = \sum _i \nabla _i \nabla _i f
+    </me>.
+  </p>
+  <p>
+    Finally, we can define the Laplace operator on <m>p</m>-forms as follows:
+  </p>
+  <p>
+    Let <m>d : \wedge ^p (M) \rightarrow \wedge^{p+1} (M)</m> be the ordinary differential operator,
+    where <m>\wedge ^p(M)</m> be the space of smooth <m>p</m>-forms.
+    With respect to the Riemannian metric,
+    <m>\wedge^p(M)</m> becomes an infinite dimensional inner product space.
+  </p>
+  <p>
+    Let <m>\delta</m> be the formal dual operator with respect to <m>d</m>.
+    Then
+    <me>
+      \delta: \wedge ^p(M) \rightarrow   \wedge ^{p-1} (M)
+    </me>.
+  </p>
+  <p>
+    We can <em>prove</em> that <m>\delta</m> is also a differential operator of first order.
+    The Laplace operator can be defined as
+    <me>
+      \Delta = d \delta + \delta d
+    </me>.
+  </p>
+  <p>
+    In particular, on the space of functions, or <m>0</m>-forms,
+    <me>
+      \Delta = \delta d
+    </me>.
+  </p>
+  <p>
+    We have the following:
+  </p>
+  <theorem>
+    <title>Weitzenb&#xf6;ck formula</title>
+    <statement>
+      <p>
+        For function <m>f</m>, we have
+        <me>
+          \Delta f = \delta d f = - \sum \nabla _i\nabla_i f
+        </me>.
+      </p>
+      <p>
+        In general, we have the following
+        <me>
+          \Delta = - \sum \nabla _i \nabla _i +  \ \mbox{curvature terms}
+        </me>
+        which is also called Weizenb&#xf6;ck formula.
+      </p>
+      <p>
+        We go back to the Laplacian on functions.
+        We know that <m>\Delta = \sum \nabla _i \nabla _ i</m> is well-defined on <m>C^\infty (M)</m>.
+      </p>
+      <p>
+        Unfortunately, with the following <m>L^2</m>-inner product
+        <me>
+          \langle f \cdot g \rangle = \int _M fg d V
+        </me>
+      </p>
+      <p>
+        <m>C^\infty</m> (M) is not a complete metric space.
+        The complete metric space is <m>L^2(M)</m>.
+        However, there is no way that we can extend <m>\Delta</m> on <m>L^2(M)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The key point is that any differential operator is a closed-graph operator.
+      Thus if <m>\Delta</m> is extendable,
+      then by ***, <m>\Delta</m> has to be a bounded operator,
+      as by the example of Heaviside function.
+    </p>
+  </proof>
+  <figure>
+    <caption>Heaviside Function</caption>
+    \vspace{0.2in}
+  </figure>
+  <p>
+    Thus we can only extend the operator into a densely defined self-adjoint operator.
+  </p>
+  <p>
+    Recall that an operator <m>\Delta</m> is self-adjoint if
+    <me>
+      { Dom} (\Delta) = { Dom} ( \Delta ^\ast)
+    </me>
+    and
+    <me>
+      \langle \Delta f , g \rangle = \langle f, \Delta g \rangle
+    </me>
+    for any <m>f, g \in { Dom} (\Delta)</m>.
+  </p>
+  <p>
+    In functional analysis, we have the following theorem.
+    Let
+    <me>
+      Q (\phi, \psi)= \int \nabla \phi \nabla \psi
+    </me>.
+  </p>
+  <p>
+    Then <m>Q</m> is a non-negative quadratic form defined on <m>H^1_0 (M)</m>.
+    Then there is a unique densely defined operator <m>A</m> such that
+    <me>
+      Q (\phi, \psi) = - ( A \phi , \psi)
+    </me>.
+  </p>
+  <p>
+    Such an operator <m>A</m> is in fact called the Dirichlet Laplacian operator.
+  </p>
+  <p>
+    As an exercise,
+    we prove that on an only manifold <m>L^2</m> harmonic function must be constant. \end{proof}
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> be the Dirichlet extension of the Laplacian <m>\Delta</m>.
+        A function <m>f</m> is called <m>A</m>-harmonic,
+        if <m>f \in { Dom} (A)</m> and <m>A f = 0</m>.
+        If <m>f \in L^2 (M)</m>, then <m>f</m> is a constant.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The key point is that
+      <me>
+        Q (\rho ^2 f, f) = Q \langle  \rho^2 f , \Delta f \rangle = 0
+      </me>.
+    </p>
+    <p>
+      Thus using the same method as before, <m>f</m> is a constant.
+      If <m>M</m> is a compact manifold with no boundary,
+      we still use <m>\Delta</m> to denote the Dirichlet extension of the Laplace operator.
+      By the elliptic regularity, the spectrum of <m>\Delta</m> are discrete.
+      That is, there is a sequence
+      <me>
+        0 = \lambda _0 \lt  \lambda _1  \leq \lambda _2 \leq \ldots
+      </me>
+      such that for any <m>\lambda_i</m>,
+      there <m>\exists f_i , f _i \in L^2</m>
+      <me>
+        \Delta f _i = - \lambda _i f_i
+      </me>.
+    </p>
+    <p>
+      We have similar results for manifolds with boundary conditions.
+      To be more precise,
+      the Laplacians acting on functions with the following boundary conditions.
+      <ol>
+        <li>
+          <title>(A)</title>
+          <p>
+            Dirichlet boundary condition:
+            <m>\Delta</m> acting on <m>f</m> vanishing on the boundary.
+          </p>
+        </li>
+        <li>
+          <title>(B)</title>
+          <p>
+            Neumann boundary condition:
+            <m>\Delta</m> acting on functions such that <m>\frac{\partial f}{\partial n} = 0</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      For eigenvalues, we have the following minimax principle.
+      Assume that <m>M</m> is a closed manifold, then
+      <me>
+        \lambda _1 = \inf_{\int f = 0 } \frac{\int |\nabla f|^2}{\int f^2}
+      </me>.
+    </p>
+    <p>
+      To prove the above result,
+      we let <m>\phi</m> be any smooth function such that
+      <me>
+        \int_M \phi = 0
+      </me>.
+    </p>
+    <p>
+      Then by the definition of <m>\lambda _1</m>, we have
+      <me>
+        \frac{\int | \nabla (f + \varepsilon \phi )|^2}{\int (f + \varepsilon \phi )^2} \geq \lambda _1
+      </me>.
+    </p>
+    <p>
+      However, if we take the first order term, we get
+      <me>
+        \int (\delta f + \lambda _1 f ) \phi = 0
+      </me>.
+    </p>
+    <p>
+      Note that
+      <me>
+        \int (\Delta f + \lambda _ 1 f ) = 0
+      </me>.
+    </p>
+    <p>
+      Then
+      <me>
+        \Delta f + \lambda _1 f \equiv 0
+      </me>
+      and <m>\lambda _ 1</m> is the first eigenvalue.
+    </p>
+    <p>
+      By elliptic regularity, <m>\lambda _ 1 > 0</m>.
+      Thus we have the following Poincar&#xe9;-inequality:
+      there exists a constant <m>C</m>, such that
+      <me>
+        \int | \nabla f |^2 \geq C \int f^2
+      </me>
+      for any function with
+      <me>
+        \int _M f = 0
+      </me>.
+    </p>
+    <p>
+      Before going further, let's prove the following co-area formula.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold with boundary.
+        Let <m>f \in H^\prime (M)</m>.
+        Then
+        <me>
+          \int _M g = \int ^{+ \infty}_{-\infty} \int _{ \{ f = 0 \}} \frac{g}{| \nabla f |} d \sigma
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} Without loss of generality,
+    we assume that <m>| \nabla f | \neq 0</m>.
+    Thus by the implicit function theorem
+    <m>\{ f = \sigma \}</m> is a smooth manifold.
+  </p>
+  <p>
+    Using the cut-off function,
+    we may assume that <m>{ supp}\,  g</m> is contained in a coordinate chart.
+    Thus we may assume that the Riemannian metric is given under the global coordinates <m>(x_1, \ldots,
+    x _n)</m> as follows
+    <me>
+      d s^2 = \sum g _{ig} d x _i ds _j
+    </me>
+    by definition
+    <me>
+      \int _M g = \int_M g \sqrt{{ det} (g _{ij} ) } \ dx_1, \ldots, dx _n
+    </me>.
+  </p>
+  <p>
+    Since <m>\nabla f \neq 0</m>, we can solve the equation
+    <me>
+      f = \sigma
+    </me>
+    by
+    <me>
+      x_1 = x_1 (\sigma , x_2, \ldots, x_n)
+    </me>
+    or in other words, by the implicit function theory
+    <m>(\sigma,
+    x_2 , \ldots, x_n )</m> is a local coordinate system as well.
+    The Jacobian of the transformation is
+    <me>
+      d x_1 \wedge \ldots \wedge d x _n = \frac{\partial x _1}{\partial \sigma} d \sigma \wedge d x_2 \wedge \ldots \wedge d x_n
+    </me>.
+  </p>
+  <p>
+    On the other side, restricting to <m>f = \sigma</m>,
+    the Riemann metric can be written as
+    <me>
+      \left(g_{11} \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} + g_{1l} \frac{\partial x _1}{\partial x_l } + g _{k1} \frac{\partial x _1}{\partial x_k} + g _{kl}\right) \, d x _k d x _l
+    </me>.
+  </p>
+  <p>
+    If we choose local coordinates such that <m>g_{kl} = \delta _{kl}</m>.
+    Then we have
+    <me>
+      \left( \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} + \delta _{kl} \right) \, d x_k dx_l
+    </me>.
+  </p>
+  <p>
+    The volume form of the above is
+    <md>
+      <mrow>\lefteqn{{ det} \left( \delta _{kl} + \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} \right) = 1 + \sum \left|\frac{\partial x _1}{\partial x_k}\right| ^2}</mrow>
+      <mrow>\amp \amp  = \frac{1}{| \frac{\partial f}{\partial x_1}|^2} \sum\left|\frac{\partial f}{\partial x_k}\right|^2 = \frac{|\nabla f |^2}{ | \frac{\partial f}{\partial x_1} | ^2} </mrow>
+    </md>.
+  </p>
+  <p>
+    Thus we have
+    <md>
+      <mrow>\int_M g \amp  = \amp  \int_M g \sqrt{{ det} (g_{ij})} d x _1 \ldots d x _n</mrow>
+      <mrow>\amp = \amp  \int_M \sqrt{{ det} (g_{ij})} \frac{\partial x_1}{\partial \sigma} d \sigma  \wedge d x_2 \ldots \wedge d x _n </mrow>
+    </md>.
+  </p>
+  <p>
+    By (<m>\triangle</m>), we must have
+    <me>
+      d V ds^2 = d V _{f = \sigma} \cdot  \frac{     \left|\frac{{\partial f }}{{\partial x_i}}\right|}{| \nabla f |}
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \int_M g = \int ^{+ \infty}_{-\infty} \left( \int _{f=\sigma} \frac{g}{|\nabla f|}\right) d \sigma
+    </me>.
+  </p>
+  <p>
+    Of course, in general, there are points such that <m>\nabla f = 0</m>.
+    But by a theorem of Sand, the set
+    <me>
+      \left\{ yf(y) | \nabla f (y) = 0 \right\}
+    </me>
+    is of zero measure.
+    Using the standard covering technique,
+    we can prove the same result.
+  </p>
+  <p>
+    As an application of the above co-area formula,
+    we prove the following result of Sobolev inequality.
+  </p>
+  <p>
+    <em>Sobolev inequality.</em> Let <m>M</m> be a compact manifold with boundary.
+    Then there is a constant <m>C> 0</m> such that
+    <me>
+      C \left( \int_M |f| ^{\frac{n}{n-1}} \right)^{\frac{n-1}{n}}\leq \int_M |\nabla f |
+    </me>
+    for any smooth function <m>f /2M = 0</m> (<m>D</m>-condition) or <m>\int f = 0</m> (Neumann condition).
+  </p>
+  <p>
+    <em>Isopermetric inequality.</em>
+    Let <m>\Omega</m> be a domain in <m>M, \Omega \subset \subset M</m>.
+    Then there is a constant independent to <m>\Omega</m> such that
+    <me>
+      C { vol} (\Omega ) ^{\frac{n-1}{n}} \leq { vol} (\partial \Omega)
+    </me>.
+  </p>
+  <p>
+    We want to prove that the Isopermetric inequality is equivalent to the Sobolev inequality.
+  </p>
+  <p>
+    At least one-side of the implication was clear:
+    assuming the Sobolev inequality, if we let
+    <me>
+      f _\varepsilon (x) = \left\{ \begin{array}{cl} 1 \amp  x \in \Omega , \ d (x , \partial \Omega ) \geq \varepsilon \\ \frac{d(x, \partial \Omega }{\varepsilon} \amp  x \in \Omega , \ d (x , \partial \Omega ) \leq \varepsilon\\ 0 \amp   { otherwise} \end{array}  \right\}
+    </me>.
+  </p>
+  <p>
+    Then using the Sobolev inequality,
+    the isopermetric inequality follows by letting <m>\varepsilon \rightarrow 0</m>.
+  </p>
+  <p>
+    In order to prove that the isopermetric inequality implies the Sobolev inequality,
+    we use the co-area formula.
+    We assume that <m>f \geq 0</m>.
+    Then
+    <me>
+      \int_M | \nabla f| = \int ^\infty_0  \ \mbox{Area}  \  (f = \sigma ) \, d \sigma
+    </me>.
+  </p>
+  <p>
+    We also have
+    <md>
+      <mrow>\int_M |f|  ^{\frac{n}{n-1}} \amp  =\amp  \int ^\infty_0 { vol} ( f ^{\frac{n}{n-1}}> \lambda ) \, d \lambda</mrow>
+      <mrow>\amp  = \amp   \frac{n}{n-1}\int^\infty_0 { vol} (f > \sigma ) \sigma ^{\frac{n}{n-1}} d \sigma </mrow>
+    </md>.
+  </p>
+  <p>
+    Using the isopermetric inequality, we have
+    <me>
+      \int_M |\nabla f| = \int ^\infty _0 { Area} (f = \sigma ) \, d \sigma \geq C \int^\infty _0 { vol} (f > \sigma ) ^{\frac{n}{n-1}} d \sigma
+    </me>.
+  </p>
+  <p>
+    Thus in order to prove the Sobolev inequality,
+    we just need to prove that
+    <me>
+      \int ^\infty _0   { vol} (f > \sigma ) ^{\frac{n}{n-1}} d \sigma \geq C \left( \int ^\infty _0 { vol}  (f > \sigma ) \sigma ^{\frac{n}{n-1}} d \sigma \right) ^{\frac{n}{n-1}}
+    </me>.
+  </p>
+  <p>
+    We let
+    <md>
+      <mrow>F(\sigma) \amp  = \amp  { vol} (f > \sigma)</mrow>
+      <mrow>\phi (t) \amp  = \amp  \int^t_0 F(\sigma) ^{\frac{n}{n-1}} d \sigma</mrow>
+      <mrow>\psi (t) \amp  = \amp   \left( \int ^t _0 F(sigma ) \sigma ^{\frac{n}{n-1}} d \sigma \right) ^{\frac{n-1}{n}}</mrow>
+    </md>.
+  </p>
+  <p>
+    Then <m>\phi (0) = \psi (0)</m>.
+    Using the monotonicity of <m>F(\sigma)</m> we can prove that
+    <me>
+      \phi ^\prime (t) \geq  \frac{n}{n-1} \psi^\prime (t)
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \phi (\infty) \geq \frac{n}{n-1} \psi (\infty)
+    </me>.
+  </p>
+  <corollary>
+    <statement>
+      <me>
+        \left( \int  f  ^{\frac{n-p}{np}}\right) ^{\frac{np}{n-p}}  \leq C\left( \int |\nabla f |^p \right) ^{\frac{1}{p}}
+      </me>
+      <p>
+        for any <m>p > 1</m>.
+      </p>
+    </statement>
+  </corollary>
+  <definition>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold if <m>\partial M \neq \emptyset</m>.
+        <me>
+          h_D (M) = \inf \left\{ \left.\frac{{ vol} ( \partial \Omega )}{{ vol} ( \Omega)} \right| \Omega \subset \subset M\right\}
+        </me>
+        if <m>\partial M = \emptyset</m>.
+        <me>
+          h_N = \inf  \left\{ \left.\frac{{ vol}( H )}{\min ({ vol} (M_1), { vol} (M_2) )} \right| H \ \mbox{is a hypersurface}  \right\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <theorem>
+    <title>Cheeger</title>
+    <statement>
+      <p>
+        For Dirichlet condition, we have
+        <me>
+          \lambda _ 1 \geq \frac{1}{4} h^2_D
+        </me>.
+      </p>
+      <p>
+        For Neumann condition
+        <me>
+          \lambda _1 \geq \frac{1}{4} h^2_N (M)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We only prove the case for Dirichlet condition.
+      We first observe that, if there is a constant <m>\mu</m> such that
+      <me>
+        \int_M |\nabla \phi | \geq \mu \int_M |\phi |
+      </me>
+      for any <m>\phi</m> with <m>\phi |_{\partial M} = 0</m>.
+      Then <m>\lambda _1 \geq \frac{1}{4} \mu^2</m>.
+      To see this, we consider <m>\phi = f^2</m>
+      <me>
+        \mu \int _M f^2 \leq 2 \int_M |f| | \nabla f|\leq 2 \left( \int_M f^2 \right) ^{\frac{1}{2}} \left( \int |\nabla f|^2 \right) ^{\frac{1}{2}}
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        \frac{1}{4} \mu^2 \int_M f ^2 \leq \int_M | \nabla f|^2
+      </me>.
+    </p>
+    <p>
+      Since the above is true for any function <m>f</m>, we must have
+      <me>
+        \lambda _1 \geq \frac{1}{4} \mu ^2
+      </me>.
+    </p>
+    <p>
+      Finally, we prove a result which is well known but can't readily be found in the literature.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact manifold with smooth boundary.
+        Let
+        <me>
+          M_1 = \inf_{\int f = 0} \frac{\int | \nabla f|^2}{\int f ^2}
+        </me>.
+      </p>
+      <p>
+        Then we have the following result:
+        let <m>f</m> be a minimizer, and let <m>f</m> be smooth.
+        Then
+        <me>
+          \frac{\partial f }{\partial n} = 0
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\phi</m> be a smooth function with compact support such that
+      <me>
+        \int \phi = 0
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        \int |\nabla (f + \varepsilon \phi )|^2 \geq \mu_1 \int (f + \varepsilon \phi )^2
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \int \nabla f \nabla \phi = - \mu _1 \int_M f \phi
+      </me>.
+      by Green's formula
+      <me>
+        \int_M \nabla f \nabla \phi - \int _{\partial M} \phi \frac{\partial f }{\partial n} - \int_M \Delta f \phi
+      </me>.
+    </p>
+    <p>
+      Thus since <m>\Delta f = - \mu_1 f</m>, we have
+      <me>
+        \int_{\partial M} \phi\frac{\partial f }{\partial n}  = 0
+      </me>
+      and we must have <m>\frac{\partial f }{\partial n}  = 0</m>.
+    </p>
+  </proof>
+</section>

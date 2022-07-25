@@ -1,0 +1,8 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Laplacian">
+  <title>The Laplacian</title>
+  <xi:include  href="Laplace_operator.ptx"/>
+  <xi:include  href="Operator_extension.ptx"/>
+  <xi:include  href="Var_principle.ptx"/>
+  <xi:include  href="Weyl_criteria.ptx"/>
+  <xi:include  href="Inequalities.ptx"/>
+</chapter>

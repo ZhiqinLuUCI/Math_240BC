@@ -1,0 +1,701 @@
+<section xml:id="Lp_spectrum">
+  <title>The <m>L^p</m>-spectrum of the Laplacian</title>
+  <subsection>
+    <title>The Laplacian on <m>L^p</m> space</title>
+    <introduction>
+      <definition>
+        <statement>
+          <p>
+            A one-parameter semi-group on a complex Banach space <m>B</m> is a family <m>T_t</m> of bounded linear operators,
+            where <m>T_t: B\rightarrow B</m> parameterized by real numbers
+            <m>t\geqslant 0</m> and satisfies the following relations:
+            <ul>
+              <li>
+                <title>\ding{172}</title>
+                <p>
+                  <m>T_0 = 1</m>;
+                </p>
+              </li>
+              <li>
+                <title>\ding{173}</title>
+                <p>
+                  If <m>0\leqslant s_1 t \lt  +\infty</m>, then
+                  <me>
+                    T_s T_t = T_{s+t}
+                  </me>
+                </p>
+              </li>
+              <li>
+                <title>\ding{174}</title>
+                <p>
+                  The map
+                  <me>
+                    t_1 f \mapsto T_t f
+                  </me>
+                  from <m>[0, +\infty)\times B</m> to <m>B</m> is jointly continuous.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </definition>
+      <p>
+        The (infinitesimal) generator <m>Z</m> of a one-parameter semi-group <m>T_t</m> is defined by
+        <me>
+          Zf = \lim_{t\rightarrow 0^+} t^{-1}(T_t f - f)
+        </me>
+      </p>
+      <p>
+        The domain <m>Dom(Z)</m> of <m>Z</m> being the set of <m>f</m> for which the limit exists.
+        It is evident that <m>Dom(Z)</m> is a linear space.
+        Moreover, we have
+      </p>
+      <lemma>
+        <statement>
+          <p>
+            The subspace <m>Dom(Z)</m> is dense in <m>B</m>,
+            and is invariant under <m>T_t</m> in the sense that
+            <me>
+              T_t(Dom(Z)) \subset Dom(Z)
+            </me>
+            for all <m>t\geqslant 0</m>.
+            Moreover
+            <me>
+              T_t Zf = ZT_t f
+            </me>
+            for all <m>f\in Dom(Z)</m> and <m>t \geqslant 0</m>.
+          </p>
+        </statement>
+      </lemma>
+      <proof>
+        <p>
+          If <m>f\in B</m>, we define
+          <me>
+            f_t = \int_0^t T_x fdx
+          </me>
+        </p>
+        <p>
+          The above integration exists in the following sense:
+          since <m>T_x f</m> is a continuous function of <m>x</m>,
+          we can define the integration as the limit of the corresponding Riemann sums.
+          In a Banach space,
+          absolute convergence implies the conditional convergence.
+          Thus in order to prove the convergence of the Riemann sums,
+          we only need to verify that
+          <me>
+            \int_0^t \|T_x f\|dx
+          </me>
+          is convergent.
+          But this follows easily from the joint continuity in the definition of semi-group.
+          <m>\|T_x f\|</m> must be uniformly bounded for small <m>x</m>.
+        </p>
+        <p>
+          We compute
+          <md>
+            <mrow>\nonumber \amp  \amp  \lim_{h\rightarrow 0^+} h^{-1} (T_h f_t - f_t)</mrow>
+            <mrow>\nonumber \amp  = \amp  \lim_{h\rightarrow 0^+}\left\{h^{-1}\int_h^{t+h} T_x fdx - h^{-1}\int_0^t T_xfdx\right\}</mrow>
+            <mrow>\nonumber \amp  = \amp  \lim_{h\rightarrow 0^+}\left\{h^{-1}\int_t^{t+h} T_x fdx - h^{-1}\int_0^h T_xfdx\right\}</mrow>
+            <mrow>\nonumber \amp  = \amp  T_t f - f</mrow>
+          </md>
+        </p>
+        <p>
+          Therefore, <m>f_t \in Dom(Z)</m> and
+          <me>
+            Z(f_t) = T_t f - f
+          </me>
+        </p>
+        <p>
+          Since <m>t^{-1}f_t \rightarrow f</m> in norm as <m>t\rightarrow 0^+</m>,
+          we see that <m>Dom(Z)</m> is dense in <m>B</m>.
+        </p>
+      </proof>
+      <p>
+        The generator <m>Z</m>, in general,
+        is not a bounded operator.
+        However, we can prove the following
+      </p>
+      <lemma>
+        <statement>
+          <p>
+            The generator <m>Z</m> is a closed operator.
+          </p>
+        </statement>
+      </lemma>
+      <proof>
+        <p>
+          We first observe that
+          <me>
+            T_t f - f = \int_0^t T_x Z f dx
+          </me>
+          if <m>f\in Dom(Z)</m>.
+          To see this,
+          we consider the function <m>r(t) = T_t f - f - \int_0^t T_x Zfdx</m>.
+          Obviously we have <m>r(0) = 0</m>, and <m>r'(t)\equiv 0</m>.
+          Thus <m>r(t)\equiv 0</m>.
+        </p>
+      </proof>
+      <p>
+        Using the above formula, we have
+        <me>
+          T_f f - f = \lim_{n\rightarrow\infty}(T_t f_n - f_n) = \lim_{n\rightarrow\infty} \int_0^t T_x Z f_n dx
+        </me>
+      </p>
+      <p>
+        By the Lebegue theorem, the above limit is equal to
+        <me>
+          \int_0^t T_x g dx
+        </me>
+      </p>
+      <p>
+        Thus we have
+        <me>
+          \lim_{t\rightarrow 0^+}t^{-1}(T_t f - f) = g
+        </me>
+        and therefore <m>f\in Dom(Z)</m>, <m>Zf = g</m>.
+      </p>
+      <lemma>
+        <statement>
+          <p>
+            If <m>B</m> is a Hilbert space,
+            then <m>Z</m> must be densely defined and self-adjoint.
+          </p>
+        </statement>
+      </lemma>
+      <p>
+        Let <m>M</m> be a manifold of dimension <m>n</m>,
+        not necessarily compact or complete.
+        The semi-group can formally be defined as
+        <me>
+          e^{\Delta t}
+        </me>
+      </p>
+      <p>
+        More precisely, the following result is true
+      </p>
+      <theorem>
+        <statement>
+          <p>
+            Let <m>M</m> be a manifold, then there is a heat kernel
+            <me>
+              H(x,y,t) \in C^{\infty}(M\times M\times \mathbb{R}^t)
+            </me>
+            such that
+            <me>
+              (T_t f)(x) = \int_M H(x,y,t)f(y)dy
+            </me>
+            satisfying
+            <ul>
+              <li>
+                <title>\ding{172}</title>
+                <p>
+                  <m>H(x,y,t) = H(y,x,t)</m>.
+                </p>
+              </li>
+              <li>
+                <title>\ding{173}</title>
+                <p>
+                  <m>\lim_{t\rightarrow 0^+} H(x,y,t) = \delta_x(y)</m>.
+                </p>
+              </li>
+              <li>
+                <title>\ding{174}</title>
+                <p>
+                  <m>(\Delta - \frac{\partial}{\partial t})H = 0</m>.
+                </p>
+              </li>
+              <li>
+                <title>\ding{175}</title>
+                <p>
+                  <m>H(x,y,t) = \int_M H(x,z,t-s)H(z,y,s)dz</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        In [Getzler], the above theorem was proved.
+        One of the feature of the above theorem is that the proof is independent to the fact that <m>\Delta</m> can be extended as a densely defined self-adjoint operator on <m>L^2(M)</m>.
+        In particular, we don't need to assume <m>M</m> to be complete.
+        The infinitesimal generator on <m>L^2(M)</m> is in fact the Dirichlet Laplacian.
+      </p>
+      <p>
+        We let <m>\Delta_p</m> denote the Laplacian on <m>L^p</m> space.
+        With this notation,
+        for most of the theorems in linear differential geometry,
+        the completeness assumption can be removed.
+      </p>
+      <example>
+        <statement>
+          <p>
+            Let <m>f\in Dom(\Delta_2)</m> such that
+            <m>f\in L^2(M)</m> and <m>\Delta f = 0</m>.
+            Then <m>f</m> has to be a constant.
+          </p>
+        </statement>
+      </example>
+      <p>
+        When <m>M</m> is a complete manifold,
+        the above is a theorem of Yau.
+        However, it is interesting to see that even when <m>M</m> is incomplete,
+        the above result is still true,
+        and the proof is exactly the same as the original proof of Yau.
+      </p>
+      <p>
+        Examining some special cases of the above setting is interesting.
+        <ul>
+          <li>
+            <title>\textcircled{A}</title>
+            <p>
+              If <m>\partial M\neq \emptyset</m> and if
+              <m>\partial M</m> is an <m>(n-1)</m>-dimensional manifold,
+              then <m>A_2</m> is the Dirichlet Laplacian.
+            </p>
+          </li>
+          <li>
+            <title>\textcircled{B}</title>
+            <p>
+              If <m>M = \mathbb{R}^n - \{0\}</m>.
+              Then if <m>f\in L^2(M)</m>,
+              <m>\Delta f = 0</m> and <m>f \in Dom(\Delta_2)</m>.
+              Then <m>f(0) = 0</m> and <m>f</m> must be bounded near <m>0</m>.
+              By the removable singularity theorem,
+              <m>f</m> extends to a harmonic function on
+              <m>\mathbb{R}^n</m>, which must be a constant.
+            </p>
+          </li>
+          <li>
+            <title>\textcircled{C}</title>
+            <p>
+              <m>\Delta_2</m> is particularly useful on moduli spaces,
+              where it is very difficult to describe the boundary.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Variational characterization of spectrum</title>
+      <p>
+        Unlike in the case of compact manifold, in general,
+        a complete manifold doesn't admit any pure point spectrum.
+        For example,
+        there are no <m>L^2</m>-eigenvalues on <m>\mathbb{R}^n</m>.
+        That is, for any <m>\lambda\in\mathbb{R}</m>,
+        if <m>\Delta f + \lambda f = 0</m> and <m>f \in L^2(\mathbb{R}^n)</m>,
+        then we have <m>f\equiv 0</m>.
+      </p>
+      <p>
+        The above well-known result was generalized by Escobar,
+        who proved that if <m>M</m> has a rotational symmetric metric,
+        then there is no <m>L^2</m>-eigenvalue.
+      </p>
+      <p>
+        Let <m>\Delta</m> be the Laplacian on a complete non-compact manifold <m>M</m>.
+        By the argument in the previous section,
+        <m>\Delta</m> naturally extends to a self-adjoint densely defined operator,
+        which we still denote as <m>\Delta</m> for the sake of simplicity.
+      </p>
+      <p>
+        It is well-known that there is a spectrum measure <m>E</m> such that
+        <me>
+          -\Delta = \int_0^{\infty} \lambda dE
+        </me>
+      </p>
+      <p>
+        The heat kernel is defined as
+        <me>
+          e^{\Delta t}f(x) = \int H(x,y,t)f(y)dy
+        </me>
+        and the Green's function is defined as
+        <me>
+          G(x,y) = \int_0^\infty H(x,y,t)dt
+        </me>
+      </p>
+      <p>
+        The pure-point spectrum of <m>\Delta</m> are these <m>\lambda\in\mathbb{R}</m> such that
+        <ul>
+          <li>
+            <title>\ding{172}</title>
+            <p>
+              There exists an <m>L^2</m> function <m>f\neq 0</m> such that
+              <me>
+                \Delta f + \lambda f = 0
+              </me>
+            </p>
+          </li>
+          <li>
+            <title>\ding{173}</title>
+            <p>
+              The multiplicity of <m>\lambda</m> is finite.
+            </p>
+          </li>
+          <li>
+            <title>\ding{174}</title>
+            <p>
+              In a neighborhood of <m>\lambda_1</m> it is the only spectrum point.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        We define
+        <me>
+          \rho(\Delta) = \{y\in\mathbb{R}|(\Delta-y)^{-1}\mbox{ is a bounded operator} \}
+        </me>
+        and we define <m>\sigma(\Delta) = \mathbb{R} - \rho(\Delta)</m> to be the spectrum of <m>\Delta</m>.
+        From the above discussion,
+        <m>\sigma(\Delta)</m> decomposes as the union of pure point spectrum,
+        and the so-called essential spectrum, which is,
+        by definition, the complement of the pure-point spectrum.
+      </p>
+      <p>
+        The set of the essential spectrum is denoted as <m>\sigma_{ess}(\Delta)</m>.
+        Using the above definition, <m>\lambda\in\sigma_{ess}(\Delta)</m>,
+        if either
+        <ul>
+          <li>
+            <title>\ding{172}</title>
+            <p>
+              <m>\lambda</m> is an eigenvalue of infinite multiplicity, or
+            </p>
+          </li>
+          <li>
+            <title>\ding{173}</title>
+            <p>
+              <m>\lambda</m> is the limiting point of <m>\sigma(\Delta)</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        The following theorems in functional analysis are well-known.
+        For reference, see Donnelly.
+      </p>
+      <theorem>
+        <statement>
+          <p>
+            A necessary and sufficient condition for the interval
+            <m>(-\infty, \lambda)</m> to intersect the essential spectrum of an self-adjoint densely defined operator <m>A</m> is that,
+            for all <m>\varepsilon > 0</m>,
+            there exists an infinite dimensional subspace <m>G_\varepsilon \subset Dom(A)</m>,
+            for which
+            <me>
+              (Af - \lambda f - \varepsilon f, f) \lt  0
+            </me>
+          </p>
+        </statement>
+      </theorem>
+      <theorem>
+        <statement>
+          <p>
+            A necessary and sufficient condition for the interval
+            <m>(\lambda-a,\lambda+a)</m> to intersect the essential spectrum of <m>A</m> is that there exists an infinite dimensional subspace <m>G\subset Dom(A)</m> for which
+            <m>\|(A-\lambda I)f\|\leqslant a \|f\|</m> for all <m>f\in G</m>.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        Using the above result,
+        we give the following variational characterization of the lower bound of spectrum and the lower bound of essential spectrum.
+      </p>
+      <theorem>
+        <statement>
+          <p>
+            Using the above notations, define
+            <me>
+              \lambda_0 = \inf_{f\in C_0^\infty(M)}\frac{\int_M |\nabla f|^2}{\int_M f^2}
+            </me>
+            and
+            <me>
+              \lambda_{ess} = \sup_K \inf_{f\in C_0^\infty(M\backslash K)}\frac{\int_M |\nabla f|^2}{\int_M f^2}
+            </me>
+            where <m>K</m> is a compact set running through an exhaustion of the manifold.
+            Then <m>\lambda_0</m> and <m>\lambda_{ess}</m> are the least lower bound of
+            <m>\sigma(\Delta)</m> and <m>\sigma_{ess}(\Delta)</m>,
+            respectively.
+          </p>
+        </statement>
+      </theorem>
+      <corollary>
+        <statement>
+          <p>
+            If <m>\lambda_0 \lt \lambda_{ess}</m>,
+            then <m>\lambda_0</m> is an eigenvalue of <m>M</m> with finite dimensional eigenspace.
+          </p>
+        </statement>
+      </corollary>
+      <p>
+        In this case, <m>\lambda_0</m> is called the ground state.
+      </p>
+      <p>
+        In the following,
+        we give a non-trivial application of the above principle.
+      </p>
+      <theorem>
+        <title>Lin-Lu</title>
+        <statement>
+          <p>
+            Let <m>M</m> be a complex complete surface embedded in <m>\mathbb{R}^3</m>.
+            Assume that <m>M</m> is not totally geodesic,
+            but asymptotically flat in the sense that the second fundamental form goes to zero at infinity.
+            Define
+            <me>
+              \Omega = \{y\in\mathbb{R}^3 | d(y,M) \leqslant a \}
+            </me>
+            for a small positive number <m>a > 0</m>.
+            Then <m>\Omega</m> is a <m>3</m>-d manifold with boundary.
+            The Dirichlet Laplacian of <m>\Omega</m> has a ground state.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        Sketch of the proof: Since <m>M</m> is asymptotically flat,
+        at infinity
+        <me>
+          \Omega \approx M \times [-a, a]
+        </me>
+      </p>
+      <p>
+        As a result
+        <me>
+          \lambda_{ess} = \frac{\pi^2}{4a^2}
+        </me>
+      </p>
+      <p>
+        Thus the main difficulty in the proof of the above theorem is to prove
+        <me>
+          \lambda_0 \lt  \frac{\pi^2}{4a^2}
+        </me>
+        which can be obtained by careful analysis of the Gauss and the mean curvatures.
+      </p>
+      <remark>
+        <p>
+          Exner <em>et al.</em> proved that under the condition
+          <me>
+            \int K \leqslant 0, \int |K| \lt  \infty
+          </me>
+          and <m>M</m> being asymptotically flat, the ground state exists.
+          Thus we make the following conjecture to give the complete picture.
+        </p>
+      </remark>
+      <conjecture>
+        <p>
+          Let <m>M</m> be a complete, no-totally geodesic,
+          and asymptotically embedded surface in <m>\mathbb{R}^3</m>.
+          Let <m>\Omega</m> be defined as before.
+          Let <m>K</m> be the Gauss curvature.
+          If
+          <me>
+            \int_M |K| \lt  +\infty
+          </me>
+          then the ground state exists.
+        </p>
+      </conjecture>
+      <p>
+        The difficulty of the above conjecture is that even the surface is asymptotically flat,
+        we still don't known the long-range behavior of the surface.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>On the theorem of Sturm</title>
+    <p>
+      Let <m>M</m>be a complete Riemannian manifold.
+      We say that the volume <m>(M,g)</m> grows uniformly sub-exponentially,
+      if for any <m>\varepsilon > 0</m>,
+      there is a constant <m>C \lt  \infty</m> such that for all <m>r > 0</m> and all <m>x\in M</m>, we have
+      <me>
+        v(B_r(x))\leqslant Ce^{\varepsilon r}v(B_1(X))
+      </me>
+    </p>
+    <theorem>
+      <title>Sturm</title>
+      <statement>
+        <p>
+          If the volume of <m>(M,g)</m> grows uniformly and sub-exponentially,
+          then the spectrum <m>\sigma(\Delta_p)</m> of
+          <m>\Delta_p</m> acting on <m>L^p(M)</m> is independent of <m>p\in[1, \infty)</m>.
+          In particular, it is a subset of the real line.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      One feature of the concept
+      <q>uniformly and sub-exponentially</q>
+      is that it is self-dual.
+      Take the following example: A hyperbolic space is not ``uniformly and sub-exponentially". On the other side,
+      let <m>\Gamma</m> be a discrete group acting on the hyperbolic space <m>H</m>,
+      such that <m>\Gamma\backslash H</m> has finite volume.
+      Since the infinity of <m>\Gamma\backslash H</m> are cusps,
+      it is still not
+      <q>uniformly and sub-exponentially</q>.
+    </p>
+    <p>
+      A manifold with non-negative Ricci curvature satisfies the assumption that the volume grows
+      <q>uniformly and sub-exponentially</q>. However, for such a manifold, its volume is infinite.
+      It doesn't has the finite volume counterpart.
+    </p>
+    <p>
+      The proof of Sturm's theorem depends on the heat kernel estimates.
+      We begin with the following
+    </p>
+    <lemma>
+      <statement>
+        <p>
+          If the volume of <m>(M,g)</m> grows uniformly and sub-exponentially,
+          then for any <m>\varepsilon > 0</m>
+          <me>
+            \sup_{x\in M}\int_M e^{-\varepsilon d(x,y)}(v(B_1(x))^{-\frac{1}{2}}v(B_1(y))^{-\frac{1}{2}} dv(y) \lt  \infty
+          </me>
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        We take <m>r = d(x,y)</m>.
+        Then since
+        <me>
+          B_1(y) \subset B_{r+1}(x)
+        </me>
+        we must have
+        <me>
+          v(B_1(y))^{-\frac{1}{2}} \geqslant v(B_{r+1}(x))^{-\frac{1}{2}} \geqslant Ce^{-\frac{1}{2}(r+1)}v(B_1(x))^{-\frac{1}{2}}
+        </me>
+        for any <m>x</m>.
+        Thus the integration in the lemma is less than
+        <me>
+          C\int_M e^{-\varepsilon r}e^{\frac{1}{2}\varepsilon(r+1)} v(B_1(x))^{-1} dy
+        </me>
+      </p>
+      <p>
+        We let <m>f(r) = v(\partial B_r(x))</m> and <m>F(r) = \int_0^r f(t)dt</m>.
+        Then up to a constant, the above expression is less than
+        <me>
+          (v(B_1(x)))^{-1} \int_0^\infty e^{-\frac{1}{2}\varepsilon r} f(r)dr
+        </me>
+      </p>
+      <p>
+        By the volume growth assumption <m>f(r) \leqslant Cr^{n-1} v B_1(x)</m>,
+        the lemma follows.
+      </p>
+    </proof>
+    <p>
+      In fact, the assertion is true if
+      <ul>
+        <li>
+          <title>\ding{172}</title>
+          <p>
+            The Ricci curvature of <m>M</m> has a lower bound;
+          </p>
+        </li>
+        <li>
+          <title>\ding{173}</title>
+          <p>
+            <me>
+              \sup_{x\in M} \int_M e^{-\varepsilon d(x,y)}(v(B_1(x))^{-\frac{1}{2}} v(B_1(y))^{-\frac{1}{2}} dv(y) \lt  \infty
+            </me>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The hard part is to prove <m>\sigma(\Delta_p) \subset \sigma(\Delta_2)</m> for all <m>p\in[1,\infty]</m>.
+      If this is done, then it is easy to prove
+      <me>
+        \sigma(\Delta_2) \subset \sigma(\Delta_p)
+      </me>
+      as follows:
+    </p>
+    <p>
+      Let <m>\xi\in\rho(\Delta_p)</m>.
+      Then <m>(\Delta_p - \xi)^{-1}</m> is a bounded operator on <m>L^p(M)</m>.
+      Let <m>\frac{1}{p} + \frac{1}{q} = 1</m>.
+      By dualization <m>(\Delta_q - \zeta)^{-1}</m> is bounded in <m>L^q(M)</m>.
+      By the interpolation theorem,
+      <m>(\Delta_2 - \zeta)^{-1}</m> is bounded and this <m>\zeta\in\rho(\Delta_2)</m>.
+    </p>
+    <p>
+      In order to prove <m>\sigma(\Delta_p)\subset\sigma(\Delta_2)</m>,
+      or <m>\rho(\Delta_2)\subset\rho(\Delta_p)</m>, we need some estimates.
+      Let <m>\zeta\in\rho(\Delta_2)</m>.
+      Then
+      <me>
+        (\Delta_2 - \zeta)^{-1}
+      </me>
+      is bounded from <m>L^2 \rightarrow L^2</m>.
+      In order to prove that the operator is bounded on <m>L^p</m>,
+      we need to prove that it has a kernel <m>g(x,y)</m> such that
+      <me>
+        (\Delta_2 - \zeta)^{-n} f = \int g(x,y)f(y)dy
+      </me>
+    </p>
+    <lemma>
+      <statement>
+        <p>
+          If <m>g(x,y)</m> satisfies
+          <me>
+            \sup_{x\in M}\int_M |g(x,y)|dy \leqslant C
+          </me>
+        </p>
+        <p>
+          Then <m>(\Delta_2 - \zeta)^{-n}</m> is a bounded operator on <m>L^p(M)</m>.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        This is essentially H&#xf6;lder inequality:
+        <md>
+          <mrow>\nonumber \amp  \amp  \int_M \left(\int_M g(x,y)f(y)dy\right)^p dx</mrow>
+          <mrow>\nonumber \amp  \leqslant \amp  \int_M \left(\int_M g^{\frac{1}{q}}g^{\frac{1}{p}}fdy\right)^p dx</mrow>
+          <mrow>\nonumber \amp  \leqslant \amp  \int_M\left(\int_M g\right)^{\frac{1}{q}} \cdot \int gf^p dx</mrow>
+          <mrow>\nonumber \amp  \leqslant \amp  C^{\frac{1}{q}} \int_M\int_M g(x,y)f^p(y)dydx</mrow>
+          <mrow>\nonumber \amp  \leqslant \amp  C^{1+\frac{1}{q}}\int_M f^p(y)dy</mrow>
+        </md>
+      </p>
+    </proof>
+    <p>
+      If we assume that <m>\sigma(\Delta_p)</m> is a no-where dense set in <m>\mathbb{C}</m>,
+      then we have
+    </p>
+    <lemma>
+      <statement>
+        <p>
+          If <m>(\Delta_2 - \zeta)^{-n}</m> is bounded,
+          so is <m>(\Delta_2 - \zeta)^{-1}</m>.
+        </p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        For any <m>\varepsilon</m>,
+        let <m>\zeta '\in\rho(\Delta_\rho)</m> and <m>|\zeta - \zeta '| \lt  \varepsilon</m>.
+        Then from
+        <me>
+          \|(\Delta_2 - \zeta)^{-n}\| \leqslant C
+        </me>
+        we get
+        <me>
+          \|(\Delta_2 - \zeta ')^{-n}\| \leqslant C+1
+        </me>
+        provided that <m>\varepsilon</m> is small enough.
+        Let <m>dist(\zeta ', \sigma(\Delta_p))</m> be the distance to the spectrum of <m>\Delta_p</m>,
+        then we have
+        <me>
+          C+1 \geqslant \lim_{m\rightarrow \infty} \|(\Delta_2 - \zeta)^{-nm}\|^{\frac{1}{m}} \geqslant dist(\zeta ', \sigma(\Delta_p))^{-n}
+        </me>
+      </p>
+      <p>
+        Thus
+        <me>
+          dist(\zeta ', \sigma(\Delta_p)) \geqslant \frac{1}{(C+1)^{\frac{1}{n}}}
+        </me>
+      </p>
+      <p>
+        Since <m>\zeta '</m> is arbitrary,
+        we have <m>dist(\zeta, \sigma(\Delta_p)) > \delta > 0</m>.
+      </p>
+    </proof>
+  </subsection>
+</section>

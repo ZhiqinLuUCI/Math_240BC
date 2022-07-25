@@ -1,0 +1,521 @@
+<section xml:id="ABP_principle">
+  <title>Aleksandrov maximum principle</title>
+  <p>
+    The contents of this section is essentially from<nbsp/><xref ref="chen"/>.
+  </p>
+  <definition xml:id="def8">
+    <statement>
+      <p>
+        Let <m>\Omega</m> be a bounded domain in <m>\R^n</m> with smooth boundary.
+        Let <m>y\in\Omega</m>.
+        Define
+        <me>
+          \chi(y)=\{p\in\R^n\mid u(x)\leq u(y)+p(x-y),\,\forall x\in \Omega\}
+        </me>.
+      </p>
+      <p>
+        Then <m>\chi</m> defines a map from <m>\Omega</m> to the set of subsets of <m>\R^n</m>.
+        We call it the <term>normal map</term>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Here is the geometric interpretation of the normal map.
+    Let the lower graph of <m>u</m> in <m>\R^{n+1}</m> be
+    <me>
+      \{(x,z)\in\R^n\times \R\mid x\in\Omega, -\infty\lt z\lt u(x)\}
+    </me>.
+  </p>
+  <p>
+    If <m>p\in\chi(y)</m>, then the hyperplane
+    <me>
+      z=u(y)+p\cdot(x-y)
+    </me>
+    is a supporting plane of the graph of <m>u</m>.
+    <m>\chi(y)</m> is the set of <m>p</m> such that
+    <m>u(y)+p\cdot(x-y)</m> is a supporting plane,
+    and <m>(-p,1)</m> is the normal vector of the corresponding the plane.
+  </p>
+  <definition xml:id="def9">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C(\Omega)</m>.
+        Let
+        <me>
+          \Gamma_u=\{y\in\Omega\mid \chi(y)\neq\emptyset\}=\{y\in\Omega\mid \exists \,p\in\R^n, u(x)\leq u(y)+p\cdot(x-y)\}
+        </me>.
+      </p>
+      <p>
+        We call <m>\Gamma_u</m> the <term>contact set</term> of <m>u</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We consider the convex hull of the lower-graph of <m>u</m> and let <m>\hat u</m> be the corresponding function.
+    Then <m>\Gamma_u</m> is the intersection of the graphs of <m>u</m> and <m>\hat u</m> projecting to <m>\{z=0\}</m>,
+    which justifies its name: contact set.
+  </p>
+  <p>
+    If <m>u\in \mathcal C^1(\Omega)</m>,
+    <m>y\in\Gamma_u</m>, then <m>\chi(y)=\{Du(y)\}</m>.
+    If <m>u\in \mathcal C^2(\Omega)</m>,
+    then <m>-D^2u(y)\geq 0</m>.
+    In fact, a little bit more is true:
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>u\in W_{{ loc}}^{2,1}(\Omega)\cap \mathcal C(\Omega)</m>.
+        Then
+        <me>
+          \chi(y)=\{Du(y)\},\qquad -D^2u(y)\geq 0, a.e. y\in\Gamma_u
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <definition>
+    <statement>
+      <p>
+        Let
+        <me>
+          \chi(\Omega)=\chi(\Gamma_u)=\bigcup_{y\in\Omega}\chi(y)
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Let <m>\Omega=B_d(x_0)</m>,
+        where <m>B_d(x_0)</m> is the ball of radiou <m>d</m> centered at <m>x_0</m>.
+        Consider the function
+        <me>
+          u(x)=\frac{\lambda}{d}(d-|x-x_0|)
+        </me>.
+      </p>
+      <p>
+        The graph of <m>u</m> is a cone with
+        <m>(x_0,\lambda)</m> as the vertex and with <m>B_d(x_0)</m> as the base.
+        We have <m>\Gamma_u=\Omega</m> and
+        <me>
+          \chi(y)=\left\{ \begin{array}{ll} B_{\lambda/d}(0) \amp  y=x_0;\\ -\frac{\lambda}{d}\cdot\frac{y-x_0}{|y-x_0|} \amp y\neq x_0. \end{array} \right.
+        </me>
+      </p>
+    </statement>
+  </example>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\Omega\subset \R^n</m>, <m>x_0\in\Omega</m>.
+        Construct a cone in <m>\R^n</m> with
+        <m>(x_0,\lambda)</m> being the vertex and <m>\{x\in\Omega,
+        z=0\}</m> being the base.
+        Let <m>\omega</m> be the function of the graph.
+        Define
+        <me>
+          \Omega[x_0,\lambda]=\chi_\omega(\Omega)
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <lemma xml:id="x15">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C(\Omega)</m>.
+        Then
+        <ol>
+          <li>
+            <p>
+              for any <m>y\in\Gamma_u</m>,
+              <me>
+                |p|\leq\frac{2\sup|u|}{{ dist}(y,\pa\Omega)},\qquad \forall p\in\chi(y)
+              </me>,
+            </p>
+          </li>
+          <li>
+            <p>
+              the normal map maps a compact subset of <m>\Omega</m> to a closed set of <m>\R^n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      For all <m>y\in\Gamma_u</m>, we have
+      <me>
+        u(y)+p\cdot(x-y)\geq u(x),\qquad \forall x\in\Omega
+      </me>.
+    </p>
+    <p>
+      We draw a ray starting from <m>y</m> with direction <m>-p</m>.
+      Suppose the ray hits <m>\pa\Omega</m> at <m>x_0</m>.
+      Since <m>x_0-y</m> is proportional to <m>p</m>
+      (and in the opposite direction),
+      we have
+      <me>
+        u(x_0)\leq u(y)+p(x_0-y)=u(y)-|x_0-y|\cdot|p|
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        |p|\leq\frac{2\sup|u|}{|x_0-y|}\leq\frac{2\sup|u|}{{ dist}(y,\pa\Omega)}
+      </me>.
+    </p>
+    <p>
+      To prove (2), let <m>F</m> be a compact subset of <m>\Omega</m>,
+      let <m>\{p_n\}\subset\chi(F)</m>,
+      and let <m>p_n\to p</m> as <m>n\to\infty</m>.
+      Since <m>p_n\in\chi(F)</m>,
+      there is a sequence <m>y_n\in F</m> such that <m>p_n\in\chi(y_n)</m>.
+      By definition, we have
+      <me>
+        u(y_n)+p_n(x-y_n)\geq u(x),\qquad\forall x\in\Omega
+      </me>
+    </p>
+    <p>
+      By passing the subsequence if necessary,
+      we may assume that <m>p_n\to p_0, y_n\to y_0</m>.
+      Then we have <m>p_0\in\chi(y_0)</m>.
+    </p>
+  </proof>
+  <lemma xml:id="x16">
+    <statement>
+      <p>
+        (1).
+        Let <m>\Omega,A</m> be open domains of <m>\R^n</m>, <m>\Omega\subset A</m>.
+        Then if <m>x_0\in\Omega</m>,
+        <me>
+          \Omega[x_0,\lambda]\supset A[x_0,\lambda]
+        </me>.
+      </p>
+      <p>
+        (2).
+        Let <m>d</m> be the diameter of <m>\Omega</m>.
+        Then
+        <me>
+          |\Omega[x_0,\lambda]|\geq\left(\frac{\lambda}{d}\right)^nw_n
+        </me>,
+        where <m>w_n</m> is the volume of the unit ball in <m>\R^n</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      (1) is obvious and (2) follows from the above example.
+    </p>
+  </proof>
+  <lemma xml:id="x17-2">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C^2(\bar\Omega),
+        g\in \mathcal C(\bar\Omega), g\geq 0</m>,
+        and let <m>E</m> be a measurable subset of <m>\Gamma_u</m>.
+        Then
+        <me>
+          \int_{Du(E)}g(x(p))dp\leq\int_E g(x)\det(-D^2u) dx
+        </me>,
+        where <m>x(p)=(Du)^{-1}(p)</m> is defined and is continuous outside a measure zero set.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>J(x)=\det(-D^2u)</m>, <m>S=\{x\in\Omega\mid J(x)=0\}</m>.
+      By the Sard's theorem, <m>|Du(S)|=0</m>.
+    </p>
+    <p>
+      We first assume that <m>E</m> is an open set;
+      <m>E\backslash S</m> is also open.
+      We can find a sequence of parallel,
+      disjoint cubes <m>\{C_\ell\}_{\ell=1}^\infty</m> such that
+      <me>
+        E\backslash S=\bigcup_{\ell=1}^\infty C_\ell
+      </me>.
+    </p>
+    <p>
+      Moreover, we assume that <m>C_\ell</m> are so small such that
+      <me>
+        Du: C_\ell\to Du(C_\ell)
+      </me>
+      are differmorphisms.
+      Therefore
+      <me>
+        \int_{Du(C_\ell)}g(x(p)) dp=\int_{C_\ell} g(x)J(x) dx
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <md>
+        <mrow>\amp \int_{Du(E\backslash S)} g(x(p))dp\leq\sum_\ell\int_{Du(C_\ell)}g(x(p))dp</mrow>
+        <mrow>\amp =\sum_\ell\int_{C_\ell} g(x)J(x) dx=\int_{E\backslash S} g(x)J(x) dx</mrow>
+      </md>.
+    </p>
+    <p>
+      By the Sard's Theorem, <m>|Du(S)|=0</m>.
+      Thus the result is true when <m>E</m> is an open set.
+    </p>
+    <p>
+      If <m>E</m> is a measurable subset of <m>\Gamma_u</m>,
+      then there is an open set <m>G\supset E\backslash S</m> such that on <m>G</m>,
+      <m>J(x)>0</m>.
+      On the other side, since <m>E\backslash S</m> is measurable,
+      we can find open sets <m>\{O_\ell\}</m> such that <m>E\backslash S\subset O_\ell</m>,
+      and <m>|O_\ell\backslash(E\backslash S))|\to 0</m> as <m>\ell\to\infty</m>.
+      Thus we have
+      <me>
+        \int_{Du(E)}g(x(p))dp\leq\int_{Du(G\cap O_\ell)} g(x(p))dp\leq\int_{G\cap O_\ell} g(x)J(x) dx
+      </me>.
+    </p>
+    <p>
+      The lemma follows by letting <m>\ell\to\infty</m>.
+    </p>
+  </proof>
+  <lemma xml:id="x18">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C(\bar\Omega)</m>.
+        Assume that on <m>\pa\Omega</m>, <m>u\leq 0</m>;
+        and there is an <m>x_0\in\Omega</m> such that <m>u(x_0)>0</m>.
+        Then
+        <me>
+          \Omega[x_0,u(x_0)]\subset\chi(\Gamma^+_u)
+        </me>,
+        where <m>\Gamma_u^+=\Gamma_u\cap\{u\geq 0\}</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>p\in\Omega[x_0,u(x_0)]</m>.
+      Then by definition
+      <me>
+        u(x_0)+p\cdot (x-x_0)\geq\hat u(x)\geq 0
+      </me>.
+    </p>
+    <p>
+      Define
+      <me>
+        \lambda_0=\inf\{\lambda\mid\lambda+p\cdot (x-x_0)\geq u(x),\forall x\in\bar\Omega\}
+      </me>.
+    </p>
+    <p>
+      By the continuity of <m>u</m>, we have
+      <me>
+        \lambda_0+p\cdot (x-x_0)\geq u(x),\qquad\forall x\in\bar\Omega
+      </me>,
+      and there is a <m>\xi</m> such that
+      <me>
+        \lambda_0+p\cdot (\xi-x_0)=u(\xi)
+      </me>.
+      <ol>
+        <li>
+          <p>
+            if <m>\lambda_0=u(x_0)</m>,
+            then <m>x_0\in\Gamma_u^+, p\in\chi(\Gamma_u^+)</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            if <m>\lambda_0>u(x_0)</m>, then <m>\xi\not\in\pa\Omega</m>,
+            otherwise
+            <me>
+              u(\xi)>u(x_0)+p\cdot (\xi-x_0)\geq 0
+            </me>
+            contradicting to <m>u\leq 0</m> on <m>\pa\Omega</m>.
+            Since we have
+            <me>
+              u(\xi)+p\cdot (x-\xi)\geq u(x), \forall x\in\bar\Omega
+            </me>,
+            where <m>\xi\in\Gamma_u^+</m> and <m>p\in\chi(\Gamma_u^+)</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+  <p>
+    With the above lemma we immediately get the following
+  </p>
+  <lemma xml:id="x19">
+    <title>Aleksandrov type estimate</title>
+    <statement>
+      <p>
+        Let <m>u\in\mathcal  C^2(\bar\Omega)</m> and <m>u|_{\pa\Omega}\leq 0</m>.
+        Then
+        <me>
+          \sup_\Omega u\leq\frac{d}{\sqrt[n]{w_n}}\left[\int_{\Gamma_u^+}\det(-D^2 u) dx\right]^{1/n}
+        </me>,
+        where <m>d={ diam}\,\Omega</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      By <xref ref="x16">Lemma</xref> and <xref ref="x18">Lemma</xref>, we have
+      <me>
+        |\chi(\Gamma_u^+)|\geq w_n\left[\frac{u(x_0)}{d}\right]^n
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        u(x_0)\leq\frac{d}{\sqrt[n]{w_n}}|\chi(\Gamma_u^+)|^{1/n}
+      </me>.
+    </p>
+    <p>
+      Using <xref ref="x17-2">Lemma</xref>, we have
+      <me>
+        |\chi(\Gamma_u^+)|\leq \int_{\chi(\Gamma_u^+)} dp\leq\int_{\Gamma_u^+}\det(-D^2 u) dx
+      </me>.
+    </p>
+  </proof>
+  <p>
+    We can weaken the smoothness of the function <m>u</m> to get the following
+  </p>
+  <theorem xml:id="thm28">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C(\bar\Omega)\cap W_{{ loc}}^{2,n}(\Omega)</m>.
+        Then
+        <me>
+          \sup_\Omega u\leq\sup_{\pa\Omega} u+\frac{d}{\sqrt[n]{w_n}}\left[\int_{\Gamma_v^+}\det(-D^2 u) dx\right]^{1/n}
+        </me>,
+        where <m>v=u-\sup_{\pa\Omega} u</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      By assumption,
+      there is a sequence <m>\{u_m\}\subset \mathcal C^2(\bar\Omega)</m> such that
+      <m>u_m\to u</m> in <m>W_{{ loc}}^{2,n}(\Omega)</m>.
+      That is, for any <m>\Omega'\subset\subset\Omega</m>,
+      if <m>m\to\infty, u_m\to u</m> in <m>W^{2,n}(\Omega')</m>.
+      For any <m>\eps>0</m>, let
+      <me>
+        \Omega_\eps=\{x\in\Omega\mid { dist}(x,\pa\Omega)>\eps\}
+      </me>.
+    </p>
+    <p>
+      Let
+      <md>
+        <mrow>\amp v_\eps=u-\sup_{\Omega\backslash\Omega_\eps} u-\eps</mrow>
+        <mrow>\amp  v_{m,\eps}=u_m-\sup_{\Omega\backslash\Omega_\eps} u_m-\eps</mrow>
+      </md>
+    </p>
+    <p>
+      By <xref ref="x19">Theorem</xref>, we have
+      <me>
+        \sup_\Omega v_{m,\eps}\leq\frac{d}{\sqrt[n]{w_n}}\left(\int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u_m) dx\right)^{1/n}
+      </me>.
+    </p>
+    <p>
+      Since <m>\Gamma^+_{m,\eps}\subset\Omega_\eps</m>, we write
+      <md>
+        <mrow>\amp \int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u_m) dx</mrow>
+        <mrow>\amp =\int_{\Gamma_{v_{m,\eps}}^+}(\det(-D^2 u_m) -\det(-D^2 u))dx+\int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u) dx</mrow>
+        <mrow>\amp =I_{1,m}+I_{2,m}</mrow>
+      </md>
+    </p>
+    <p>
+      Obviously, we have <m>I_{1,m}\to 0</m> as <m>m\to\infty</m>.
+      On the other hand, we have
+      <me>
+        \varlimsup_{m\to\infty}\Gamma_{v_{m,\eps}}^+\subset\Gamma_{v_\eps}^+
+      </me>.
+    </p>
+    <p>
+      In fact, if
+      <me>
+        x_0\in\varlimsup_{m\to\infty}\Gamma_{v_{m,\eps}}^+
+      </me>.
+    </p>
+    <p>
+      Then there is a subsequence <m>m_k</m> such that <m>x_0\in\Gamma_{v_{m_k,\eps}}</m>.
+      By <xref ref="x15">Lemma</xref>,
+      <me>
+        |p_k|\leq\frac{4\sup |u_m|}{{ dist}(x,\pa\Omega)}\leq\frac{4}{\eps}\sup |u_m|
+      </me>
+      for any <m>p_k\in\chi_{v_{m_k,\eps}}(x_0)</m>.
+    </p>
+    <p>
+      Assuming <m>p_k\to p_0</m>.
+      Then <m>p_0\in\chi_{v_\eps}(x_0)</m>,
+      hence <m>x_0\in\Gamma^+_{v_\eps}</m>.
+      Thus
+      <me>
+        \varlimsup_{m\to\infty} I_{2,m}\leq\int_{\Gamma^+_{v_\eps}}\det(-D^2 u) dx
+      </me>.
+    </p>
+    <p>
+      The theorem is proved.
+    </p>
+  </proof>
+  <theorem xml:id="thm35">
+    <statement>
+      <p>
+        Let <m>u\in \mathcal \mathcal C(\bar\Omega)\cap W_{{ loc}}^{2,n}(\Omega)</m> and let
+        <me>
+          -a^{ij}D_{ij} u\leq f
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \sup_\Omega u(x)\leq\sup_{\pa\Omega} u(x)+\frac{d}{n\sqrt[n]{w_n}}\left|\left|f^+/\mathcal D^*\right|\right|_{L^n(\Gamma_u^+)}
+        </me>,
+        where <m>v=u-\sup_{\pa\Omega} u(x)</m>,
+        and <m>\mathcal D^*=(\det a^{ij})^{1/n}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We know that on <m>\Gamma_v</m>,
+      <m>-D^2 u\geq 0</m> almost everywhere.
+      Thus we have
+      <me>
+        -a^{ij}D_{ij} u\geq n(\det A(-D^2u))^{1/n}=n\mathcal D^*\det (-D^2 u)^{1/n}
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \det(-D^2 u)\leq\left(\frac{f^+}{n\mathcal D^*}\right)^n
+      </me>,
+      and the theorem is proved.
+    </p>
+  </proof>
+  <theorem>
+    <title>Aleksandrov maximum principle</title>
+    <statement>
+      <p>
+        Let <m>u\in \mathcal C(\bar\Omega)\cap W_{{ loc}}^{2,n}(\Omega)</m> such that
+        <me>
+          Lu\leq f
+        </me>,
+        where
+        <me>
+          Lu=-a^{ij}D_{ij} u+b^i D_i u+cu=f
+        </me>.
+      </p>
+      <p>
+        Assume that
+        <md>
+          <mrow>\amp  (a^{ij})\geq 0\qquad \text{ on }  \Omega</mrow>
+          <mrow>\amp \sum_i\left|\left|\frac{b^i}{\mathcal D^*}\right|\right|_{L^n(\Omega)}\leq\beta</mrow>
+          <mrow>\amp  c\geq 0</mrow>
+        </md>
+      </p>
+      <p>
+        Then
+        <me>
+          \sup_\Omega u\leq\sup_{\pa\Omega} u^++C\left|\left|\frac{b^i}{\mathcal D^*}\right|\right|_{L^n(\Gamma_u)}
+        </me>,
+        where <m>C</m> only depends on <m>n,\beta</m> and <m>{ diam}\,\Omega</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>
