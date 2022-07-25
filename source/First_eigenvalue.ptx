@@ -1,0 +1,633 @@
+<section xml:id="First_eigenvalue">
+  <title>first Eigenvalue</title>
+  <p>
+    Let <m>M</m> be an <m>n</m>-dimensional Riemannian manifold with or without boundary.
+    Let the metric <m>ds^2</m> be represented by
+    <me>
+      ds^2 = \sum g_{ij}dx_idx_j
+    </me>,
+    where <m>(x_1,\cdots,x_n)</m> are local coordinates.
+    Let
+    <me>
+      \Delta = \frac{1}{\sqrt{g}}\sum\frac{\partial}{\partial x_i}(g^{ij}\sqrt{g} \frac{\partial}{\partial x_j})
+    </me>
+    be the Laplace operator,
+    where <m>(g^{ij})=g_{ij}^{-1}</m>, <m>g=\det (g_{ij})</m>.
+  </p>
+  <p>
+    The operator <m>\Delta</m> acts on smooth functions.
+    If <m>\partial M \neq \emptyset</m>,
+    then we may define one of the following two boundary conditions:
+    <ul>
+      <li>
+        <title>\ding{172}</title>
+        <p>
+          Dirichlet condition: <m>f|_{\partial M} = 0</m>.
+        </p>
+      </li>
+      <li>
+        <title>\ding{173}</title>
+        <p>
+          Neumann condition:
+          <m>\frac{\partial f}{\partial n}|_{\partial M} = 0</m>,
+          where <m>n</m> is the outward normal vector of the manifold <m>\partial M</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    By the elliptic regularity, if <m>M</m> is compact,
+    then the spectrum of <m>\Delta</m> consists of eigenvalues
+    <me>
+      \lambda_1 \leqslant \lambda_2 \leqslant \cdots \leqslant \lambda_k \rightarrow +\infty
+    </me>
+    of finite multiplicity.
+  </p>
+  <p>
+    By the variational principal,
+    we have the following Poincar&#xe9; inequality
+    <me>
+      \int|\nabla f|^2 \geqslant \lambda_1\int f^2
+    </me>
+  </p>
+  <p>
+    To our special interests, we would like to give
+    <q>computable</q>
+    lower bound estimates of the first eigenvalue.
+    Here by
+    <q>computable</q>
+    we mean the geometric quantities like the diameter,
+    the bounds of the curvature, <em>etc</em>,
+    that are readily available.
+  </p>
+  <p>
+    Li-Yau<nbsp/><xref ref="li-yau"/> discovered the method of gradient estimates to give
+    <q>computable</q>
+    lower bounds of the first eigenvalue.
+    The prototype of the estimates is as follows:
+  </p>
+  <theorem>
+    <title>Li-Yau</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact manifold without boundary.
+        Let <m>d</m> be the diameter of <m>M</m>.
+        Assume that the Ricci curvature of <m>M</m> is non-negative.
+        Then we have the following estimate
+        <me>
+          \lambda_1 \geqslant \frac{\pi^2}{4d^2}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>u</m> be the first eigenfunction such that
+      <me>
+        \max u^2 = 1
+      </me>.
+    </p>
+    <p>
+      Let
+      <me>
+        g(x) = \frac{1}{2}(|\nabla u|^2 + (\lambda_1 + \varepsilon)u^2)
+      </me>,
+      where <m>\varepsilon > 0</m>.
+    </p>
+    <p>
+      The function <m>g</m> is a smooth function.
+      Let <m>x_0</m> be the maximal point of <m>g</m>.
+      Then at <m>x_0</m> we have
+      <men xml:id="x1-1">
+        u_j u_{ji} + (\lambda_1 + \varepsilon) u u_i = 0
+      </men>
+      and
+      <me>
+        0 \geqslant u_{ji}^2 + u_j u_{jii} + (\lambda_1 + \varepsilon) |\nabla u|^2 + (\lambda_1 + \varepsilon)u\Delta u
+      </me>.
+    </p>
+    <p>
+      Using the Ricci identity, we have
+      <me>
+        u_j u_{jii} = u_j(\Delta u)_j + Ric(\nabla u) \geqslant u_j(\Delta u)_j
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <men xml:id="x2-1">
+        0 \geqslant u_{ji}^2 + u_j(\Delta u)_j + (\lambda_1 + \varepsilon) |\nabla u|^2 + (\lambda_1 + \varepsilon)u\Delta u
+      </men>.
+    </p>
+    <p>
+      Suppose that at the maximum point of <m>g(x)</m>, <m>\nabla u \neq 0</m>.
+      Then we have
+      <me>
+        u_{ji}^2 \geqslant |\nabla u|^{-4}(\sum_{i,j}u_j u_i u_{ij})^2
+      </me>
+      by the Cauchy inequality.
+      Using the first order condition, we conclude
+      <me>
+        u_{ji}^2 \geqslant (\lambda_1 + \varepsilon)^2 u^2
+      </me>.
+    </p>
+    <p>
+      Putting the above inequality into <m>\circledast</m>, we get
+      <me>
+        0 \geqslant \varepsilon|\nabla u|^2 + \varepsilon(\lambda_1 + \varepsilon)u^2
+      </me>
+      which is not possible.
+      Thus at the maximum point, we must have <m>\nabla u = 0</m>.
+      Therefore we have
+      <me>
+        g(x) \leqslant \frac{1}{2}(\lambda_1 + \varepsilon)\max u^2 = \frac{1}{2} (\lambda_1 + \varepsilon)
+      </me>.
+    </p>
+    <p>
+      From the above estimate, we get
+      <me>
+        \frac{|\nabla u|^2}{1-u^2} \leqslant \lambda_1 + \varepsilon
+      </me>.
+    </p>
+    <p>
+      Since <m>\varepsilon</m> is arbitrary,
+      we let it go to zero and obtain
+      <me>
+        \frac{|\nabla u|^2}{1 - u^2} \leqslant \lambda_1
+      </me>.
+    </p>
+    <p>
+      By changing the sign of <m>u</m>,
+      we may assume that <m>\max u = 1</m>.
+      Let <m>u(p) = 1</m> for <m>p\in M</m>.
+      Since <m>\int u = 0</m>,
+      there is a point <m>q\in M</m> such that <m>u(q)=0</m>.
+      Let <m>\sigma(t)</m> be the minimal geodesic line connecting <m>q</m> and <m>p</m>.
+      Consider the function
+      <me>
+        \arcsin u(\sigma(t))
+      </me>
+    </p>
+    <p>
+      By the above inequality, we get
+      <me>
+        |(\arcsin u(\sigma(t)))'| \leqslant \sqrt{\lambda_1}|\sigma '(t)|
+      </me>
+    </p>
+    <p>
+      Integrating the above inequality along the geodesic line, we get
+      <me>
+        \frac{\pi}{2} \leqslant \sqrt{\lambda_1}d
+      </me>
+      and the theorem is proved.
+    </p>
+  </proof>
+  <p>
+    Several extensions of the above method can be obtained when
+    <ul>
+      <li>
+        <title>\ding{172}</title>
+        <p>
+          The manifold has boundary;
+        </p>
+      </li>
+      <li>
+        <title>\ding{173}</title>
+        <p>
+          The Ricci curvature has a lower bound.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    We first address the Neumann boundary condition.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        If <m>\partial M \neq 0</m> and <m>\partial M</m> is convex,
+        then <m>g(x)</m> doesn't attain its maximum on
+        <m>\partial M</m> unless at the point <m>\nabla u=0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>x_0 \in \partial M</m> such that <m>g(x)</m> attains the maximum at <m>x_0</m>.
+      Then
+      <me>
+        \frac{\partial g(x_0)}{\partial n} \leqslant 0
+      </me>,
+      where <m>\vec{n}</m> is the outward unit normal vector.
+      By the definition of <m>g(x)</m> and the fact <m>\frac{\partial u}{\partial n} = 0</m>, we have
+      <me>
+        u_j\frac{\partial u_j}{\partial n} \leqslant 0
+      </me>.
+    </p>
+    <p>
+      Let <m>h_{ij}</m> be the second fundamental form.
+      Then
+      <me>
+        0 \geqslant u_j\frac{\partial u_j}{\partial n} = h_{ij} u_i u_j \geqslant 0
+      </me>.
+    </p>
+    <p>
+      If the equality is true, then we must have <m>\nabla u(x_0) = 0</m>.
+    </p>
+  </proof>
+  <p>
+    The next question is to sharpen the Li-Yau estimates.
+    Even for the unit circle, Li-Yau estimate is not sharp.
+  </p>
+  <p>
+    Let's consider the circle <m>x^2 + y^2 = R^2</m>.
+    Let the parameter, or the coordinate, of the circle be
+    <me>
+      x = R\cos \theta, y = R\sin \theta
+    </me>
+  </p>
+  <p>
+    Then the Laplace operator is
+    <me>
+      \frac{1}{R^2}\frac{\partial^2}{\partial\theta^2}
+    </me>
+  </p>
+  <p>
+    As a result,
+    <m>u = \cos\theta, \sin\theta</m> are the two eigenfunctions with the first eigenvalue <m>1/R^2</m>.
+    If <m>u = \cos\theta</m>, then with the induced Riemannian metric,
+    <me>
+      |\nabla u|^2 = \frac{1}{R^2}\sin^2\theta
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      g(\theta) = \frac{1}{2R^2}
+    </me>,
+    and thus
+    <me>
+      \frac{|\nabla u|^2}{1 - u^2} \leqslant \lambda_1
+    </me>,
+    which is not sharp.
+  </p>
+  <p>
+    The problem is that in general,
+    we don't know whether the first eigenfunction is always symmetric.
+    More precisely, if we assume that
+    <me>
+      1 = \sup u > \inf u = -k \geqslant -1
+    </me>
+    we don't know whether <m>k = 1</m>.
+    From Li-Yau's basic estimate,
+    we can improve the estimate <m>\lambda_1 \geqslant \pi^2/4d^2</m> to
+    <me>
+      \lambda_1 \geqslant (\frac{\pi}{2} + \arcsin k)^2 d^{-2}
+    </me>.
+  </p>
+  <p>
+    The above inequality is essentially useless because we know nothing about <m>k</m>.
+    However, using a simple trick,
+    we can double the estimate of Li-Yau:
+  </p>
+  <p>
+    Take
+    <me>
+      \widetilde u = \frac{u - \frac{1-k}{2}}{\frac{1+k}{2}}
+    </me>.
+  </p>
+  <p>
+    Then using the standard gradient estimate, we get
+    <men xml:id="x3">
+      |\nabla \widetilde u|^2 \leqslant \lambda_1(1+a)(1-\widetilde u^2)
+    </men>
+    where
+    <me>
+      a = \frac{1-k}{1+k}
+    </me>.
+  </p>
+  <p>
+    Now the function <m>\widetilde u</m> is symmetric:
+    <m>\max\widetilde u=-\min\widetilde u = 1</m>.
+    Using the same method, we get
+    <me>
+      \lambda_1 \geqslant \frac{\pi^2}{(1+a)d^2} \geqslant \frac{\pi^2}{2d^2}
+    </me>
+  </p>
+  <p>
+    Zhong-Yang<nbsp/><xref ref="zhong-yang"/> took one more step and proved the following result.
+  </p>
+  <theorem>
+    <title>Zhong-Yang</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold with non-negative Ricc curvature.
+        Then
+        <me>
+          \lambda_1 \geqslant \frac{\pi^2}{d^2}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \end{proof}
+  </p>
+  <p>
+    The estimate is called
+    <q>optimal</q>
+    in the sense that for <m>1</m> dimensional manifold,
+    the lower bound is achieved.
+    We shall soon see that the estimate,
+    in general, is far from being optimal.
+  </p>
+  <p>
+    The basic idea of the proof is still the maximum principle.
+    From the estimate<nbsp/><xref ref="x3"/>,
+    we suspect that there is an odd function <m>\phi(\arcsin u)</m> such that
+    <men xml:id="x4">
+      |\nabla\widetilde u|^2 \leqslant \lambda_1(1+a\phi(\arcsin u)) (1 - \widetilde u^2)
+    </men>.
+  </p>
+  <p>
+    If such function <m>\phi</m> exists, then we have
+    <me>
+      \sqrt{\lambda_1}d \geqslant \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1+a\phi(\theta)}} \geqslant \pi
+    </me>
+    by the convexity of the function <m>\frac{1}{\sqrt{1+x}}</m>,
+    which implies the optimal inequality.
+  </p>
+  <p>
+    To prove the inequality<nbsp/><xref ref="x4"/>, we use the maximal principle.
+    At the point <m>x_0</m> such that the equality of<nbsp/><xref ref="x4"/> holds, we have
+    <me>
+      \phi(\arcsin u) \leqslant \widetilde u - \widetilde u \sqrt{1 - \widetilde u^2}\phi '(\arcsin u) + \frac{1}{2} (1 - \widetilde u^2)\phi''(\arcsin u)
+    </me>.
+  </p>
+  <p>
+    We define a function
+    <me>
+      \psi(\theta) = \left\{ \begin{array}{ll} (\frac{4}{\pi}(\theta + \cos\theta\sin\theta)-2\sin\theta)\cos^{-2}\theta, \amp \theta\in(-\frac{\pi}{2}, \frac{\pi}{2}) \\ \psi(\frac{\pi}{2}) = 1, \psi(-\frac{\pi}{2}) = -1 \end{array} \right.
+    </me>.
+  </p>
+  <p>
+    Then a straightforward computation gives
+    <me>
+      \left\{\begin{array}{l} \psi '(\theta) \geqslant 0 \\ \psi - \sin\theta + \sin\theta\cos\theta\psi ' - \frac{1}{2}\cos^2\theta\psi'' = 0 \end{array} \right.
+    </me>.
+  </p>
+  <p>
+    Using the maximum principle we get <m>\phi(\arcsin u) \leqslant \psi(\arcsin u)</m>.
+    Since <m>\psi</m> is an odd function, the theorem is proved.
+  </p>
+  <remark>
+    <p>
+      Recently, Hang-Wang<nbsp/><xref ref="hang-wang"/> proved that, in fact,
+      <me>
+        \lambda_1 > \frac{\pi^2}{d^2}
+      </me>
+      unless the manifold is of one dimensional.
+    </p>
+  </remark>
+  <p>
+    The Li-Yau-Zhong-Yang estimate is still effective when the Ricci curvature is not
+    <q>too negative</q>. Namely, let
+    <me>
+      Ric(M) \geqslant -(n-1)K
+    </me>
+    for some constant <m>K>0</m>.
+    Then
+    <me>
+      \lambda_1 \geqslant \frac{\pi^2}{d^2} - (n-1)K
+    </me>.
+  </p>
+  <p>
+    Thus as long as the right hand side of the above is positive,
+    the estimate is effective.
+  </p>
+  <p>
+    When <m>K</m> is very negative,
+    we need to modify the basic gradient estimate.
+    The following theorem belongs to Li-Yau.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold without boundary.
+        Assume that
+        <me>
+          Ric(M) \geqslant -(n-1)K
+        </me>
+        for <m>K>0</m>.
+        Then
+        <me>
+          \lambda_1 \geqslant \frac{1}{(n-1)d^2}\exp(-[1 + (1 + 4(n-1)^2 d^2 K)^{1/2}])
+        </me>,
+        where <m>d</m> is the diameter of <m>M</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>u</m> be the normalized first eigenfunction.
+      That is
+      <me>
+        1 = \sup u > \inf u \geqslant -1
+      </me>.
+    </p>
+    <p>
+      Let <m>\beta > 1</m>.
+      Consider
+      <me>
+        G(x) = \frac{|\nabla u|^2}{(\beta - u)^2}
+      </me>.
+    </p>
+    <p>
+      Let <m>x_0</m> be the maximum point of <m>G(x)</m>.
+      Then
+      <me>
+        \nabla G(x_0) = 0, \Delta G(x_0) \leqslant 0
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        G(x)(\beta - u)^2 = |\nabla u|^2
+      </me>,
+      we have
+      <me>
+        \Delta G(\beta - u)^2 +2\nabla G \nabla(\beta-u)^2 + G\Delta(\beta - u)^2 = \Delta|\nabla u|^2
+      </me>.
+    </p>
+    <p>
+      Thus at <m>x_0</m>, we have
+      <md>
+        <mrow>\nonumber 0 \amp  \geqslant \amp  \Delta |\nabla u|^2 - G \Delta (\beta - u)^2</mrow>
+        <mrow>\nonumber \amp  = \amp  2\sum u_{ij}^2 + 2\sum u_i u_{ijj} - 2G[(\beta - u)(-\Delta u) + |\nabla u|^2]</mrow>
+        <mrow>\nonumber \amp  = \amp  2u_{ij}^2 + 2u_i(\Delta u_i)_i</mrow>
+        <mrow>\nonumber \amp  + \amp  2Ric(\nabla u, \nabla u) - 2G[\lambda_1 u (\beta - u) + |\nabla u|^2]</mrow>
+      </md>.
+    </p>
+    <p>
+      That is
+      <me>
+        u_{ij}^2 - \lambda_1 |\nabla u|^2 - (n-1)K|\nabla u|^2 - G(\lambda_1 u (\beta - u) + |\nabla u|^2) \leqslant 0
+      </me>.
+    </p>
+    <p>
+      We choose a local coordinate system at <m>x_0</m> such that <m>u_j = 0</m>
+      <m>(j=2,\cdots,n)</m>, <m>u_1 = |\nabla u|</m>.
+      Then <m>u_1 \neq 0</m> (or otherwise,
+      <m>G(x_0) = 0</m> which is not possible).
+      From <m>\nabla G(x_0) = 0</m>, we have
+      <me>
+        \left\{\begin{array}{l} u_{11} = -|\nabla u|^2 (\beta -u)^{-1} \\ u_{1i} = 0, i \neq 1 \end{array} \right.
+      </me>.
+    </p>
+    <p>
+      Using the following trick
+      <md>
+        <mrow>\nonumber \sum_{i\cdot j=2}^n u_{ij}^2 \amp  \geqslant \amp \sum_{i=2}^n u_{ii}^2 \geqslant \frac{1}{n-1}\left(\sum_{i=2}^n u_{ii}\right)^2 = \frac{1}{n-1}(\Delta u - u_{11})^2</mrow>
+        <mrow>\nonumber \amp  = \amp  \frac{1}{n-1}(\lambda u + u_{11})^2 = \frac{1}{n-1}(\lambda^2 u^2 + 2\lambda u u_{11} + u_{11}^2)</mrow>
+        <mrow>\nonumber \amp  \geqslant \amp  \frac{u_{11}^2}{2(n-1)} - \frac{1}{n-1}\lambda^2 u^2</mrow>
+      </md>,
+      we have
+      <me>
+        \frac{1}{2(n-1)}\frac{|\nabla u|^4}{(\beta - u)^2} - \frac{\lambda^2 u^2}{n-1} - (\lambda_1 + (n-1)K)|\nabla u|^2 - \lambda_1\frac{|\nabla u|^2 u}{\beta - u} \leqslant 0
+      </me>.
+    </p>
+    <p>
+      Let <m>\alpha = u(\beta - u)^{-1}</m>.
+      Then
+      <me>
+        \alpha \leqslant \frac{1}{\beta - u} \leqslant \frac{1}{\beta - 1}
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        \frac{1}{2(n-1)}G^2 - \frac{\lambda^2}{n-1}\alpha^2 - (\lambda_1 + (n-1)K)G -\lambda_1 G\alpha \leqslant 0
+      </me>,
+      which gives
+      <me>
+        G(x) \leqslant G(x_0) \leqslant 4(n-1) \left(\frac{\lambda\beta}{\beta-1} + (n-1)K\right)
+      </me>.
+    </p>
+    <p>
+      Let <m>l</m> be the geodesic line connecting <m>x_1</m> and <m>x_2</m>,
+      where <m>u(x_1) = 0</m>, <m>u(x_2) = \sup u = 1</m>.
+      Then we have
+      <me>
+        \log\frac{\beta}{\beta - 1} \leqslant \int_\gamma \frac{|\nabla u|}{\beta - u} \leqslant \left[4(n-1)\left(\frac{\beta\lambda_1}{\beta-1}+(n-1)K\right)\right]^{1/2}d
+      </me>,
+      or in other words
+      <me>
+        \lambda_1 \geqslant \frac{\beta-1}{\beta}\left[\frac{1}{4(n-1)d^2} \left(\log\frac{\beta}{\beta - 1}\right)^2 - (n-1)K\right]
+      </me>
+    </p>
+    <p>
+      Choosing <m>\beta_0</m> such that the right side above maximized,
+      we proved the theorem.
+    </p>
+  </proof>
+  <p>
+    The optimal estimate, in this direction, was obtained by Yang:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold.
+        <me>
+          Ric(M) \geqslant -(n-1)K,\ \ (K > 0),\ \ d = diam(M)
+        </me>
+      </p>
+      <p>
+        Then
+        <me>
+          \lambda_1 \geqslant \frac{\pi^2}{d^2}\exp(-C_n K d^2)
+        </me>
+        where <m>C_n = \sqrt{n-1}</m> for <m>n>2</m> and <m>C_n = \sqrt{2}</m> for <m>n=2</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The case when the Ricci curvature is positive is also very interesting.
+    The following theorem of Lichnerowicz is well known.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold.
+        Assume that <m>d</m> is the diameter of the manifold and
+        <me>
+          Ric(M) \geqslant - (n-1) K > 0
+        </me>.
+        for <m>K>0</m>.
+        Then
+        <me>
+          \lambda_1 \geqslant nK
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \end{proof}
+  </p>
+  <p>
+    In seeking the common generalization of the above theorem and the Zhong-Yang estimate, Peter Li (see<nbsp/><xref ref="yangd"/>) proposed the following conjecture.
+  </p>
+  <conjecture>
+    <p>
+      For a compact manifold with
+      <m>Ric(M) \geqslant (n-1)K > 0</m> the first eigenvalue <m>\lambda_1</m>,
+      with respect to the closed, the Neumann,
+      or the Dirichlet Laplacian satisfies
+      <me>
+        \lambda_1 \geqslant \frac{\pi^2}{d^2} + (n-1)K
+      </me>.
+    </p>
+  </conjecture>
+  <p>
+    Here is <m>\partial M \neq \emptyset</m>,
+    we assume that <m>\partial M</m> is convex.
+  </p>
+  <p>
+    Note that by Myer's theorem, we always have <m>\pi^2/d^2 \geqslant K</m>.
+    Thus the conjecture, if true,
+    will give a common generalization of the result of Lichnerowicz's and the one obtained by the gradient estimate.
+  </p>
+  <p>
+    In this direction, D-G Yang<nbsp/><xref ref="yangd"/> proved that the first Dirichlet eigenvalue of the Laplacian satisfies
+    <me>
+      \lambda_1 \geqslant \frac{\pi^2}{d^2} + \frac{1}{4}(n-1)K
+    </me>,
+    if the manifold has weakly convex boundary.
+    He also proved that the first closed eigenvalue and the first Neumann eigenvalue of the Laplacian satisfies
+    <me>
+      \lambda_1 \geqslant \frac{\pi^2}{d^2} + \frac{1}{4}(n-1)K
+    </me>,
+    if the manifold has convex boundary.
+  </p>
+  <p>
+    Ling<nbsp/><xref ref="ling"/> was able to improve the above estimate into
+    <me>
+      \lambda_1 \geqslant \frac{\pi^2}{d^2} + \frac{31}{100}(n-1)K
+    </me>
+  </p>
+  <p>
+    Further improvements are possible,
+    see Ling-Lu<nbsp/><xref ref="ling-lu"/> for example.
+  </p>
+  <p>
+    We end this lecture by making the following
+  </p>
+  <conjecture>
+    <p>
+      Let <m>M</m> be a compact Ricci flat Riemannian manifold such that
+      <me>
+        \lambda_1 - \frac{\pi^2}{d^2} \lt  \varepsilon
+      </me>
+      for a sufficiently small <m>\varepsilon > 0</m>.
+      Then <m>M = S' \times M_0</m>,
+      where <m>M_0</m> is a Ricci flat compact Riemannian manifold.
+    </p>
+  </conjecture>
+</section>
