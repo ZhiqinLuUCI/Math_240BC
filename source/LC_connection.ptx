@@ -1,0 +1,306 @@
+<section xml:id="LC_connection">
+  <title>The extension of the Levi-Civita connection</title>
+  <p>
+    Let <m>M</m> be a Riemannian manifold and let <m>\nabla</m> be the Levi-Civita connection.
+    We extend <m>\nabla</m> to all tensor fields as follows.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>X,Y</m> be vector fields.
+        <ol>
+          <li>
+            <p>
+              If <m>f\in \mathcal C^\infty(M)</m>,
+              then <m>\nabla_X f=Xf</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\nabla _XY</m> is defined by the Levi-Civita connection;
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\omega</m> is a one-form, we use
+              <me>
+                (\nabla_X\omega)Y=X(\omega(Y))-\omega(\nabla_XY)
+              </me>
+              to define the one form <m>\nabla_X\omega</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              In general, let <m>\{e_1,\cdots,e_n\}</m> be a local frame of <m>M</m> and let <m>\omega_1,\cdots,\omega_n</m> be the dual frame.
+              Let
+              <me>
+                T=a_{i_1\cdots i_p j_1\cdots j_q}e_{i_1}\otimes\cdots \otimes e_{i_p}\otimes\omega_{j_1}\otimes\cdots\otimes \omega_{j_q}
+              </me>.
+              We define
+              <md>
+                <mrow>\amp \nabla_X T=X(a_{i_1\cdots i_pj_1\cdots j_q})e_{i_1}\otimes\cdots\otimes \omega_{j_q}</mrow>
+                <mrow>\amp +\sum_{s=1}^p a_{i_1\cdots i_pj_1\cdots j_q}e_{i_1}\otimes\cdots\otimes \nabla_X e_{i_s}\otimes \cdots\otimes \omega_{j_q}</mrow>
+                <mrow>\ \amp +\sum_{t=1}^q a_{i_1\cdots i_pj_1\cdots j_q}e_{i_1}\otimes\cdots\otimes \nabla_X \omega_{j_t}\otimes \cdots\otimes \omega_{j_q}</mrow>
+              </md>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Using the above notations, we have
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        <m>\nabla_X ds^2=0</m>, where <m>ds^2</m> is the Riemannian metric.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>(x_1,\cdots,x_n)</m> be a local coordinate system,
+      and let <m>\Gamma_{ij}^k</m> be the Christoffel symbols.
+      We then have
+      <me>
+        \nabla_{\frac{\pa}{\pa x_k}}\frac{\pa}{\pa x_i}=\Gamma_{ki}^\ell\frac{\pa}{\pa x_\ell}
+      </me>
+      and
+      <me>
+        \nabla_{\frac{\pa}{\pa x_k}}dx_j=-\Gamma_{k\ell}^jdx_\ell
+      </me>
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \nabla_{\frac{\pa}{\pa x_k}} g_{ij}dx_idx_j =\frac{\pa g_{ij}}{\pa x_k}dx_idx_j-g_{ij}\Gamma_{k\ell}^i dx_\ell dx_j-g_{ij}\Gamma_{k\ell}^j dx_i dx_\ell=0
+      </me>.
+    </p>
+  </proof>
+  <proof>
+    <p>
+      Using the intrinsic characterization of the Riemannian metric
+      <me>
+        (\nabla_X ds^2)(Y,Z)=X(\langle Y,Z\rangle)-\langle\nabla_X Y,Z\rangle-\langle Y,\nabla_X Z\rangle=0
+      </me>.
+    </p>
+  </proof>
+  <p>
+    We also have the following result which well justifies our definition of the curvature operator.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>d_{\nabla^2}</m> be the operator defined by the composition
+        <me>
+          TM\overset{\nabla}{\longrightarrow}TM\otimes T^*M\overset{\nabla}{\longrightarrow}TM\otimes T^*M\otimes T^*M\overset{\wedge}{\longrightarrow}TM\otimes\Lambda^2(M)
+        </me>.
+      </p>
+      <p>
+        Then it is the curvature operator.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We have
+      <me>
+        \nabla\frac{\pa}{\pa x_i}=\Gamma_{ki}^j\frac{\pa}{\pa x_j}\otimes dx_k
+      </me>,
+      and
+      <md>
+        <mrow>\amp \qquad \nabla^2\frac{\pa}{\pa x_i}=\frac{\pa \Gamma_{ki}^j}{\pa x_\ell}\cdot\frac{\pa}{\pa x_j}\otimes dx_k\otimes dx_\ell</mrow>
+        <mrow>\amp +\Gamma_{ki}^j\Gamma_{\ell j}^m\frac{\pa}{\pa x_m}\otimes dx_k\otimes dx_\ell -\Gamma_{ki}^j\Gamma_{\ell m}^k\frac{\pa}{\pa x_j} \otimes dx_m\otimes dx_\ell</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus we have
+      <md>
+        <mrow>\amp \qquad d_{\nabla^2}\frac{\pa}{\pa x_i}=\frac{\pa \Gamma_{ki}^j}{\pa x_\ell}\cdot\frac{\pa}{\pa x_j}\otimes dx_k\wedge  dx_\ell</mrow>
+        <mrow>\amp +\Gamma_{ki}^j\Gamma_{\ell j}^m\frac{\pa}{\pa x_m}\otimes dx_k\wedge dx_\ell -\Gamma_{ki}^j\Gamma_{\ell m}^k\frac{\pa}{\pa x_j} \otimes dx_m\wedge dx_\ell</mrow>
+      </md>.
+    </p>
+    <p>
+      Obviously, the last term of the above equation is zero.
+      Thus after changing indices, we have
+      <me>
+        d_{\nabla^2}\frac{\pa}{\pa x_i}=\left(\frac{\pa \Gamma_{ki}^j}{\pa x_\ell}-\Gamma_{ki}^m\,\Gamma_{\ell m}^j\right) \cdot\frac{\pa}{\pa x_j}\otimes dx_k\wedge  dx_\ell
+      </me>.
+    </p>
+    <p>
+      By a straightforward computation, we get
+      <me>
+        d_{\nabla^2}\frac{\pa}{\pa x_i}=-\frac 12 R_{imk\ell}g^{mj}\,\frac{\pa}{\pa x_k}\otimes dx_k\wedge dx_\ell
+      </me>,
+      where
+      <me>
+        R_{ijk\ell}=-g_{js}\left(\frac{\pa \Gamma_{ki}^s}{\pa x_\ell}-\frac{\pa \Gamma_{\ell i}^s}{\pa x_k}-\Gamma_{ki}^m\,\Gamma_{\ell m}^s+\Gamma_{\ell i}^m\,\Gamma_{k m}^s \right)
+      </me>.
+    </p>
+  </proof>
+  <p>
+    As showed above,
+    it is quite tedious to use local coordinates to compute the curvature.
+    The natural frame
+    <me>
+      \left(\frac{\pa}{\pa x_1},\cdots,\frac{\pa}{\pa x_n}\right)
+    </me>
+    may not be our best choice.
+    For the rest of the lecture notes,
+    in the most cases, we use orthonormal frames.
+  </p>
+  <p>
+    Let <m>e_1,\cdots,e_n</m> be local orthonormal frame and let <m>\omega_1,\cdots,\omega_n</m> be the dual frame.
+    Then the Riemannian metric can be written as
+    <me>
+      ds^2=\omega_1\otimes\omega_1+\cdots+\omega_n\otimes\omega_n=\omega_1^2+\cdots+\omega_n^2
+    </me>,
+    where the tensor product is understood as the symmetric tensor product.
+  </p>
+  <p>
+    We write
+    <me>
+      \nabla_X e_j=\omega_{ij}(X) e_i
+    </me>,
+    where <m>X</m> is a vector field, and
+    <me>
+      R_{ijk\ell}=\langle \nabla_{e_k}\nabla_{e_\ell} e_j-\nabla_{e_\ell}\nabla_{e_k} e_j -\nabla_{[e_k,e_\ell]}e_j,e_i\rangle
+    </me>.
+  </p>
+  <p>
+    The Cartan's formulas are
+    <me>
+      \left\{ \begin{array}{l} d\omega_j+\omega_i\wedge\omega_{ij}=0,\\ d\omega_{ij}+\omega_{is}\wedge\omega_{sj}=\frac 12 R_{ijk\ell}\,\omega_k\wedge\omega_\ell. \end{array} \right.
+    </me>
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove that <m>\omega_{ij}=-\omega_{ji}</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Verify the above formulas.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Prove that given <m>\omega_j</m>,
+        there are unique <m>\omega_{ij}</m> with
+        <m>\omega_{ij}=-\omega_{ji}</m> satisfying the first Cartan equation.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Prove that at any point <m>p</m>,
+        one can choose an orthonormal frame such that at <m>p</m>,
+        the connection matrix <m>\omega_{ij}</m> is zero.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Prove that, if the curvature is zero on a neighborhood,
+        then on that neighborhood,
+        one can choose an orthonormal frame such that the connection matrix is identically zero on that neighborhood.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    In the following we give two examples of computing the curvature using the Cartan's formula.
+  </p>
+  <example>
+    <statement>
+      <p>
+        On <m>\R^n</m>, we give the Riemannian metric to be
+        <me>
+          ds^2=\frac{dx_1^2+\cdots +dx_n^2}{(1+\frac K4\sum x_k^2)^2}
+        </me>.
+      </p>
+      <p>
+        Let
+        <me>
+          A=1+\frac K4\sum x_k^2
+        </me>.
+        and let <m>A_j=\frac{\pa A}{\pa x_j}</m>.
+        We take
+        <me>
+          \omega_i=\frac{dx_i}{A}
+        </me>.
+      </p>
+      <p>
+        Let
+        <me>
+          \omega_{ij}=\frac{1}{A}(A_i\,dx_j-A_j\,dx_i)
+        </me>.
+      </p>
+      <p>
+        Then we have
+        <me>
+          d\omega_j+\omega_i\wedge\omega_{ij}=0
+        </me>.
+      </p>
+      <p>
+        Moreover, we have
+        <me>
+          d\omega_{ij}+\omega_{is}\wedge\omega_{sj}=K\,\omega_i\wedge\omega_j
+        </me>.
+      </p>
+      <p>
+        Thus the curvature tensor is
+        <me>
+          R_{ijk\ell}=K\,(\delta_{ik}\delta_{j\ell}-\delta_{i\ell}\delta_{jk})
+        </me>,
+        and the sectional curvature is <m>K</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Define
+        <me>
+          S^n=\{(x_1,\cdots,x_{n+1})\mid \sum x_k^2=1\}
+        </me>
+        and the Riemannian metric to be the inherited metric
+        <me>
+          ds^2=dx_1^2+\cdots +dx_n^2+\frac{x_ix_j}{x^2_{n+1}}\, dx_i\,dx_j
+        </me>.
+      </p>
+      <p>
+        Define
+        <me>
+          \omega_i=dx_i-\frac{x_i}{1+x_{n+1}}\,dx_{n+1}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \omega_{ij}=\frac{1}{1+x_{n+1}}(x_i\,dx_j-x_j\,dx_i)
+        </me>.
+      </p>
+      <p>
+        Thus we have
+        <me>
+          d\omega_j+\omega_i\wedge\omega_{ij}=0
+        </me>,
+        and
+        <me>
+          d\omega_{ij}+\omega_{is}\wedge\omega_{sj}=\omega_i\wedge\omega_j
+        </me>.
+      </p>
+      <p>
+        Thus the sectional curvature is <m>1</m>.
+      </p>
+    </statement>
+  </example>
+</section>

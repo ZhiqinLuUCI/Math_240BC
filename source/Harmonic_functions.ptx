@@ -1,0 +1,388 @@
+<section xml:id="Harmonic_functions">
+  <title>Harmonic functions revisited</title>
+  <p>
+    We assume that <m>u</m> is a positive harmonic function defined on <m>B(a) \subset M</m>,
+    where <m>M</m> is a complete Riemannian manifold with <m>{ Ric} (M) \geq - (n-1) k</m>.
+  </p>
+  <p>
+    In this section,
+    we re-prove the Harnack inequality using the de Giorgi-Nash-Moser estimates.
+    Note that our <em>result is weaker</em>
+    than the differential Li-Yau Harnark inequality.
+    However, the methods we use here are useful in non-linear case,
+    even if we only use a linear problem as the example.
+  </p>
+  <p>
+    The reference book of this section is
+  </p>
+  <p>
+    We first prove the following estimate.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Under the above assumptions,
+        then for any <m>p > 0 , 0 \lt  \theta \lt  1</m>, there is a constant
+        <me>
+          C= C (n, p, \theta, k ) > 0
+        </me>
+        such that
+        <me>
+          \sup_{B(a\theta)} u \leq C (f _{B(a)} u^p ) ^{\frac{1}{p}}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} We first assume that <m>p \geq 2</m>.
+    Let <m>\phi \geq 0 , \phi \in C^\infty_0 (B(a))</m>.
+    Then since <m>\Delta u = 0</m>, we have
+    <me>
+      \int _{B(a)} \nabla u \nabla \phi = 0
+    </me>.
+  </p>
+  <p>
+    Let <m>\rho</m> be a smooth function with compact support in <m>B(a)</m>.
+    Then we have
+    <me>
+      \int _{B(a)} \nabla u \nabla (\rho^2 u ^{p-1} )  = 0
+    </me>.
+  </p>
+  <p>
+    Here <m>p</m> is a real number to be specialized later.
+  </p>
+  <p>
+    Expanding the above inequality, we get
+    <me>
+      (p-1) \int _{B(a)} \rho^2 u  ^{p -2} | \nabla u|^2 \leq  - 2 \int _{B(a)}  u  ^{p-1} \rho \nabla u \nabla \rho
+    </me>.
+  </p>
+  <p>
+    Using the Cauchy inequality, we get
+    <me>
+      (p-1)^2 \int _{B(a)} \rho^2 u  ^{p -2}  | \nabla u|^2 \leq     C \int _{B(a)} |\nabla \rho | u^p
+    </me>.
+  </p>
+  <p>
+    Note that
+    <me>
+      u  ^{p-2}   | \nabla u|^2 = \frac{4}{p^2}   \left|\nabla u  ^{\frac{p}{2}} \right|^2
+    </me>
+    we have
+    <me>
+      \left. \int _{B(a)} \rho^2     | \nabla u  ^{\frac{p}{2}} \right|^2   \leq  C   \int _{B(a)}  | \nabla \rho| ^2 u^p
+    </me>
+    if we allow <m>C</m> to be a little bigger, we shall get
+    <me>
+      \left.\int _{B(a)}     | \nabla (\rho u ^{\frac{p}{2}} )\right|^2   \leq  C   \int _{B(a)}  | \nabla \rho| ^2 u^p
+    </me>.
+  </p>
+  <p>
+    We let <m>2^\ast = \frac{2n}{n-2} > 2</m>.
+    Using the Sobolev inequality we have
+    <men>
+      \left(\int _{B(a)}( \rho u    ^{\frac{p}{2}})  ^{2^{\ast}}  \right)   ^{\frac{1}{2^{\ast}}}\leq  C   \int _{B(a)}  | \nabla \zeta |^2 u^p . \tag{$\star$}
+    </men>
+  </p>
+  <p>
+    We let
+    <me>
+      R_k = a \left(\theta + \frac{1-\theta}{2^k}\right)
+    </me>.
+  </p>
+  <p>
+    Let <m>\rho_k \in C^\infty_0 (B (R_k)) , 0 \leq \rho _k \leq 1, \rho _k \equiv 1</m> on <m>B(R_{k+1} )</m>.
+    We further assume that
+    <me>
+      | \nabla \rho_k| \leq \frac{2}{R_k - R_{k+1}} = \frac{2^{k+1}}{(1-\theta)a}
+    </me>.
+  </p>
+  <p>
+    From (<m>\star</m>), we have
+    <me>
+      \left( \int_{B(R_{k+1})} U ^{\frac{np}{n-p}}\right)^{\frac{n-2}{n}} \leq \frac{C \cdot 4^k}{(1 - \theta )^2 a^2} \int _{B(R_k)} u^p
+    </me>.
+  </p>
+  <p>
+    Specializing <m>p = p_k</m>,
+    where <m>p_k = p \left( \frac{n}{n-2} \right) ^k</m>, we have
+    <md>
+      <mrow>\amp \amp \Vert u \Vert _{L^{p_{k+1}} (B (R _{k+1} ))} \leq \left ( \frac{C \cdot 4^k}{(1 - \theta )^2 a^2} \right) ^{\frac{1}{p_k}}</mrow>
+      <mrow>\amp \amp    \times  \Vert u \Vert _{L^{p} (B (R _k ))}</mrow>
+    </md>.
+  </p>
+  <p>
+    Iterating, we have
+    <me>
+      \Vert u \Vert_{L^{p_{k+1}} (B (R _{k+1} ))} \leq \Pi \left ( \frac{C \cdot 4^k}{(1 - \theta )^2 a^2} \right) ^{\frac{1}{p_k}} \Vert u \Vert _{L^{p} (B (a))}
+    </me>.
+  </p>
+  <p>
+    We need to prove that
+    <men>
+      \Pi \left ( \frac{C \cdot 4^k}{(1 - \theta )^2 a^2} \right) ^{\frac{1}{p_k}} \leq \frac{C  }{((1 - \theta )^2 a^2)^{\frac{n}{2p}}}   \tag{{ Exercises}}
+    </men>
+  </p>
+  <p>
+    Since the right-hand side is independent of <m>k</m>,
+    we let <m>k \rightarrow \infty</m> and get
+    <me>
+      \Vert u \Vert _{L^{\infty} (B (\theta a  ))} \leq  \frac{C  }{((1 - \theta ) a) ^{\frac{n}{p}}}   \Vert u \Vert _{L^{p} (B (a))}
+    </me>.
+  </p>
+  <p>
+    This proves the theorem for <m>p \geq 2</m>.
+  </p>
+  <p>
+    Now we assume that <m>0 \lt  p \lt  2</m>.
+    Using the result for <m>p = 2</m>, we have
+    <md>
+      <mrow>\Vert u \Vert _{L^{p_\infty} (B (\theta a  ))} \amp \leq \amp      \frac{C }{((1 - \theta ) a)^{\frac{n}{2}}} \Vert u \Vert _{L^{\infty} (B (a))^{1 - \frac{p}{2}}}</mrow>
+      <mrow>\amp  \times \amp   \left( \int _{B(a)} u ^p \right) ^{\frac{1}{2}}</mrow>
+    </md>.
+  </p>
+  <p>
+    Using the Young inequality, we get
+    <md>
+      <mrow>\lefteqn{\Vert u \Vert _{L^{\infty} (B (\theta a  ))} \leq     \frac{1 }{2} \Vert u \Vert _{L^{p} (B (a))}}</mrow>
+      <mrow>\amp \amp  + \frac{C }{((1 - \theta ) a)^{\frac{n}{2}}}  \Vert u \Vert _{L^{p} (B (a))}</mrow>
+    </md>.
+  </p>
+  <p>
+    Let <m>\phi (s) = \Vert u \Vert_{L^{\infty} (B (a))}</m>, we get
+    <me>
+      \phi (s) \leq \frac{1}{2} \phi (t) + \frac{C}{(t-s)^{\frac{n}{p}}} \Vert u \Vert _{L^{p} (B (a))}
+    </me>
+  </p>
+  <p>
+    <m>\forall \  0 \lt  s \lt  t \leq a</m>.
+    Iterating again, we get
+    <men>
+      \phi (s) \leq   \frac{C}{(1-s)a)^{\frac{n}{p}}} \Vert u \Vert _{L^{p} (B (a))} \tag{{ Ex}}
+    </men>
+  </p>
+  <theorem>
+    <title>Weak Harnack inequality</title>
+    <statement>
+      <p>
+        There is a constant <m>C > 0 , p_0 > 0</m> such that
+        <me>
+          \inf_{B(a \theta)} u \geq \frac{1}{C} \left( f _{B(a)} u ^{p_{0}} \right) ^{\frac{1}{p_{0}}}
+        </me>.
+      </p>
+      <p>
+        Here <m>p_0, C</m> only depends on
+        <m>a, (1 - \theta )^{-1}</m> and Sobolev constants.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} Without loss of generality,
+    we assume that <m>u \geq \varepsilon > 0</m>.
+    Otherwise we can use <m>u + \varepsilon</m> in place of <m>u</m>.
+    We also assume that <m>a = 1</m>.
+    By a straight forward computation we get that
+    <me>
+      \Delta u^{-1} = \frac{2|\nabla u|^2}{u^3} \geq 0
+    </me>.
+  </p>
+  <p>
+    Thus <m>u^{-1}</m> is a subsolution.
+    Using the above lemma, for any <m>p</m>, we have
+    <me>
+      \sup _{B(\theta)} u^{-p} \leq C \int_{B(1)} u ^{-p}
+    </me>.
+  </p>
+  <p>
+    Thus we must have
+    <md>
+      <mrow>\inf _{B(\theta)}u \amp  \geq \amp  C ^{-\frac{1}{p}} \left( \int_{B_{1}} u^{-p} d x \right) ^{-\frac{1}{p}}</mrow>
+      <mrow>\amp  = \amp C ^{-\frac{1}{p}} \left[\int_{B_{1}} u^{-p} \cdot \int_{B_{1}} u^{p} \right] ^{\frac{1}{p}}</mrow>
+      <mrow>\amp     \times\amp  \left( \int_{B_{1}} u^{p} \right) ^{\frac{1}{p}} </mrow>
+    </md>.
+  </p>
+  <p>
+    In order to prove the theorem,
+    we just need to prove that for <m>p > 0</m> small enough
+    <me>
+      \int_{B(1)} u^{-p} \int _{B_1} u^p \leq C
+    </me>.
+  </p>
+  <p>
+    We let
+    <me>
+      \omega = \log u - \beta
+    </me>
+    where
+    <me>
+      \beta = f \log u
+    </me>.
+  </p>
+  <p>
+    We shall establish
+    <men>
+      \int_{B(1) } e ^{p |\omega |}\leq C  \tag{$\star$}
+    </men>
+    for <m>p > 0</m> small enough.
+    We first prove that
+    <me>
+      \int_{B(\sigma)} | \nabla \omega |^2 \leq C
+    </me>
+    for some <m>\sigma > 1</m>.
+    To see this,
+    let <m>\rho</m> be the cut-off function whose support is within
+    <m>B(\bar{\sigma})</m> for some <m>\bar{\sigma} > \sigma</m>.
+    Since <m>u</m> is harmonic, we have
+    <me>
+      \int _{B(\bar{\sigma})} \nabla u \nabla ( u^{-1} \rho ^2) = 0
+    </me>.
+  </p>
+  <p>
+    It follows that
+    <md>
+      <mrow>\int_{B(\bar{\sigma})} \rho^2 |\nabla \omega |^2 \amp  \leq \amp  \int_{B(\bar{\sigma})} \nabla \omega \nabla \rho^2</mrow>
+      <mrow>\amp   \leq\amp 2 \sqrt{\int_{B(\bar{\sigma})}\rho^2 |\nabla \omega |^2  }\sqrt{\int_{B(\bar{\sigma})}  |\nabla \rho |^2} </mrow>
+    </md>.
+  </p>
+  <p>
+    Since <m>\rho</m> only depends on <m>\sigma , \bar{\sigma}</m>,
+    we get the desired inequality.
+  </p>
+  <p>
+    By the Poincar&#xe9; inequality, we have
+    <me>
+      \int_{B(\bar{\sigma})} | \omega |^2 \leq C
+    </me>.
+  </p>
+  <p>
+    To get the estimate <m>(\star)</m>,
+    we still use the Moser iteration.
+    First observe that
+    <me>
+      \Delta \omega = - | \nabla \omega |^2
+    </me>.
+  </p>
+  <p>
+    Let <m>\rho</m> be a cut-off function to be determined later.
+    Then we have
+    <me>
+      - \rho ^2 |\omega |^{2 q} \Delta \omega = \rho^2 | \omega |^{2q} | \nabla \omega |^2
+    </me>.
+  </p>
+  <p>
+    It follows that
+    <md>
+      <mrow>\int \rho^2 |\omega |^{2q} |\nabla \omega | ^2 \amp  = \amp  \int \nabla \omega \nabla ( \rho^2 |\omega |^{2q})</mrow>
+      <mrow>\amp  = \amp  2 \int \rho \nabla \rho \omega |\omega |^{2q} + 2 q \int \rho^2 |\omega | ^{2q-1} |\nabla \omega |^2</mrow>
+    </md>.
+  </p>
+  <p>
+    We use the Young inequality to get
+    <men>
+      2q |\omega |^{2q-1} \leq \frac{2q-1}{2q} |\omega | ^{2q} + ( 2q) ^{2q-1} .\tag{$\triangle$}
+    </men>
+  </p>
+  <p>
+    Inserting the above inequality into the equation, we get
+    <md>
+      <mrow>\int \rho ^2 |\omega |^{2q} |\nabla \omega |^2 \amp  \leq \amp  (2q)^{2q} + 2 \sqrt{\int \rho^2 |\omega |^{2q} | \nabla \omega |^2}</mrow>
+      <mrow>\amp  \times \amp  \sqrt{\int   |\nabla \rho |^{2} | \omega  |^{2q} }</mrow>
+    </md>.
+  </p>
+  <p>
+    Using the Cauchy inequality <m>ab \leq \varepsilon a^2 + \frac{1}{\varepsilon} b^2</m>, we get
+    <me>
+      \int \rho^2 |\omega |^{2q} |\nabla \omega |^2 \leq C (( 2g) ^{2q} + \int |\omega | ^{2q} | \nabla \rho |^2)
+    </me>.
+  </p>
+  <p>
+    With a slightly larger constant <m>C</m>, we have
+    <me>
+      \int \rho^2 |\nabla | \omega | ^{q+1} |^2  \leq C  q^2 (( 2q)^{2q} + \int |\omega | ^{2q} | \nabla \rho |^2)
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      \int (\nabla ( \rho^2 |\omega |^{q+1}) |^2 \leq 2 C q^2((2q) ^{2q} + \int |\omega | ^{2q+2} | \nabla \rho |^2)
+    </me>.
+  </p>
+  <p>
+    Thus replacing <m>q + 1</m> by <m>q</m> and choosing the suitable cut-off function, we get
+    <me>
+      \left( \int _{B(\bar{\sigma})} |\omega |  {2^{qk}} \right) ^{\frac{1}{k}} \leq C \left(( 2q) ^{2q} + \tau ^{-2} q ^2 \int _{B(q + \tau)} |\omega | ^{2q}\right)
+    </me>.
+  </p>
+  <p>
+    Let <m>\kappa = \frac{n}{n-1}, \; q_i = \kappa ^{i-1} , \; \delta_0  = \bar{\sigma} > 1</m>.
+    <me>
+      \delta _i = \delta _{i-1} - \frac{\bar{\sigma} - 1}{2^i}
+    </me>.
+  </p>
+  <p>
+    Then we have
+    <md>
+      <mrow>\left( \int_{B(\delta i)} | \omega |^{2 +1}\right) ^{\frac{1}{k}}\amp \leq \amp  C \kappa ^{2(i-1)} \kappa^{i-1}</mrow>
+      <mrow>\amp + \amp  C (4 k )^i \int _{B (\delta _{i-1})} |\omega |^{2\kappa ^{i-1}}</mrow>
+    </md>
+  </p>
+  <p>
+    We let
+    <me>
+      I_j = \left( \int _{B\partial _{1}} |\omega |^{2 k ^{j}} \right) ^{\frac{1}{2k^{3}}}
+    </me>.
+  </p>
+  <p>
+    Then we get
+    <me>
+      I_1 \leq C ^{\frac{1}{k^{i-1}}}  k ^{i-1} + C ^{\frac{1}{k^{i-1}}}  (4 k)  ^{\frac{1}{k^{i-1}}}I_{i-1}
+    </me>.
+  </p>
+  <p>
+    Using the standard iteration we get
+    <me>
+      I_i \leq C + \frac{1}{2k ^i}
+    </me>.
+  </p>
+  <p>
+    For any <m>q \geq 2</m> let <m>j</m> be such that
+    <me>
+      2 \kappa ^{i-1} \leq q \leq 2\kappa^{ j}
+    </me>.
+  </p>
+  <p>
+    Using H&#xf6;lder and <m>|| \omega ||_{L^{2}} \leq C</m> we get
+    <me>
+      \Vert \omega \Vert_{L^{q}} C I_j \leq \tilde{C} q \; \geq 2
+    </me>.
+  </p>
+  <p>
+    Since <m>q ^q \leq e^q q !</m>, we have
+    <me>
+      \int_{B_{1}} |\omega | ^q \leq \tilde{C} ^q q ^q \leq ( \tilde{C} e ^q) q !
+    </me>.
+  </p>
+  <p>
+    For <m>\varepsilon</m> enough
+    <me>
+      \int_{B_{1}} e ^{\varepsilon |\omega|} \leq \sum^\infty_{q = 2} (C \varepsilon e )^q \leq C
+    </me>.
+  </p>
+  <p>
+    This proved the weak Harnack inequality.
+  </p>
+  <theorem>
+    <title>Harnack inequality</title>
+    <statement>
+      <p>
+        Let <m>u</m> be a positive harmonic function on <m>B(a)</m>.
+        Then for any <m>0 \lt  \theta \lt  1</m> we have
+        <me>
+          \sup _{B(a\theta)} u \leq C \inf_{B(a \theta) }u
+        </me>
+        where <m>C</m> only depends on <m>n, (1 - \theta )^{-1}</m>,
+        and the Sobolev constants.
+      </p>
+    </statement>
+  </theorem>
+</section>

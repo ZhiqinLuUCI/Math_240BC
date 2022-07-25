@@ -1,0 +1,386 @@
+<section xml:id="Green_function">
+  <title>Green's function and parobolicity</title>
+  <p>
+    Let <m>M</m> be a complete non-compact Riemannian manifold.
+    The Green's function is a smooth function on
+    <me>
+      M \times M  \backslash { diag} (M)
+    </me>
+    such that
+    <ol>
+      <li>
+        <p>
+          <m>G (x, y) = G (y, x)</m> and fixing <m>y</m>,
+          we have <m>\Delta _x G (x, y) = 0 \, \forall x \neq y</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>G(x, y) \geq 0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Fixing <m>y</m>, when <m>x \rightarrow y</m>, we have the following
+        </p>
+      </li>
+    </ol>
+  </p>
+  <me>
+    G(x, y) = \left\{ \begin{array}{ll} \rho _y (x) ^{2-n} (1 + 0(1) )\amp  n>2 \\
+    - \log \rho_y (x) (1 + 0(1)) \amp  n = 2
+    \end{array}  \right.
+  </me>.
+  <p>
+    This last asymptotical expansion of the Green's function also implies that <m>\Delta _x G(x, y) = - \delta _{x \cdot y}</m>.
+  </p>
+  <p>
+    From the asymptotical behavior we can find that <m>n = 2</m> and <m>n> 2</m>,
+    the Green's functions are very different.
+  </p>
+  <p>
+    We make the following.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A complete manifold is said to be parabolic,
+        if and only if it doesn't admit a positive Green's function.
+        Otherwise it is said to be non-parabolic.
+      </p>
+    </statement>
+  </definition>
+  <definition>
+    <statement>
+      <p>
+        An End, <m>E</m>, with respect to a compact subset
+        <m>\Omega \subset M</m> is an unbounded connected component of <m>M \backslash \Omega</m>.
+        The number of ends with respect to <m>\Omega</m>,
+        denoted by <m>N_{\Omega}(M)</m>,
+        is the number of unbounded connected component of <m>M \backslash \Omega</m>.
+      </p>
+    </statement>
+  </definition>
+  <definition>
+    <statement>
+      <p>
+        An End <m>E</m> is said to be parabolic,
+        if it doesn't admit a positive harmonic function <m>f</m> satisfying
+        <me>
+          f \equiv  \ \mbox{on}  \ \partial E
+        </me>
+        and
+        <me>
+          \frac{\lim}{n\rightarrow E (\infty)} f(y) \lt   1
+        </me>
+        where <m>E(\infty)</m> denotes the infinity of <m>E</m>.
+        Otherwise, <m>E</m> is said to be non-parabolic and the function <m>f</m> is said to be a barrier function of <m>E</m>.
+      </p>
+      <p>
+        We prove the following result:
+      </p>
+    </statement>
+  </definition>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>E</m> be an parabolic end.
+        Let <m>A(R) = E \cap \partial B(R)</m> where <m>B(R)</m> is the ball of radius <m>R</m> with respect to some reference point.
+        Let <m>f</m> be a harmonic function on <m>E</m> such that
+        <me>
+          f|_{\partial E} = 1 , f | _{A(R) } = 0
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \lim_{R\rightarrow \infty} \int_E |\nabla f|^2 \rightarrow 0
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Using the Green's formula, we have
+      <me>
+        \int _E |\nabla f|^2 = - \int _E \frac{\partial f}{\partial r}
+      </me>
+      where <m>\frac{\partial }{\partial r}</m> is the outer normal direction.
+      We claim that <m>\frac{\partial f}{\partial r} \rightarrow 0</m>.
+      To see this,
+      we take a sequence <m>R_1 \lt  R_2 \lt  \ldots R_k \rightarrow \infty</m>.
+      The corresponding harmonic function <m>f_i = f_{R_{i}}</m>.
+      By the maximal principle,
+      <m>f_i</m> are increasing sequence on any compact set of <m>E</m>.
+      Let
+      <me>
+        \lim_{i \rightarrow \infty} f_i = f
+      </me>.
+    </p>
+    <p>
+      Then <m>f</m> must be a positive harmonic function.
+      By the parabolicity, <m>f \equiv 1</m>.
+      By the maximal principle again
+      <me>
+        \frac{\partial f_i}{\partial r} \rightarrow 0
+      </me>
+      as <m>i \rightarrow \infty</m>.
+    </p>
+  </proof>
+  <p>
+    Examples: <m>\mathbb{R}^2</m> and <m>\mathbb{R}^n</m>.
+  </p>
+  <p>
+    Let <m>R > 0</m> be a big number.
+    Let
+    <me>
+      F(R) = \{ f \in C^\infty _0 (\mathbb{R}^n) | f = 1 \; \mbox{for} \; |x| \lt  R, f \; \mbox{rotational symmetric}  \}
+    </me>.
+  </p>
+  <p>
+    If <m>n > 2</m>, then for any <m>C > 0</m>,
+    there exists an <m>R_0</m> such that for any <m>R > R_0</m>
+    <me>
+      \int_{\mathbb{R}^n}|\nabla f | ^2 > C
+    </me>
+    for any <m>f \in F(R)</m>.
+    If <m>n = 2</m>, then for any
+    <m>\varepsilon > 0</m> there exists <m>R_0 > 0</m> such that for any <m>R> R_0</m>,
+    we can find an <m>f_R \in F(R)</m> for which
+    <me>
+      \int_{\mathbb{R}^2} | \nabla f|^2 \lt \varepsilon
+    </me>.
+  </p>
+  <proof>
+    <p>
+      If <m>n > 2</m>, then
+      <me>
+        \int ^\infty_{\mathbb{R}^2} \frac{1}{r^{n-1}} \, d r = \frac{1}{n-2} \frac{1}{R^{n-2}}
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <md>
+        <mrow>\int_{\mathbb{R}^n} | \nabla f|^2 \amp \geq \amp (n-2) \subset R^{n-2} \int ^\infty_R r ^{n-1} \left( \frac{\partial f}{\partial r} \right)^2 dr \int^\infty_0 \frac{1}{r^{n-1}} dr</mrow>
+        <mrow>\amp  \geq\amp  (n-1) \subset R^{n-2} \rightarrow + \infty </mrow>
+      </md>.
+    </p>
+    <p>
+      However, for <m>n = 2</m>, we define <m>f_R = \sigma _R (|x|(</m> such that
+      <me>
+        \sigma _R (t) = \left\{ \begin{array}{ll} 1 \amp  t \leq R\\ \left( 1 - \frac{\log R}{R}\right) ^{-1} \left( \frac{\log R}{\log t} - \frac{\log R}{R} \right) \amp  R \lt  t \lt  e ^R\\ 0 \amp  t \geq e^R \end{array}  \right.
+      </me>.
+    </p>
+    <p>
+      Then a straightforward computation gives
+      <me>
+        \int^\infty_0 + | \sigma ^\prime _R (t) |^2 dt \leq \frac{4}{3} \frac{1}{\log R} \; \;\;\; \mbox{for} \; R >>0
+      </me>.
+    </p>
+    <p>
+      The main result of this section is the following characterization of parabolicity.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete manifold.
+        If <m>M</m> is non-parabolic,
+        then for any point <m>p \in M</m>, we have
+        <me>
+          \int^\infty_1 \frac{dt}{Ap(t)} \lt  + \infty
+        </me>
+        where <m>A_p (r)</m> denotes the area of <m>\partial B_p (r)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      For <m>p\in M</m>, let <m>G(p, y)</m> be the Green's function
+      (assuming that it exists).
+      Let <m>G_i (p, y)</m> be the Green's function on
+      <m>B_p (R_i)</m> with the Dirichlet boundary condition,
+      where <m>R_i \rightarrow \infty</m>.
+    </p>
+  </proof>
+  <p>
+    For any <m>|\lt  R\lt  R_i</m>, let's denote that
+    <md>
+      <mrow>S_i(1) \amp  = \amp  \sup_{y \in \partial B_{p}(1)} \; G_i (p, y)</mrow>
+      <mrow>i_i(R) \amp  = \amp  \inf_{y \in \partial B_{p}(R)} \; G_i (p, y)  </mrow>
+    </md>.
+  </p>
+  <p>
+    Let <m>f</m> be the harmonic function defined on
+    <m>B_p (R) \backslash B_p (1)</m> satisfying the boundary conditions
+    <md>
+      <mrow>\amp \amp f(y) = S_i (1) \; \;\mbox{on} \; \partial B_p(1)</mrow>
+      <mrow>\amp \amp f(y) = G_i (p, y) \;\;\mbox{on} \; \partial B_p(R) </mrow>
+    </md>.
+  </p>
+  <p>
+    The maximum principle implies that
+    <me>
+      f (y) \geq G_i (p, y) \;\mbox{on}  \; B_p (R) \backslash B_p (1)
+    </me>.
+  </p>
+  <p>
+    In particular, we have
+    <me>
+      \frac{\partial f}{\partial r} \leq \frac{\partial G_i}{\partial r} \; \mbox{on} \; \partial B_p (R)
+    </me>.
+  </p>
+  <p>
+    On the other hand,
+    since <m>f(y)</m> is harmonic, Stokes theorem implies
+    <me>
+      0 = \int _{B_{p} (R) | B_{p} (1) } \Delta f = \int _{\partial B_{p} (R)} \frac{\partial f}{\partial r} - \int _{\partial B_{p} (1)}\frac{\partial f}{\partial r}
+    </me>.
+  </p>
+  <p>
+    Also, we observe that
+    <me>
+      \int _{\partial B_{p} (R)}  \frac{\partial G_{i}}{\partial r} = \int _{ B_{p} (R)}  \Delta G_i = - 1
+    </me>.
+  </p>
+  <p>
+    Thus we get
+    <me>
+      \int _{\partial B_{p} (1)}  \frac{\partial f}{\partial r} \leq - 1
+    </me>.
+    consider <m>h</m> to be the harmonic function defined on
+    <m>B_p (R) \backslash B_p (1)</m> satisfying the boundary conditions
+    <md>
+      <mrow>h(y) \amp  = \amp  S_i (1) \; \mbox{on} \; \partial B_p (1)</mrow>
+      <mrow>h(y) \amp  = \amp  i_i (R) \; \mbox{on} \; \partial B_p (R) </mrow>
+    </md>.
+  </p>
+  <p>
+    Again, the maximum principle implies that
+    <me>
+      h(y) \leq f (y) \; \mbox{on} \; B_p (R) \backslash B_p (1)
+    </me>
+    and
+    <me>
+      \frac{\partial h}{\partial r} \leq \frac{\partial h}{\partial r} \; \mbox{on} \; B_p (1)
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      \int _{\partial B_{p} (R)} \frac{\partial h}{\partial r} = \int _{\partial B_{p} (1) }\frac{\partial h}{\partial r} \leq - 1
+    </me>.
+  </p>
+  <p>
+    Define the function
+    <me>
+      g(r) = (s_i (1) - i_i (R) ) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1} \int ^R_r \frac{dt}{A_p (t) } + i_i (R)
+    </me>.
+  </p>
+  <p>
+    Then <m>g (r (y))</m> will have the same boundary conditions as <m>h(y)</m>.
+    The Dirichlet integral minimizing property for harmonic functions implies that
+    <md>
+      <mrow>\amp \int_{B_{p} (R) \backslash B_{p} (1)} |\nabla h |^2 \leq \int_{B_{p} (R) \backslash B_{p} (1)}  |\nabla g|^2</mrow>
+      <mrow>\amp  =  \int^R_1 \left( ( s_i (1) - i _i (R)) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}  \frac{1}{A_p (r)} \right) ^2 \, A_p (r) \, dr</mrow>
+      <mrow>\amp  =  \left(  s_i (1) - i _i (R)\right) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}</mrow>
+    </md>.
+  </p>
+  <p>
+    On the other hand, integration by parts yields
+    <md>
+      <mrow>\int_{B_{p} (R) \backslash B_{p} (1)} |\nabla h |^2 \amp  = \amp  i_i(R)\int_{\partial B_{p} (R) } \frac{\partial h}{\partial r } -s_i(1) \int_{\partial B_{p} (R) }\frac{\partial h}{\partial r }</mrow>
+      <mrow>\amp  \leq \amp     s_i (1) - i _i (R))  </mrow>
+    </md>.
+  </p>
+  <p>
+    By taking the limit
+    <me>
+      \int ^k_1 \frac{dt}{A_p (t)}  \leq \sup _{y \in \partial B_{p} (1) } G (p, y) - \inf _{y \in \partial B_{p} (R)} G (p , y)
+    </me>.
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete manifold such that
+        <me>
+          { vol} (B (R)) \leq CR^2
+        </me>
+        then <m>M</m> has to be parabolic.
+      </p>
+    </statement>
+  </corollary>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>M</m> be a Riemann surface such that
+        <me>
+          \int_M |k| \lt  + \infty
+        </me>
+      </p>
+      <p>
+        Then <m>M</m> is parabolic.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    Proof of a theorem of Brascamp and Lieb.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\Omega</m> be a bounded convex domain of <m>\mathbb{R} ^n</m>.
+        Let <m>u</m> be the first Dirichlet eigenfunction.
+        Let
+        <me>
+          \Delta u = - \lambda _1 u \;\; u > 0
+        </me>.
+      </p>
+      <p>
+        Then <m>\log u</m> must be concave.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} We choose any function
+    <m>u_0 > 0 , u_0 |_{\partial \Omega} = 0</m> such that <m>- \log u_0</m> is concave.
+    Such a function always exists.
+    For example,
+    we can take the convex hull of the graph of <m>-\log u</m>.
+  </p>
+  <p>
+    Consider the flow
+    <me>
+      \frac{\partial u}{\partial t} = \Delta u + \lambda _1 u \;\; \frac{u}{\partial \Omega} = 0
+    </me>.
+  </p>
+  <p>
+    We <em>assume</em> that <m>u_t \rightarrow u</m>, the first eigenfunction.
+    We are going to use the maximum principle.
+    Let <m>T</m> be the biggest number such that <m>\det (- \nabla ^2 \log u)</m> is degenerated.
+    Thus there is an <m>x_0 \in M</m> and a direction <m>i</m> such that
+    <me>
+      - ( \log u) _{ii} (x_0) = 0
+    </me>
+    and for other <m>j, ( - \log u) _{jj} (x_0) \geq 0</m>.
+    Let <m>\phi = - \log u</m>.
+    Then the envolution of <m>\phi</m> is
+    <me>
+      \frac{\partial \phi}{\partial t} = \Delta \phi - |\nabla \phi |^2 - \lambda _1
+    </me>.
+  </p>
+  <p>
+    By the maximum principle,
+    <m>\phi _{ii} k = 0 , \frac{\partial \phi _{ii}}{\partial t} \leq 0 \; \Delta \phi _{ii} \geq 0</m>.
+    Thus
+    <md>
+      <mrow>0 \amp \geq \amp  \frac{\partial \phi _{ii}}{\partial t} = \Delta \phi_{ii} - 2 \phi _k \phi_{kii} - 2 \phi ^2_{kl}</mrow>
+      <mrow>\amp \geq \amp  - 2 \phi _{ki}^2</mrow>
+    </md>.
+  </p>
+  <p>
+    However by convexity,
+    <m>\phi_{ki}^2 - \phi _{ii} \phi_{kk}= 0, \phi_{ki} \equiv 0</m>.
+    The theorem follows from the strong maximum principle.
+  </p>
+</section>

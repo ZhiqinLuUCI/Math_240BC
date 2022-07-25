@@ -1,0 +1,6 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Preliminaries">
+  <title>Preliminaries</title>
+  <xi:include  href="Integration.ptx"/>
+  <xi:include  href="LC_connection.ptx"/>
+  <xi:include  href="Cov_derivatives.ptx"/>
+</chapter>

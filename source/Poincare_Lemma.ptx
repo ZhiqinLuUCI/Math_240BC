@@ -1,0 +1,113 @@
+<section xml:id="Poincare_Lemma">
+  <title>The Poincar&#xe9; Lemma</title>
+  <p>
+    In this section, we prove the following
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>U</m> be the unit ball of the original point of <m>\R^n</m>.
+        Let <m>\omega</m> be a <m>p</m>-form on <m>U</m> with <m>p\geq 1</m>.
+        Then there is a <m>p-1</m> form <m>\eta</m> such that <m>\omega=d\eta</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      If <m>\omega</m> is a <m>1</m>-form,
+      the proof is straightforward.
+      Let
+      <me>
+        f(x)=\int_{\ell}\omega
+      </me>,
+      where <m>\ell</m> is a curve connecting the original point to <m>x</m>.
+      Then
+      <me>
+        df=\omega
+      </me>.
+    </p>
+    <p>
+      In general, we use the math induction.
+      We write
+      <me>
+        \omega=\omega_1+dx_n\wedge\omega_2
+      </me>,
+      where <m>\omega_1,\omega_2</m> are forms without the factor <m>dx_n</m>.
+      Let
+      <me>
+        \omega=\sum a_{i_1\cdots i_{p-1}}(x_1,\cdots,x_n)dx_{i_1}\wedge\cdots\wedge dx_{i_{p-1}}
+      </me>.
+    </p>
+    <p>
+      Define
+      <me>
+        \eta=\int a_{i_1\cdots i_{p-1}}(x_1,\cdots,x_n)dx_n\, dx_{i_1}\wedge\cdots\wedge dx_{i_{p-1}}
+      </me>.
+    </p>
+    <p>
+      Then <m>d(\omega-d\eta)=0</m> and
+      <m>\omega-d\eta</m> has not <m>dx_n</m> factor.
+      As a result, the coefficients of
+      <m>\omega-d\eta</m> are independent to <m>x_n</m>.
+      Thus the theorem follows from the inductive assumption.
+    </p>
+  </proof>
+  <p>
+    The following theorem is a nonlinear generalization of the above result:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>U</m> be the unit tube of the original point of <m>\R^n</m>.
+        Let <m>\omega</m> is a skew-symmetric matrix valued <m>1</m>-form on <m>U</m>.
+        Assume that
+        <me>
+          d\omega+\omega\wedge\omega=0
+        </me>.
+      </p>
+      <p>
+        Then on <m>U</m>, the equation
+        <me>
+          dg+\omega g=0
+        </me>
+        is solvable.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We assume that <m>g(0)=1</m>.
+      Assume that for <m>r>0</m>,
+      we can define <m>g(x_1,\cdots,x_r,0,\cdots,0)</m> such that
+      <m>dg+\omega g=0</m> on <m>\{x_{r+1}=\cdots x_n=0\}</m>.
+      We define <m>g(x_1,\cdots, x_{r+1},0,\cdots,0)</m> by the following ODE:
+      <me>
+        \left\{ \begin{array}{l} \frac{\pa g}{\pa x_{r+1}}+\omega_{r+1} g=0\\ g(x_1,\cdots,x_r,0,\cdots,0) \text{ were defined. } \end{array} \right.
+      </me>
+    </p>
+    <p>
+      To complete the proof,
+      we need to prove that for any <m>k\leq r</m>, we have
+      <men xml:id="b-1">
+        \frac{\pa g}{\pa x_k}+\omega_k g=0
+      </men>.
+    </p>
+    <p>
+      Taking the derivative with respect to <m>x_{r+1}</m>, we get
+      <me>
+        \frac{\pa ^2 g}{\pa x_{r+1}\pa x_k}+\frac{\pa\omega_k}{\pa x_{r+1}}g+\omega_k\frac{\pa g}{\pa x_{r+1}}
+      </me>.
+    </p>
+    <p>
+      Using the ODE, we get
+      <me>
+        -\frac{\omega_{r+1}}{\pa x_k}g-\omega_{r+1}\frac{\pa g}{\pa x_k}+\frac{\pa\omega_k}{\pa x_{r+1}}g+\omega_k\frac{\pa g}{\pa x_{r+1}}
+      </me>.
+    </p>
+    <p>
+      Using the fact that <m>d\omega+\omega\wedge\omega=0</m>,
+      we can prove that the expression in<nbsp/><xref ref="b-1"/> satisfies the ODE with the zero initial value,
+      hence must be zero.
+    </p>
+  </proof>
+</section>

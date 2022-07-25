@@ -1,0 +1,222 @@
+<section xml:id="Ellipticity">
+  <title>More about elliptic regularity</title>
+  <p>
+    Let <m>M</m> be a compact Riemannian manifold and let <m>\phi\in \mathcal H^p_1(M)</m> be a <m>p</m>-form.
+    We say <m>\phi</m> is a weak solution of the equation
+    <me>
+      (\Delta+I)\phi=\psi
+    </me>
+    for <m>\psi</m> a <m>C^\infty</m> <m>p</m>-form, if
+    <ol>
+      <li>
+        <p>
+          <m>\phi\in \mathcal H^p_1(M)</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          for any <m>\eta</m> a smooth <m>p</m>-form, we have
+          <me>
+            (\phi,(\Delta+I)\eta)=(\psi,\eta)
+          </me>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    In this section, we prove the following result.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\phi</m> be a weak solution of the above equation,
+        then <m>\phi</m> must be smooth.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\rho</m> be a smooth function.
+      Then by the Weitzenb&#xf6;ck formula, we have
+      <men xml:id="rst">
+        (\Delta+I)(\rho\eta)=\rho(\Delta+I)\eta+J(\eta)
+      </men>,
+      where <m>J</m> is some first order differential operator
+      (depending on <m>\rho</m>)
+      on the space of <m>p</m>-forms.
+      Thus we have
+      <men xml:id="pqr">
+        (\rho\phi, (\Delta+I)\eta)=(\psi,\rho\eta)-(\phi,J(\eta))
+      </men>
+      for any smooth form <m>\eta\in\Lambda^p(M)</m>.
+    </p>
+    <p>
+      Now we specify our choice of <m>\rho</m>.
+      Let <m>x\in M</m> be a fixed point.
+      We choose a local normal coordinate system <m>(U,(x_1,\cdots,x_n))</m>.
+      We choose a smooth function <m>\rho</m> such that the support of <m>\rho</m> is within <m>U</m>,
+      and is constant <m>1</m> in a smaller neighborhood <m>V</m> of <m>x</m> such that <m>\bar V\subset U</m>.
+      Without loss of generality,
+      we may assume that <m>\rho\phi,\eta</m> are <m>p</m>-forms of a torus <m>T^n</m>.
+    </p>
+    <p>
+      Let <m>(\,\,,\,\,)_0</m> be the inner product on
+      <m>\Lambda^p(T^n)</m> induced by the flat Riemannian metric and let <m>||||_0</m> be the corresponding norm.
+      Then there is a constant <m>C>0</m> such that
+      <me>
+        C^{-1}||||_0\leq ||||\leq C||||_0
+      </me>.
+    </p>
+    <p>
+      In fact, since we choose the local normal coordinate system,
+      we may assume that near <m>x</m>,
+      the Riemannian metrics are very close.
+    </p>
+    <p>
+      Let <m>A</m> be the zero-th differential operator such that
+      <me>
+        (\rho\phi,(\Delta_0+I)\eta)_0=(\rho\phi, A(\Delta_0+I)\eta)
+      </me>.
+    </p>
+    <p>
+      Let <m>P</m> be the operator
+      <me>
+        P=A(\Delta_0+I)-(\Delta+I)
+      </me>,
+      where <m>\Delta_0</m> is the Laplacian with respect to the flat metric of <m>T^n</m>.
+      Then we have
+      <me>
+        (\rho\phi,(\Delta_0+I)\eta)_0=(\rho\phi, P\eta)+(\psi,\rho\eta)-(\phi, J(\eta))
+      </me>.
+    </p>
+    <p>
+      Let
+      <me>
+        \rho\phi\sim\sum_{\xi\in\mathbb Z^n}a_\xi e^{i\langle x,\xi\rangle}
+      </me>
+      be the Fourier expansion of <m>\rho\phi</m>,
+      where <m>a_\xi</m> are <m>p</m>-forms.
+      Let <m>R,s</m> be large real numbers and let
+      <me>
+        \eta_R=\sum_{\|\xi\|\lt R}a_\xi e^{i\langle x,\xi\rangle}(1+||\xi||^2)^{s}
+      </me>
+    </p>
+    <p>
+      Since
+      <me>
+        \Delta_0=-\sum_{j=1}^n\frac{\pa^2}{\pa x_j^2}
+      </me>,
+    </p>
+    <p>
+      We have
+      <me>
+        \Delta_0 e^{i\langle x,\xi\rangle}=\|\xi\|^2e^{i\langle x,\xi\rangle}
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <men xml:id="x12">
+        \sum_{\|\xi\|\lt R}|a_\xi|^2(1+\|\xi\|^2)^{s+1}=(\eta_R,(\Delta_0+I)\eta_R)_0
+      </men>.
+    </p>
+    <p>
+      Let <m>\tilde\Delta</m> be the raw Laplacian.
+      Let
+      <me>
+        \tilde P=A(\Delta_0+I)-(\tilde\Delta+I)
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        (\rho\phi, P\eta)=(\rho\phi,\tilde P\eta)+(\rho\phi, E\eta)
+      </me>,
+      where <m>E</m> is the zero-th operator in the Weitzenb&#xf6;ck formula.
+    </p>
+    <p>
+      We claim that
+      <ol>
+        <li>
+          <p>
+            <m>|(\rho\phi, \tilde P\eta_R)|\leq\eps\|\phi\|^2_{\mathcal H_{(s+1)/2}}</m> for <m>0\lt \eps\ll1</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|(\rho\phi, E\eta_R)|\leq C\|\phi\|^2_{\mathcal H_{s/2}}</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|(\psi, \rho\eta_R)|\leq C \|\phi\|_{\mathcal H_{s/2}}</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|(\phi, J(\eta_R))|\leq C\|\phi\|^2_{\mathcal H_{s/2+1/4}}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      We will postpone the proof of the above claim in the following.
+      Now let's assume it is correct.
+      Letting <m>R\to\infty</m> in<nbsp/><xref ref="x12"/>, we have
+      <me>
+        \|\phi\|^2_{\mathcal H_{(s+1)/2}}\leq \eps \|\phi\|^2_{\mathcal H_{(s+1)/2}}+C\|\phi\|^2_{\mathcal H_{s/2}}+C\|\phi\|_{\mathcal H_{s/2}}+C\|\phi\|^2_{\mathcal H_{s/2+1/4}}
+      </me>.
+    </p>
+    <p>
+      This by induction, <m>\phi\in \mathcal H_s(M)</m> for any <m>s</m>,
+      and hence by the Sobolev Lemma,
+      <m>\phi</m> has to be smooth.
+    </p>
+    <p>
+      It remains to prove the claim.
+      We shall only prove (1), the others begin similar.
+    </p>
+    <p>
+      <m>\tilde P</m> is a differential operator with small coefficients.
+      Let
+      <me>
+        \tilde P=a_{ij}\frac{\pa^2}{\pa x_i\pa x_j}+b_i\frac{\pa}{\pa x_i}+c
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        \tilde \eta_R=\sum_{\|\xi\|\lt R}a_\xi e^{i\langle x,\xi\rangle}(1+\|\xi\|^2)^s\cdot F(x,\xi)
+      </me>,
+      where
+      <me>
+        F(x,\xi)=-a_{ij}\xi_i\xi_j+\sqrt{-1}b_i\xi_i+c
+      </me>.
+    </p>
+    <p>
+      We write
+      <me>
+        \overline{(\rho\phi,\tilde P\eta_R)}=\sum_{\tilde\xi\in\mathbb Z^n} \sum_{\|\xi\|\lt R}\bar a_{\tilde\xi} \,a_\xi (1+\|\xi\|^2)^s\, \int_M F(x,\xi) e^{i\langle x,(\xi-\tilde\xi)\rangle}
+      </me>.
+    </p>
+    <p>
+      By the Riemann-Lebesgue lemma, we have
+      <me>
+        \left|\int_M F(x,\xi) e^{i\langle x,(\xi-\tilde\xi)\rangle}\right|\leq C\frac{1+\|\xi\|^2}{\|\xi-\tilde\xi\|^K}
+      </me>
+      for any <m>K>0</m>.
+      Below we shall take <m>K=(s+1)/2</m> and use the inequality that
+      <me>
+        (1+\|\xi\|^2)\cdot\|\xi-\tilde\xi\|\leq C\,(1+\|\tilde\xi\|^2)
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        <md>
+          \amp \left|\sum_{\xi\neq\tilde\xi}\bar a_{\tilde\xi} \,a_\xi (1+\|\xi\|^2)^s\, \int_M F(x,\xi) e^{i\langle x,(\xi-\tilde\xi)\rangle} \right|\\ \amp \leq\sum_{\xi\neq\tilde\xi}\bar a_{\tilde\xi} \,a_\xi (1+\|\xi\|^2)^{(s+1)/2}\cdot (1+\|\tilde\xi\|^2)^{(s+1)/2},
+        </md>
+      </me>
+      and this completes the proof of the claim.
+    </p>
+  </proof>
+</section>

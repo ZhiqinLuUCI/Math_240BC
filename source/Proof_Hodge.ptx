@@ -1,0 +1,474 @@
+<section xml:id="Proof_Hodge">
+  <title>Proof of the Hodge Theorem</title>
+  <p>
+    The proof of the (real) Hodge theorem heavily depends on the analysis of the Laplacian <m>\Delta</m>.
+    The three basic PDE tools we are going to use are the Sobolev Lemma,
+    the Rellich Lemma, and the Garding inequality.
+    For the first two lemmas, we need to introduce the Sobolev <m>s</m>-norms.
+    The proof of the Garding inequality depends on the Weitzenb&#xf6;ck formula.
+  </p>
+  <p>
+    Let <m>M</m> be a compact Riemannian manifold.
+    <m>X=\bigcup U_\alpha</m> be a finite cover such that each
+    <m>(U_\alpha, \{x_\alpha^1,\cdots,
+    x^{n}_\alpha\})</m> is a real local coordinate system.
+  </p>
+  <p>
+    Let <m>\{\rho_\alpha\}</m> be the partition of unity subordinating to the cover <m>\{U_\alpha\}</m>.
+    Let <m>S</m> be a smooth function.
+    For any nonnegative integer <m>s</m>,
+    define the Sobolev norm of <m>S</m> to be
+    <me>
+      \|S\|_s^2=\sum_\alpha\sum_{|K|\leq s}\int_M |D_\alpha^K (\rho_\alpha S)|^2 dV_M
+    </me>,
+    where <m>K=(k_1,\cdots,k_{n})</m> is the multiple index;
+    <m>|K|=\sum k_i</m>; and
+    <me>
+      D_\alpha^K S=\frac{\pa^{k_1+\cdots+k_{n}}}{ \pa (x_\alpha^1)^{k_1}\cdots \pa (x_\alpha^{n})^{k_{n}}} S
+    </me>.
+  </p>
+  <p>
+    Obviously, the definition of the Sobolev norms depend on the choice of the cover
+    <m>\{U_\alpha\}</m> and the partition of unity <m>\{\rho_\alpha\}</m>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove that the Sobolev norms <m>||||_s</m>,
+        defined by different covers and partitions of unity, are equivalent.
+        In particular,
+        the norm <m>\|\|_0</m> is equivalent to the <m>L^2</m> inner product in<nbsp/><xref ref="p-3"/>.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    There is a way to generalize the notation of Sobolev norms <m>||||_s</m> from nonnegative integers <m>s</m> to any nonnegative numbers <m>s</m>,
+    using pseudo-differential operators, or using the
+    <q>elementary</q>
+    definition as follows:
+  </p>
+  <p>
+    We first define the Sobolev <m>s</m>-norms for
+    <m>\rho_\alpha S</m> on each <m>U_\alpha</m>.
+    Since <m>U_\alpha</m> is a coordinate patch,
+    we can assume, without loss of generality,
+    that <m>U_\alpha</m> is an open set of a torus <m>T=T_{n}=\R^{n}/\Z^{n}</m>.
+    Thus the section <m>\rho_\alpha S</m> can be extended as a smooth <m>\C^r</m>-valued function on <m>T</m>.
+    Let
+    <me>
+      \rho_\alpha S=\sum_{\xi\in\mathbb Z^{n}}S_\xi e^{i\langle\xi,x\rangle}
+    </me>
+    be the Fourier expansion of <m>S_\alpha</m>.
+    We define
+    <me>
+      ||\rho_\alpha S||_s^2=\sum_{\xi\in\mathbb Z^{n}}(1+||\xi||^2)^s |(\rho_\alpha S)_\xi|^2
+    </me>.
+  </p>
+  <p>
+    The Sobolev <m>s</m>-norm of <m>S</m> is defined as
+    <me>
+      ||S||_s^2=\sum_\alpha||\rho_\alpha S||_s^2
+    </me>.
+  </p>
+  <p>
+    Define <m>\mathcal H_s^{p}(M)</m> to be the completion of the smooth <m>p</m>-forms under the norm <m>||||_s</m>.
+    As before, it is independent of the choice of the cover and the partition of unity.
+  </p>
+  <theorem>
+    <title>Sobolev Lemma</title>
+    <statement>
+      <p>
+            <idx><h>Sobolev lemma</h></idx>
+        Using the above notations, we have
+        <me>
+          \underset{s}{\bigcap}\,\mathcal H^{p}_s(M)=\Lambda^{p}(M)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The theorem being local,
+      we assume that <m>S</m> is a <m>\C^r</m>-valued smooth function of <m>T</m>.
+      By definition, for any <m>s>0</m>, we have
+      <me>
+        \sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |S_\xi|^2\leq C \lt \infty
+      </me>.
+    </p>
+    <p>
+      Let <m>K=(k_1,\cdots,k_{n})</m> be a multiple index.
+      We consider the Fourier expansion of
+      <me>
+        D^K S\sim \sum_{\xi\in \mathbb Z^{n}} (i)^{|K|}\xi_1^{k_1}\cdots\xi_{n}^{k_{n}} S_\xi e^{i\langle\xi,x\rangle}
+      </me>.
+    </p>
+    <p>
+      By definition, if <m>S\in\bigcap_s \mathcal H^{p}_s(M)</m>, then
+      <me>
+        \sum_{\xi\in \mathbb Z^n} |\xi_1^{k_1}\cdots \xi_{n}^{k_{n}}|^2 |S_\xi|^2\leq  \sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |S_\xi|^2\lt +\infty
+      </me>
+      for any <m>K</m>.
+      Thus <m>D^K S</m> is well-defined.
+      Since the differential operators <m>D^K</m> are closed operators,
+      we conclude that <m>S</m> is <m>K</m> differentiable and hence prove the result.
+    </p>
+  </proof>
+  <p>
+    In order to prove the Rellich Lemma,
+    we give the following definition of
+    <em>compact operators</em>.
+        <idx><h>compact operator</h></idx>
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\mathcal B_1,\mathcal B_2</m> be two Banach spaces.
+        Let <m>A: \mathcal B_1\rightarrow\mathcal B_2</m> be a linear operator from
+        <m>\mathcal B_1</m> to <m>\mathcal B_2</m>.
+        <m>A</m> is a compact operator,
+        if the image of the unit ball of
+        <m>\mathcal B_1</m> under <m>T</m> is sequential compact in <m>\mathcal B_2</m>.
+        In other word,
+        if <m>\{x_i\}</m> is a bounded sequence of <m>\mathcal B_1</m>,
+        then a subsequence of <m>\{Ax_i\}</m> converges to some point of <m>\mathcal B_2</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The following is the basic fact about a self-adjoin compact operator.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\mathcal H</m> be a Hilbert space and let
+        <m>A: \mathcal H\to\mathcal H</m> be a compact operator.
+        Then the essential spectrum <m>\sigma_{ ess}(A)\subset\{0\}</m>.
+        Moreover, if <m>\sigma_{ ess}(A)=\emptyset</m>,
+        then <m>\mathcal H</m> is the direct sum of eigenspaces of each non-zero eigenvalues, that is,
+        if <m>E_m</m> is the eigenspaces of the eigenvalue <m>\lambda_m</m>.
+        Then we have
+        <me>
+          \mathcal H=\bigoplus_m E_m
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      If <m>\lambda\in\sigma_{rm ess}(A)</m> and <m>\lambda\neq 0</m>.
+      Then for any <m>\eps>0</m>, by the Weyl's criterion,
+      there exists an infinite dimensional vector space <m>G_\eps</m> such that for any <m>\phi\in G_\eps</m>, we have
+      <me>
+        \|A\phi-\lambda\phi\|\lt \eps
+      </me>.
+    </p>
+    <p>
+      We choose an orthonormal set <m>\{\phi_i\}\subset G_\eps</m>.
+      Since <m>A</m> is compact, we may assume that <m>A\phi_i</m> is convergent.
+      Assume that for <m>i,j</m> big enough but <m>i\neq j</m>, we have
+      <me>
+        \|A\phi_i-A\phi_j\|\leq \eps
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        \lambda\|\phi_i-\phi_j\|\leq \|A(\phi_i-\phi_j)\|+\|A\phi_i-\lambda\phi_i\|+\|A\phi_j-\lambda\phi_j\|\leq 3\eps
+      </me>.
+    </p>
+    <p>
+      Since <m>\phi\perp\phi_j</m>,
+      we have <m>\|\phi_i-\phi_j\|=\sqrt 2</m>.
+      Thus we have a contradiction
+      <me>
+        \sqrt 2\,\lambda\leq 3\eps
+      </me>.
+    </p>
+    <p>
+      This proves the first part of the theorem.
+      If <m>\sigma_{ ess}(A)=\emptyset</m>,
+      then is follows from the spectrum theorem that the whole space is the direct sum of the eigenspaces.
+    </p>
+  </proof>
+  <theorem>
+    <title>Rellich Lemma</title>
+    <statement>
+      <p>
+            <idx><h>Rellich lemma</h></idx>
+        For <m>s>r</m>, the inclusion
+        <me>
+          \mathcal \mathcal H_s^p(M) \rightarrow \mathcal H^{p}_r (M)
+        </me>
+        is compact.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Similar to the previous theorem,
+      we can work on a torus <m>T</m>.
+      Assume that <m>\{ u_k\}</m> is a bounded sequence of <m>\mathcal H^{p}_s(T)</m>.
+      We wish to prove that a subsequence of <m>\{u_k\}</m> will converge in the <m>|| ||_r</m> norm.
+    </p>
+    <p>
+      Let <m>\{(u_k)_\xi\}</m> be the Fourier coefficients of <m>u_k</m> for <m>k\geq 1</m>.
+      Then
+      <men xml:id="x2-5">
+        \sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |(u_k)_\xi|^2\leq C
+      </men>
+      for some constant <m>C</m> independent of <m>k</m>.
+      For any fixed <m>\xi</m>,
+      a subsequence of <m>(1+||\xi||^2)^{s/2} (u_k)_\xi</m> converges.
+      By the standard diagonalization,
+      we can find a subsequence of <m>\{u_k\}</m>,
+      which we still denote as <m>\{u_k\}</m> for abusing of notations,
+      such that for each <m>\xi</m>,
+      <m>(1+|| \xi||^2)^{s/2} (u_k)_\xi</m> is convergent.
+    </p>
+    <p>
+      We prove that <m>\{u_k\}</m> is a Cauchy sequence under the normal <m>||||_r</m>.
+      For any <m>\eps>0</m>, we choose <m>R</m> large so that
+      <men xml:id="x2-26">
+        \frac{1}{(1+R^2)^{s-r}}\lt \eps
+      </men>.
+    </p>
+    <p>
+      We consider all <m>\xi</m> with <m>||\xi||\leq R</m>.
+      There are only finitely many such <m>\xi</m>'s.
+      By the assumption on the sequence <m>\{u_k\}</m>,
+      there is an <m>N>0</m>, such that
+      <me>
+        \sum_{||\xi||\leq R} (1+||\xi||^2)^r |(u_k)_\xi-(u_l)_\xi|^2\lt \eps
+      </me>
+      for <m>k,l>N</m>.
+      Thus we have
+      <me>
+        ||u_k-u_l||_r^2\leq\eps+\sum_{||\xi||>R} (1+||\xi||^2)^r |(u_k)_\xi-(u_l)_\xi|^2
+      </me>.
+    </p>
+    <p>
+      Using<nbsp/><xref ref="x2-5"/> and <nbsp/><xref ref="x2-26"/>, we have
+      <me>
+        ||u_k-u_l||^2_s\lt (1+2C)\eps
+      </me>,
+      and the theorem is proved.
+    </p>
+  </proof>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact manifold.
+        Define two Banach spaces of <m>M</m>.
+        Let <m>\mathcal C^0(M)</m> be the space of continuous functions with the maximum norm,
+        and let <m>\mathcal C^1(M)</m> be the space of
+        <m>\mathcal C^1(M)</m> functions with the norm
+        <me>
+          \max(|f|+|\nabla f|)
+        </me>.
+      </p>
+      <p>
+        Prove the Arzel&#xe1;-Ascoli Theorem: the inclusion map
+        <me>
+          \iota: \mathcal C^1(M)\to \mathcal C^0(M)
+        </me>
+        is a compact operator.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The standard method in proving the above theorem,
+    like in that of the Rellich Lemma,
+    is to use the diagonal subsequence method, which is widely used.
+    In the following, we give a different proof,
+    using the Tychonoff Theorem.
+  </p>
+  <p>
+    We consider <m>F(M)</m>,
+    the space of all bounded functions with bound <m>1</m> on <m>M</m>.
+    By the identification
+    <me>
+      F(M)=\prod_{x\in M}\mathbb [-1,1]
+    </me>,
+    and by the Tychonoff Theorem,
+    we know that <m>F(M)</m> is compact under the product topology.
+    On the other hand, on <m>\mathcal C^0(M)</m>,
+    we can define the so-called compact-open topology,
+    whose subbase composed of the set of the form
+    <me>
+      C(K,U)=\{f\mid F(K)\subset U\}
+    </me>,
+    where <m>K</m> is a compact subset of <m>M</m> and <m>U</m> is an open set of <m>\mathbb R</m>.
+    We can prove that when we restrict to the space <m>\mathcal C^1(M)</m>,
+    the product topology is the same as the compact-open topology.
+    On the other hand, on <m>\mathcal C^0(M)</m>,
+    compact-open topology defines the same topology as in the Banach space <m>\mathcal C^0(M)</m>,
+    and the theorem is proved.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Provide the details.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    Next we shall introduce the Garding inequality.
+    Let
+    <me>
+      \phi,\psi\in\Gamma(X,\Lambda^p(M))
+    </me>,
+    and let
+    <me>
+      \mathfrak D (\phi,\psi)=(\phi,\psi) +(d\phi, d\psi)+(\delta\phi, \delta\psi)=(\phi, (1+\Delta)\psi)
+    </me>.
+  </p>
+  <p>
+    Then <m>\mathfrak D(\phi,\psi)</m> defines an inner product on <m>\Lambda^p(M)</m>.
+    Apparently we have the inequality
+    <me>
+      \mathfrak D(\phi,\phi)\leq C||\phi||_1^2
+    </me>
+    for some constant <m>C</m>.
+    The Garding inequality states that the inverse inequality is also true so that the norms
+    <m>\sqrt{\mathfrak D(\phi,\phi)}</m> and <m>||\phi||_1</m> are equivalent.
+  </p>
+  <theorem>
+    <title>Garding Inequality</title>
+    <statement>
+      <p>
+            <idx><h>Garding Inequality</h></idx>
+        For <m>\phi\in\Lambda^p(M)</m>, we have
+        <men xml:id="x2-10">
+          ||\phi||_1^2\leq C\,\mathfrak D(\phi,\phi)
+        </men>,
+        for some constant <m>C>0</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The proof of the inequality depends on the Weitzenb&#xf6;ck formula,
+      <xref ref="thm6">Theorem</xref>.
+      Let <m>\phi\in\Lambda^p(M)</m>.
+      Then
+      <men>
+        \Delta\phi=-\nabla^*\nabla\phi+E(\phi)
+      </men>,
+      where <m>E</m> is a zero-th differential operator.
+      Using integration by parts, we get
+      <me>
+        (\Delta\phi,\phi)\geq\int|\nabla\phi|^2-C(\phi,\phi)
+      </me>.
+    </p>
+    <p>
+      It follows that
+      <me>
+        \mathfrak D(\phi,\phi)\geq (\phi,\phi)+\frac{1}{2C}(\Delta\phi,\phi)\geq \frac{1}{2C}\int|\nabla\phi|^2+\frac 12 (\phi,\phi)
+      </me>,
+      and the inequality is proved.
+    </p>
+  </proof>
+  <proof>
+    <p>
+      For <m>\phi\in\Lambda^p(M)</m>,
+      we define a linear functional
+      <me>
+        l(\psi)=(\phi,\psi)
+      </me>
+      for <m>\psi\in\Lambda^p(M)</m>.
+      With respect to the inner product
+      <m>\mathfrak D(\phi,\psi)</m>, <m>l</m> is bounded:
+      <me>
+        |l(\psi)|\leq ||\phi||_0\sqrt{\mathfrak D(\psi,\psi)}
+      </me>.
+    </p>
+    <p>
+      Thus by the Riesz representation theorem,
+      there is an <m>\eta</m> such that
+      <ol>
+        <li>
+          <p>
+            <m>(\phi,\psi)=(\eta, (1+\Delta)\psi)</m> for any <m>\psi\in\Gamma(X,\mathcal A^{p,q}(E))</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>||\eta||_1^2\leq C\mathfrak D(\eta,\eta)\lt +\infty</m>. \text{ (G\aa rding inequality) }
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Let <m>A: \Lambda^p(M)\rightarrow\Lambda^p(M)</m> be the linear operator defined by sending
+      <m>\phi\in\Lambda^p(M)</m> to the unique <m>\eta</m> defined above.
+      Since <m>A</m> is a bounded operator,
+      it can be extended to an operator on <m>L^2(M)</m>.
+      Then since <m>\eta</m> is actually in <m>\mathcal H^{p}(M)</m>,
+      the operator <m>A</m> is a compact operator by the Rellich Lemma.
+      On the other hand,
+      it is not hard to see that <m>A</m> is a self-adjoint operator\footnote {Since <m>A</m> is a bounded operator,
+      in order to prove that <m>A</m> is self-adjoint,
+      we just need to verify the equality
+      <m>(A\phi,\psi)=(\phi,A\psi)</m> for smooth <m>\phi</m> and <m>\psi</m>,
+      which follows easily from integration by parts.}.
+    </p>
+    <p>
+      According to the spectral theorem for compact,
+      self-adjoint operators, there is a Hilbert-space decomposition
+      <me>
+        \Lambda^p(M)=\bigoplus_m E(\rho_m)
+      </me>,
+      where <m>\rho_m</m> are the eigenvalues of <m>A</m> and
+      <m>E(\rho_m)</m> are the finite-dimensional eigenspaces corresponding to the eigenvalue <m>\rho_m</m>.
+      Since <m>A</m> is one-to-one, all <m>\rho_m\neq 0</m>.
+    </p>
+    <p>
+      We claim that
+      <me>
+        \mathcal H^p(M)=E(1)
+      </me>,
+      where <m>\mathcal H^{p}(M)</m> is the space of harmonic forms.
+      To see this, we assume that
+      <m>\phi\in\mathcal H^{p}(M)</m>, and <m>A\phi=\phi</m>.
+      By the Weitzenb&#xf6;ck formula,
+      <m>\Delta</m> is an elliptic operator.
+      Using the Sobolev Lemma and Schauder estimate,
+      we can prove that <m>\phi</m> is smooth.
+      Thus <m>(1+\Delta)\phi=\phi</m> and <m>\phi</m> is harmonic.
+      Since <m>E(1)</m> is of finite dimensional, we have
+      <me>
+        \dim\,\mathcal H^{p}(M)\lt +\infty
+      </me>.
+    </p>
+    <p>
+      This proves the first assertion of the theorem.
+      To prove the second assertion of the theorem,
+      we note that the biggest possible eigenvalue of <m>A</m> is <m>1</m>.
+      By the property of compact operators,
+      there is a gap between the eigenvalue <m>1</m> and the rest of the eigenvalues.
+      Thus if <m>\phi\in\mathcal H^{p}(M)^\perp</m> and if <m>\phi</m> is smooth, we have
+      <me>
+        ||\Delta\phi||_0\geq\eps||\phi||_0
+      </me>
+      for some <m>\eps>0</m>.
+      Thus we can define the inverse operator <m>G</m> on <m>\mathcal H^{p}(M)^\perp</m>,
+      called the Green's operator,
+      such that <m>G=\Delta^{-1}|_{\mathcal H^{p}(M)^\perp}</m>.
+    </p>
+    <p>
+      If we compare <m>G</m> to the operator <m>A</m>
+      (they have the same eigenspaces),
+      we shall see that <m>G</m> is also a compact operator because
+      <m>||G||\leq C||A||</m> for some constant <m>C</m>.
+      Furthermore, by the elliptic regularity,
+      <m>G</m> maps smooth <m>p</m>-forms to smooth <m>p</m> forms.
+      Using this fact, the Hodge decomposition is given by
+      <me>
+        \phi=\eta_0+d\delta G\phi+\delta dG\phi
+      </me>.
+    </p>
+    <p>
+      This completes the proof of the Hodge Theorem.
+    </p>
+  </proof>
+</section>

@@ -1,0 +1,5 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Semi_group">
+  <title>Semigroups and heat kernels</title>
+  <xi:include  href="Semi_group_and_generator.ptx"/>
+  <xi:include  href="Abstract_heat_kernel.ptx"/>
+</chapter>

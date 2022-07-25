@@ -1,0 +1,697 @@
+<section xml:id="Heat_kernel_def">
+  <title>Heat kernel</title>
+  <p>
+    Let <m>M</m> be a Riemannian manifold.
+    The Laplace operator <m>\Delta</m> can be extended as a densely defined self-adjoint operator.
+    Thus by the spectrum theorem, we can write
+    <me>
+      \Delta = \int \lambda d E
+    </me>
+    where <m>E</m> is the corresponding spectrum measure.
+    Using functional analysis, we define
+    <me>
+      e ^{- \Delta t} = \int ^\infty _0 e ^{- \lambda t } \, dE
+    </me>
+    to be the heat operator, and
+    <me>
+      \int^\infty _ 0 e ^{-\Delta t} \, dt
+    </me>
+    to be the Green's operator.
+  </p>
+  <p>
+    The heat semi-group, or the heat operator, has a kernel.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian,
+        then there is a heat kernel <m>H (x, y, t) \in C^\infty (M \times M \times \mathbb{R} ^+ )</m> such that
+        <me>
+          (e ^{- \Delta t} f) (x) = \int_M  H (x, y, t )f (y)
+        </me>
+      </p>
+      <p>
+        <m>\forall f \in L^2 (M)</m> such that
+        <ol>
+          <li>
+            <title>{ (1)}</title>
+            <p>
+              <m>H(x, y, t) = H (y, x, t)</m>
+            </p>
+          </li>
+          <li>
+            <title>{ (2)}</title>
+            <p>
+              <m>\lim_{t \rightarrow 0^{+} } H (x, y, t) = \delta _x (y)</m>
+            </p>
+          </li>
+          <li>
+            <title>{ (3)}</title>
+            <p>
+              <m>\left( \Delta - \frac{\partial }{\partial t} \right) H = 0</m>
+            </p>
+          </li>
+          <li>
+            <title>{ (4)}</title>
+            <p>
+              <m>H(x, y, t) = \int H (x, z, t - s) H (z, y, s) \, dz</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <remark>
+    <p>
+      Let <m>M</m> be a compact manifold and let
+      <m>\{ f_i\}</m> be an orthonormal basis of eigenfunctions.
+      Let <m>\lambda _i</m> be the corresponding eigenvalues.
+      Then
+      <me>
+        H(x, y, t) = \sum^\infty_{k=1} e ^{-\lambda _{k} t} f _k (x) f_k  (y)
+      </me>.
+    </p>
+    <p>
+      As in the case of harmonic functions,
+      for positive solutions of the heat equations
+      <me>
+        \left( \Delta - \frac{\partial }{\partial t} \right) u= 0
+      </me>
+      we also have the differentiable Harnack inequality.
+      The theorem is as follows:
+    </p>
+  </remark>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact Riemannian manifold with boundary, Ric<m>(M) \geq 0</m>.
+        If <m>\partial M \neq \emptyset</m>,
+        we assume that <m>\partial M</m> is convex.
+        In this case, we assume that
+        <m>u (x, t)</m> satisfies the Neumann boundary.
+        <me>
+          \frac{\partial u}{\partial n} = 0
+        </me>
+        on <m>\partial M x (0, \infty)</m>,
+        where <m>\frac{\partial }{\partial n}</m> is the outer normal direction.
+        Then on <m>M x (0, \infty)</m>, we have
+        <me>
+          \frac{|\nabla u|^2}{u^2} - \frac{ut}{u} \leq \frac{n}{2t}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    For manifold with Ric<m>(M) \geq - k</m>,
+    the estimates are more complicated but the same principle applies.
+  </p>
+  <p>
+    The Harnack inequalities follows from the gradient estimates:
+  </p>
+  <p>
+    Using the gradient estimates and the Harnack inequality we obtain:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete manifold without boundary, Ric<m>(M) \geq - k , k \geq 0</m>.
+        Let <m>H (x, y, t)</m> be the fundamental solution of the heat equation
+        <me>
+          \left( \Delta - \frac{\partial }{\partial t} \right)  u (x, t) = 0
+        </me>.
+      </p>
+      <p>
+        Then for any <m>\delta \in (0, 1)</m>, we have
+        <me>
+          H(x, y, t) \leq C(\delta, n) V^{-\frac{1}{2}} _x ( \sqrt{t}) V_y ^{-\frac{1}{2}} ( \sqrt{t}) \exp \left( - \frac{r^2 (x, y)}{(4 + \delta)t} + C_1 \delta k t\right)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    For the proof, see the book of Yau and Schoen.
+    We give some applications of the above theorem.
+  </p>
+  <theorem>
+    <title>Gromov</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact manifold without boundary,
+        let Ric<m>(M) \geq 0</m> and <m>d</m> be the diameter of <m>M</m>.
+        Then
+        <me>
+          \lambda _k \geq \frac{C(n)}{d^2} ( k + 1)^{\frac{2}{n}}
+        </me>
+        where <m>\lambda _k</m> is the <m>kth</m> eigenvalue of the manifold.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We set <m>x = y</m> and <m>k = 0</m> in the above theorem.
+      Then we have
+      <me>
+        H(x, x, t) \leq C(n) V^{-1} _x (\sqrt{t})
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        H(x, y, t)= \sum^\infty_{k=1} e ^{-\lambda k t} f_k (x) f _k (y)
+      </me>
+      we have
+      <me>
+        H(x, x, t)= \sum^\infty_{k=1} e ^{-\lambda _{k} t}
+      </me>.
+    </p>
+    <p>
+      As a result we have
+      <me>
+        \sum^\infty_{k=1} e ^{-\lambda k t} \leq C(n) \int_M V^{-1} _x (\sqrt{t}) \, dx
+      </me>.
+    </p>
+    <p>
+      If <m>\sqrt{t} \geq d</m>, then <m>V^{-1} _x (\sqrt{x}) = { vol} (M)</m>,
+      if <m>\sqrt{t} \leq d</m>, then by the Bishop volume comparison theorem
+      <me>
+        \frac{V_x  (\sqrt{t}}{ V _x (d)} \geq \left( \frac{\sqrt{t}}{d}\right) ^n
+      </me>.
+    </p>
+    <p>
+      Thus
+      <men>
+        \sum^\infty_{k=1} e ^{-\lambda _{k} t} \leq C(n)\left\{ \begin{array}{ll} \left(\frac{d}{\sqrt{t}}\right) ^n \amp t \leq d^2\\ 1  \amp t > d^2 \end{array}  \right. .\tag{$\star$}
+      </men>
+    </p>
+    <p>
+      For fixed <m>k</m>, by the monotonicity, we have
+      <me>
+        ke ^{-\lambda _{k} t} \leq C(n)\left\{ \begin{array}{ll} \left(\frac{d}{\sqrt{t}}\right) ^n \amp t \leq d^2\\ 1  \amp t > d^2 \end{array}  \right.
+      </me>.
+    </p>
+    <p>
+      We let
+      <me>
+        \sqrt{t} = k ^{-\frac{1}{n}} d
+      </me>
+      and the result follows.
+    </p>
+    <p>
+      We can compare the above eigenvalue estimate with the result of Cheng-Li.
+    </p>
+    <p>
+      From (<m>\star</m>), we can get
+      <me>
+        \sum^\infty_{k=1} e ^{- \lambda _{k} t} \leq C t ^{-\frac{n}{2}}\;\; t \leq d^2
+      </me>
+      where <m>C</m> is the absolute <m>d</m> constant.
+      On the other hand, if we consider
+      <md>
+        <mrow>\frac{\partial }{\partial t} \int_M H (x, y, t) ^2 d y \amp = \amp  2 \int_M H (x, y, t) \Delta H (x , y, t) \, dy</mrow>
+        <mrow>\amp   =\amp - 2 \int | \nabla y H (x, y, t)  | ^2 \, dy</mrow>
+        <mrow>\amp   \leq \amp  - 2 C \left( \int_M |H (x, y, t) | ^{\frac{2n}{n-2}} \, dy \right) ^{\frac{n-2}{n}}</mrow>
+      </md>
+      where <m>C</m> is the Sobolev constant.
+      Since for any <m>t > 0</m>
+      <me>
+        \int H (x, z, t) \, d z \leq 1
+      </me>.
+    </p>
+    <p>
+      So we have
+      <me>
+        \left|\int _M |H | (x, y, t) | ^{\frac{2n}{n-2}} \, dy \right| ^{\frac{n-2}{n}}\geq \left( \int_M |H (x, y, t) | ^{2} \, dy \right) ^{\frac{2+n}{n}}
+      </me>
+    </p>
+  </proof>
+  <proof>
+  <p>
+    Let <m>f = H (x, y, t)</m>.
+    Then
+    <me>
+      \int f ^2 = \int f ^{\frac{2n}{n+2}+ \frac{4}{n+2}}\leq \left(  \int f^{\frac{2n}{n-2}}\right) ^{\frac{n+2}{2n}}\left. \left( \int f \right) ^{\frac{4}{n+2}}\right)
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <me>
+      \frac{\partial }{\partial t}\int _M H(x, y, t)^2 \, dy  \leq - C \left( \int_M |H (x, y, t) ^2 | dy \right) ^{\frac{2+n}{n}}
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      \lim_{t \rightarrow 0} H (x, x, t) = \infty
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      H (x, x, 2t) \leq \left( \frac{4}{n} Ct \right) ^{-\frac{n}{2}}
+    </me>.
+  </p>
+  <p>
+    Using the same method as before, we have
+    <me>
+      \lambda _k \geq C \left( \frac{k}{{ vol} (M)}\right) ^{\frac{2}{n}}
+    </me>.
+  </p>
+  <p>
+    The second application of the heat kernel estimate is the following resolvent estimate.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        For any <m>\beta > 0</m> there is
+        <m>n \in N, \alpha \lt  0 , C \subset \infty</m> such that the integral kernel
+        <m>g _{\alpha} ^{(\frac{n}{2})}(x, y)</m> of <m>(\Delta - \alpha) ^{-\frac{n}{2}}</m> satisfies.
+        <me>
+          g _{\alpha} ^{(\frac{n}{2})}(x, y)  \leq C \phi (x) ^2 e ^{-\beta d(x, y)}
+        </me>
+        where <m>\phi (x) = (v (B_1 (x))  ^{-\frac{1}{2}}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      First, using the heat kernel <m>H (x, t)</m> we can write
+      <me>
+        g _{\alpha} ^{(\frac{n}{2})}(x, y) = C _2 \int ^\infty_0 H (x, y, t) t  ^{ \frac{n}{2}-1   } e ^{\alpha t} \, dt
+      </me>.
+    </p>
+    <p>
+      By the volume comparison theorem, we have
+      <md>
+        <mrow>v ^{ \frac{n}{2}} (B_{\sqrt{t}}(x)) v ^{ \frac{-1}{2} }(B_{\sqrt{t}}(y))\amp \leq \amp  C_2 \phi (x)^2 \sup (1, t  ^{-\frac{n}{2}})</mrow>
+        <mrow>\amp \times \amp  e ^{\beta _{2} d (x, y)}</mrow>
+      </md>.
+    </p>
+    <p>
+      By an element calculation, for any <m>\beta _3 > 0</m>, we have
+      <me>
+        \exp \left( - \frac{d^2 (x, y)}{C_1 4t} \right) \leq \exp (  \beta_3 d (x, y) ) \exp (C_1 \beta ^2_3 t )
+      </me>.
+    </p>
+    <p>
+      Thus for any <m>\beta > 0</m>,
+      there exists <m>\alpha \lt  0 , C_3 \lt  \infty</m> such that
+      <me>
+        H (x, y, t) \leq C_3 \phi ^2 (x) e ^{-\beta _{2} d (x, y)} \sup \{ t  ^{ -\frac{n}{2} } , 1 \} t  ^{ - (\alpha + 1 ) t}
+      </me>
+      which implies
+      <me>
+        g _{\alpha} ^{(\frac{n}{2})}  (x, y) \leq C_t \phi ^2 (x)   e ^{-\beta  d (x, y)}
+      </me>.
+    </p>
+    <p>
+      Cheeger-Yau's heat kernel comparison theorem.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold such that Ric<m>(M) \geq 0</m>.
+        Fixing <m>x \in M , r_0 > 0</m>.
+        The heat kernel <m>H (x, y, t)</m> in
+        <m>B(x, r_0)</m> and the heat kernel <m>\varepsilon (r (x, y) , t)</m> in
+        <m>V (k, r_0)</m> satisfies the following
+        <me>
+          \varepsilon (r (x, y) , t) \leq H (x, y, t)
+        </me>.
+      </p>
+      <p>
+        (For both Dirichlet and Neumann conditions).
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Using the property of the heat kernel, we have
+      <md>
+        <mrow>\lefteqn{H(x, y, t) - \varepsilon (x, y, t)}</mrow>
+        <mrow>\amp \amp = \int ^t _0 \int _{B (x_1 r_0)} \frac{d}{ds}  ( \varepsilon (x, z, t - s) H (z, y, s) ) \, d z ds</mrow>
+        <mrow>\amp \amp = - \int ^t _0 \int _{B (x_1 r_0) }\left( \frac{d}{ds}\varepsilon (r (x, z), t-s)\right) H(z, y, s)  \, d z ds</mrow>
+        <mrow>\amp \amp + \int^t_0 \int _{B (x_1 r_0) }\varepsilon (r (x, z), t-s)\frac{d}{ds} H(z, y, s)  \, d z ds</mrow>
+        <mrow>\amp \amp = - \int^t_0 \int _{B (x_1 r_0)} \tilde{\Delta} \varepsilon (r (x, z), t - s) H(z, y, s)  \, d z ds</mrow>
+        <mrow>\amp \amp + \int^t_0 \int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z ds</mrow>
+      </md>.
+    </p>
+    <p>
+      Using the Green's formula,
+      under either the Dirichlet or Neumann boundary condition, we have
+      <md>
+        <mrow>\lefteqn{\int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z}</mrow>
+        <mrow>\amp \amp = \int _{B (x_1 r_0)}\Delta \varepsilon (r (x, z), t - s)  H(z, y, s)  \, d z</mrow>
+      </md>.
+    </p>
+    <p>
+      Since <m>H(\xi, y, s)  > 0</m>,
+      we just need to prove that
+      <me>
+        \tilde{\Delta} \varepsilon (r (x, z), t - s)\leq \Delta  \varepsilon (r (x, z), t - s)
+      </me>.
+    </p>
+    <p>
+      This essentially follows from the Laplacian comparison theorem: Let <m>x = (r, \zeta ) , \zeta \in S^{n-1}</m>.
+      Then
+      <md>
+        <mrow>\tilde{\Delta } \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r) \frac{\partial }{\partial r} , m (r) \frac{\partial }{\partial r} \log { det} \sqrt{\tilde{g}}</mrow>
+        <mrow>\Delta \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r,\zeta) \frac{\partial }{\partial r} , m (r,\zeta) \frac{\partial }{\partial r} \log { det} \sqrt{{g}}</mrow>
+      </md>.
+    </p>
+    <p>
+      Since Ric<m>(M) \geq (n-1)_k</m>,
+      using the volume comparison theorem, we have
+      <me>
+        m (r, \zeta ) \leq m (r)
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        \frac{\partial \varepsilon}{\partial r} \lt  0
+      </me>
+      we have
+      <me>
+        \tilde{\Delta} \varepsilon (r, t-s) \leq \Delta \varepsilon (r, t - s)
+      </me>.
+    </p>
+  </proof>
+  <p>
+    In the above proof, we didn't take the cut-locus into account.
+    Using some kind of limiting process,
+    we can overcome the difficulty.
+  </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold such that <m>Ricci (M) \geq (n-1) k , n = \dim M</m>.
+        We use <m>B (x_0, r)</m> to denote the ball centered at <m>x _0</m> with radius <m>r</m>.
+        Let <m>V (k, r)</m> be the ball of radius <m>r</m> in a simply connected space form.
+        Then with the Dirichlet boundary condition, we have
+        <me>
+          \lambda _1 (B (x_0, r)) \leq \lambda _1 (V (k, r))
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \begin{proof} Let <m>H(x, y, t)</m> and
+    <m>\varepsilon (x, y, t)</m> be the corresponding heat kernel.
+    Then we have
+    <md>
+      <mrow>H (x, y, t) \amp =\amp  \sum e^{-\lambda _1t}  \phi ^2 _1 (x)</mrow>
+      <mrow>\varepsilon (x, y, t) \amp  = \amp  \sum e^{-\tilde{\lambda} _1t}  \tilde{\phi} ^2 _1 (x)</mrow>
+    </md>.
+  </p>
+  <p>
+    If we let <m>t \rightarrow \infty</m>,
+    we get <m>\lambda _1 \leq \tilde{\lambda}_1</m>.
+    S.Y. Cheng concretely computed the upper bounds of the eigenvalue
+    <ol>
+      <li>
+        <p>
+          if Ric<m>(M) \geq 0</m>, then <m>\lambda _1 \leq \frac{2n(n+4)}{d^2}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          if Ric<m>(M) \geq n-1</m>, then <m>\lambda _1 \leq n\frac{\pi^2}{d^2}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          if Ric<m>(M) \geq (n-1) (-k)</m>, then
+        </p>
+      </li>
+    </ol>
+  </p>
+  <me>
+    \lambda_1 \leq \frac{1}{4} k + \frac{C_n}{d^2} \;\;\; C_k = 2n (n+4)
+  </me>.
+  <p>
+    Unfortunately, for Neumann boundary condition,
+    we don't have the comparison theorem for the 1st eigenvalues <em>directly</em>.
+    Under, the Neumann boundary condition,
+    the <em>first</em> eigenvalues are always 0.
+    The comparison theorem for that is trivial.
+  </p>
+  <p>
+    It is thus interesting to have the following result.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        If <m>M</m> is a compact manifold without boundary, then
+        <me>
+          \lambda _1 (M) \leq \lambda _1 \left(V \left(k, \frac{d}{2}\right)\right)
+        </me>
+        where <m>d</m> is the diameter of <m>M</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Proof of a theorem of Brascamp and Lieb.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\Omega</m> be a bounded convex domain of <m>\mathbb{R}^n</m>.
+        Let <m>u</m> be the first Dirichlet eigenfunction.
+        Let
+        <me>
+          \Delta u = - \lambda , u  \;\; u > 0
+        </me>.
+      </p>
+      <p>
+        Then <m>\log u</m> must be concave.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We choose any function <m>u_0 > 0 , u _0 |_{\partial \Omega} = 0</m> such that <m>- \log u_0</m> is concave.
+      Such a function always exists.
+      For example,
+      we can take the convex hull of the graph of <m>- \log u</m>.
+    </p>
+    <p>
+      Consider the flow
+      <me>
+        \frac{\partial u}{\partial t}  = \Delta u + \lambda _i u \;\; \frac{u}{\partial \Omega} = 0
+      </me>.
+    </p>
+    <p>
+      We <em>assume</em> that <m>u_t \rightarrow u</m>, the first eigenfunction.
+      We are going to use the maximum principle.
+      Let <m>T</m> be the biggest number such that det<m>(- \Delta ^2 \log u)</m> is degenerated.
+      Thus there is an <m>x_0 \in M</m> and a direction <m>i</m> such that
+      <me>
+        - ( \log u) _{ii} (x_0) = 0
+      </me>
+      and for other <m>j, (- \log u) _{jj} (x_0) \geq 0</m>.
+      Let <m>\phi = - \log u</m>.
+      Then the envolution of <m>\phi</m> is
+      <me>
+        \frac{\partial \phi}{\partial t}  = \Delta \phi - |\nabla \phi |^2 - \lambda _1
+      </me>.
+    </p>
+    <p>
+      By the maximum principle,
+      <m>\phi_{iik}  = 0 , \frac{\partial \phi_{ii}}{\partial t} \leq 0 \Delta \phi _{ii} \geq 0</m>.
+      Thus
+      <md>
+        <mrow>0 \geq \frac{\partial \phi_{ii}}{\partial t} \amp  = \amp \Delta \phi_{ii} -2  \phi _k \phi_{kii} - 2 \phi ^2_{ki}</mrow>
+        <mrow>\amp  \geq \amp  - 2 \phi_{ki}^2</mrow>
+      </md>.
+    </p>
+    <p>
+      However, by convexity,
+      <m>\phi_{ki}^2 \leq \phi_{ii} \cdot \phi_{kk}=0, \phi_{ki} \equiv 0</m>.
+      The theorem follows from strong maximum principle.
+    </p>
+    <p>
+      Let <m>\Omega</m> be a bounded domain with smooth boundary.
+      Let <m>u</m> be the first Dirichlet eigenfunction with eigenvalue <m>\lambda _1</m>.
+      Then
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        <m>u \geq 0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Otherwise, we may use <m>|u|</m> in place of <m>u</m>.
+      From the Kato's inequality
+      <me>
+        |\nabla |u|| \leq |\nabla u|
+      </me>
+      we have
+      <me>
+        \frac{\int |\nabla |u| |^2}{\int u^2} \leq \frac{\int |\nabla u|^2}{\int u^2}
+      </me>.
+    </p>
+    <p>
+      Since <m>\frac{\int |\nabla u|^2}{\int u^2}</m> is minimal,
+      we must have
+      <me>
+        \frac{\int |\nabla |u| |^2}{\int u^2} = \frac{\int |\nabla u|^2}{\int u^2}
+      </me>
+      and thus <m>u</m> is an eigenfunction.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        <m>u > 0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    If not, assume that <m>u (x_0) = 0</m>.
+    Let
+    <me>
+      u(x) = p^N (x) + 0 ( x ^{N+\varepsilon} )
+    </me>.
+  </p>
+  <p>
+    By the equation <m>\Delta u = - \lambda_1 u</m>, we must have
+    <me>
+      \Delta p^N (x) = 0
+    </me>.
+  </p>
+  <p>
+    Since <m>u (x) \geq 0</m>, we have <m>p^N (x) \geq 0</m>.
+    This contradicts to the maximum principle.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        <m>\frac{\partial u}{\partial n} \neq 0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Using Taylor's expansion
+      <me>
+        u(x) = p ^N (x) + 0 ( x ^{N+ \epsilon)} )
+      </me>.
+    </p>
+    <p>
+      Again, <m>\Delta p^N (x) = 0 , p^N (x) > 0</m> in <m>\Omega</m>.
+      By the Hopf lemma
+      <me>
+        \frac{\partial u}{\partial n} = \frac{\partial p^N}{\partial n} \neq 0
+      </me>.
+    </p>
+    <p>
+      Consider the flow
+      <me>
+        \frac{\partial u}{\partial t} = \Delta u = \lambda _1 u, \frac{u}{\partial \Omega} = 0
+      </me>.
+    </p>
+  </proof>
+  <p>
+    We have
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        For any smooth initial <m>u _0 > 0</m>,
+        the flow exists and converges to the first eigenfunction.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let
+      <me>
+        u_0 = \sum a _i f _i (x)
+      </me>.
+    </p>
+    <p>
+      Then
+      <me>
+        u ( t, x) = \sum a_i e ^{(-a_{i} -  \lambda _{1} )t} f_i (x)
+      </me>
+      solves the flow equation.
+      Obviously,
+      <me>
+        \lim_{t \rightarrow  \infty} u(t, x) =  a _i f_1 (x)
+      </me>.
+    </p>
+    <p>
+      If we choose the <m>u_0</m> such that <m>a _i \neq 0</m>.
+      Then the flow converges to the first eigenfunction.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        If <m>u_0 > 0</m>, then <m>u (t, x) >0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Maximum principle.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        If <m>\Omega</m> is convex,
+        then near <m>\partial \Omega (-\log u)</m> is convex.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      We solve <m>u ( x_1 \ldots, x_n) = 0</m> to get
+      <me>
+        x _n = x_n (x _1 , \ldots , x _{n-1} )
+      </me>
+    </p>
+    <p>
+      <m>\Omega</m> is convex
+      <me>
+        \frac{\partial ^ 2 x _n }{\partial x_i \partial x_j} > 0 \;\;\;\mbox{(positive definite matrix)}
+      </me>.
+    </p>
+    <p>
+      Using implicitly function theorem, we have
+      <me>
+        -\frac{u_{ij}}{u_n} + \frac{u_{in} u_j}{u^2_n} + \frac{u_{jn} u_i}{u^2_n} - \frac{u_i u_j u_{nn}}{u_n^3} > 0
+      </me>.
+    </p>
+    <p>
+      Thus for any <m>(a _1, \cdots , a_n)</m> if <m>\sum a _i u_i = 0</m>, we have
+      <me>
+        - u _{ij} a _i a_j \geq \varepsilon |a|^2
+      </me>.
+    </p>
+    <p>
+      For any <m>a + \mu b , b = (u _1 \ldots, u_n )</m>, we have
+      <md>
+        <mrow>\amp  - \amp  u_{ij} (a_i + \mu b_i )( a_j + \mu b_j )</mrow>
+        <mrow>\amp \amp  + \frac{1}{u} |\mu | ^2 |b| ^4 > 0 </mrow>
+      </md>.
+    </p>
+    <p>
+      Thus <m>- \log u</m> is convex.
+    </p>
+    <p>
+      For the maximal principle, see page 84<ndash/>A.
+    </p>
+    <p>
+      For initial function,
+      take any <m>\frac{u}{\partial \Omega } = 0 \ u e ^{- c \sum x_i ^2}</m>.
+    </p>
+  </proof>
+</section>

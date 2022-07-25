@@ -1,0 +1,5 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Heat_kernel">
+  <title>Heat kernel and Green's functions on complete manifold</title>
+  <xi:include  href="Heat_kernel_def.ptx"/>
+  <xi:include  href="Green_function.ptx"/>
+</chapter>

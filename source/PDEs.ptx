@@ -1,0 +1,6 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="PDEs">
+  <title>The PDEs</title>
+  <xi:include  href="Moser_iteration.ptx"/>
+  <xi:include  href="ABP_principle.ptx"/>
+  <xi:include  href="Krylov-Safonov.ptx"/>
+</chapter>

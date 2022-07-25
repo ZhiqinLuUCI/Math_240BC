@@ -1,0 +1,576 @@
+<section xml:id="Krylov-Safonov">
+  <title>Krylov-Safonov Estimates</title>
+  <p>
+    For elliptic equations of non-divergence form,
+    in 1980, Krylov-Safonov obtained the H&#xf6;lder estimate,
+    which was almost 20 years after de Giorgi-Nash-Moser's results on elliptic equations of divergence form.
+  </p>
+  <p>
+    We shall use similar steps as in the de Giorgi-Nash-Moser case:
+    we start from local maximum principle,
+    weak Harnark inequality, Harnark inequality,
+    and the <m>\mathcal C^\alpha</m>-estimate.
+    The contents of this section is essentially from (Cite chen).
+  </p>
+  <p>
+    For the sake of simplicity, we only consider the following equation
+    <men xml:id="div-2">
+      Lu=-a^{ij} D_{ij} u=f
+    </men>
+    on <m>\Omega</m>,
+    where <m>(a^{ij})</m> satisfies the uniform ellipticity condition:
+    <men xml:id="uni-4">
+      \lambda>0, \Lambda/\lambda\leq\gamma
+    </men>
+    on <m>\Omega</m>,
+    where <m>\lambda, \Lambda</m> are the minimum and maximum eigenvalues of <m>(a^{ij})</m> respectively,
+    and <m>\gamma</m> is a positive number.
+  </p>
+  <theorem>
+    <title>local maximum principle</title>
+    <statement>
+      <p>
+        Assume equation<nbsp/><xref ref="div-2"/>.
+        Let <m>u\in W^{2,n}(\Omega)</m> and let
+        <m>Lu\leq f</m> almost everywhere on <m>\Omega</m>.
+        Let <m>f/\lambda\in L^n(\Omega)</m>.
+        Then for any <m>p>0</m>, <m>B_{2R}\subset\Omega</m>, we have
+        <me>
+          \sup_{B_R(y)} u\leq C\left[\fint_{B_{2R}(y)}(u^+)^p dx\right]^{1/p}+R\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_{2R}(y))}
+        </me>,
+        where <m>C</m> only depends on <m>n,\gamma,p</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      By using the transformation
+      <me>
+        x\mapsto\frac{x-y}{2R}
+      </me>,
+      we can assume that <m>y=0</m> and <m>R=1/2</m>.
+      Taking
+      <me>
+        \eta(x)=(1-|x|^2)^\beta
+      </me>
+      as the cut-off function, then we have
+      <md>
+        <mrow xml:id="x26" number="yes">\begin{split} \amp  D_i\eta=-2\beta x_i(1-|x|^2)^{\beta-1};</mrow>
+        <mrow>\amp D_{ij}\eta=-2\beta\delta_{ij}(1-|x|^2)^{\beta-1}+4\beta(\beta-1)x_ix_j(1-|x|^2)^{\beta-2};</mrow>
+        <mrow>\amp  L\eta=[2\beta\, \sum_{i=1}^na^{ii}(1-|x|^2)-4\beta(\beta-1)\sum_{i,j=1}^na^{ij}x_ix_j](1-|x|^2)^{\beta-2}. \end{split}</mrow>
+      </md>
+    </p>
+    <p>
+      Let <m>v=\eta u</m>.
+      Then we have
+      <me>
+        Lv=uL\eta+\eta Lu-2a^{ij} D_i\eta D_j u
+      </me>.
+    </p>
+    <p>
+      On the contact set <m>\Gamma_v</m> defined in <xref ref="def9">Definition</xref>, we have
+      <me>
+        |Dv|\leq\frac{v(x)}{{ dist}(x,\pa B_1)}\leq\frac{v(x)}{1-|x|}
+      </me>
+      by <xref ref="x15">Lemma</xref>.
+      Then we have
+      <me>
+        |Du|\leq\frac1\eta|Dv-uD\eta|\leq\frac 1\eta\left[\frac{v(x)}{1-|x|}+u|D\eta|\right]\leq 2(1+\beta) \eta^{-1/\beta} u
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        Lv\leq\eta f+(16\beta^2+2n\beta)\Lambda\eta^{-2/\beta} v\leq C\lambda\eta^{-2/\beta} v+f
+      </me>
+      almost everywhere on <m>\Gamma_v</m>,
+      where <m>C</m> only depends on <m>n,\beta,\gamma</m>.
+    </p>
+    <p>
+      By <xref ref="thm35">Theroem</xref>, we have
+      <md>
+        <mrow>\amp \sup _{B_1} v\leq  C\left(||\eta^{-2/\beta}v^+||_{L^n(B_1)}+\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}\right)</mrow>
+        <mrow>\amp \leq C\left((\sup v^+)^{1-2/\beta}||(u^+)^{2/\beta}||_{L^n(B_1)}+\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}\right)</mrow>
+      </md>.
+    </p>
+    <p>
+      Using the Young's inequality, we have
+      <me>
+        \sup_{B_1} v\leq C \left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}+\eps\sup_{B_1} v^++C_\eps||(u^+)^{2/\beta}||^{\beta/2}_{L^n(B_1)}
+      </me>.
+    </p>
+    <p>
+      We take <m>\eps=1/2</m> and if <m>p\lt n</m>,
+      we let <m>\beta=2n/p>2</m>.
+      Then we have
+      <me>
+        \sup_{B_{1/2}} u\leq C\left( ||u^+||_{L^p(B_1)}+\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}\right)
+      </me>.
+    </p>
+    <p>
+      If <m>p\geq n</m>,
+      then the estimate follows from the H&#xf6;lder inequality.
+    </p>
+  </proof>
+  <p>
+    The most complicated part of the estimate is the weak Harnark inequality.
+    Let <m>K_R(y)</m> be a tube on <m>\R^n</m> with center in <m>y</m> and side length <m>2R</m>.
+    The following argument was introduced by Krylov-Safonov.
+    We start with the following
+  </p>
+  <lemma xml:id="x20">
+    <statement>
+      <p>
+        Let <m>K_0</m> be a tube in <m>\R^n</m> and let <m>\Gamma</m> be a measurable subset of <m>K_0</m>.
+        Let <m>0\lt \delta\lt 1</m>.
+        Let
+        <me>
+          \Gamma_\delta=\bigcup\{ K_{3R}(y)\cap K_0\mid K_R(y)\subset K_0, |\Gamma\cap K_R(y)|\geq\delta|K_R(y)|\}
+        </me>.
+      </p>
+      <p>
+        If <m>\Gamma_\delta\neq K_0</m>, then
+        <me>
+          |\Gamma|\leq\delta|\Gamma_\delta|
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      If <m>|K_0\cap \Gamma|>\delta|K_0|</m>,
+      then <m>\Gamma_\delta=K_0</m>.
+      Thus if <m>\Gamma_\delta\neq K_0</m>, we must have
+      <me>
+        |K_0\cap\Gamma|\leq\delta|K_0|
+      </me>.
+    </p>
+    <p>
+      Dividing <m>K_0</m> into <m>2^n</m> congruent sub-cubes and denoting them as <m>\{K(i_1)\}_{i_1=1}^{2^n}</m>.
+      On each <m>K(i_1)</m>, we have either of the following
+      <ol>
+        <li>
+          <p>
+            <m>|\Gamma\cap K(i_1)|\leq\delta|K(i_1)|</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|\Gamma\cap K(i_1)|>\delta|K(i_1)|</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Let the collection of <m>K(i_1)</m> satisfying (2) be <m>\mathcal F_1</m>.
+      If <m>K(i_1)</m> satisfies (1),
+      continue the subdivision such that
+      <me>
+        K(i_1)=\bigcup_{i_2=1}^{2^n}K(i_1,i_2)
+      </me>.
+    </p>
+    <p>
+      For each <m>K(i_1,i_2)</m>, we still have two cases.
+      We let <m>\mathcal F_2</m> be the collection of all <m>K(i_1,i_2)</m> satisfying (2).
+      On the other hand,
+      if <m>K(i_1,i_2)</m> satisfying (1), continue the subdivision.
+      Thus we have the sets <m>\mathcal F_1,\cdots,\mathcal F_m,\cdots</m>.
+      Let
+      <me>
+        \mathcal F=\{K(i_1,\cdots,i_{m-1})\mid K(i_1,\cdots,i_{m-1}, i_m)\in\mathcal F_m\}
+      </me>.
+    </p>
+    <p>
+      Thus if <m>K(i_1,\cdots,i_m)\in\mathcal F_m</m>, then
+      <md>
+        <mrow>\amp  |K(i_1,\cdots,i_m)\cap\Gamma|>\delta|K(i_1,\cdots,i_m)|;</mrow>
+        <mrow>\amp |K(i_1,\cdots,i_{m-1})\cap\Gamma|\leq \delta |K(i_1,\cdots,i_{m-1})|</mrow>
+      </md>.
+    </p>
+    <p>
+      By the definition of <m>\Gamma_\delta</m>, we have
+      <me>
+        K(i_1,\cdots,i_{m-1})\subset\Gamma_\delta
+      </me>.
+    </p>
+    <p>
+      Let
+      <me>
+        \tilde\Gamma_\delta=\bigcup_{K\in\mathcal F} K\subset\Gamma_\delta
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        |\tilde\Gamma_\delta\cap\Gamma|=\sum_{K\in\mathcal F}|K\cap \Gamma|\leq\delta\sum_{K\in\mathcal F}|K|=\delta|\tilde\Gamma_\delta|\leq\delta|\Gamma_\delta|
+      </me>.
+    </p>
+    <p>
+      On the other hand, by the definition of <m>\tilde\Gamma_\delta</m>,
+      since <m>\Gamma</m> is measurable, by the Lebesgue Theorem,
+      we know that for almost every point of <m>\Gamma</m> is dense.
+      Thus we have
+      <me>
+        |\Gamma|=|\Gamma\cap\tilde\Gamma_\delta|\leq\delta|\Gamma_\delta|
+      </me>.
+    </p>
+  </proof>
+  <theorem>
+    <title>Weak Harnark inequality</title>
+    <statement>
+      <p>
+        Suppose <m>L</m> satisfies the uniform ellipticity conditions<nbsp/><xref ref="uni-4"/>;
+        <m>u\in W^{2,n}(\Omega)</m>; <m>Lu\geq f</m>;
+        <m>f/\lambda\in L^n(\Omega)</m>;
+        <m>u\geq 0</m> on <m>B_{2R}(y)\subset\Omega</m>.
+        Then there is a <m>p>0</m>, <m>C>1</m> such that
+        <me>
+          \left(\int_{B_R(y)}|u|^p dx\right)^{1/p}\leq C\left[\inf_{B_R(y)} u+R \left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_{2R}(y))}\right]
+        </me>,
+        where <m>p,C</m> only depends on <m>n,R</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The proof of this theorem is quite long so we divide it into the following 5 steps.
+    </p>
+    <p>
+      <em>Step 1.</em> Using rescaling
+      <me>
+        x\mapsto\frac{x-y}{2R}
+      </me>,
+      we assume that <m>y=0</m>, <m>R=1/2</m>.
+      Let
+      <me>
+        \tilde u=u+\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}, \Gamma=\{x\in B_1\mid\tilde u(x)\geq 1\}
+      </me>.
+    </p>
+    <p>
+      We want to prove that there exists <m>C>0</m>,
+      <m>0\lt \delta\lt 1</m> such that whenever
+      <men xml:id="x27-1">
+        |\Gamma\cap K_\alpha|\geq\delta|K_\alpha|
+      </men>,
+      we have
+      <men xml:id="x27">
+        \inf_{K_{3\alpha}}\,\tilde u\geq C^{-1}
+      </men>,
+      where <m>K_\alpha</m> is the tube centered at <m>0</m> with side length <m>2\alpha</m>,
+      <m>\alpha=1/(6\sqrt n)</m>,
+      <m>C,\delta</m> only depends on <m>n,\gamma</m>.
+    </p>
+    <p>
+      For any <m>\eps>0</m>.
+      Let
+      <me>
+        w=\log(\tilde u+\eps)^{-1}, g=\frac{f}{\tilde u+\eps}
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        -a^{ij}D_{ij} w=\frac{1}{\tilde u+\eps}a^{ij} D_{ij} u-a^{ij}D_iwD_jw \leq -g-a^{ij} D_iw D_jw
+      </me>.
+    </p>
+    <p>
+      Let <m>\eta=(1-|x|^2)^\beta</m>.
+      Let <m>v=\eta w</m>.
+      Then we have
+      <md>
+        <mrow>\amp  Lv=\eta Lw+w L\eta-2a^{ij}D_i wD_j \eta</mrow>
+        <mrow>\amp \leq -\eta g-\eta a^{ij}D_i w D_j w-2a^{ij} D_iw D_j\eta+vL\eta/\eta</mrow>
+        <mrow>\amp \leq -\eta g+\frac 1\eta a^{ij} D_i\eta D_j\eta+\frac{v L\eta}{\eta}</mrow>
+      </md>.
+    </p>
+    <p>
+      By<nbsp/><xref ref="x26"/>, we know when
+      <me>
+        (2\beta-1)\lambda|x|^2\geq n\Lambda
+      </me>,
+      we have <m>L\eta\leq 0</m>.
+      Let <m>\alpha\in(0,1)</m>.
+      If <m>|x|>\alpha</m>, we take
+      <me>
+        \beta-1\geq\frac{n\gamma}{2\alpha^2}
+      </me>.
+    </p>
+    <p>
+      Then we have <m>L\eta\leq 0</m> for <m>|x|\geq \alpha</m>.
+      Thus we have
+      <me>
+        Lv\leq|g|+4\beta^2\Lambda+\sup_{B_\alpha}\left(\frac{L\eta}{\eta}\right)\chi(B_\alpha) v
+      </me>,
+      where <m>\chi(B_\alpha)</m> is the characteristic function of <m>B_\alpha</m>.
+      Note that
+      <me>
+        \left|\left|\frac{g}{\lambda}\right|\right|_{L^n(B_1)}\leq 1
+      </me>.
+    </p>
+    <p>
+      By the Aleksandrov maximum principle, we have
+      <men xml:id="new-1">
+        \sup_{B_1} v\leq C[1+||v^+||_{L^n(B_\alpha)}]
+      </men>,
+      where <m>C</m> only depends on <m>n,\gamma,\alpha</m>.
+    </p>
+    <p>
+      In order to use the measure theory, we change ball into cube.
+      We have
+      <me>
+        \sup_{B_1} v\leq C[1+||v^+||_{L^n(B_\alpha)}]\leq C(1+|K_\alpha^+|^{1/n}\sup_{B_1} v)
+      </me>,
+      where
+      <me>
+        K_\alpha^+=\{x\in K_\alpha\mid v>0\}=\{x\in K_\alpha\mid\tilde u+\eps\lt 1\}
+      </me>.
+    </p>
+    <p>
+      If
+      <me>
+        \frac{|K_\alpha^+|}{K_\alpha}\leq\theta\overset{\Delta}{=}\frac{1}{(2C)^n|K_\alpha|}=\frac{1}{(4C\alpha)^n}
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        \sup_{B_1} v\leq 2C
+      </me>,
+      or equivalently
+      <me>
+        \inf_{B_{1/2}}\,(\tilde u+\eps)\geq\frac 1C
+      </me>.
+    </p>
+    <p>
+      Letting <m>\eps\to 0</m>, we get<nbsp/><xref ref="x27"/>.
+      On the other hand, if <m>\frac{|K_\alpha^+|}{K_\alpha}>\theta</m>,
+      we let <m>\delta=1-\theta</m>,
+      <m>\alpha=\frac{1}{6\sqrt n}</m>.
+      Then we have <m>K_{3\alpha}\subset B_{1/2}</m>.
+      If <m>|\Gamma\cap K_\alpha|\geq\delta|K_\alpha|</m>,
+      then by <xref ref="x20">Lemma</xref>, we have
+      <me>
+        |K_\alpha^+|=|K_\alpha\backslash (\Gamma\cap K_\alpha)|\leq\theta|K_\alpha|
+      </me>
+      which contradicts to the assumption<nbsp/><xref ref="x27-1"/>.
+    </p>
+    <p>
+      <em>Step 2.</em> For any positive integer <m>m</m>, if
+      <me>
+        |\Gamma\cap K_\alpha|\geq\delta^m|K_\alpha|
+      </me>,
+      then
+      <me>
+        \inf_{K_\alpha}\tilde u\geq C^{-m}
+      </me>,
+      where <m>C</m> is the constant in Step 1.
+    </p>
+    <p>
+      If <m>m=1</m>, the statement is proved by the above step.
+      Assume that the claim is true for <m>m\geq 1</m>.
+      Assume that
+      <me>
+        |\Gamma\cap K_\alpha|\geq\delta^{m+1}|K_\alpha|
+      </me>.
+    </p>
+    <p>
+      Let <m>\tilde K_0=K_\alpha</m>,
+      <me>
+        \Gamma_\delta=\bigcup\{K_{3r}(x)\cap \tilde K_0\mid K_r(x)\subset\tilde K_0, |\Gamma\cap K_r(x)|\geq\delta|K_r(x)|\}
+      </me>.
+    </p>
+    <p>
+      By <xref ref="x20">Lemma</xref>, we have either
+      <me>
+        \Gamma_\delta=\tilde K_0, { or} |\Gamma\cap\tilde K_0|\leq\delta|\Gamma_\delta|
+      </me>.
+    </p>
+    <p>
+      By the definition of <m>\Gamma_\delta</m> and Step 1, we have
+      <me>
+        \inf_{\Gamma_\delta}\tilde u\geq C^{-1}
+      </me>.
+    </p>
+    <p>
+      If <m>\Gamma_\delta=\tilde K_0=K_\alpha</m>,
+      then the above implies the claim.
+      If <m>|\Gamma\cap\tilde K_0|\leq\delta|\Gamma_\delta|</m>.
+      Let <m>v=Cu</m>.
+      Then <m>v</m> satisfiws
+      <me>
+        -a^{ij}D_{ij} v\geq Cf
+      </me>.
+    </p>
+    <p>
+      Let
+      <me>
+        \tilde v=v+\left|\left|\frac{Cf}{\lambda}\right|\right|_{L^n(B_1)}=C\tilde u
+      </me>.
+    </p>
+    <p>
+      Let
+      <me>
+        \tilde\Gamma=\{x\in B_1\mid\tilde v\geq 1\}
+      </me>.
+    </p>
+    <p>
+      Then <m>\Gamma_\delta\subset\tilde\Gamma</m> and we have
+      <me>
+        |\tilde\Gamma\cap\tilde K_0|\geq|\Gamma_\delta|\geq\frac{1}{\delta}|\Gamma\cap\tilde K_0| =\frac 1\delta|\Gamma\cap K_\alpha|\geq\delta^m|K_\alpha|=\delta^m|\tilde K_0|
+      </me>.
+    </p>
+    <p>
+      By the inductive assumption, we have
+      <me>
+        \inf_{K_\alpha}\tilde v\geq C^{-m}
+      </me>,
+      which is equivalent to
+      <me>
+        \inf_{K_\alpha}\tilde u\geq C^{-(m+1)}
+      </me>.
+    </p>
+    <p>
+      <em>Step 3.</em> Let
+      <me>
+        \Gamma_t=\{x\in B_1\mid\tilde u(x)>t\}
+      </me>.
+    </p>
+    <p>
+      Then there is a <m>C>1, \mu>0</m> such that
+      <men xml:id="plk">
+        |B_\alpha\cap \Gamma_t|\leq C|B_\alpha|\left(\frac{\inf_{B_\alpha}\tilde u}{t}\right)^\mu
+      </men>,
+      where <m>C</m> and <m>\mu</m> depend only on <m>n,\gamma</m>.
+    </p>
+    <p>
+      Let <m>v=u/t</m> and <m>\tilde v=\tilde u/t</m>.
+      <me>
+        \tilde\Gamma\overset{\Delta}{=}\{x\in B_1\mid\tilde v(x)>1\}=\Gamma_t
+      </me>.
+    </p>
+    <p>
+      If <m>|B_\alpha\cap\Gamma_t|=0</m>,
+      then<nbsp/><xref ref="plk"/> is obvious.
+      Now assume that <m>|B_\alpha\cap\Gamma_t|\neq 0</m>,
+      then there is a positive number <m>m</m> such that
+      <me>
+        \delta^m|K_\alpha|\leq|\tilde\Gamma\cap K_\alpha|\leq\delta^{m-1}|K_\alpha|
+      </me>.
+    </p>
+    <p>
+      That it,
+      <me>
+        \log\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\cdot(\log\delta)^{-1}\leq m\leq 1+\log\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\cdot(\log\delta)^{-1}
+      </me>.
+    </p>
+    <p>
+      By Step 2, we have
+      <me>
+        \inf_{K_\alpha}\tilde v\geq C^{-m}\geq C^{-1}\left[\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\right]^{\frac{\log C}{\log \delta^{-1}}}
+      </me>.
+    </p>
+    <p>
+      Let <m>\mu=\log\delta^{-1}/\log C</m>.
+      Then we have
+      <me>
+        |\Gamma_t\cap K_\alpha|\leq (C\inf_{K_\alpha}\tilde v)^\mu|K_\alpha|
+      </me>.
+    </p>
+    <p>
+      <em>Step 4.</em> There is a <m>p>0</m> such that
+      <me>
+        \left(\fint_{B_\alpha}u^p dx\right)^{1/p}\leq C\left( \inf_{B_\alpha} u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)
+      </me>.
+    </p>
+    <p>
+      We have
+      <me>
+        \int_{B_{\alpha}} u^p dx=p\int_0^\infty t^{p-1}|B_\alpha\cap\Gamma_t| dt =p\int_0^b  t^{p-1}|B_\alpha\cap\Gamma_t| dt+p\int_b^\infty  t^{p-1}|B_\alpha\cap\Gamma_t| dt
+      </me>,
+      where <m>b</m> is a number to be determined.
+      Therefore, we have
+      <me>
+        \int_{B_{\alpha}} u^p dx\leq p\int_0^b\int_0^b t^{p-1}|B_\alpha| dt+p\int_b^\infty Cm_0^\mu|B_\alpha| t^{p-\mu-1} dt
+      </me>,
+      where <m>m_0={\displaystyle \inf_{B_\alpha}}\,\tilde u</m>.
+      Let <m>p=\mu/2</m>.
+      Then
+      <me>
+        \int_{B_\alpha} u^p dx\leq b^p|B_\alpha|+Cm_0^{2p}b^{-p}|B_\alpha|
+      </me>.
+    </p>
+    <p>
+      Let <m>b=C^{1/2p}m_0</m>.
+      Then we have
+      <me>
+        \int_{B_\alpha}u^p dx\leq 2C^{1/2}m_0^p\leq 2C^{1/2}\left(\inf_{B_\alpha} u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)^p
+      </me>.
+    </p>
+    <p>
+      <em>Step 5.</em> Using covering technique to prove
+      <me>
+        \left(\int_{B_{1/2}}u^p dx\right)^{1/p}\leq C\left(\inf_{B_{1/2}} \, u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)
+      </me>.
+    </p>
+    <p>
+      We note that <m>u\in W^{2,n}(B_{\frac 12})</m>,
+      there is a <m>x_0\in\bar{B_{1/2}}</m> such that
+      <me>
+        u(x_0)=\inf_{B_{\frac 12}}\,u
+      </me>.
+    </p>
+    <p>
+      Consider the integration
+      <me>
+        \int_{B_{\frac 12+\frac\alpha 4}}dy\cdot\int_{B_{\frac\alpha 4}(y)} u^p dx\geq|B_{\frac \alpha 4}| \int_{B_{\frac 12}}u^p(y) dy
+      </me>.
+    </p>
+    <p>
+      Using the mean value theorem,
+      there is a <m>y</m> such that
+      <me>
+        y_0\in {B_{\frac 12+\frac\alpha 4}}
+      </me>
+      such that
+      <me>
+        \int_{B(y_0)} u^p dx\geq\int_{B_{\frac 12}}u^p dx
+      </me>.
+    </p>
+    <p>
+      The theorem is proved.
+    </p>
+  </proof>
+  <theorem>
+    <title>Harnark inequality</title>
+    <statement>
+      <p>
+        Let the coefficients of <m>L</m> satisfy the uniform elliptic condition.
+        <m>u\in W^{2,n}(\Omega)</m> satisfies <m>Lu=f</m>.
+        Let <m>f/\lambda\in L^n(\Omega)</m>.
+        Suppose <m>u\geq 0</m> on <m>B_{2R}(y)\subset\Omega</m>.
+        Then
+        <me>
+          \sup_{B_{\frac R2}(y)}\, u\leq C\left(\inf_{B_{\frac R2}(y)}\, u+R\left|\left|\frac f\lambda\right|\right|_{L^n(B_{2R}(y)}\right)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      This follows from combining the local maximum principle and the weak Harnark inequality.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <me>
+          \underset{B_R(y)}{{ osc}}\, u\leq C\left(\frac{R}{R_0}\right)^\alpha\left(\underset{B_{R_0}(y)}{{ osc}}\, u +R_0\left|\left|\frac f\lambda\right|\right|_{L^n(\Omega)}\right)
+        </me>.
+      </p>
+      <p>
+        In particular, <m>u</m> is H&#xf6;lder continuous.
+      </p>
+    </statement>
+  </theorem>
+</section>

@@ -1,0 +1,49 @@
+<section xml:id="State_Hodge">
+  <title>The Hodge theorem</title>
+  <p>
+    Unfortunately,
+    it is far from trivial that the variational problem<nbsp/><xref ref="x2-1"/> can be solved.
+    The PDE theory,
+    especially the elliptic regularity theory kicks in here to make the above arguments rigid.
+  </p>
+  <theorem>
+    <title>real Hodge Theorem</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact orientable Riemannian manifold.
+        Let <m>p\geq 0</m>.
+        Define
+        <me>
+          \mathcal H^p(M)=\{\phi\in\Lambda^p(M))\mid \Delta\phi=0\}
+        </me>.
+      </p>
+      <p>
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\dim \mathcal H^p(M)\lt +\infty</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\eta</m> be an arbitrary smooth <m>p</m>-form.
+              Then we have
+              <me>
+                \eta=\eta_0+d\eta_1+\delta\eta_2
+              </me>,
+              where <m>\eta_0</m> is a harmonic <m>p</m>-form;
+              <m>\eta_1</m> and <m>\eta_2</m> are <m>(p-1)</m> and <m>(p+1)</m> forms,
+              respectively,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>H^p_{DR}(M)=\mathcal H^p(M)</m> for <m>p\geq 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

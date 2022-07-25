@@ -1,0 +1,432 @@
+<section xml:id="Var_principle">
+  <title>Variational characterization of spectrum</title>
+  <p>
+    Let <m>\Delta</m> be the Laplace operator on functions of a manifold <m>M</m>.
+    As in the last section,
+    we make the convention that the operator is a negative operator.
+  </p>
+  <p>
+    Let <m>\lambda</m> be a complex number,
+    <m>(\lambda I-\Delta)^{-1}</m> is called the resolvent of <m>\Delta</m>.
+    If for some <m>\lambda</m>, <m>(\lambda I-\Delta)^{-1}</m> doesn't exist,
+    or it does exist but is an unbounded operator,
+    then we call <m>\lambda</m> spectrum point of <m>\Delta</m>.
+    We use <m>\sigma(\Delta)</m> or <m>{ Spec}\, (\Delta)</m> to denote the set.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <me>
+          { Spec} \,(\Delta)\neq\emptyset
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      This is a general fact about the spectrum of any linear operator on a Banach space.
+      We assume that <m>\Delta</m> is densely defined in a Banach space <m>\mathcal B</m>.
+      Assume that <m>{ Spec} \,(\Delta)=\emptyset</m>.
+      Let <m>f\in \mathcal B</m> and let <m>\ell</m> be abounded linear functional on <m>\mathcal B</m>, then
+      <me>
+        \ell((\lambda I-\Delta)^{-1}f)
+      </me>
+      is a bounded holomorphic function of <m>\C</m>,
+      which has to be a constant.
+      More over, it must be the zero function.
+      Since <m>\ell</m> and <m>f</m> are arbitrary,
+      we conclude that <m>(\lambda I-\Delta)^{-1}=0</m> which is not possible for all <m>\lambda</m>.
+      This is a contradiction.
+    </p>
+  </proof>
+  <p>
+    When <m>M</m> is a compact manifold,
+    the best possible things happen:
+    by the Hodge theorem,
+    the spectrum of <m>\Delta</m> is made from eigenvalues.
+    More precisely, we have
+    <me>
+      0=\lambda_0\lt \lambda_1\leq\lambda_2\cdots\leq\lambda_k\to +\infty
+    </me>,
+    such that for each <m>\lambda_j</m>, the space
+    <me>
+      E_j=\{f\mid\Delta f=-\lambda_j f\}
+    </me>
+    is not trivial and is of finite dimensional.
+    By the above result, we can prove the following variational
+    (or min-max)
+    principal.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        We have
+        <men>
+          \lambda_k = \inf \left\{ \left. \frac{ \int_{\Omega} |\nabla f |^2 }{\int_{\Omega} f^2 } \, \right| \, \, \, \left. f\right|_{\pa \Omega} = 0, \, f \not\equiv 0 = \int_{\Omega} f \phi_j, \, \, \forall \, j \lt  k \right\}
+        </men>,
+        where <m>\phi_j</m> are the eigenfunctions of <m>\lambda_j</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\{ f_\alpha\}</m> be a sequence such that
+      <me>
+        \int_M f_\alpha\phi_j=0, \qquad \forall j\lt k
+      </me>,
+      and
+      <me>
+        \frac{\int_M|\nabla f_\alpha|^2}{\int_M f_\alpha^2}\to\lambda_k
+      </me>.
+    </p>
+    <p>
+      If we normalize <m>f_\alpha</m> such that <m>\int_M f_\alpha^2=1</m>,
+      then the sequence <m>\{f_\alpha\}</m> is bounded in <m>H_1(M)</m>.
+      Therefore, there is an <m>f\in H_1(M)</m> such that
+      <me>
+        f_\alpha\to f
+      </me>
+      in the weak sense.
+      In particular, for any <m>\phi</m> smooth, we have
+      <me>
+        \int_M\nabla f_\alpha\nabla\phi\to\int_M\nabla f\nabla\phi
+      </me>.
+    </p>
+    <p>
+      We have
+      <me>
+        \left|\int_M\nabla f\nabla\phi\right|\leq\int_M\nabla f_\alpha\nabla\phi\leq ||\nabla f_\alpha||_{L^2}||\nabla\phi||_{L^2}\to\sqrt{\lambda_k}||\nabla\phi||_{L^2}
+      </me>.
+    </p>
+    <p>
+      Since smooth functions are dense in <m>H_1(M)</m>, we have
+      <me>
+        \int_M|\nabla f|^2\leq\liminf_{k\to\infty}\int_M|\nabla f_\alpha|^2
+      </me>,
+      which is known as the Fatou Lemma.
+    </p>
+    <p>
+      On the other hand, by the Rellich Lemma,
+      <m>f_\alpha\to f</m> strongly in <m>L^2(M)</m>.
+      Thus we have
+      <me>
+        \int_Mf^2=1
+      </me>,
+      hence
+      <me>
+        \lambda_k=\frac{\int_M|\nabla f|^2}{\int_M f^2}
+      </me>
+    </p>
+    <p>
+      Let <m>\phi</m> be a smooth function such that
+      <me>
+        \int_M\phi\phi_j=0
+      </me>
+    </p>
+    <p>
+      Then for any <m>\eps</m>, we must have
+      <me>
+        \frac{\int_M|\nabla f+\eps\nabla\phi|^2}{\int_M (f+\eps\phi)^2}\geq\frac{\int_M|\nabla f|^2}{\int_M f^2}
+      </me>
+    </p>
+    <p>
+      Since this is true for any <m>\eps</m>, we must have
+      <me>
+        \Delta f=-\lambda_k f
+      </me>
+      in the weak sense.
+      By the elliptic regularity, <m>f</m> has to be smooth.
+    </p>
+  </proof>
+  <p>
+    Unlike in the case of compact manifold, in general,
+    a complete non-compact manifold doesn't admit any pure point spectrum.
+    For example,
+    there are no <m>L^2</m>-eigenvalues on <m>\mathbb R^n</m>.
+    That is, for any <m>\lambda\in\mathbb R</m>,
+    if <m>\Delta f+\lambda f=0</m> and <m>f\in L^2(\mathbb R^n)</m>,
+    then we have <m>f\equiv 0</m>.
+  </p>
+  <p>
+    Let <m>\Delta</m> be the Laplace operator on a complete non-compact manifold <m>M</m>.
+    We extend <m>\Delta</m> naturally to a self-adjoint densely defined operator on <m>L^2(M)</m>,
+    which we still denote as <m>\Delta</m> for the sake of simplicity.
+  </p>
+  <p>
+    The pure point spectrum of <m>\Delta</m> are those <m>\lambda\in\mathbb R</m> such that
+    <ol>
+      <li>
+        <p>
+          there exists an <m>L^2</m> function <m>f\neq 0</m> such that
+          <me>
+            \Delta f+\lambda f=0
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          the multiplicity of <m>\lambda</m> is finite;
+        </p>
+      </li>
+      <li>
+        <p>
+          in a neighborhood of <m>\lambda</m>,
+          it is the only spectrum point.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    From the above discussion,
+    <m>\sigma(\Delta)</m> decomposes as the union of pure point spectrum,
+    and the so-called essential spectrum, which is,
+    by definition, the complement of the pure point spectrum.
+  </p>
+  <p>
+    The set of the essential spectrum is denoted as <m>\sigma_{ess}(\Delta)</m>.
+    Using the above definition, <m>\lambda\in\sigma_{ess}(\Delta)</m>,
+    if either
+    <ol>
+      <li>
+        <title>\ding{172}</title>
+        <p>
+          <m>\lambda</m> is an eigenvalue of infinite multiplicity, or
+        </p>
+      </li>
+      <li>
+        <title>\ding{173}</title>
+        <p>
+          <m>\lambda</m> is the limiting point of <m>\sigma(\Delta)</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The following theorems in functional analysis are well-known.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        A necessary and sufficient condition for the interval
+        <m>(-\infty,\lambda)</m> to intersect the essential spectrum of an self-adjoint densely defined operator <m>A</m> is that,
+        for all <m>\eps>0</m>,
+        there exists an infinite dimensional subspace <m>G_\eps\subset \mathcal Dom(A)</m>,
+        for which <m>(Af-\lambda f-\eps f,f)\lt 0</m>.
+      </p>
+    </statement>
+  </theorem>
+  <theorem>
+    <statement>
+      <p>
+        A necessary and sufficient condition for the interval
+        <m>(\lambda-a,\lambda+a)</m> to intersect the essential spectrum of <m>A</m> is that there exists an infinite dimensional subspace <m>G_\eps\subset \mathcal Dom(A)</m> for which
+        <m>||(A-\lambda I)f||\leq a||f||</m> for all <m>f\in G_\eps</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Using the above result,
+    we give the following variational characterization of the lower bound of spectrum and the lower bound of essential spectrum.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Using the above notations, define
+        <me>
+          \lambda_0=\inf_{f\in C_0^\infty(M)}\frac{\int_M|\nabla f|^2}{\int_M f^2}
+        </me>,
+        and
+        <me>
+          \lambda_{ess}=\sup_K\inf_{f\in C_0^\infty(M\backslash K)}\frac{\int_M|\nabla f|^2}{\int_M f^2}
+        </me>,
+        where <m>K</m> is a compact set running through an exhaustion of the manifold.
+        Then <m>\lambda_0</m> and <m>\lambda_{ess}</m> are the least lower bound of
+        <m>\sigma(\Delta)</m> and <m>\sigma_{ess}(\Delta)</m>,
+        respectively.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We prove the formula for <m>\lambda_{ess}</m>.
+      The formula for <m>\lambda_0</m> is similar.
+      Let
+      <me>
+        \lambda'_{ess}=\inf \sigma_{ess}(\Delta)
+      </me>.
+    </p>
+    <p>
+      If <m>\sigma_{ess}(\Delta)=\emptyset</m>,
+      we define <m>\lambda'_{ess}=+\infty</m>.
+      When <m>\lambda'_{ess}=+\infty</m>,
+      we prove that <m>\lambda_{ess}</m> is also infinity.
+    </p>
+    <p>
+      Assume not, then there is a constant <m>C</m>,
+      such that for any compact set <m>K</m>,
+      there is a function <m>f\in \mathcal C_0^\infty(M\backslash K)</m>, we have
+      <me>
+        \frac{\int_M |\nabla f|^2}{\int_M f^2}\lt C
+      </me>.
+    </p>
+    <p>
+      By inductively choosing <m>f</m>,
+      we can make sure that the support of these functions are disjoint.
+      Thus the functions span an infinite dimensional space <m>G</m> with
+      <me>
+        (-\Delta f-Cf,f)\lt 0
+      </me>,
+      which contradicts to the fact that the essential spectrum is an empty set.
+    </p>
+    <p>
+      The proof of the general case is similar.
+      We fist prove that <m>\lambda_{ess}\leq\lambda_{ess}'</m> By definition,
+      for <m>\eps>0</m>,
+      <me>
+        (-\infty,\lambda_{ess}'+\eps)\cap \sigma_{ess}(\Delta)\neq\emptyset
+      </me>.
+    </p>
+    <p>
+      Therefore we can find infinite dimensional space <m>V</m> such that for any <m>f\in V</m>
+      <me>
+        (-\Delta f-(\lambda_{ess}'+\eps) f, f)\lt 0
+      </me>.
+    </p>
+    <p>
+      In what follows, we shall prove that,
+      using the cut-off functions,
+      there exist infinitely many elements in <m>V</m> such that their supports are disjoint.
+    </p>
+    <p>
+      We assume that <m>K</m> is a compact set.
+      Let <m>K'</m> be a large ball containing <m>K</m>.
+      Let <m>\rho</m> be the cut-off function such that <m>\rho=1</m> on <m>K</m> but <m>\rho=0</m> outside <m>K'</m>.
+      We claim that for any <m>\eps>0</m>,
+      there is an <m>f\in V</m> with <m>\int f^2=1</m> but
+      <me>
+        \int_M\rho^2f^2\lt \eps
+      </me>.
+    </p>
+    <p>
+      If the above is not true,
+      then there is an <m>\eps_0>0</m> such that for any <m>f\in V</m>,
+      <me>
+        \int_M\rho^2f^2\geq\eps_0
+      </me>,
+    </p>
+    <p>
+      Since the set <m>f\in V</m> is of infinite dimensional,
+      the set <m>\rho f</m> is of infinite dimensional as well,
+      otherwise the above inequality is not valid.
+      Thus we can find an orthogonal basis
+      <me>
+        \int_M\rho^2f_if_j=0
+      </me>,
+      if <m>i\neq j</m>, while we still keeping <m>\int_Mf_i^2=1</m>.
+      We consider
+      <me>
+        \int_M|\nabla(\rho f_i)|^2\leq 2\int_M|\nabla \rho|^2 f_i^2+2\int_M|\nabla f_i|^2
+      </me>.
+    </p>
+    <p>
+      By <m>\int_M|\nabla f_i|^2\leq \lambda'_{ess}+\eps</m>,
+      we have Thus we have
+      <me>
+        \frac{\int_M|\nabla(\rho f_i)|^2}{\int_M(\rho f_i)^2} \leq \frac{2C+2(\lambda_{ess}'+\eps)}{\eps_0}
+      </me>
+      for any <m>i</m>.
+      This is a contradiction because on the compact set <m>K'</m>,
+      the are only finitely many eigenvalues
+      (counting multiplicity)
+      below a fixed number.
+    </p>
+    <p>
+      Now we can prove our theorem.
+      For all <m>\eps>0</m>.
+      We can find an <m>f</m> with <m>\int_M f^2=1</m> but
+      <me>
+        \int_M\rho^2f^2\lt \eps
+      </me>.
+    </p>
+    <p>
+      We take <m>K=B(r)</m> and <m>K'=B(R+1)</m> of balls of radius <m>r, R+1</m>,
+      respectively.
+      Both <m>r,R</m> are large numbers.
+      Let <m>\tilde\rho</m> be a cut-off function such that
+      <me>
+        \{\tilde\rho=1\}\subset B(R)
+      </me>.
+    </p>
+    <p>
+      We also assume that <m>|\nabla\tilde\rho|\leq C</m>.
+      Let <m>\rho_1=1-\tilde\rho</m>.
+      Then we have
+      <me>
+        { supp}\,\rho_1\cap K=\emptyset
+      </me>.
+    </p>
+    <p>
+      We have
+      <me>
+        \int_M|\nabla(\rho_1f)|^2=\int_M\rho_1^2|\nabla f|^2+2\int_M\rho_1f\nabla\rho_1\nabla f+\int_M f^2|\nabla \rho_1|^2
+      </me>.
+    </p>
+    <p>
+      From
+      <me>
+        \int_M f^2|\nabla \rho_1|^2\leq C\eps
+      </me>,
+      and
+      <me>
+        2\int_M\rho_1 f\nabla \rho_1\nabla f\leq 2 \sqrt{\int_M |\nabla(\rho_1 f)|^2}\cdot \sqrt{\int_M |\nabla\rho_1|^2f^2}\leq C\sqrt\eps \sqrt{\int_M |\nabla(\rho_1 f)|^2}
+      </me>,
+      we get
+      <me>
+        \int_M|\nabla (\rho_1f)|^2\leq\lambda_{ess}'+C\eps
+      </me>.
+    </p>
+    <p>
+      Since
+      <me>
+        \int_M\rho_1^2f^2\geq 1-C\eps
+      </me>,
+      we get
+      <me>
+        \lambda_{ess}\leq\frac{\lambda_{ess}'+C\eps}{1-C\eps}
+      </me>.
+      and thus <m>\lambda_{ess}\leq\lambda'_{ess}</m>.
+      The other direction is easier to prove.
+    </p>
+  </proof>
+  <p>
+    It is particularly interesting to get the lower bound estimate for the essential spectrum because of the following theorem.
+  </p>
+  <theorem>
+    <title>Variational principal</title>
+    <statement>
+      <p>
+        Suppose <m>\lambda_0\lt \lambda_{ess}</m>,
+        then <m>\lambda_0</m> is en eigenvalue of <m>M</m> with finite dimensional eigenspace.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    That is, there exists an <m>L^2</m> function <m>f\neq 0</m>,
+    such that
+    <me>
+      \Delta f=-\lambda_0 f
+    </me>,
+    which is a very strong result.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>H=-\Delta+|x|^2</m> on <m>\mathbb R^n</m>.
+        Then the set of essential spectrum is empty.
+        As a result,
+        all spectrum of <m>H</m> are eingevalues of finite multiplicity.
+      </p>
+    </statement>
+  </example>
+</section>

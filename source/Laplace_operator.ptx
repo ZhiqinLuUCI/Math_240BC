@@ -1,0 +1,220 @@
+<section xml:id="Laplace_operator">
+  <title>The Laplace operator</title>
+  <p>
+    Let <m>M</m> be a compact orientable Riemannian manifold and let
+    <m>\Lambda^p(M)</m> be the vector space of <m>p</m> forms.
+    As in the last section, we use
+    <m>\omega_1,\cdots,\omega_n</m> to be the local orthonormal frame,
+    and <m>\omega_1\wedge\cdots\wedge\omega_n</m> to be the volume form.
+  </p>
+  <p>
+    We write a <m>p</m>-form in the following expression
+    <me>
+      \eta=a_{i_1\cdots i_p}\,\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+    </me>,
+    where we assume the coefficients are skew-symmetric.
+    That is, we assume that
+    <me>
+      a_{\sigma(i_1)\cdots\sigma(i_p)}=(-1)^{sgn\,\sigma}a_{i_1\cdots i_p}
+    </me>
+    for any permutation <m>\sigma</m> of <m>\{1,\cdots,p\}</m>.
+    The <m>L^2</m> inner product is defined as
+    <men xml:id="p-3">
+      (\omega,\eta)=p!\int_M a_{i_1\cdots i_p}b_{i_1\cdots i_p}\omega_1\wedge\cdots\wedge\omega_n
+    </men>.
+  </p>
+  <p>
+    We remark that in the above definition,
+    we only require one of the coefficients to be skew-symmetric,
+    which is useful in the following computation.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove the following: if
+        <me>
+          \eta=b_{i_1\cdots i_p}\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+        </me>,
+        where <m>\eta=b_{i_1\cdots i_p}</m> are not assumed to be skew-symmetric.
+        Then we still have
+        <me>
+          (\omega,\eta)=p!\int_M a_{i_1\cdots i_p}b_{i_1\cdots i_p}\omega_1\wedge\cdots\wedge\omega_n
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+  <lemma>
+    <statement>
+      <p>
+        We have
+        <me>
+          d\omega=(-1)^pa_{i_1\cdots i_p,k}\,\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}\wedge\omega_k
+        </me>.
+      </p>
+      <p>
+        Since the coefficients above are not skew symmetric,
+        we may also rewrite the expression as
+        <me>
+          d\omega=\frac{(-1)^p}{p+1}\left( a_{i_1\cdots i_p,k}-\sum_{s=1}^p a_{i_1\cdots \underset{\underset{sth}{\uparrow}}k\cdots i_p, i_s}\right) \omega_{i_1}\wedge\cdots\wedge\omega_{i_p}\wedge\omega_k
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      The proof is through a straightforward computation:
+      <me>
+        d\omega=da_{i_1\cdots i_p}\wedge\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}+\sum_{s=1}^p(-1)^{s-1} a_{i_1\cdots i_p}\wedge\omega_{i_1}\wedge\cdots\wedge d\omega_{i_s}\wedge\cdots\wedge\omega_{i_p}
+      </me>.
+    </p>
+    <p>
+      Using Cartan's formula <m>d\omega_{i_s}=-\omega_i\wedge\omega_{ii_s}</m>,
+      we get the first formula.
+      The second formula follows from the skew-symmetrization.
+    </p>
+  </proof>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>\delta</m> be the dual operator of <m>d</m> with respect to the inner product<nbsp/><xref ref="p-3"/>.
+        We then have
+        <me>
+          \delta\omega=(-1)^pp\,a_{i_1\cdots i_p,i_p}\omega_{i_1}\wedge\cdots \wedge\omega_{i_{p-1}}
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let
+      <me>
+        \eta=b_{i_1\cdots i_{p-1}}\omega_{i_1}\wedge\cdots\wedge\omega_{i_{p-1}}
+      </me>
+      be a smooth <m>(p-1)</m>-form with compact support.
+      We verify that
+      <me>
+        (\delta\omega,\eta)-(\omega,d\eta)=0
+      </me>.
+    </p>
+    <p>
+      We have
+      <me>
+        (\delta\omega,\eta)=(-1)^{p}p!\int_M a_{i_1\cdots i_{p-1}i_p,i_p}b_{i_1\cdots i_{p-1}}
+      </me>,
+      and
+      <me>
+        (\omega,d\eta)=(-1)^{p-1}p!\int_M a_{i_1\cdots i_p}b_{i_1\cdots i_{p-1},i_p}
+      </me>.
+      define an <m>(n-1)</m> form <m>\alpha</m> such that
+      <me>
+        \alpha=\sum_{k=1}^n (-1)^{k-1}a_{i_1\cdots i_{p-1} k}b_{i_1\cdots i_{p-1}}\,\omega_1\wedge\cdots\hat{\omega}_k\cdots\wedge\omega_n
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        d\alpha=(a_{i_1\cdots i_{p-1}i_p,i_p}b_{i_1\cdots i_{p-1}} +a_{i_1\cdots i_p}b_{i_1\cdots i_{p-1},i_p})\,\omega_1\wedge\cdots\wedge\omega_n
+      </me>.
+    </p>
+    <p>
+      The lemma follows from the Stokes' theorem
+      <me>
+        \int_M d\alpha=0
+      </me>.
+    </p>
+  </proof>
+  <theorem xml:id="thm6">
+    <title>Weitzenb&#xf6;ck formula</title>
+    <statement>
+      <p>
+        We have
+        <me>
+          \Delta\,\omega=\left(-a_{i_1\cdots i_p,k,k}+p\sum_{s=1}^{p-1}a_{i_1\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_{p-1} k}R_{ri_si_pk}+p \, a_{i_1\cdots i_{p-1} r}(Ric)_{r i_p}\right)\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      By the above two lemmas we have
+      <me>
+        \delta d\omega=\left(-a_{i_1\cdots i_p,k,k}+\sum_{s=1}^p a_{i_1\cdots \underset{\underset{sth}{\uparrow}}k\cdots i_p, i_s,k}\right) \omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+      </me>,
+      and
+      <me>
+        d\delta\omega=-p\, a_{i_1\cdots i_p,i_p,k}\omega_{i_1}\,\wedge\cdots\wedge\omega_{i_{p-1}}\wedge\omega_k
+      </me>.
+    </p>
+    <p>
+      By changing the indices and using the skew-symmetry of <m>a_{i_1\cdots i_p}</m> in the above, we get
+      <me>
+        \delta d\omega=\left(-a_{i_1\cdots i_p,k,k}+p a_{i_1\cdots i_{p-1}k, i_p,k}\right) \omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+      </me>,
+      and
+      <me>
+        d\delta\omega=-p\, a_{i_1\cdots k,k,i_p}\,\omega_{i_1}\,\wedge\cdots\wedge\omega_{i_{p-1}}\wedge\omega_{i_p}
+      </me>.
+    </p>
+    <p>
+      The theorem follows by applying <xref ref="thm5">Theorem</xref>.
+    </p>
+  </proof>
+  <p>
+    Define the raw Laplacian <m>\nabla^*\nabla</m> on a <m>p</m>-form to be
+    <me>
+      \nabla^*\nabla\omega=-\nabla_k\nabla_k\omega
+    </me>.
+  </p>
+  <p>
+    Then the Weitzenb&#xf6;ck formula can be written as
+    <me>
+      \Delta\omega=\nabla^*\nabla\omega+E(\omega)
+    </me>,
+    where <m>E</m> is a <m>0</m>-th order differential operator depending on the curvature.
+  </p>
+  <p>
+    We would like to list the following special cases of the above theorem as exercises.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <me>
+          \delta=(-1)^{n(p+1)+1}*d*
+        </me>
+        on <m>\Lambda^p(M)</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>\{e_1,\cdots, e_n\}</m> be an orthonormal frame.
+        Then
+        <me>
+          \delta=-\sum_{j=1}^n\iota(e_j)\nabla_{e_j}
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>f</m> is a smooth function, then
+        <me>
+          \Delta f=-f_{,k,k}=-f_{kk}
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>\omega</m> is a one-form, then
+        <me>
+          \Delta\omega=\nabla^*\nabla\omega+a_r(Ric)_{rk}\omega_k
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+</section>

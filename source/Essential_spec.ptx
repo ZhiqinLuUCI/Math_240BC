@@ -1,0 +1,6 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Essential_spec">
+  <title>Essential Spectrum on complete non-compact manifold</title>
+  <xi:include  href="Spectrum_on_manifold.ptx"/>
+  <xi:include  href="Lp_spectrum.ptx"/>
+  <xi:include  href="Spec_II.ptx"/>
+</chapter>

@@ -1,0 +1,398 @@
+<section xml:id="Operator_extension">
+  <title>Self-adjoint extension of the Laplace operator</title>
+  <p>
+    In this section, we assume that <m>M</m> is Riemannian manifold,
+    not necessarily compact nor complete.
+  </p>
+  <p>
+    Let <m>\Lambda^p(M)</m> be the space of smooth <m>p</m>-forms and let
+    <m>L^2(\Lambda^p(M))</m> be the metric space completion of
+    <m>\Lambda^p(M)</m> under the inner product product defined in <nbsp/><xref ref="p-3"/>.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove that we can identify
+        <m>L^2(\Lambda^p(M))</m> to be the space of <m>p</m>-forms <m>\omega</m>, where
+        <me>
+          \omega=a_{i_1\cdots i_p}\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}
+        </me>,
+        such that <m>a_{i_1\cdots i_p}</m> are locally <m>L^2</m> integrable functions.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The reason we would like to use
+    <m>L^2(\Lambda^p(M))</m> in stead of <m>\Lambda^p(M)</m> is,
+    of course,
+    that <m>L^2(\Lambda^p(M))</m> is complete,
+    allowing many applications in analysis.
+  </p>
+  <p>
+    Unfortunately, it is not possible to extend <m>\Delta</m> to
+    <m>L^2(\Lambda^p(M))</m> as a symmetric linear operator.
+    In what follows, we briefly explain the reason.
+  </p>
+  <p>
+    First, the Laplace operator is not a bounded operator on <m>\Lambda^p(M)</m>.
+    We can give counterexamples even in one-dimensional case:
+    let <m>f</m> be a smooth function on <m>[0,1]</m>.
+    Then there doesn't exist a constant <m>C</m> such that
+    <me>
+      \int_0^1(f''(t))^2 dt\leq C\int_0^1(f(t))^2 dt
+    </me>.
+  </p>
+  <p>
+    Second, like most differential operators,
+    the Laplace operator is a closed-graph operator.
+    That is, if <m>\eta_j\to \eta</m> and
+    <m>\Delta\eta_j\to\eta'</m> in <m>L^2</m> and <m>\eta\in\Lambda^p(M)</m>,
+    then we must have <m>\eta'=\Delta\eta</m>.
+    To see this,
+    we consider any smooth <m>p</m> form <m>\omega</m>: We have
+    <me>
+      \int\langle\eta'-\Delta\eta,\omega\rangle=\lim_{j\to\infty}\int \langle\Delta\eta_j,\omega\rangle-\lim_{j\to\infty}\int\langle\eta_j,\Delta\omega\rangle=0
+    </me>.
+  </p>
+  <p>
+    Thus we have <m>\eta'=\Delta\eta</m>.
+  </p>
+  <p>
+    If <m>\Delta</m> could be extended to a linear operator of <m>L^2(\Lambda^p(M))</m>,
+    then by the <em>Closed Graph Theorem</em>,
+    <m>\Delta</m> could have been bounded, which is a contradiction.
+  </p>
+  <p>
+    Because of the above result,
+    the best we can do is to extend the Laplacian operator into a
+    <em>densely defined</em> self-adjoint operator.
+    Of course, <m>\Lambda^p(M)</m> is dense in <m>L^2(\Lambda^p(M))</m>.
+    But for such an operator (i.e, <m>\Delta</m> and its domain <m>{\mathcal Dom}(\Delta))</m>,
+    we don't have the so-called spectral theorem.
+    So in order to get meaningful results,
+    we have to extend the Laplace operator first.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>H</m> be a Hilbert space, Given a densely defined linear operator <m>A</m> on <m>H</m>,
+        its adjoint <m>A^*</m> is defined as follows:
+        <ol>
+          <li>
+            <p>
+              The domain <m>{\mathcal Dom}(A^*)</m> of <m>A^*</m> consists of vectors <m>x</m> in <m>H</m> such that
+              <me>
+                y\mapsto \langle x, Ay\rangle
+              </me>
+              is a bounded linear functional,
+              where <m>y\in{\mathcal Dom}(A)</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              By the <em>Riesz Representation Theorem</em> for linear functionals,
+              if <m>x</m> is in the domain of <m>A^*</m>,
+              there is a unique vector <m>z</m> in <m>H</m> such that
+              <me>
+                \langle x,Ay\rangle=\langle z,y\rangle
+              </me>
+              for any <m>y\in {\mathcal Dom}(A)</m>.
+              This vector <m>z</m> is defined to be <m>A^*x</m>.
+              It can be shown that the dependence of <m>z</m> on <m>x</m> is linear.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        If <m>A^*=A</m> (which implies that <m>{\mathcal Dom}\, (A^*)={\mathcal Dom}\,(A)</m>),
+        then <m>A</m> is called self-adjoint.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For a (densely-defined) self-adjoint operator <m>A</m>,
+    we have the <em>Spectral Theorem</em>.
+    That is, there is a spectral measure such that
+    <me>
+      A=\int_{-\infty}^{+\infty}\lambda dE
+    </me>.
+  </p>
+  <p>
+    A densely defined self-adjoint operator
+    <m>\bar\Delta</m> is called an extension of <m>\Delta</m>,
+    if <m>{\mathcal Dom}\, (\Delta)\subset {\mathcal Dom}\, (\bar\Delta)</m>, and
+    <me>
+      \Delta=\bar\Delta\,|_{{\mathcal Dom}\, (\Delta)}
+    </me>.
+  </p>
+  <p>
+    For the rest of the section, we shall study the extensions of <m>\Delta</m>.
+    We shall prove that the extension of <m>\Delta</m> always exists,
+    but in general,
+    they are not unique in general.
+  </p>
+  <p>
+    Define <m>H^1(M)</m> to be the Sobolev space of the completion of <m>\Lambda^p(M)</m> under the norm
+    <me>
+      ||\eta||_1=\sqrt{\int_M|\eta|^2 dV_M}+\sqrt{\int_M|\nabla\eta|^2\, dV_M}
+    </me>.
+  </p>
+  <p>
+    Similarly, let <m>\Lambda_0^p(M)</m> be the space of smooth <m>p</m>-forms with compact support and define
+    <m>H_0^1(M)</m> to be the Sobolev space of the completion of
+    <m>\Lambda_0^p(M)</m> under the above norm.
+    Then we have
+    <me>
+      H_0^1(M)\subset H^1(M)
+    </me>.
+  </p>
+  <p>
+    In general, the above two spaces are not equal.
+    However, we have
+  </p>
+  <theorem xml:id="thm7">
+    <statement>
+      <p>
+        If <m>M</m> is a complete Riemannian manifold, then
+        <me>
+          H_0^1(M)= H^1(M)
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\phi\in H^1(M)</m>.
+      Then there exists a sequence <m>\{\phi_j\}\in \Lambda^p(M)</m> such that
+      <me>
+        \phi_j\to \phi, j\to\infty
+      </me>
+      in the <m>\|\|_1</m> norm.
+    </p>
+    <p>
+      Let <m>p\in M</m> be a fixed point and let <m>\rho</m> be a smooth function on
+      <m>\mathbb R</m> with compact support such that in a neighborhood of <m>0</m>,
+      <m>\rho</m> is the constant <m>1</m>.
+      Let <m>d(x,y)</m> be the distance function.
+      Define
+      <me>
+        \rho_j(x)=\rho(j^{-1}\,d(p,x))
+      </me>.
+    </p>
+    <p>
+      Then we can prove that
+      <me>
+        \rho_j\,\phi_j\to\phi
+      </me>
+      in the <m>\|\|_1</m> norm.
+    </p>
+  </proof>
+  <exercise>
+    <statement>
+      <p>
+        Provide the detailed proof of the above theorem.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    We define the quadratic form <m>Q</m> by
+    <me>
+      Q(\omega,\eta)=\int_M\left(\langle d\omega,d\eta \rangle +\langle\delta\omega,\delta\eta\rangle\right) dV_M
+    </me>
+    for any <m>\omega,\eta\in H_0^1(M)</m>.
+    By the Weitzenb&#xf6;ck formula, we have
+  </p>
+  <proposition xml:id="prop1">
+    <statement>
+      <p>
+        If the curvature is bounded,
+        then <m>\sqrt{Q(\phi,\phi)+\|\phi\|_{L^2}^2}</m> is equivalent to the <m>\|\phi\|_1</m>.
+      </p>
+    </statement>
+  </proposition>
+  <p>
+    The <em>Friedrichs extension</em>
+    <m>\bar\Delta</m> of <m>\Delta</m> is defined by the following.
+    Let
+    <md>
+      <mrow>\amp {\mathcal Dom}(\bar \Delta)=\left\{\phi\in H_0^1(M)\mid\right.</mrow>
+      <mrow>\amp \left.\forall\psi\in \Lambda^p(M), \exists f\in L^2(\Lambda^p(M)), s.t.\, Q(\phi,\psi)=( f,\psi)\right\}</mrow>
+    </md>.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <me>
+          {\mathcal Dom}(\bar\Delta)={\mathcal Dom}(\bar\Delta^*)
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      For any <m>\phi,\psi\in{\mathcal Dom}(\bar\Delta)</m>,
+      <m>(\bar\Delta\phi,\psi)=Q(\psi,\phi)=(\phi,\bar\Delta\psi)</m> is a bounded functional.
+      Thus <m>\phi\in {\mathcal Dom}(\bar\Delta^*)</m>.
+      On the other hand, if <m>\phi\in {\mathcal Dom}(\Delta^*)</m>,
+      then the functional <m>\psi\mapsto (\Delta\psi,\phi)</m> is bounded.
+      By the Riesz representation theorem,
+      there is a unique <m>f\in L^2(\Lambda^p(M))</m> such that <m>(\bar\Delta\psi,\phi)=(f,\psi)</m>.
+      Thus we must have <m>Q(\phi,\psi)=(\bar\Delta\psi,\phi)=(f,\psi)</m>,
+      and <m>\phi\in {\mathcal Dom}(\bar\Delta)</m>.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        The Laplace operator has a self-adjoint extension.
+      </p>
+    </statement>
+  </theorem>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete Riemannian manifold.
+        Then the extension of the Laplace operator is unique.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\Delta_2</m> be another self-adjoint extension of <m>\Delta</m>.
+      Then for <m>\phi\in {\mathcal Dom}(\bar\Delta)</m> the functional
+      <me>
+        \psi\mapsto(\phi,\Delta\psi)+(\phi,\psi)=(\Delta_2\phi,\psi)+(\phi,\psi)
+      </me>
+      for <m>\psi\in\Lambda_0^p(M)</m> is bounded under the norm <m>\|\|_1</m>.
+      By <xref ref="prop1">Proposition</xref>,
+      it is also bounded under the norm
+      <me>
+        \sqrt{Q(\cdot,\cdot)+(\cdot,\cdot)}
+      </me>.
+    </p>
+    <p>
+      By the Riesz representation theorem,
+      there exists an element <m>\mu\in H^1(M)</m> such that
+      <me>
+        (\phi,\Delta\psi)+(\phi,\psi)=Q(\mu,\psi)+(\mu,\psi)
+      </me>.
+    </p>
+    <p>
+      Therefore <m>\phi=\psi\in H^1(M)</m>.
+      Since <m>M</m> is complete, By <xref ref="thm7">Theorem</xref>,
+      <m>\phi\in H_0^1(M)</m>.
+      For any <m>\psi\in\Lambda_0^p(M)</m>, we have
+      <me>
+        (\Delta_2\phi,\psi)=(\phi,\Delta\psi)=Q(\phi,\psi)
+      </me>
+      and by taking limit,
+      the above equality is also true for any <m>\psi\in H_0^1(M)</m>.
+      Thus we prove
+      <me>
+        {\mathcal Dom}\,(\Delta_2)\subset {\mathcal Dom}\,(\bar\Delta)
+      </me>.
+    </p>
+    <p>
+      On the other hands, since both <m>\bar\Delta</m> and
+      <m>\Delta_2</m> are self-adjoint, we have
+      <me>
+        {\mathcal Dom}\,(\bar\Delta)={\mathcal Dom}\,(\bar\Delta^*)\subset{\mathcal Dom}\,(\Delta_2^*)={\mathcal Dom}\,(\Delta_2)
+      </me>,
+      and thus we prove
+      <me>
+        {\mathcal Dom}\,(\bar\Delta)={\mathcal Dom}\,(\Delta_2)
+      </me>.
+    </p>
+    <p>
+      Thus <m>\Delta_2=\bar\Delta</m>,
+      and the extension is unique.
+    </p>
+  </proof>
+  <p>
+    In general, the self-adjoint extension is not unique.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact orientable manifold with smooth boundary.
+        Let <m>\mathcal C_0^\infty(M)</m> be the space of smooth functions whose supports are within the interior of <m>M</m>,
+        and let <m>\mathcal C^\infty(M)</m> be the space of smooth functions
+        (smooth up to the boundary).
+        We can define two kinds of Laplacians:
+        the first one <m>\Delta_D</m> is called the Dirichlet Laplacian,
+        which is the same as the Friedrichs extension <m>\bar\Delta</m>.
+        The second one <m>\Delta_N</m> is called the Neumann Laplacian,
+        defined by
+        <md>
+          <mrow>\amp {\mathcal Dom}(\Delta_N)=\left\{\phi\in H^1(M)\mid\right.</mrow>
+          <mrow>\amp \left.\forall\psi\in \mathcal C^\infty(M) \,\,s.t. \frac{\pa\psi}{\pa n}=0, \exists f\in L^2(M), s.t.\, Q(\phi,\psi)=( f,\psi)\right\}</mrow>
+        </md>.
+      </p>
+      <p>
+        For <m>\phi,\psi\in \mathcal C^\infty(M)</m>,
+        we have the Green's formula
+        <me>
+          (\Delta\phi,\psi)=\int_{\pa M}\frac{\pa\phi}{\pa n}\,\psi-\int_M\phi\,\frac{\pa\psi}{\pa n}+(\phi,\Delta\psi)
+        </me>.
+      </p>
+      <p>
+        Therefore, if <m>\phi\in {\mathcal Dom}(\Delta_D)\cap\mathcal C^\infty(M)</m>,
+        we have <m>\phi|_{\pa M}=0</m>,
+        and if <m>\phi\in{\mathcal Dom}(\Delta_N)\cap \mathcal C^\infty(M)</m>,
+        we have <m>\frac{\pa\phi}{\pa n}=0</m>.
+        These justify the names.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Many results related to the Laplace operator are true even on noncomplete manifolds.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>f\in { ker}\,(\bar\Delta)</m>.
+        Assume that <m>f\in L^2(M)</m>.
+        Then <m>f</m> is a constant.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    This is a theorem of Yau in the case of complete manifold.
+    But we shall prove that it is also true for any noncompete manifold.
+  </p>
+  <proof>
+    <p>
+      Let <m>\rho_j</m> be the smooth function defined in <xref ref="thm7">Theorem</xref>.
+      Then we have
+      <me>
+        0=(\bar\Delta f, \rho_j^2 f)=Q(f,\rho_j^2 f)
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        \int_M\rho_j^2|\nabla f|^2=-2\int_M \rho_j\, f\nabla\rho_j\nabla f\leq 2\sqrt{\int_M|\nabla \rho_j|^2 f^2\, dV_M} \cdot\sqrt{\int_M\rho_j^2|\nabla f|^2\, dV_M}
+      </me>.
+    </p>
+    <p>
+      It follows that
+      <me>
+        \int_M\rho_j^2|\nabla f|^2\,dV_M\leq \frac{C}{j^2}\int_Mf^2\, dV_M\to 0
+      </me>
+      and the theorem is proved.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Let <m>M=\mathbb R^n-\{0\}</m>.
+        Then any <m>L^2</m> harmonic function extends to the origin.
+        Thus by the theorem of Yau, we know that it has to be a constant.
+        Let <m>M</m> be a bounded domain.
+        Then the fact that <m>f</m> is in the domain of the Laplace operator implies that <m>f</m> vanishes on the boundary.
+        Hence <m>f</m> is zero.
+      </p>
+    </statement>
+  </example>
+</section>

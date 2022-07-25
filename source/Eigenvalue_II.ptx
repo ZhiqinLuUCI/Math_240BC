@@ -1,0 +1,315 @@
+<section xml:id="Eigenvalue_II">
+  <title>Eigenvalue problems(II)</title>
+  <p>
+    By the variational characterizing of the eigenvalues,
+    we know that it is usually more difficult to get the lower bound estimate of eigenvalues.
+    Among all the eigenvalues,
+    the lower bound of the first eigenvalue is particularly important.
+  </p>
+  <p>
+    The Cheeger's result did give a lower bound estimate of the first eigenvalues.
+    But the bounds are not
+    <q>computable.</q>
+    In geometry,
+    <q>computable</q>
+    bounds provide effective versions of Poincar&#xe9;
+    and Sobolev inequalities.
+  </p>
+  <p>
+    The following Lichnerowicz theorem gives a good lower bound of the first eigenvalue for closed manifold.
+  </p>
+  <theorem>
+    <title>Lichnerowicz</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a closed <m>n</m>-dimensional Riemannian manifold.
+        Assume that
+        <me>
+          { Ric} (M) \geq (n-1) k > 0
+        </me>
+      </p>
+      <p>
+        Then <m>\lambda _1 \geq n k</m>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      One line proof: let <m>u</m> be the first eigenfunction.
+      Then using the Ricci identity we have
+      <me>
+        \frac{1}{2} \Delta |\nabla u|^2 \geq \sum u _{ij} ^2 + \nabla u \Delta u + { Ric}(\nabla u, \nabla u)
+      </me>.
+    </p>
+    <p>
+      We have
+      <md>
+        <mrow>\sum u^2_{ij} \amp \geq \amp  \sum u^2 _{ii} \geq \frac{1}{2} \left(\sum u_{ii} \right) ^2 = \frac{\lambda_1^2}{n} uU^2</mrow>
+        <mrow>{ Ric} (\nabla u, \nabla u) \amp  \geq \amp  (n-1) k |\nabla u |^2</mrow>
+      </md>
+    </p>
+  </proof>
+  <p>
+    Thus we have
+    <me>
+      \frac{1}{2} \Delta |\nabla u|^2 \geq  \frac{\lambda ^2_1}{n} u^2 - \lambda _1 |\nabla uU |^2 +  (n-1)k | \nabla u|^2
+    </me>.
+  </p>
+  <p>
+    Taking integration on both sides, we get
+    <me>
+      \frac{\lambda ^2_1}{n} - \lambda ^2_1 + (n-1) k \lambda _1 \leq 0
+    </me>.
+  </p>
+  <p>
+    The theorem follows.
+  </p>
+  <p>
+    In 1962, Obata proved, if <m>\lambda _1 = nk</m>,
+    then <m>M</m> has to be the standard sphere.
+  </p>
+  <p>
+    For the rest of this section,
+    we use the gradient estimates to find
+    <q>computable</q>
+    lower bounds of the first eigenvalue.
+  </p>
+  <p>
+    We prove the following theorem.
+  </p>
+  <theorem>
+    <title>Li-Yau</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a closed manifold and
+      </p>
+    </statement>
+  </theorem>
+  <me>
+    { Ric} (M)\geq 0
+  </me>.
+  <p>
+    Then <m>\lambda _ 1 \geq \pi ^2 / 2 d ^2</m>, <m>d</m> is the diameter.
+  </p>
+  <p>
+    \begin{proof} Let <m>u</m> be the first eigenfunction.
+    After normalization we may assume that
+    <me>
+      1 = \sup u > \inf u = - k \geq -1
+    </me>
+    for some <m>1 \geq k > 0</m>.
+    Let
+    <me>
+      \tilde{u} = \frac{u - \frac{1-k}{2}}{\frac{1+k}{2}}
+    </me>.
+  </p>
+  <p>
+    Then after this linear change of <m>u</m>.
+    We have
+    <me>
+      \left\{ \begin{array}{l} \Delta \tilde{u} = - \lambda _1 ( \tilde{u} + 1 )\\ \sup \tilde{u} = a \\ \inf \tilde{u} = - 1 \end{array} \right.
+    </me>
+    for <m>a = \frac{1-k}{1+k}</m>.
+    <m>1 > a \geq 0</m>.
+  </p>
+  <p>
+    Let <m>g = \frac{1}{2} ( | \nabla \tilde{u} |^2 + ( \lambda _ 1 + \varepsilon ) \tilde{u} ^2)</m> for some
+    <m>\varepsilon > 0</m> to be determined later.
+    Assume that at <m>x _0</m>
+    <me>
+      g(x_0) = { Max}\, g
+    </me>.
+  </p>
+  <p>
+    Using the maximum principle, at <m>x_0</m>, we have
+    <me>
+      \tilde{u}_j \tilde{u}_{j} + (x_1 + \varepsilon ) \tilde{u} u _i = 0
+    </me>
+    and
+    <md>
+      <mrow>0 \geq \Delta g \amp  = \amp  \hat{u} ^2 _{ij}   { Ric} ( \nabla \tilde{u}, \nabla \tilde{u} ) + \nabla \tilde{u} \nabla \Delta \tilde{u}</mrow>
+      <mrow>\amp \amp  + ( \lambda _1 + \varepsilon ) |\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) \tilde{u} \Delta \tilde{u}</mrow>
+      <mrow>\amp \amp \geq \tilde{u}^2 _{ij} - \lambda _1 |\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) |\nabla \tilde{u}|^2</mrow>
+      <mrow>\amp \amp  - \lambda _1 (\lambda _1 + \varepsilon ) \tilde{u} ( \tilde{u} + a</mrow>
+    </md>
+    if at <m>x _0 , \nabla \tilde{U} = 0</m>.
+    Then we have
+    <me>
+      |\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) \tilde{u} ^2 \leq ( \lambda _1 + \varepsilon )
+    </me>.
+  </p>
+  <p>
+    In particular, we have
+    <me>
+      |\nabla \tilde{u} |^2 + \lambda _1 (1+a ) \tilde{u} ^2 \leq (1+a )
+    </me>
+    if <m>\nabla \tilde{u} (x_0) \neq 0</m>.
+    Then using the Cauchy inequality
+    <me>
+      \tilde{u} ^2 _{ij} \geq \frac{(\tilde{u} _i \tilde{u}_j \tilde{u}_{ij} )^2}{|\nabla \tilde{u}|^4} = ( \lambda _1 + \varepsilon )^2 \tilde{u} ^2
+    </me>.
+  </p>
+  <p>
+    Thus we have
+    <md>
+      <mrow>0 \geq \Delta g (x_0) \amp  \geq \amp  ( \lambda _1 + \varepsilon )^2 \tilde{u}^2 + \varepsilon |\nabla \tilde{u}|^2</mrow>
+      <mrow>\amp \amp  - \lambda _1 (\lambda _1 + \varepsilon) \tilde{u}^2 - \lambda _1 (\lambda _1 + \varepsilon )</mrow>
+      <mrow>\amp \amp  \geq 2 \varepsilon g - \lambda _1 (\lambda _1 + \varepsilon )a</mrow>
+    </md>.
+  </p>
+  <p>
+    For any <m>\varepsilon > \lambda _1 a</m>, the above gives
+    <me>
+      |\nabla \tilde{u}| ^2 + \lambda _1 (1 + a) \tilde{u}^2 \leq \lambda _1 (1 + a)
+    </me>.
+  </p>
+  <p>
+    Let
+    <me>
+      f(t) =  { arc} \sin \tilde{U} ( \sigma (t))
+    </me>
+    where <m>\sigma (t)</m> is the arc-length curve connecting the minimal point and the maximum point of <m>\tilde{u}</m>.
+    Then by the above argument, we have
+    <me>
+      |f^\prime (t)|\leq \sqrt{\lambda _1 (1 + a) }
+    </me>.
+  </p>
+  <p>
+    Let <m>d</m> be the diameter of the manifold, then we have
+    <md>
+      <mrow>d \sqrt{\lambda_1 (1+a)} \amp  \geq \amp  \int ^d _0 ( f ^\prime (t) ) d t \geq  { arc}  \sin 1</mrow>
+      <mrow>\amp \amp  - { arc} \sin (-1) = \pi</mrow>
+    </md>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \lambda +1 \geq \frac{1}{1+a} \frac{\pi^2}{d^2}
+    </me>.
+  </p>
+  <p>
+    Since <m>a \lt  1</m>, this gives
+    <me>
+      \lambda_1 \geq \frac{\pi^2}{2d^2}
+    </me>
+  </p>
+  <p>
+    We let <m>\theta = { arc} \sin \tilde{u}</m>.
+    Then Zhong-Yau proved <m>\oint</m> the following surprising theorem.
+  </p>
+  <theorem>
+    <title>***</title>
+    <statement>
+      <p>
+        Let
+        <me>
+          \psi   (\theta) = \left(\frac{4}{\pi} \right)\theta + \cos \theta \sin \theta ) - 2 \sin \theta
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \frac{|\nabla \tilde{u}|^2}{1 - \tilde{u}^2} \leq \lambda _1 (1 + a \psi (\theta))
+        </me>.
+      </p>
+      <p>
+        The method is maximal principle,
+        very surprising and mysterious.
+      </p>
+      <p>
+        Using the above sharpened inequality,
+        observed that <m>\psi (\theta)</m> is an odd function,
+        we can prove that
+        <me>
+          \lambda _1 \geq \frac{\pi^2}{d^2}
+        </me>.
+      </p>
+      <p>
+        Assume that <m>{ Ric} (M) \geq - (n-1) k</m> for <m>k > 0</m>.
+        Then by estimating <m>| \nabla u|^2 + \lambda _1 ( 1 - u )^2</m>, Li-Yau was able to prove that
+        <me>
+          \lambda _1 \geq \frac{C}{d^2} \exp ( - C_1 \sqrt{kd^2})
+        </me>.
+      </p>
+      <p>
+        *** was able to modify the above and proved that
+        <me>
+          \lambda _1 \geq \frac{\pi^2}{d^2} \exp ( - C_1 \sqrt{kd^2})
+        </me>.
+      </p>
+      <p>
+        When <m>{ Ric}(M) > 0</m>,
+        or <m>{ Ric}(M) \geq (n-1) k > 0</m> the above inequality is not optimal.
+        In fact, it is far from being optimal.
+        Let <m>M = s ^n</m>.
+        Then by Lichnerowicz theorem, <m>\lambda _1\geq n</m>
+        (in fact, <m>\lambda _ 1 = n</m>).
+        <m>d (s^n) = \pi</m>.
+        Thus <m>**</m> gives
+        <me>
+          \lambda _1 \geq 1
+        </me>.
+      </p>
+      <p>
+        In this direction, we have the following Peter Li Conjecture.
+      </p>
+    </statement>
+  </theorem>
+  <conjecture>
+    <title>P. Li</title>
+    <p>
+      If <m>{ Ric} (M) \geq (n-1) k</m>.
+      Then
+      <me>
+        \lambda _ 1 \geq \frac{\pi^2}{d^2} + (n-1)k
+      </me>.
+    </p>
+  </conjecture>
+  <p>
+    Such a conjecture, if true,
+    will sharpen both the result of Zhong-Yang and Lichnerowicz because by Myer's theorem
+    <me>
+      \frac{\pi^2}{d^2} \geq k
+    </me>.
+  </p>
+  <p>
+    Not much was known to the proof of the conjecture.
+    D. Yang proved that
+    <me>
+      \lambda _1 \geq \frac{\pi^2}{d^2} + \frac{1}{4} ( n-1) k
+    </me>
+  </p>
+  <p>
+    Ling Jun proved a bigger number
+    <me>
+      \lambda _1 \geq \frac{\pi^2}{d^2} + \alpha ( n-1) k  \alpha > \frac{1}{4}
+    </me>.
+  </p>
+  <p>
+    On the other end, if <m>{ Ric} (M) \geq ( n-1) k, k > 0</m>.
+    Then
+    <me>
+      \lambda _1 \geq \frac{\pi^2}{d^2} - ( n-1) k
+    </me>.
+  </p>
+  <p>
+    Recently, *** was able to prove that
+    <me>
+      \lambda _1 > \frac{\pi^2}{d^2}
+    </me>.
+  </p>
+  <p>
+    Very interesting result.
+  </p>
+  <p>
+    We end this section by citing a result of Li and Croke.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a <m>\oint</m> manifold, with boundary.
+        Then there is a constant <m>C = (n, d, V, k ) > 0</m> such that the Sobolev constant is <m>> c > 0</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>

@@ -1,0 +1,8 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Eigenvalue_problem">
+  <title>Eigenvalue problems</title>
+  <xi:include  href="Eigenvalue.ptx"/>
+  <xi:include  href="Eigenvalue_II.ptx"/>
+  <xi:include  href="First_eigenvalue.ptx"/>
+  <xi:include  href="Eigenvalue_gap.ptx"/>
+  <xi:include  href="Spectrum_gap.ptx"/>
+</chapter>

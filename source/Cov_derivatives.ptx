@@ -1,0 +1,166 @@
+<section xml:id="Cov_derivatives">
+  <title>Covariant derivatives</title>
+  <p>
+    The notation of connection on tensors field can be applied to co-tensors and yield the following
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let
+        <me>
+          \eta=a_{i_1\cdots i_p}\omega_{i_1}\otimes\cdots\otimes\omega_{i_p}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \nabla_{e_k}\eta=\left(e_k(a_{i_1\cdots i_p})-\sum_s a_{i_1\cdots \underset{\underset{sth}{\uparrow}}r\cdots\cdots i_p}\omega_{r\, i_s}(e_k)\right) \omega_{i_1}\otimes\cdots\otimes\omega_{i_p}
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      A straightforward computation.
+    </p>
+  </proof>
+  <p>
+    Because of the above result, we make the following definition:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        We define
+        <me>
+          a_{i_1\cdots i_p,k}=e_k(a_{i_1\cdots,i_p})-\sum_s a_{i_1\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_p}\omega_{r\, i_s}(e_k)
+        </me>
+        and call it the covariant derivative of the coeficients <m>a_{i_1\cdots i_p}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    By the above definition, we have
+    <me>
+      \nabla \eta=a_{i_1\cdots i_p,k}\,\omega_{k}\wedge \omega_{i_1}\otimes\cdots\otimes\omega_{i_p}
+    </me>.
+  </p>
+  <p>
+    We have the following
+  </p>
+  <theorem xml:id="thm5">
+    <statement>
+      <p>
+        We have
+        <me>
+          a_{i_1\cdots i_p,k,\ell}-a_{i_1\cdots i_p,\ell,k} = a_{i_1\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_p} R_{r i_s k\ell}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      To prove the above result, we introduce some notations.
+      We let <m>I=(i_1,\cdots,i_p)</m> and let <m>\omega_I=\omega_{i_1}\otimes\cdots\otimes\omega_{i_p}</m>.
+      Then we have
+      <md>
+        <mrow>\amp \frac 12(a_{I,k,\ell}-a_{I,\ell,k})\,\omega_k\wedge\omega_\ell\otimes \omega_I</mrow>
+        <mrow>\amp =a_{I,k,\ell}\,\omega_k\wedge\omega_\ell\otimes\omega_I</mrow>
+        <mrow>\amp =d_{\nabla^2}\eta</mrow>
+      </md>.
+    </p>
+    <p>
+      Using the above notations,
+      we can re-write the definition of covariant derivatives as following
+      <me>
+        \nabla\eta=d a_I-a_{I_r}\,\omega_{r i_s}
+      </me>,
+      where
+      <me>
+        I_r=(i_1\cdots  \underset{\underset{sth}{\uparrow}}r\cdots i_p)
+      </me>.
+    </p>
+    <p>
+      We compute
+      <md>
+        <mrow xml:id="p-1" number="yes">\begin{split} \amp \qquad\qquad d_{\nabla^2}\eta=d_\nabla\left((\nabla\eta)_{I,k}\omega_k\otimes\omega_I\right)</mrow>
+        <mrow>\amp =-\left(d(\nabla\eta)_{I,k}-(\nabla\eta)_{I_r,k}\omega_{r i_s}-(\nabla\eta)_{I,r}\omega_{rk}\right)\wedge \omega_k\otimes\omega_I. \end{split}</mrow>
+      </md>
+    </p>
+    <p>
+      The first and the third term of the above can be consolidated because
+      <me>
+        d(\nabla\eta)_{I,k}\wedge\omega_k-(\nabla\eta)_{I,r}\omega_{rk}\wedge\omega_k =d((\nabla\eta)_{I,k}\omega_k)
+      </me>
+      by the first Cartan's formula.
+      Thus we have
+      <me>
+        d(\nabla\eta)_{I,k}\wedge\omega_k-(\nabla\eta)_{I,r}\omega_{rk}\wedge\omega_k =d(d a_{I_r}-a_{I_r}\omega_{ri_s})=-da_{I_r}\wedge\omega_{r i_s}-a_{I_r}d\omega_{r i_s}
+      </me>.
+    </p>
+    <p>
+      Combining the above equation with <nbsp/><xref ref="p-1"/>, we have
+      <md>
+        <mrow>\amp d_{\nabla^2}\eta=-(-da_{I_r}\wedge\omega_{r i_s}-a_{I_r}d\omega_{r i_s})\otimes \omega_I -(\nabla\eta)_{I_r,k}\omega_k\wedge\omega_{r i_s}\otimes\omega_I</mrow>
+        <mrow>\amp =a_{I_r}(d\omega_{r i_s}+\omega_{r\ell}\wedge\omega_{\ell i_s})\otimes\omega_I+\sum_{s\neq t}a_{i_1\cdots  \underset{\underset{tth}{\uparrow}}\mu\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_p}\omega_{\mu i_t}\wedge \omega_{r i_s}\otimes\omega_I</mrow>
+      </md>.
+    </p>
+    <p>
+      For fixed <m>s\neq t</m>, we have
+      <me>
+        a_{i_1\cdots  \underset{\underset{tth}{\uparrow}}\mu\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_p}\omega_{\mu i_t}\wedge \omega_{r i_s}\otimes\omega_I+a_{i_1\cdots  \underset{\underset{tth}{\uparrow}}\mu\cdots \underset{\underset{sth}{\uparrow}}r\cdots i_p}\omega_{\mu i_s}\wedge \omega_{r i_t}\otimes\omega_I=0
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        d_{\nabla^2}\eta=\frac 12 a_{I_r}R_{r i_sk\ell}\,\omega_k\wedge\omega_\ell\otimes\omega_I
+      </me>,
+      and the lemma is proved.
+    </p>
+  </proof>
+  <p>
+    Let <m>f</m> be a smooth function.
+    The following notations are often used
+    <md>
+      <mrow>\amp  f_i=e_i(f);</mrow>
+      <mrow>\amp  f_{ij}=f_{i,j};</mrow>
+      <mrow>\amp f_{ijk}=f_{i,j,k}</mrow>
+    </md>.
+  </p>
+  <p>
+    We have
+  </p>
+  <corollary>
+    <title>Ricci identity</title>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <md>
+          <mrow>\amp  f_{ij}=f_{ji};</mrow>
+          <mrow>\amp  f_{ijk}-f_{ikj}=f_r R_{rijk}</mrow>
+        </md>.
+      </p>
+      <p>
+        In particular, we have the following useful Ricci identity:
+        <me>
+          \sum_i f_{iji}-\sum_i f_{iij}=(Ric)_{rj}f_r
+        </me>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      We only need to prove <m>f_{ij}=f_{ji}</m>.
+      To see this, we compute
+      <me>
+        f_{ij}\,\omega_j\wedge\omega_i =(df_i-f_r\omega_{ri})\wedge \omega_i=df_i\wedge\omega_i-f_r\,\omega_{ri}\wedge\omega_i
+      </me>.
+    </p>
+    <p>
+      By the Cartan's formula, the right hand side of the above is equal to
+      <me>
+        d(f_i\omega_i)=ddf=0
+      </me>.
+    </p>
+  </proof>
+</section>

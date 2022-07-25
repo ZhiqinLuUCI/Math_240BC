@@ -1,0 +1,398 @@
+<section xml:id="Spec_II">
+  <title>On the essential spectrum of complete non-compact manifold</title>
+  <p>
+    Let <m>M</m> be a complete non-compact manifold.
+    We assume that there exists a small constant <m>\delta(n) > 0</m>,
+    depending only on <m>n</m> such that for some point <m>q\in M</m>,
+    the Ricci curvature satisfies
+    <me>
+      Ric(M) \geqslant -\delta(n)\frac{1}{r^2}
+    </me>
+    where <m>r(x)</m>,
+    the distance from <m>x</m> to <m>q</m> is sufficiently large.
+    J-P. Wang (cite Wang) proved the following theorem:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be the complete non-compact Riemannian manifold defined above.
+        Then the spectrum of the Laplacian
+        <m>\Delta_p</m> acting on the space <m>L^p(M)</m> is
+        <m>[0, \infty)</m> for all <m>p\in[1,\infty)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete manifold with non-negative Ricci curvature,
+        then the <m>L^2</m> essential spectrum of the Laplacian is <m>[0, +\infty)</m>.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    By the Bishop volume comparison theorem,
+    we know that for any complete non-compact manifold with non-negative Ricci curvature,
+    the volume growth is at most polynomial.
+    In general, it is not correct to have the lower bound estimate.
+    However, we have the following:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete non-compact Riemannian manifold,
+        and let <m>Ric(M)\geqslant 0</m>.
+        Then there is a constant <m>C = C(n,v(B_1(p)))</m> such that
+        <me>
+          v(B_p(R)) \geqslant C(n,v(B_1(p)))R
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>p\in M</m> be a fixed point.
+      Let <m>\rho</m> be the distance function with respect to <m>p</m>, Let <m>R>0</m> be a large number.
+      Fixing <m>x_0\in \partial B_R(p)</m>.
+      By the Laplacian comparison theorem, we have
+      <me>
+        \Delta\rho^2 \leqslant 2n
+      </me>.
+    </p>
+    <p>
+      It follows that for any <m>\phi\in C_0^\infty(M)</m>,
+      <m>\phi\geqslant 0</m>, we have
+      <men xml:id="x4-1">
+        \int_M \phi\Delta\rho^2 \leqslant 2n\int_M\phi
+      </men>.
+    </p>
+    <p>
+      We choose a standard cut-off function <m>\phi=\psi(\rho(x))</m>, where
+      <me>
+        \psi(t) = \left\{\begin{array}{lcl} 1 \amp  \amp  0 \leqslant t \leqslant R-1 \\ \frac{1}{2}(R+1-t) \amp  \amp  R-1 \leqslant t \leqslant R+1 \\ 0 \amp  \amp  t \geqslant R+1 \end{array} \right.
+      </me>.
+    </p>
+    <p>
+      By the Stoke's theorem
+      <me>
+        \int_M \phi\Delta\rho^2 = -2\int_M \rho\nabla\phi\nabla\rho = -2\int_M \psi ' \rho
+      </me>.
+    </p>
+    <p>
+      By the definition of <m>\psi</m>,
+      the right hand side of the above is equal to
+      <me>
+        \int_{B_{R+1}(x_0)\backslash B_{R-1}(x_0)} \rho \geqslant (R-1)v(B_{R+1}(x_0)\backslash B_{R-1}(x_0))
+      </me>.
+    </p>
+    <p>
+      Combining the above equation with <m>\circledast</m>, we have
+      <me>
+        (R-1)v(B_{R+1}(x_0)-B_{R-1}(x_0)) \leqslant 2n\int\phi \leqslant 2nv_{R+1}(x_0)
+      </me>.
+    </p>
+    <p>
+      Obviously, we have
+      <me>
+        B_1(p) \subset B_{R+1}(x_0)\backslash B_{R-1}(x_0)
+      </me>.
+    </p>
+    <p>
+      Thus we have
+      <me>
+        2nv_{R+1}(x_0)\geqslant (R-1)v_1(p)
+      </me>.
+    </p>
+    <p>
+      Since <m>B_{2(R+1)}(p) \supset B_{R+1}(x_0)</m>, we have
+      <me>
+        2nv_{2(R+1)}(p) \geqslant (R-1)v_1(p)
+      </me>.
+      or in other word,
+      <me>
+        v_{2(R+1)}(p) \geqslant \frac{R-1}{2n}v_1(p)
+      </me>.
+    </p>
+  </proof>
+  <p>
+    What Wang observed was the following inverse Laplacian comparison theorem: We don't have a lower bound for the Laplacian.
+    However, we have the following:
+    <md>
+      <mrow>\nonumber \int_{B(R)\backslash K} |\Delta\rho| \amp  \leqslant \amp \int_{B(R)\backslash K} \partial n + \int_{B(R)\backslash K} |\partial n - \Delta \rho|</mrow>
+      <mrow>\nonumber \amp  \leqslant \amp  CR^n - \int_{\partial B(R)}\frac{\partial\rho} {\partial n} + \int_{\partial K}\frac{\partial\rho}{\partial n}</mrow>
+      <mrow>\nonumber \amp  \leqslant \amp  CR^n</mrow>
+    </md>.
+  </p>
+  <p>
+    Thus we can also estimate <m>\int\Delta\rho</m> from below.
+  </p>
+  <p>
+    Using the above observation, Wang computed the <m>L^1</m>-spectrum.
+    Using the theorem of Sturm, all <m>L^p</m>-spectrum,
+    in particular the <m>L^2</m>-spectrum we are interested,
+    are the same.
+  </p>
+  <p>
+    It is possible to compute the <m>L^2</m>-spectrum directly,
+    but that would be more or less the same as repeating the proof of Sturm's theorem.
+    In fact, we can get a little more information than Wang's theorem provided.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>M</m> be a complete non-compact manifold with non-negative Ricci curvature.
+        Let <m>B(R)</m> be a very large ball of radius <m>R</m>.
+        Let <m>\lambda</m> be a Dirichlet eigenvalue and let <m>f</m> be its eigenfunction of <m>B(R)</m>.
+        Then there is a constant <m>C > 0</m> such that
+        <me>
+          \int_{B(R)\cdot B(R-1)} f^2 \leqslant C\int_{B(R)} f^2
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    For the rest of this lecture we are seeking possible extensions of Wang's theorem.
+    While we observe that Sturm's theorem is self-dual (<m>M</m> could be of infinite volume or finite volume), Wang's theorem is not.
+    In what follows,
+    we shall construct an example that all <m>L^p</m>-spectrum are the same of finite volume,
+    <m>L^1</m>-spectrum computable,
+    but doesn't satisfy the assumption of Wang.
+  </p>
+  <p>
+    The manifold we construct is of <m>2</m> dimensional rotational symmetric outside a compact set,
+    and the Riemannian metric <m>g</m> can be written as
+    <me>
+      g = dr^2 + f(r)^2 d\theta^2, r > 1
+    </me>
+    where <m>f(r) = \frac{1}{r^\alpha}</m> for some <m>\alpha</m> large.
+  </p>
+  <p>
+    The Gauss curvature of <m>g</m> is <m>-f''/f = -\alpha(\alpha + 1)\frac{1}{r^2}</m>.
+    Thus the manifold doesn't satisfy Wang's assumption.
+  </p>
+  <p>
+    We prove that the volume of <m>M</m> grows uniformly and sub-exponentially.
+    To see this, we observe that for any point <m>(x)</m>
+    <me>
+      v(B_1(x)) \geqslant \frac{C}{r(x)^\alpha}
+    </me>
+    for some constant <m>C > 0</m>.
+    On the other hand, if <m>\alpha > 1</m>,
+    the volume of manifold is finite.
+    Thus
+    <me>
+      v(B_r(x)) \leqslant C \leqslant e^{\varepsilon r}\frac{C(\varepsilon)}{r^\alpha}
+    </me>
+    for any <m>r \gg 0</m>.
+  </p>
+  <p>
+    Thus the manifold satisfies the assumption of Sturm and as a result,
+    all <m>L^p</m>-spectrum of <m>M</m> are the same.
+  </p>
+  <p>
+    We compute the <m>L^1</m>-spectrum concretely.
+    Following Wang, we pick up a large number <m>k</m>.
+    Let <m>\psi</m> be a cut-off function whose support is in <m>[1,4]</m>,
+    and is identically <m>1</m> on <m>[2,3]</m>.
+    Consider the function
+    <me>
+      g = \psi(\frac{r}{k}) e^{i\sqrt{\lambda}r}
+    </me>.
+  </p>
+  <p>
+    We have
+    <me>
+      \Delta g = \Delta \psi e^{i\sqrt{\lambda}r} + 2\nabla\psi\nabla e^{i\sqrt{\lambda}r} + \psi\Delta e^{i\sqrt{\lambda}r}
+    </me>.
+  </p>
+  <p>
+    We have the following estimate
+    <me>
+      \|\nabla\psi\nabla e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{K} (V(4k) - V(k))
+    </me>.
+    where <m>V(r)</m> is the volume of the manifold of radius <m>r</m>.
+    A straightforward computation gives
+    <me>
+      \|\nabla\psi\nabla e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{k^\alpha}
+    </me>.
+  </p>
+  <p>
+    By the same reason
+    <me>
+      \|\Delta\psi e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{k^\alpha} + \frac{C}{k}\int_{B(4k)\backslash B(k)}|\Delta r|
+    </me>.
+  </p>
+  <p>
+    Since <m>dS^2 = dr^2 + f(r)^2 d\theta^2</m>, we have
+    <me>
+      |\Delta r| \leqslant \frac{\alpha}{r}
+    </me>.
+  </p>
+  <p>
+    Thus
+    <me>
+      \int_{B(4k)\backslash(k)}|\Delta r| = \int_k^{4k}\frac{\alpha}{r^{\alpha+1}}dr \leqslant \frac{C}{k^\alpha}
+    </me>.
+  </p>
+  <p>
+    Finally
+    <me>
+      \|\psi\Delta e^{i\sqrt{\lambda}r} + \lambda g\|_{L^1} = \|\sqrt{\lambda}\psi e^{i\sqrt{\lambda}r} \Delta r\|_{L^1} \leqslant \frac{C}{k^\alpha}
+    </me>.
+  </p>
+  <p>
+    On the other hand
+    <me>
+      \|g\|_{L^1} \geqslant \int_{2k}^{3k} 1 \geqslant V(3k) - V(2k) \geqslant \frac{C_1}{k^{\alpha-1}}
+    </me>.
+  </p>
+  <p>
+    Thus if <m>k</m> is sufficiently large
+    <me>
+      \|\Delta g + \lambda g\|_{L^1} \leqslant \varepsilon\|g\|_{L^1}
+    </me>
+  </p>
+  <p>
+    Thus there should be a finite volume version of Wang's theorem.
+  </p>
+  <p>
+    We end the lecture by some speculations of the essential spectrum.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A discrete group <m>G</m> is called amenable,
+        if there is a measure such that
+        <ol>
+          <li>
+            <p>
+              The measure is a probability measure;
+            </p>
+          </li>
+          <li>
+            <p>
+              The measure is finitely additive;
+            </p>
+          </li>
+          <li>
+            <p>
+              The measure is left-invariant:
+              given a subset <m>A</m> and an element <m>g</m> of <m>G</m>,
+              the measure of <m>A</m> equals to the measure of <m>gA</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In one sentence,
+    <m>G</m> is amenable if it has finitely-additive left-invariant probability measure.
+  </p>
+  <p>
+    The following theorem of R. Brooks<nbsp/><xref ref="brooks"/> is remarkable:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        ([Brooks] Let <m>M</m> be a compact Riemannian manifold and let
+        <m>\widetilde M</m> be the universal cover of <m>M</m>.
+        We assume that <m>\widetilde M</m> is non-compact, then
+        <me>
+          \lambda_0(\widetilde M) = 0 \Leftrightarrow \pi_1(M) \mbox{ is amenable}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    It would be interesting to ask
+  </p>
+  <conjecture>
+    <p>
+      Using the same assumptions as above.
+      Then
+      <me>
+        \sigma_{ess}(\widetilde M) = [0, \infty)
+      </me>.
+    </p>
+  </conjecture>
+  <p>
+    In the case when <m>\pi_1(M) = \mathbb{Z}^n</m>,
+    the above conjecture is true.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Suppose <m>M = T^n</m>, <m>\widetilde M = \mathbb{R}^n</m>.
+        Then
+        <me>
+          \sigma_{ess}(\widetilde M) = [0, \infty)
+        </me>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    Here the metric on <m>M</m> is an arbitrary metric.
+  </p>
+  <proof>
+    <p>
+      Let <m>N</m> be any finite cover of <m>M</m>.
+      Let <m>\lambda</m> be an eigenvalue of <m>N</m>.
+      Then
+      <me>
+        \lambda\in\sigma_{ess}(\widetilde M)
+      </me>
+    </p>
+    <p>
+      In fact, let <m>\rho</m> be a cut-off function.
+      Since
+      <me>
+        \Delta f + \lambda f = 0 \mbox{ on }  N
+      </me>
+    </p>
+    <p>
+      Then on <m>\widetilde M</m>
+      <me>
+        \|\Delta(\rho f) + \lambda\rho f\|_{L^2} \leqq \|f\Delta\rho\|_{L^2} + \|\alpha\nabla\rho\nabla f\|_{L^2}
+      </me>
+    </p>
+    <p>
+      If <m>|\nabla\rho|</m>, <m>|\Delta\rho|</m> are small, then
+      <me>
+        \|\Delta(f\rho) + \lambda\rho f\|_{L^2} \leqslant \varepsilon \|f\rho\|_{L^2}
+      </me>
+    </p>
+    <p>
+      If the result is not true, since <m>\sigma_{ess}(\Delta)</m> is a closed set,
+      there is an interval <m>(a,b)</m> such that for any <m>N</m>,
+      there is no eigenvalues in <m>(a,b)</m>.
+    </p>
+    <p>
+      We prove this by contradiction.
+      Let <m>\lambda</m>,
+      <m>\mu</m> be two consecutive eigenvalues such that <m>\lambda \lt  a</m> and <m>\mu > b</m>.
+      By the above argument, we can find a
+      <m>C_0^\infty</m> function on <m>\widetilde M</m> such that
+      <md>
+        <mrow>\nonumber \|\Delta f + \lambda f\|_{L^2} \amp  \lt  \amp  \varepsilon\|f\|_{L^2}</mrow>
+        <mrow>\nonumber \|\Delta g + \mu g\|_{L^2} \amp  \lt  \amp  \varepsilon\|g\|_{L^2}</mrow>
+      </md>
+    </p>
+    <p>
+      Let <m>k,l</m> be integers such that
+      <me>
+        \frac{k\int|\nabla f|^2 + l\int|\nabla g|^2}{k\int f^2 + l\int g^2}\in(a,b)
+      </me>
+    </p>
+    <p>
+      Then by repeating <m>f</m> <m>k</m>-times and <m>g</m> <m>l</m>-times we are done.
+    </p>
+  </proof>
+  <remark>
+    <p>
+      Recently, Lu-Zhou<nbsp/><xref ref="lu-zhou"/> proved that the essential spectrum is
+      <m>[0,+\infty)</m> for any complete non-compact manifold with asymptotic nonnegative Ricci curvature,
+      generalizing Wang's result.
+    </p>
+  </remark>
+</section>

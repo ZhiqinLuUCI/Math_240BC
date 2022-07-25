@@ -1,0 +1,115 @@
+<section xml:id="Inequalities">
+  <title>Poincar&#xe9; inequality and Sobolev inequality</title>
+  <p>
+    Let <m>M</m> be a compact manifold without boundary
+    (we call such a manifold <em>closed</em>).
+    Then by the Hodge theorem, for any function <m>f</m> such that
+    <me>
+      \int_M f=0
+    </me>,
+    we have
+    <me>
+      \int_M|\nabla f|^2\geq C\int_M f^2
+    </me>
+    for a positive constant <m>C</m>.
+    For manifold with boundary, we have similar versions of Poincar&#xe9;
+    inequalities with respect to the boundary conditions.
+  </p>
+  <p>
+    The other fundamental inequality is the Sobolev inequality
+  </p>
+  <p>
+    <em>Sobolev inequality.</em> Assume that <m>M</m> is a compact manifold with boundary,
+    then there is a constant <m>C</m> such that
+    <men xml:id="sobo">
+      C\left(\int_Mf^{\frac{n}{n-1}}\right)^{\frac{n-1}n}\leq\int_M|\nabla f|
+    </men>
+    for any smooth functions satisfies the Dirichlet or Neumann boundary conditions.
+  </p>
+  <p>
+    The Soboleve inequality is equivalent to the so-called isoperimetric inequality:
+  </p>
+  <p>
+    <em>Isoperimetric inequality.</em>
+    Let <m>\Omega</m> be a domain of <m>M</m> which is relatively compact.
+    Then there is a constant <m>C</m> such that
+    <men xml:id="iso">
+      C({ Vol}\,(\Omega))^{\frac{n-1}{n}}\leq{ Vol}\,(\pa\Omega)
+    </men>.
+  </p>
+  <p>
+    To prove the equivalence,
+    we first assume the Sobolev inequality<nbsp/><xref ref="sobo"/>.
+    We take the function
+    <me>
+      f_\eps(x)=\left\{ \begin{array}{ll} 1,\amp  x\in\Omega, d(x,\pa\Omega)\geq\eps,\\ \frac{d(x,\pa\Omega)}{\eps}, \amp  x\in\Omega, d(x,\pa\Omega)\leq\eps,\\ 0\amp  otherwise \end{array} \right.
+    </me>
+  </p>
+  <p>
+    Using the Soboleve inequality on <m>f_\eps</m> and lettting <m>\eps\to 0</m>,
+    we get the isoperimetric inequality.
+    On the other hand, we have the following co-area formula
+  </p>
+  <theorem>
+    <title>Co-area formula</title>
+    <statement>
+      <p>
+        Let <m>M</m> be a compact manifold with boundary.
+        <m>f\in H^1(M)</m>.
+        Then for any nonnegative function <m>g</m> on <m>M</m>, we have
+        <me>
+          \int_M g=\int_{-\infty}^\infty\left(\int_{\{f=\sigma\}}\frac{g}{|\nabla f|}\right)d\sigma
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <exercise>
+    <statement>
+      <p>
+        Proof the above co-area formula.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    For the sake of simplicity,
+    we assume that <m>f\geq 0</m> and we assume that the isoperimetric inequality<nbsp/><xref ref="iso"/> is valid.
+    By the co-area formula, we have
+    <me>
+      \int_M|\nabla f|=\int_0^\infty{ Area}\,(f=\sigma)d\sigma
+    </me>.
+  </p>
+  <p>
+    At the same time we have
+    <me>
+      \int_M|f|^{\frac{n}{n-1}}=\int_0^\infty{ Vol}\,(f^{\frac{n}{n-1}}>\lambda)d\lambda =\frac{n}{n-1}\int_0^\infty{ Vol}\,(f>\sigma)\sigma^{\frac{n}{n-1}}d\sigma
+    </me>.
+  </p>
+  <p>
+    Using the isoperimetric inequality, we have
+    <me>
+      \int_M|\nabla f|\geq C\int_0^\infty{ Vol}\,(f>\sigma)^{\frac{n-1}{n}}d\sigma
+    </me>.
+  </p>
+  <p>
+    Therefore, we just need to prove that
+    <me>
+      \int_0^\infty{ Vol}\,(f>\sigma)^{\frac{n-1}{n}}d\sigma\geq C\left(\int_0^\infty{ Vol}\,(f>\sigma)\sigma^{\frac{1}{n-1}}d\sigma\right)^{\frac{n-1}{n}}
+    </me>.
+  </p>
+  <p>
+    Let
+    <md>
+      <mrow>\amp  F(\sigma)={ Vol}\,(f>\sigma),</mrow>
+      <mrow>\amp \phi(t)=\int^t_0F(\sigma)^{\frac{n-1}{n}}d\sigma,</mrow>
+      <mrow>\amp \psi(t)=\left(\int_0^t F(\sigma)\sigma^{\frac{1}{n-1}}d\sigma\right)^{\frac{n-1}{n}}</mrow>
+    </md>.
+  </p>
+  <p>
+    Then <m>\phi(0)=\psi(0)</m>.
+    It is not hard to see that <m>\phi'(t)\geq \frac{n}{n-1}\psi'(t)</m>.
+    Thus <m>\phi(\infty)\geq\frac{n}{n-1}\psi(\infty)</m>.
+  </p>
+  <p>
+    \end{proof}
+  </p>
+</section>

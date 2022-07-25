@@ -1,0 +1,353 @@
+<section xml:id="Abstract_heat_kernel">
+  <title>Heat kernel</title>
+  <p>
+    In this section, we construct the heat kernels.
+    That is, we are going to find smooth function <m>H(x,y,t)</m> such that
+    <me>
+      T_t(f)(x)=\int_M H(x,y,t) f(y) dy
+    </me>.
+  </p>
+  <p>
+    For the sake of simplicity,
+    we shall only consider the Laplace operator on functions.
+    Moreover, the sign convention is that on the Euclidean space,
+    <m>\Delta=\sum\frac{\pa^2}{\pa x_j^2}</m>.
+    The semigroup is formally defined as <m>T_t=e^{\Delta t}</m>.
+  </p>
+  <p>
+    The main result of this section is the following
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>M</m> be a Riemannian manifold,
+        then there is a heat kernel
+        <me>
+          H(x,y,t)\in C^\infty(M\times M\times\mathbb R^+)
+        </me>,
+        such that
+        <me>
+          (T_t f)(x)=\int_M H(x,y,t) f(y)dy
+        </me>
+        satisfying
+        <ol>
+          <li>
+            <p>
+              <m>H(x,y,t)=H(y,x,t)</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\underset{t\to 0^+}{\lim}\, H(x,y,t)=\delta_x(y)</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\Delta-\frac{\pa}{\pa t})H=0</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>H(x,y,t)=\int_M H(x,z,t-s)H(z,y,s) dz</m> for any <m>0\lt s\leq t</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Before proving the theorem,
+    we first <em>formally</em> construct the heat kernel.
+    This formal construction also outlines the proof of the theorem.
+  </p>
+  <p>
+    The <m>k</m>-simplex <m>\Delta_k</m> is the following subset of <m>\mathbb R^k</m>
+    <me>
+      \{(t_1,\cdots,t_k)\mid 0\leq t_1\leq\cdots\leq t_k\leq 1\}
+    </me>.
+  </p>
+  <p>
+    For <m>t>0</m>, we write <m>t\Delta_k</m> for the rescaled simplex
+    <me>
+      \{(t_1,\cdots,t_k)\mid 0\leq t_1\leq\cdots\leq t_k\leq t\}
+    </me>.
+  </p>
+  <p>
+    We assume that <m>U(x,y,t)</m> be a function on <m>M\times M\times\mathbb R^+</m> such that
+    <me>
+      \limt U(x,y,t)=\delta_x(y)
+    </me>
+    be the the Dirac function.
+    Let
+    <me>
+      R(x,y,t)=\frac{d U(x,y,t)}{dt}-\Delta_x U(x,y,t)
+    </me>,
+    where <m>\Delta_x</m> means the Laplace operator for the variable <m>x</m>.
+    Note that formally, any function
+    <m>g(x,y,t)</m> defines one-parameter family of operators <m>G_t</m> by the formula
+    <me>
+      G_t f(x)=\int_M g(x,y,t) f(y) dy
+    </me>.
+  </p>
+  <p>
+    We use the <m>R_t, U_t</m> to denote the corresponding families of operators with respect to the functions
+    <m>R(x,y,t)</m> and <m>U(x,y,t)</m>, respectively.
+    For any <m>k\geq 1</m>, define the operator
+    <me>
+      Q_t^k=\int_{t\Delta_k} U_{t-t_k}R_{t_k-t_{k-1}}\cdots R_{t_2-t_1}R_{t_1} dt_1\cdots dt_k
+    </me>,
+    and <m>Q_t^0=U_t</m>.
+    Let
+    <me>
+      R^{(k)} (s)=\int_{s\Delta_{k-1}}R_{s-t_{k-1}}\cdots R_{t_2-t_1} R_{t_1} dt_1\cdots dt_{k-1}
+    </me>,
+    and <m>R^{(0)}(s)=0</m>.
+    Since the derivative of the integral of the form
+    <me>
+      \int_0^t a(t-s) b(s) ds
+    </me>
+    is equal to
+    <me>
+      \int_0^t\frac{da}{dt}(t-s) b(s) ds+a(0) b(t)
+    </me>,
+    we have
+    <me>
+      \left(\frac{\pa}{\pa t}-\Delta\right )Q_t^k=R^{(k+1)} (t)+R^{(k)} (t)
+    </me>.
+  </p>
+  <p>
+    As a result, we have
+    <me>
+      \left(\frac{\pa}{\pa t}-\Delta\right )\sum_{k=0}^\infty (-1)^k Q_t^k=0
+    </me>.
+  </p>
+  <p>
+    For <m>\mathbb R^n</m>, the fundamental solution of the heat equation
+    <me>
+      (\Delta-\frac{\pa}{\pa t}) u=0
+    </me>
+    is
+    <me>
+      \frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}}
+    </me>,
+    where <m>r=d(x,y)</m> is the Euclidean distance of <m>x</m> and <m>y</m>.
+  </p>
+  <p>
+    We wish to find the the following form of the fundamental solution of the heat equation:
+    <men xml:id="formal">
+      U(x,y,t)\sim (4\pi t)^{-\frac n2} e^{-d^2(x,y)/4t}\left\{\sum_{i\geq 0}\phi_i(x,y) t^i\right\}
+    </men>
+    where <m>d(x,y)</m> is the distance function on the Riemannian manifold.
+    <m>U(x,y,t)</m> should satisfy
+    <ol>
+      <li>
+        <p>
+          <m>\limt U(x,y,t)=\delta_x(y)</m>,
+          where <m>\delta_x(y)</m> is the Dirac function at <m>x</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          For any <m>N</m>,
+          <m>\limt (\Delta-\frac{\pa}{\pa t})U(x,y,t)=O(t^N)</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The function <m>U(x,y,t)</m> is called the
+    <em>paramatrix</em> of the heat kernel.
+  </p>
+  <p>
+    We pick a normal coordinate system <m>(y_1,\cdots,y_n)</m>,
+    and let <m>r=d(x,y)</m> be the Riemannian distance.
+    We identify a neighborhood of <m>y</m> to a small ball of <m>T_y(M)</m> by the exponential map.
+    Under this map,
+    the coordinates of <m>x</m> can be written as <m>(x_1,\cdots,x_n)</m>.
+    On the other hand,
+    let <m>(\theta_1,\cdots,\theta_{n-1})</m> be a coordinate system on <m>S^{n-1}</m>,
+    then <m>(r,\theta_1,\cdots,\theta_{n-1})</m> gives a coordinate system at <m>y</m> also,
+    and this coordinate system is called the polar coordinates.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>ds^2</m> be the Riemannian metric.
+        Then we can write
+        <me>
+          ds^2=dr^2+\sum_{i,j=1}^{n-1} r^2s_{ij}(x) d\theta_i d\theta_j
+        </me>.
+      </p>
+      <p>
+        That is, prove that <m>\frac{\pa}{\pa r}</m> is orthogonal to any <m>\frac{\pa}{\pa\theta_j}</m>.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    Let <m>\psi(r)</m> be a function of <m>r</m>,
+    and let <m>g=\det (s_{ij})</m>.
+    Then we have
+    <md>
+      <mrow>\amp  \Delta\psi=\frac{d^2\psi}{dr^2}+\frac nr\cdot\frac{\pa\psi}{\pa r}+\left(\frac{d\log \sqrt g}{dr}\right)\frac{d\psi}{dr},</mrow>
+      <mrow>\amp \Delta(\phi\psi)=\phi\Delta\psi+\psi\Delta\phi+2\frac{d\phi}{dr}\frac{d\psi}{dr}</mrow>
+    </md>.
+  </p>
+  <p>
+    We let
+    <md>
+      <mrow>\amp  \psi=\frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}},</mrow>
+      <mrow>\amp \phi=\phi_0+\phi_1 t+\cdots+\phi_Nt^N</mrow>
+    </md>,
+    where <m>\phi_j=\phi_j(x,y)</m> are smooth local functions on <m>M\times M</m>.
+    We assume that under our coordinate system,
+    <m>y</m> is the origin<fn>
+    We use the obvious fact that there exists a smooth family of normal coordinate systems parametrized by any point of <m>M</m>.
+    So all the functions we define below are smooth not only with respect to <m>x</m> but <m>y</m>.
+    </fn>.
+    Then
+    <me>
+      u_N=\psi\phi=\frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}} \sum_{i=0}^N\phi_i t^i
+    </me>.
+  </p>
+  <p>
+    Therefore
+    <me>
+      \left(\Delta-\frac{\pa}{\pa t}\right) u_N=\phi\left(\Delta\psi-\frac{\pa\psi}{\pa t}\right)+\psi\left(\Delta\phi-\frac{\pa\phi}{\pa t}\right)+2\frac{\pa\phi}{\pa r}\frac{d\psi}{dr}
+    </me>.
+  </p>
+  <p>
+    Since
+    <md>
+      <mrow>\amp \Delta\psi-\frac{\pa\psi}{\pa t}=\frac{d\log\sqrt g}{dr}\frac{d\psi}{dr},</mrow>
+      <mrow>\amp \frac{d\psi}{dr}=-\frac{r}{2t}\psi</mrow>
+    </md>.
+    we have
+    <men xml:id="x17">
+      \left(\Delta-\frac{\pa}{\pa t}\right)u_N=\frac{\psi}{t}\sum_{k=0}^N\left[ \Delta\phi_{k-1}-\left(k+\frac r2\frac{d\log\sqrt g}{dr}\right)\phi_k-r\frac{d\phi_k}{dr}\right] t^k
+    </men>.
+  </p>
+  <p>
+    Thus in order to find the paramatrix, we set
+    <me>
+      r\frac{d\phi_k}{dr}+\left(k+\frac r2\frac{d\log\sqrt g}{dr}\right)\phi_k=\Delta\phi_{k-1}
+    </me>
+    for <m>k=0,\cdots,N</m>, where we let <m>\phi_{-1}=0</m>.
+    The solutions of the above ordinary differential equations are
+    <md>
+      <mrow xml:id="phi-1" number="yes">\begin{split} \amp  \phi_0(x,y)=g^{-\frac 14}(x);</mrow>
+      <mrow>\amp \phi_k(x,y)=g^{-\frac 14}(x)r(x,y)^{-k}\int_0^{r(x,y)} r^{k-1}(\Delta\phi_{k-1})\left(\frac{rx}{r(x,y)}\right) g\left(\frac{rx}{r(x,y)}\right)^{\frac 14}dr. \end{split}</mrow>
+    </md>
+  </p>
+  <p>
+    Thus we have
+    <me>
+      \left(\Delta-\frac{\pa}{\pa t}\right)u_N=\frac{\psi}{t}(\Delta\phi_N)t^N
+    </me>.
+  </p>
+  <p>
+    From the above, we prove that
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        There is a unique formal solution <m>U(x,y,t)</m> of the heat equation
+        <me>
+          \left(\Delta-\frac{\pa}{\pa t}\right)U(x,y,t)=0
+        </me>
+        of the form <nbsp/><xref ref="formal"/> such that
+        <m>\phi_i(x,y)</m> are defined in <nbsp/><xref ref="phi-1"/>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \end{proof}
+  </p>
+  <p>
+    Let <m>\eta</m> be a smooth function such that <m>\eta=1</m> for <m>t\lt 1</m> and <m>\eta=0</m> for <m>t>2</m>.
+    Let
+    <me>
+      p(x,y)=\eta\left(\frac{2r(x,y)}{\delta}\right)
+    </me>
+    be the cut-off function,
+    where <m>\delta</m> is the injectivity radius at <m>y</m>.
+    Then for any <m>N</m>,
+    we consider the function <m>u_N(x,y,t)=p(x,y)u_N(x,y,t)</m>.
+    We shall prove that
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        For any <m>N</m> sufficiently large, we have
+        <ol>
+          <li>
+            <p>
+              <m>\limt u_N(x,y,t)=\delta_x(y)</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              The kernel <m>R_N(x,y,t)=\left(\Delta_y-\frac{\pa}{\pa t}\right)u_N(x,y,t)</m> satisfies the estimate
+              <me>
+                ||R_N(x,y,t)||_{\mathcal  C^l}\leq C(l)t^{N-l/2-1}
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    \end{proof}
+  </p>
+  <p>
+    Using <nbsp/><xref ref="x17"/> and the solutions of <m>\phi_k</m>,
+    we know that for <m>N\gg 0</m>, we have
+    <me>
+      ||R_N(x,y,t)||_{\mathcal  C^l}\leq Ct^\alpha
+    </me>.
+  </p>
+  <p>
+    It follows that
+    <me>
+      ||R^{(k)}(s)||_{\mathcal  C^l}\leq\frac{s^{k\alpha}(\alpha!)^k}{(\alpha k)!}
+    </me>.
+  </p>
+  <p>
+    Since
+    <me>
+      \sum_k\frac{s^{k\alpha}(\alpha!)^k}{(\alpha k)!}\lt +\infty
+    </me>,
+    our formal construction is convergent to the heat kernel.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        The <m>\Delta_p</m> on <m>L^p(M)</m> is well defined as the infinitesimal generator of the heat semi-group.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    \end{proof}
+  </p>
+  <p>
+    For any self-adjoint extension <m>\tilde\Delta</m> of <m>\Delta</m>,
+    the corresponding heat kernel is
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Using the above notations, we have
+        <me>
+          \tilde  H(x,y,t)=U(x,y,t)-\int_0^te^{\tilde \Delta(t-s)}\left(\frac{\pa}{\pa t}-\Delta_x\right) U(x,y,s) ds
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <exercise>
+    <statement>
+      <p>
+        Construct heat kernels of the Laplacian of bundle-valued <m>p</m>-forms.
+      </p>
+    </statement>
+  </exercise>
+</section>
