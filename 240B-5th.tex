@@ -1,0 +1,439 @@
+\documentclass[lang=en,11pt,green,fancy]{elegantbook}
+%\usepackage{biblatex}
+%\usepackage[giveninits=false]{biblatex}
+\addbibresource{240B.bib}
+
+\usepackage{mdframed}
+\usepackage{esint}
+\usepackage{tikz}
+ \usepackage{tkz-euclide}
+
+
+
+\newcommand{\ExternalLink}{%
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+    
+    \newenvironment{elink}{
+  \par\noindent\makebox[1.5pt][r]{
+   \large\color{second}\ExternalLink\quad}
+    \textbf{\hspace{-4.5pt}\color{second}\elinkname} \citshape}{\par}
+    
+
+
+%\newcommand{\<}{\langle}
+%\renewcommand{\>}{\rangle}
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+
+\renewenvironment{proof}[1][\proofname]{
+  \par\noindent\textbf{\color{second}{#1\;}}
+  \color{black!90}\cfs}{
+   \hfill\fcolorbox{ao(english)}{red}{\rule{.15ex}{0ex}}$\quad$
+  \par}
+  
+  
+\surroundwithmdframed[
+   topline=false,
+   rightline=false,
+   bottomline=false,
+   leftmargin=.2in,
+   skipabove=0.15in,
+   skipbelow=30pt,
+   linewidth=3pt,
+   linecolor=ao(english),
+]{proof}
+
+\newcommand{\qed}{QED}
+\newtheorem{conjecture}{conjecture}
+
+
+
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+%\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+ 
+
+
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{{\bf x}}
+\newcommand{\p}{{\bf p}}
+\newcommand{\q}{{\bf q}}
+
+\newcommand{\nn}{{\bf n}}
+\newcommand{\uu}{{\bf u}}
+\newcommand{\vv}{{\bf v}}
+\newcommand{\ww}{{\bf w}}
+\newcommand{\xx}{{\bf x}}
+\newcommand{\yy}{{\bf y}}
+\newcommand{\zz}{{\bf z}}
+
+
+
+%\renewcommand{\aa}{{\bf a}}
+\newcommand{\bb}{{\bf b}}
+\newcommand{\ee}{{\bf e}}
+\newcommand{\ff}{{\bf f}}
+
+\newcommand{\spc}{{\vspace{.1in}}}\relax
+\newcommand{\spcd}{{\vspace{2in}}}\relax
+\newcommand{\spce}{{\vspace{3in}}}\relax
+\newcommand{\spcf}{{\vspace{4in}}}\relax
+
+
+
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+
+
+
+
+
+
+\title{Geometric Analysis@ UCI}
+\subtitle{Math 240BC}
+
+\author{Zhiqin Lu}
+\institute{University of California, Irvine}
+\date{March 28, 2022}
+\version{4.0}
+\bioinfo{Bio}{Zhiqin Lu is a professor at UCI}
+
+\extrainfo{ }
+
+\cover{UCI-1.jpg}
+\logo{CalabiYau5.jpg}
+
+
+\newcommand{\cs}{$\clubsuit$}
+ \newcommand{\zl}{\newpage\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+
+
+
+%\counterwithout{section}{chapter}
+\numberwithin{equation}{chapter}
+
+\newtheorem{ex}{Exercise}
+ 
+ 
+ 
+\includeonly{
+chapter-1,
+chapter-2,
+chapter-3,
+chapter-4,
+chapter-5,
+chapter-6,
+chapter-7,
+chapter-8,
+chapter-9,
+chapter-10
+}
+
+
+
+
+
+\begin{document}
+
+\maketitle
+\frontmatter
+\tableofcontents
+\mainmatter
+
+\newpage
+
+
+
+
+\include{chapter-1}
+\include{chapter-2}
+\include{chapter-3}
+\include{chapter-4}
+\include{chapter-5}
+\include{chapter-6}
+\include{chapter-7}
+\include{chapter-8}
+\include{chapter-9}
+\include{chapter-10}
+
+
+
+
+
+
+\nocite{*}
+
+\printbibliography
+
+
+\newpage
+
+
+\begin{remark}[Final Remark]
+This is a lecture note for the Math 240BC at UCI. It is not a book or intended to be a book. The materials in this lecture note, I believe, are essential to differential geometers. Some of the materials are not standard so as to be easily found in  any text books.
+\end{remark}
+
+\vspace{2in}
+
+\end{document}
+
+
+
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{blieb}{article}{
+   author={Brascamp, H. J.},
+   author={Lieb, E. H.},
+   title={On extensions of the Brunn-Minkowski and Pr\'ekopa-Leindler
+   theorems, including inequalities for log concave functions, and with an
+   application to the diffusion equation},
+   journal={J. Functional Analysis},
+   volume={22},
+   date={1976},
+   number={4},
+   pages={366--389},
+   review={\MR{0450480 (56 \#8774)}},
+}
+
+\bib{brooks}{article}{
+   author={Brooks, Robert},
+   title={The fundamental group and the spectrum of the Laplacian},
+   journal={Comment. Math. Helv.},
+   volume={56},
+   date={1981},
+   number={4},
+   pages={581--598},
+   issn={0010-2571},
+   review={\MR{656213 (84j:58131)}},
+   doi={10.1007/BF02566228},
+}
+
+\bib{donnelly}{article}{
+   author={Donnelly, Harold},
+   title={On the essential spectrum of a complete Riemannian manifold},
+   journal={Topology},
+   volume={20},
+   date={1981},
+   number={1},
+   pages={1--14},
+   issn={0040-9383},
+   review={\MR{592568 (81j:58081)}},
+   doi={10.1016/0040-9383(81)90012-4},
+}
+	
+\bib{li-yau}{article}{
+   author={Li, P.},
+   author={Yau, S. T.},
+   title={Estimates of eigenvalues of a compact Riemannian manifold},
+   conference={
+      title={Geometry of the Laplace operator (Proc. Sympos. Pure Math.,
+      Univ. Hawaii, Honolulu, Hawaii, 1979)},
+   },
+   book={
+      series={Proc. Sympos. Pure Math., XXXVI},
+      publisher={Amer. Math. Soc.},
+      place={Providence, R.I.},
+   },
+   date={1980},
+   pages={205--239},
+   review={\MR{573435 (81i:58050)}},
+}
+	
+	
+	
+\bib{lu-zhou}{misc}{
+author={Zhiqin Lu},
+author={Detang Zhou},
+title={On the essential spectrum of complete non-compact manifolds},
+note={arXiv:1003.2502},
+}
+
+\bib{lu-rowlett}{misc}{
+author={Zhiqin Lu},
+author={Julie Rowlett},
+title={The fundamental gap},
+note={arXiv:1003.0191},
+}
+
+
+
+
+\bib{SY}{book}{
+   author={Schoen, R.},
+   author={Yau, S.-T.},
+   title={Lectures on differential geometry},
+   series={Conference Proceedings and Lecture Notes in Geometry and
+   Topology, I},
+   note={Lecture notes prepared by Wei Yue Ding, Kung Ching Chang [Gong Qing
+   Zhang], Jia Qing Zhong and Yi Chao Xu;
+   Translated from the Chinese by Ding and S. Y. Cheng;
+   Preface translated from the Chinese by Kaising Tso},
+   publisher={International Press},
+   place={Cambridge, MA},
+   date={1994},
+   pages={v+235},
+   isbn={1-57146-012-8},
+   review={\MR{1333601 (97d:53001)}},
+}
+
+\bib{sturm}{article}{
+   author={Sturm, Karl-Theodor},
+   title={On the $L^p$-spectrum of uniformly elliptic operators on
+   Riemannian manifolds},
+   journal={J. Funct. Anal.},
+   volume={118},
+   date={1993},
+   number={2},
+   pages={442--453},
+   issn={0022-1236},
+   review={\MR{1250269 (94m:58227)}},
+   doi={10.1006/jfan.1993.1150},
+}
+
+
+\bib{swyy}{article}{
+   author={Singer, I. M.},
+   author={Wong, B.},
+   author={Yau, S. T. },
+   author={Yau, S. S.-T.},
+   title={An estimate of the gap of the first two eigenvalues in the
+   Schr\"odinger operator},
+   journal={Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)},
+   volume={12},
+   date={1985},
+   number={2},
+   pages={319--333},
+   issn={0391-173X},
+   review={\MR{829055 (87j:35280)}},
+}
+
+
+\bib{wang}{article}{
+   author={Wang, Jiaping},
+   title={The spectrum of the Laplacian on a manifold of nonnegative Ricci
+   curvature},
+   journal={Math. Res. Lett.},
+   volume={4},
+   date={1997},
+   number={4},
+   pages={473--479},
+   issn={1073-2780},
+   review={\MR{1470419 (98h:58194)}},
+}
+
+
+\bib{yang}{article}{
+   author={Yang, H. C.},
+   title={Estimates of the first eigenvalue for a compact Riemann manifold},
+   journal={Sci. China Ser. A},
+   volume={33},
+   date={1990},
+   number={1},
+   pages={39--51},
+   issn={1001-6511},
+   review={\MR{1055558 (91g:58293)}},
+}
+
+
+\bib{yz}{article}{
+   author={Yu, Q. H.},
+   author={Zhong, J. Q.},
+   title={Lower bounds of the gap between the first and second eigenvalues
+   of the Schr\"odinger operator},
+   journal={Trans. Amer. Math. Soc.},
+   volume={294},
+   date={1986},
+   number={1},
+   pages={341--349},
+   issn={0002-9947},
+   review={\MR{819952 (87f:35179)}},
+}
+
+\bib{zhong-yang}{article}{
+   author={Zhong, J. Q.},
+   author={Yang, H. C.},
+   title={On the estimate of the first eigenvalue of a compact Riemannian
+   manifold},
+   journal={Sci. Sinica Ser. A},
+   volume={27},
+   date={1984},
+   number={12},
+   pages={1265--1273},
+   issn={0253-5831},
+   review={\MR{794292 (87a:58162)}},
+}
+
+
+\bib{chen}{book}{
+   author={Chen, Ya-Zhe},
+   author={Wu, Lan-Cheng},
+   title={Second order elliptic equations and elliptic systems},
+   series={Translations of Mathematical Monographs},
+   volume={174},
+   note={Translated from the 1991 Chinese original by Bei Hu},
+   publisher={American Mathematical Society, Providence, RI},
+   date={1998},
+   pages={xiv+246},
+}
+
+\bib{gehring}{article}{
+   author={Gehring, F. W.},
+   title={The $L^{p}$-integrability of the partial derivatives of a
+   quasiconformal mapping},
+   journal={Acta Math.},
+   volume={130},
+   date={1973},
+   pages={265--277},
+
+}
+
+\bib{GNY}{article}{
+   author={Grigor\cprime yan, Alexander},
+   author={Netrusov, Yuri},
+   author={Yau, Shing-Tung},
+   title={Eigenvalues of elliptic operators and geometric applications},
+   conference={
+      title={Surveys in differential geometry. Vol. IX},
+   },
+   book={
+      series={Surv. Differ. Geom.},
+      volume={9},
+      publisher={Int. Press, Somerville, MA},
+   },
+   date={2004},
+   pages={147--217},
+
+}
+		\end{biblist}
+\end{bibdiv}
+
