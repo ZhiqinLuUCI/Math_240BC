@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:47-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>We prove the formula for <span class="process-math">\(\lambda_{ess}\text{.}\)</span> The formula for <span class="process-math">\(\lambda_0\)</span> is similar. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda'_{ess}=\inf \sigma_{ess}(\Delta)\text{.}
+\end{equation*}
+</div>
+<p>If <span class="process-math">\(\sigma_{ess}(\Delta)=\emptyset\text{,}\)</span> we define <span class="process-math">\(\lambda'_{ess}=+\infty\text{.}\)</span> When <span class="process-math">\(\lambda'_{ess}=+\infty\text{,}\)</span> we prove that <span class="process-math">\(\lambda_{ess}\)</span> is also infinity.</p>
+<p>Assume not, then there is a constant <span class="process-math">\(C\text{,}\)</span> such that for any compact set <span class="process-math">\(K\text{,}\)</span> there is a function <span class="process-math">\(f\in \mathcal C_0^\infty(M\backslash K)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M |\nabla f|^2}{\int_M f^2}\lt C\text{.}
+\end{equation*}
+</div>
+<p>By inductively choosing <span class="process-math">\(f\text{,}\)</span> we can make sure that the support of these functions are disjoint. Thus the functions span an infinite dimensional space <span class="process-math">\(G\)</span> with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\Delta f-Cf,f)\lt 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which contradicts to the fact that the essential spectrum is an empty set.</p>
+<p>The proof of the general case is similar. We fist prove that <span class="process-math">\(\lambda_{ess}\leq\lambda_{ess}'\)</span> By definition, for <span class="process-math">\(\eps&gt;0\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\infty,\lambda_{ess}'+\eps)\cap \sigma_{ess}(\Delta)\neq\emptyset\text{.}
+\end{equation*}
+</div>
+<p>Therefore we can find infinite dimensional space <span class="process-math">\(V\)</span> such that for any <span class="process-math">\(f\in V\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\Delta f-(\lambda_{ess}'+\eps) f, f)\lt 0\text{.}
+\end{equation*}
+</div>
+<p>In what follows, we shall prove that, using the cut-off functions, there exist infinitely many elements in <span class="process-math">\(V\)</span> such that their supports are disjoint.</p>
+<p>We assume that <span class="process-math">\(K\)</span> is a compact set. Let <span class="process-math">\(K'\)</span> be a large ball containing <span class="process-math">\(K\text{.}\)</span> Let <span class="process-math">\(\rho\)</span> be the cut-off function such that <span class="process-math">\(\rho=1\)</span> on <span class="process-math">\(K\)</span> but <span class="process-math">\(\rho=0\)</span> outside <span class="process-math">\(K'\text{.}\)</span> We claim that for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> there is an <span class="process-math">\(f\in V\)</span> with <span class="process-math">\(\int f^2=1\)</span> but</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\lt \eps\text{.}
+\end{equation*}
+</div>
+<p>If the above is not true, then there is an <span class="process-math">\(\eps_0&gt;0\)</span> such that for any <span class="process-math">\(f\in V\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\geq\eps_0\text{,}
+\end{equation*}
+</div>
+<p>Since the set <span class="process-math">\(f\in V\)</span> is of infinite dimensional, the set <span class="process-math">\(\rho f\)</span> is of infinite dimensional as well, otherwise the above inequality is not valid. Thus we can find an orthogonal basis</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f_if_j=0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(i\neq j\text{,}\)</span> while we still keeping <span class="process-math">\(\int_Mf_i^2=1\text{.}\)</span> We consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla(\rho f_i)|^2\leq 2\int_M|\nabla \rho|^2 f_i^2+2\int_M|\nabla f_i|^2\text{.}
+\end{equation*}
+</div>
+<p>By <span class="process-math">\(\int_M|\nabla f_i|^2\leq \lambda'_{ess}+\eps\text{,}\)</span> we have Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M|\nabla(\rho f_i)|^2}{\int_M(\rho f_i)^2} \leq \frac{2C+2(\lambda_{ess}'+\eps)}{\eps_0}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(i\text{.}\)</span> This is a contradiction because on the compact set <span class="process-math">\(K'\text{,}\)</span> the are only finitely many eigenvalues (counting multiplicity) below a fixed number.</p>
+<p>Now we can prove our theorem. For all <span class="process-math">\(\eps&gt;0\text{.}\)</span> We can find an <span class="process-math">\(f\)</span> with <span class="process-math">\(\int_M f^2=1\)</span> but</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\lt \eps\text{.}
+\end{equation*}
+</div>
+<p>We take <span class="process-math">\(K=B(r)\)</span> and <span class="process-math">\(K'=B(R+1)\)</span> of balls of radius <span class="process-math">\(r, R+1\text{,}\)</span> respectively. Both <span class="process-math">\(r,R\)</span> are large numbers. Let <span class="process-math">\(\tilde\rho\)</span> be a cut-off function such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{\tilde\rho=1\}\subset B(R)\text{.}
+\end{equation*}
+</div>
+<p>We also assume that <span class="process-math">\(|\nabla\tilde\rho|\leq C\text{.}\)</span> Let <span class="process-math">\(\rho_1=1-\tilde\rho\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ supp}\,\rho_1\cap K=\emptyset\text{.}
+\end{equation*}
+</div>
+<p>We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla(\rho_1f)|^2=\int_M\rho_1^2|\nabla f|^2+2\int_M\rho_1f\nabla\rho_1\nabla f+\int_M f^2|\nabla \rho_1|^2\text{.}
+\end{equation*}
+</div>
+<p>From</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M f^2|\nabla \rho_1|^2\leq C\eps\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2\int_M\rho_1 f\nabla \rho_1\nabla f\leq 2 \sqrt{\int_M |\nabla(\rho_1 f)|^2}\cdot \sqrt{\int_M |\nabla\rho_1|^2f^2}\leq C\sqrt\eps \sqrt{\int_M |\nabla(\rho_1 f)|^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla (\rho_1f)|^2\leq\lambda_{ess}'+C\eps\text{.}
+\end{equation*}
+</div>
+<p>Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho_1^2f^2\geq 1-C\eps\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_{ess}\leq\frac{\lambda_{ess}'+C\eps}{1-C\eps}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and thus <span class="process-math">\(\lambda_{ess}\leq\lambda'_{ess}\text{.}\)</span> The other direction is easier to prove.</p></article></body>
+</html>

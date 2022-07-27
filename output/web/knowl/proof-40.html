@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:48-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>Let <span class="process-math">\(u\)</span> be the first eigenfunction such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\max u^2 = 1\text{.}
+\end{equation*}
+</div>
+<p>Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) = \frac{1}{2}(|\nabla u|^2 + (\lambda_1 + \varepsilon)u^2)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\varepsilon &gt; 0\text{.}\)</span></p>
+<p>The function <span class="process-math">\(g\)</span> is a smooth function. Let <span class="process-math">\(x_0\)</span> be the maximal point of <span class="process-math">\(g\text{.}\)</span> Then at <span class="process-math">\(x_0\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+u_j u_{ji} + (\lambda_1 + \varepsilon) u u_i = 0\tag{5.3.1}
+\end{equation}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \geqslant u_{ji}^2 + u_j u_{jii} + (\lambda_1 + \varepsilon) |\nabla u|^2 + (\lambda_1 + \varepsilon)u\Delta u\text{.}
+\end{equation*}
+</div>
+<p>Using the Ricci identity, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_j u_{jii} = u_j(\Delta u)_j + Ric(\nabla u) \geqslant u_j(\Delta u)_j\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+0 \geqslant u_{ji}^2 + u_j(\Delta u)_j + (\lambda_1 + \varepsilon) |\nabla u|^2 + (\lambda_1 + \varepsilon)u\Delta u\text{.}\tag{5.3.2}
+\end{equation}
+</div>
+<p>Suppose that at the maximum point of <span class="process-math">\(g(x)\text{,}\)</span> <span class="process-math">\(\nabla u \neq 0\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_{ji}^2 \geqslant |\nabla u|^{-4}(\sum_{i,j}u_j u_i u_{ij})^2
+\end{equation*}
+</div>
+<p class="continuation">by the Cauchy inequality. Using the first order condition, we conclude</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_{ji}^2 \geqslant (\lambda_1 + \varepsilon)^2 u^2\text{.}
+\end{equation*}
+</div>
+<p>Putting the above inequality into <span class="process-math">\(\circledast\text{,}\)</span> we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \geqslant \varepsilon|\nabla u|^2 + \varepsilon(\lambda_1 + \varepsilon)u^2
+\end{equation*}
+</div>
+<p class="continuation">which is not possible. Thus at the maximum point, we must have <span class="process-math">\(\nabla u = 0\text{.}\)</span> Therefore we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) \leqslant \frac{1}{2}(\lambda_1 + \varepsilon)\max u^2 = \frac{1}{2} (\lambda_1 + \varepsilon)\text{.}
+\end{equation*}
+</div>
+<p>From the above estimate, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{|\nabla u|^2}{1-u^2} \leqslant \lambda_1 + \varepsilon\text{.}
+\end{equation*}
+</div>
+<p>Since <span class="process-math">\(\varepsilon\)</span> is arbitrary, we let it go to zero and obtain</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{|\nabla u|^2}{1 - u^2} \leqslant \lambda_1\text{.}
+\end{equation*}
+</div>
+<p>By changing the sign of <span class="process-math">\(u\text{,}\)</span> we may assume that <span class="process-math">\(\max u = 1\text{.}\)</span> Let <span class="process-math">\(u(p) = 1\)</span> for <span class="process-math">\(p\in M\text{.}\)</span> Since <span class="process-math">\(\int u = 0\text{,}\)</span> there is a point <span class="process-math">\(q\in M\)</span> such that <span class="process-math">\(u(q)=0\text{.}\)</span> Let <span class="process-math">\(\sigma(t)\)</span> be the minimal geodesic line connecting <span class="process-math">\(q\)</span> and <span class="process-math">\(p\text{.}\)</span> Consider the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\arcsin u(\sigma(t))
+\end{equation*}
+</div>
+<p>By the above inequality, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|(\arcsin u(\sigma(t)))'| \leqslant \sqrt{\lambda_1}|\sigma '(t)|
+\end{equation*}
+</div>
+<p>Integrating the above inequality along the geodesic line, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\pi}{2} \leqslant \sqrt{\lambda_1}d
+\end{equation*}
+</div>
+<p class="continuation">and the theorem is proved.</p></article><span class="incontext"><a href="First_eigenvalue.html#proof-40" class="internal">in-context</a></span>
+</body>
+</html>

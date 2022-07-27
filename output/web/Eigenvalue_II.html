@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eigenvalue problems(II)</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Eigenvalue.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="First_eigenvalue.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Eigenvalue.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a class="next-button button toolbar-item" href="First_eigenvalue.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="active">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Eigenvalue_II"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Eigenvalue problems(II)</span>
+</h2>
+<p id="p-693">By the variational characterizing of the eigenvalues, we know that it is usually more difficult to get the lower bound estimate of eigenvalues. Among all the eigenvalues, the lower bound of the first eigenvalue is particularly important.</p>
+<p id="p-694">The Cheeger's result did give a lower bound estimate of the first eigenvalues. But the bounds are not “computable.” In geometry, “computable” bounds provide effective versions of Poincaré and Sobolev inequalities.</p>
+<p id="p-695">The following Lichnerowicz theorem gives a good lower bound of the first eigenvalue for closed manifold.</p>
+<article class="theorem theorem-like" id="theorem-46"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Lichnerowicz.</span>
+</h3>
+<p id="p-696">Let <span class="process-math">\(M\)</span> be a closed <span class="process-math">\(n\)</span>-dimensional Riemannian manifold. Assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Ric} (M) \geq (n-1) k &gt; 0
+\end{equation*}
+</div>
+<p id="p-697">Then <span class="process-math">\(\lambda _1 \geq n k\)</span></p></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><p id="p-698">One line proof: let <span class="process-math">\(u\)</span> be the first eigenfunction. Then using the Ricci identity we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2} \Delta |\nabla u|^2 \geq \sum u _{ij} ^2 + \nabla u \Delta u + { Ric}(\nabla u, \nabla u)\text{.}
+\end{equation*}
+</div>
+<p id="p-699">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-53">
+\begin{align*}
+\sum u^2_{ij} \amp \geq \amp  \sum u^2 _{ii} \geq \frac{1}{2} \left(\sum u_{ii} \right) ^2 = \frac{\lambda_1^2}{n} uU^2\\
+{ Ric} (\nabla u, \nabla u) \amp  \geq \amp  (n-1) k |\nabla u |^2
+\end{align*}
+</div></article></div>
+<p id="p-700">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2} \Delta |\nabla u|^2 \geq  \frac{\lambda ^2_1}{n} u^2 - \lambda _1 |\nabla uU |^2 +  (n-1)k | \nabla u|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-701">Taking integration on both sides, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\lambda ^2_1}{n} - \lambda ^2_1 + (n-1) k \lambda _1 \leq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-702">The theorem follows.</p>
+<p id="p-703">In 1962, Obata proved, if <span class="process-math">\(\lambda _1 = nk\text{,}\)</span> then <span class="process-math">\(M\)</span> has to be the standard sphere.</p>
+<p id="p-704">For the rest of this section, we use the gradient estimates to find “computable” lower bounds of the first eigenvalue.</p>
+<p id="p-705">We prove the following theorem.</p>
+<article class="theorem theorem-like" id="theorem-47"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Li-Yau.</span>
+</h3>
+<p id="p-706">Let <span class="process-math">\(M\)</span> be a closed manifold and</p></article><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Ric} (M)\geq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-707">Then <span class="process-math">\(\lambda _ 1 \geq \pi ^2 / 2 d ^2\text{,}\)</span> <span class="process-math">\(d\)</span> is the diameter.</p>
+<p id="p-708">\begin{proof} Let <span class="process-math">\(u\)</span> be the first eigenfunction. After normalization we may assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 = \sup u &gt; \inf u = - k \geq -1
+\end{equation*}
+</div>
+<p class="continuation">for some <span class="process-math">\(1 \geq k &gt; 0\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{u} = \frac{u - \frac{1-k}{2}}{\frac{1+k}{2}}\text{.}
+\end{equation*}
+</div>
+<p id="p-709">Then after this linear change of <span class="process-math">\(u\text{.}\)</span> We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{ \begin{array}{l} \Delta \tilde{u} = - \lambda _1 ( \tilde{u} + 1 )\\ \sup \tilde{u} = a \\ \inf \tilde{u} = - 1 \end{array} \right.
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(a = \frac{1-k}{1+k}\text{.}\)</span> <span class="process-math">\(1 &gt; a \geq 0\text{.}\)</span></p>
+<p id="p-710">Let <span class="process-math">\(g = \frac{1}{2} ( | \nabla \tilde{u} |^2 + ( \lambda _ 1 + \varepsilon ) \tilde{u} ^2)\)</span> for some <span class="process-math">\(\varepsilon &gt; 0\)</span> to be determined later. Assume that at <span class="process-math">\(x _0\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x_0) = { Max}\, g\text{.}
+\end{equation*}
+</div>
+<p id="p-711">Using the maximum principle, at <span class="process-math">\(x_0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{u}_j \tilde{u}_{j} + (x_1 + \varepsilon ) \tilde{u} u _i = 0
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-54">
+\begin{align*}
+0 \geq \Delta g \amp  = \amp  \hat{u} ^2 _{ij}   { Ric} ( \nabla \tilde{u}, \nabla \tilde{u} ) + \nabla \tilde{u} \nabla \Delta \tilde{u}\\
+\amp \amp  + ( \lambda _1 + \varepsilon ) |\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) \tilde{u} \Delta \tilde{u}\\
+\amp \amp \geq \tilde{u}^2 _{ij} - \lambda _1 |\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) |\nabla \tilde{u}|^2\\
+\amp \amp  - \lambda _1 (\lambda _1 + \varepsilon ) \tilde{u} ( \tilde{u} + a
+\end{align*}
+</div>
+<p class="continuation">if at <span class="process-math">\(x _0 , \nabla \tilde{U} = 0\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla \tilde{u}|^2 + ( \lambda _1 + \varepsilon ) \tilde{u} ^2 \leq ( \lambda _1 + \varepsilon )\text{.}
+\end{equation*}
+</div>
+<p id="p-712">In particular, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla \tilde{u} |^2 + \lambda _1 (1+a ) \tilde{u} ^2 \leq (1+a )
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(\nabla \tilde{u} (x_0) \neq 0\text{.}\)</span> Then using the Cauchy inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{u} ^2 _{ij} \geq \frac{(\tilde{u} _i \tilde{u}_j \tilde{u}_{ij} )^2}{|\nabla \tilde{u}|^4} = ( \lambda _1 + \varepsilon )^2 \tilde{u} ^2\text{.}
+\end{equation*}
+</div>
+<p id="p-713">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-55">
+\begin{align*}
+0 \geq \Delta g (x_0) \amp  \geq \amp  ( \lambda _1 + \varepsilon )^2 \tilde{u}^2 + \varepsilon |\nabla \tilde{u}|^2\\
+\amp \amp  - \lambda _1 (\lambda _1 + \varepsilon) \tilde{u}^2 - \lambda _1 (\lambda _1 + \varepsilon )\\
+\amp \amp  \geq 2 \varepsilon g - \lambda _1 (\lambda _1 + \varepsilon )a\text{.}
+\end{align*}
+</div>
+<p id="p-714">For any <span class="process-math">\(\varepsilon &gt; \lambda _1 a\text{,}\)</span> the above gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla \tilde{u}| ^2 + \lambda _1 (1 + a) \tilde{u}^2 \leq \lambda _1 (1 + a)\text{.}
+\end{equation*}
+</div>
+<p id="p-715">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(t) =  { arc} \sin \tilde{U} ( \sigma (t))
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\sigma (t)\)</span> is the arc-length curve connecting the minimal point and the maximum point of <span class="process-math">\(\tilde{u}\text{.}\)</span> Then by the above argument, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|f^\prime (t)|\leq \sqrt{\lambda _1 (1 + a) }\text{.}
+\end{equation*}
+</div>
+<p id="p-716">Let <span class="process-math">\(d\)</span> be the diameter of the manifold, then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-56">
+\begin{align*}
+d \sqrt{\lambda_1 (1+a)} \amp  \geq \amp  \int ^d _0 ( f ^\prime (t) ) d t \geq  { arc}  \sin 1\\
+\amp \amp  - { arc} \sin (-1) = \pi\text{.}
+\end{align*}
+</div>
+<p id="p-717">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda +1 \geq \frac{1}{1+a} \frac{\pi^2}{d^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-718">Since <span class="process-math">\(a \lt  1\text{,}\)</span> this gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_1 \geq \frac{\pi^2}{2d^2}
+\end{equation*}
+</div>
+<p id="p-719">We let <span class="process-math">\(\theta = { arc} \sin \tilde{u}\text{.}\)</span> Then Zhong-Yau proved <span class="process-math">\(\oint\)</span> the following surprising theorem.</p>
+<article class="theorem theorem-like" id="theorem-48"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">***.</span>
+</h3>
+<p id="p-720">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\psi   (\theta) = \left(\frac{4}{\pi} \right)\theta + \cos \theta \sin \theta ) - 2 \sin \theta\text{.}
+\end{equation*}
+</div>
+<p id="p-721">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{|\nabla \tilde{u}|^2}{1 - \tilde{u}^2} \leq \lambda _1 (1 + a \psi (\theta))\text{.}
+\end{equation*}
+</div>
+<p id="p-722">The method is maximal principle, very surprising and mysterious.</p>
+<p id="p-723">Using the above sharpened inequality, observed that <span class="process-math">\(\psi (\theta)\)</span> is an odd function, we can prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{d^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-724">Assume that <span class="process-math">\({ Ric} (M) \geq - (n-1) k\)</span> for <span class="process-math">\(k &gt; 0\text{.}\)</span> Then by estimating <span class="process-math">\(| \nabla u|^2 + \lambda _1 ( 1 - u )^2\text{,}\)</span> Li-Yau was able to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{C}{d^2} \exp ( - C_1 \sqrt{kd^2})\text{.}
+\end{equation*}
+</div>
+<p id="p-725">*** was able to modify the above and proved that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{d^2} \exp ( - C_1 \sqrt{kd^2})\text{.}
+\end{equation*}
+</div>
+<p id="p-726">When <span class="process-math">\({ Ric}(M) &gt; 0\text{,}\)</span> or <span class="process-math">\({ Ric}(M) \geq (n-1) k &gt; 0\)</span> the above inequality is not optimal. In fact, it is far from being optimal. Let <span class="process-math">\(M = s ^n\text{.}\)</span> Then by Lichnerowicz theorem, <span class="process-math">\(\lambda _1\geq n\)</span> (in fact, <span class="process-math">\(\lambda _ 1 = n\)</span>). <span class="process-math">\(d (s^n) = \pi\text{.}\)</span> Thus <span class="process-math">\(**\)</span> gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq 1\text{.}
+\end{equation*}
+</div>
+<p id="p-727">In this direction, we have the following Peter Li Conjecture.</p></article><article class="conjecture theorem-like" id="conjecture-1"><h3 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">P. Li.</span>
+</h3>
+<p id="p-728">If <span class="process-math">\({ Ric} (M) \geq (n-1) k\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _ 1 \geq \frac{\pi^2}{d^2} + (n-1)k\text{.}
+\end{equation*}
+</div></article><p id="p-729">Such a conjecture, if true, will sharpen both the result of Zhong-Yang and Lichnerowicz because by Myer's theorem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\pi^2}{d^2} \geq k\text{.}
+\end{equation*}
+</div>
+<p id="p-730">Not much was known to the proof of the conjecture. D. Yang proved that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{d^2} + \frac{1}{4} ( n-1) k
+\end{equation*}
+</div>
+<p id="p-731">Ling Jun proved a bigger number</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{d^2} + \alpha ( n-1) k  \alpha &gt; \frac{1}{4}\text{.}
+\end{equation*}
+</div>
+<p id="p-732">On the other end, if <span class="process-math">\({ Ric} (M) \geq ( n-1) k, k &gt; 0\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{d^2} - ( n-1) k\text{.}
+\end{equation*}
+</div>
+<p id="p-733">Recently, *** was able to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 &gt; \frac{\pi^2}{d^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-734">Very interesting result.</p>
+<p id="p-735">We end this section by citing a result of Li and Croke.</p>
+<article class="theorem theorem-like" id="theorem-49"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span>
+</h3>
+<p id="p-736">Let <span class="process-math">\(M\)</span> be a <span class="process-math">\(\oint\)</span> manifold, with boundary. Then there is a constant <span class="process-math">\(C = (n, d, V, k ) &gt; 0\)</span> such that the Sobolev constant is <span class="process-math">\(&gt; c &gt; 0\text{.}\)</span></p></article></section></div></main>
+</div>
+</body>
+</html>

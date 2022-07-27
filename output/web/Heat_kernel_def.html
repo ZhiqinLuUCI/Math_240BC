@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Heat kernel</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Heat_kernel.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Heat_kernel.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Green_function.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Heat_kernel.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Heat_kernel.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Green_function.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="active">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Heat_kernel_def"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Heat kernel</span>
+</h2>
+<p id="p-471">Let <span class="process-math">\(M\)</span> be a Riemannian manifold. The Laplace operator <span class="process-math">\(\Delta\)</span> can be extended as a densely defined self-adjoint operator. Thus by the spectrum theorem, we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = \int \lambda d E
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(E\)</span> is the corresponding spectrum measure. Using functional analysis, we define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+e ^{- \Delta t} = \int ^\infty _0 e ^{- \lambda t } \, dE
+\end{equation*}
+</div>
+<p class="continuation">to be the heat operator, and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int^\infty _ 0 e ^{-\Delta t} \, dt
+\end{equation*}
+</div>
+<p class="continuation">to be the Green's operator.</p>
+<p id="p-472">The heat semi-group, or the heat operator, has a kernel.</p>
+<article class="theorem theorem-like" id="theorem-29"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
+</h3>
+<p id="p-473">Let <span class="process-math">\(M\)</span> be a complete Riemannian, then there is a heat kernel <span class="process-math">\(H (x, y, t) \in C^\infty (M \times M \times \mathbb{R} ^+ )\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(e ^{- \Delta t} f) (x) = \int_M  H (x, y, t )f (y)
+\end{equation*}
+</div>
+<p id="p-474"><span class="process-math">\(\forall f \in L^2 (M)\)</span> such that</p>
+<ol class="decimal">
+<li id="li-30">
+<span class="heading"><span class="title">{ (1)}.</span></span><p id="p-475"><span class="process-math">\(\displaystyle H(x, y, t) = H (y, x, t)\)</span></p>
+</li>
+<li id="li-31">
+<span class="heading"><span class="title">{ (2)}.</span></span><p id="p-476"><span class="process-math">\(\displaystyle \lim_{t \rightarrow 0^{+} } H (x, y, t) = \delta _x (y)\)</span></p>
+</li>
+<li id="li-32">
+<span class="heading"><span class="title">{ (3)}.</span></span><p id="p-477"><span class="process-math">\(\displaystyle \left( \Delta - \frac{\partial }{\partial t} \right) H = 0\)</span></p>
+</li>
+<li id="li-33">
+<span class="heading"><span class="title">{ (4)}.</span></span><p id="p-478"><span class="process-math">\(H(x, y, t) = \int H (x, z, t - s) H (z, y, s) \, dz\text{.}\)</span></p>
+</li>
+</ol></article><article class="remark remark-like" id="remark-5"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</h3>
+<p id="p-479">Let <span class="process-math">\(M\)</span> be a compact manifold and let <span class="process-math">\(\{ f_i\}\)</span> be an orthonormal basis of eigenfunctions. Let <span class="process-math">\(\lambda _i\)</span> be the corresponding eigenvalues. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x, y, t) = \sum^\infty_{k=1} e ^{-\lambda _{k} t} f _k (x) f_k  (y)\text{.}
+\end{equation*}
+</div>
+<p id="p-480">As in the case of harmonic functions, for positive solutions of the heat equations</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left( \Delta - \frac{\partial }{\partial t} \right) u= 0
+\end{equation*}
+</div>
+<p class="continuation">we also have the differentiable Harnack inequality. The theorem is as follows:</p></article><article class="theorem theorem-like" id="theorem-30"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
+</h3>
+<p id="p-481">Let <span class="process-math">\(M\)</span> be a compact Riemannian manifold with boundary, Ric<span class="process-math">\((M) \geq 0\text{.}\)</span> If <span class="process-math">\(\partial M \neq \emptyset\text{,}\)</span> we assume that <span class="process-math">\(\partial M\)</span> is convex. In this case, we assume that <span class="process-math">\(u (x, t)\)</span> satisfies the Neumann boundary.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial n} = 0
+\end{equation*}
+</div>
+<p class="continuation">on <span class="process-math">\(\partial M x (0, \infty)\text{,}\)</span> where <span class="process-math">\(\frac{\partial }{\partial n}\)</span> is the outer normal direction. Then on <span class="process-math">\(M x (0, \infty)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{|\nabla u|^2}{u^2} - \frac{ut}{u} \leq \frac{n}{2t}\text{.}
+\end{equation*}
+</div></article><p id="p-482">For manifold with Ric<span class="process-math">\((M) \geq - k\text{,}\)</span> the estimates are more complicated but the same principle applies.</p>
+<p id="p-483">The Harnack inequalities follows from the gradient estimates:</p>
+<p id="p-484">Using the gradient estimates and the Harnack inequality we obtain:</p>
+<article class="theorem theorem-like" id="theorem-31"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
+</h3>
+<p id="p-485">Let <span class="process-math">\(M\)</span> be a complete manifold without boundary, Ric<span class="process-math">\((M) \geq - k , k \geq 0\text{.}\)</span> Let <span class="process-math">\(H (x, y, t)\)</span> be the fundamental solution of the heat equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left( \Delta - \frac{\partial }{\partial t} \right)  u (x, t) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-486">Then for any <span class="process-math">\(\delta \in (0, 1)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x, y, t) \leq C(\delta, n) V^{-\frac{1}{2}} _x ( \sqrt{t}) V_y ^{-\frac{1}{2}} ( \sqrt{t}) \exp \left( - \frac{r^2 (x, y)}{(4 + \delta)t} + C_1 \delta k t\right)\text{.}
+\end{equation*}
+</div></article><p id="p-487">For the proof, see the book of Yau and Schoen. We give some applications of the above theorem.</p>
+<article class="theorem theorem-like" id="theorem-32"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Gromov.</span>
+</h3>
+<p id="p-488">Let <span class="process-math">\(M\)</span> be a compact manifold without boundary, let Ric<span class="process-math">\((M) \geq 0\)</span> and <span class="process-math">\(d\)</span> be the diameter of <span class="process-math">\(M\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _k \geq \frac{C(n)}{d^2} ( k + 1)^{\frac{2}{n}}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\lambda _k\)</span> is the <span class="process-math">\(kth\)</span> eigenvalue of the manifold.</p></article><article class="hiddenproof" id="proof-22"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><p id="p-489">We set <span class="process-math">\(x = y\)</span> and <span class="process-math">\(k = 0\)</span> in the above theorem. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x, x, t) \leq C(n) V^{-1} _x (\sqrt{t})\text{.}
+\end{equation*}
+</div>
+<p id="p-490">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x, y, t)= \sum^\infty_{k=1} e ^{-\lambda k t} f_k (x) f _k (y)
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x, x, t)= \sum^\infty_{k=1} e ^{-\lambda _{k} t}\text{.}
+\end{equation*}
+</div>
+<p id="p-491">As a result we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum^\infty_{k=1} e ^{-\lambda k t} \leq C(n) \int_M V^{-1} _x (\sqrt{t}) \, dx\text{.}
+\end{equation*}
+</div>
+<p id="p-492">If <span class="process-math">\(\sqrt{t} \geq d\text{,}\)</span> then <span class="process-math">\(V^{-1} _x (\sqrt{x}) = { vol} (M)\text{,}\)</span> if <span class="process-math">\(\sqrt{t} \leq d\text{,}\)</span> then by the Bishop volume comparison theorem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{V_x  (\sqrt{t}}{ V _x (d)} \geq \left( \frac{\sqrt{t}}{d}\right) ^n\text{.}
+\end{equation*}
+</div>
+<p id="p-493">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="men-16">
+\begin{equation}
+\sum^\infty_{k=1} e ^{-\lambda _{k} t} \leq C(n)\left\{ \begin{array}{ll} \left(\frac{d}{\sqrt{t}}\right) ^n \amp t \leq d^2\\ 1  \amp t &gt; d^2 \end{array}  \right. .\tag{$\star$}\tag{4.1.1}
+\end{equation}
+</div>
+<p id="p-494">For fixed <span class="process-math">\(k\text{,}\)</span> by the monotonicity, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+ke ^{-\lambda _{k} t} \leq C(n)\left\{ \begin{array}{ll} \left(\frac{d}{\sqrt{t}}\right) ^n \amp t \leq d^2\\ 1  \amp t &gt; d^2 \end{array}  \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-495">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt{t} = k ^{-\frac{1}{n}} d
+\end{equation*}
+</div>
+<p class="continuation">and the result follows.</p>
+<p id="p-496">We can compare the above eigenvalue estimate with the result of Cheng-Li.</p>
+<p id="p-497">From (<span class="process-math">\(\star\)</span>), we can get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum^\infty_{k=1} e ^{- \lambda _{k} t} \leq C t ^{-\frac{n}{2}}\;\; t \leq d^2
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> is the absolute <span class="process-math">\(d\)</span> constant. On the other hand, if we consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-32">
+\begin{align*}
+\frac{\partial }{\partial t} \int_M H (x, y, t) ^2 d y \amp = \amp  2 \int_M H (x, y, t) \Delta H (x , y, t) \, dy\\
+\amp   =\amp - 2 \int | \nabla y H (x, y, t)  | ^2 \, dy\\
+\amp   \leq \amp  - 2 C \left( \int_M |H (x, y, t) | ^{\frac{2n}{n-2}} \, dy \right) ^{\frac{n-2}{n}}
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> is the Sobolev constant. Since for any <span class="process-math">\(t &gt; 0\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int H (x, z, t) \, d z \leq 1\text{.}
+\end{equation*}
+</div>
+<p id="p-498">So we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left|\int _M |H | (x, y, t) | ^{\frac{2n}{n-2}} \, dy \right| ^{\frac{n-2}{n}}\geq \left( \int_M |H (x, y, t) | ^{2} \, dy \right) ^{\frac{2+n}{n}}
+\end{equation*}
+</div></article></div>
+<article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><p id="p-499">Let <span class="process-math">\(f = H (x, y, t)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f ^2 = \int f ^{\frac{2n}{n+2}+ \frac{4}{n+2}}\leq \left(  \int f^{\frac{2n}{n-2}}\right) ^{\frac{n+2}{2n}}\left. \left( \int f \right) ^{\frac{4}{n+2}}\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-500">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial }{\partial t}\int _M H(x, y, t)^2 \, dy  \leq - C \left( \int_M |H (x, y, t) ^2 | dy \right) ^{\frac{2+n}{n}}\text{.}
+\end{equation*}
+</div>
+<p id="p-501">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{t \rightarrow 0} H (x, x, t) = \infty\text{.}
+\end{equation*}
+</div>
+<p id="p-502">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H (x, x, 2t) \leq \left( \frac{4}{n} Ct \right) ^{-\frac{n}{2}}\text{.}
+\end{equation*}
+</div>
+<p id="p-503">Using the same method as before, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _k \geq C \left( \frac{k}{{ vol} (M)}\right) ^{\frac{2}{n}}\text{.}
+\end{equation*}
+</div>
+<p id="p-504">The second application of the heat kernel estimate is the following resolvent estimate.</p>
+<article class="theorem theorem-like" id="theorem-33"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h3>
+<p id="p-505">For any <span class="process-math">\(\beta &gt; 0\)</span> there is <span class="process-math">\(n \in N, \alpha \lt  0 , C \subset \infty\)</span> such that the integral kernel <span class="process-math">\(g _{\alpha} ^{(\frac{n}{2})}(x, y)\)</span> of <span class="process-math">\((\Delta - \alpha) ^{-\frac{n}{2}}\)</span> satisfies.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g _{\alpha} ^{(\frac{n}{2})}(x, y)  \leq C \phi (x) ^2 e ^{-\beta d(x, y)}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\phi (x) = (v (B_1 (x))  ^{-\frac{1}{2}}\text{.}\)</span></p></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><p id="p-506">First, using the heat kernel <span class="process-math">\(H (x, t)\)</span> we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g _{\alpha} ^{(\frac{n}{2})}(x, y) = C _2 \int ^\infty_0 H (x, y, t) t  ^{ \frac{n}{2}-1   } e ^{\alpha t} \, dt\text{.}
+\end{equation*}
+</div>
+<p id="p-507">By the volume comparison theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-33">
+\begin{align*}
+v ^{ \frac{n}{2}} (B_{\sqrt{t}}(x)) v ^{ \frac{-1}{2} }(B_{\sqrt{t}}(y))\amp \leq \amp  C_2 \phi (x)^2 \sup (1, t  ^{-\frac{n}{2}})\\
+\amp \times \amp  e ^{\beta _{2} d (x, y)}\text{.}
+\end{align*}
+</div>
+<p id="p-508">By an element calculation, for any <span class="process-math">\(\beta _3 &gt; 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\exp \left( - \frac{d^2 (x, y)}{C_1 4t} \right) \leq \exp (  \beta_3 d (x, y) ) \exp (C_1 \beta ^2_3 t )\text{.}
+\end{equation*}
+</div>
+<p id="p-509">Thus for any <span class="process-math">\(\beta &gt; 0\text{,}\)</span> there exists <span class="process-math">\(\alpha \lt  0 , C_3 \lt  \infty\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H (x, y, t) \leq C_3 \phi ^2 (x) e ^{-\beta _{2} d (x, y)} \sup \{ t  ^{ -\frac{n}{2} } , 1 \} t  ^{ - (\alpha + 1 ) t}
+\end{equation*}
+</div>
+<p class="continuation">which implies</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g _{\alpha} ^{(\frac{n}{2})}  (x, y) \leq C_t \phi ^2 (x)   e ^{-\beta  d (x, y)}\text{.}
+\end{equation*}
+</div>
+<p id="p-510">Cheeger-Yau's heat kernel comparison theorem.</p></article></div>
+<article class="theorem theorem-like" id="theorem-34"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span>
+</h3>
+<p id="p-511">Let <span class="process-math">\(M\)</span> be a complete Riemannian manifold such that Ric<span class="process-math">\((M) \geq 0\text{.}\)</span> Fixing <span class="process-math">\(x \in M , r_0 &gt; 0\text{.}\)</span> The heat kernel <span class="process-math">\(H (x, y, t)\)</span> in <span class="process-math">\(B(x, r_0)\)</span> and the heat kernel <span class="process-math">\(\varepsilon (r (x, y) , t)\)</span> in <span class="process-math">\(V (k, r_0)\)</span> satisfies the following</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\varepsilon (r (x, y) , t) \leq H (x, y, t)\text{.}
+\end{equation*}
+</div>
+<p id="p-512">(For both Dirichlet and Neumann conditions).</p></article><article class="hiddenproof" id="proof-25"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-25"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-25"><article class="hiddenproof"><p id="p-513">Using the property of the heat kernel, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-34">
+\begin{align*}
+\lefteqn{H(x, y, t) - \varepsilon (x, y, t)}\\
+\amp \amp = \int ^t _0 \int _{B (x_1 r_0)} \frac{d}{ds}  ( \varepsilon (x, z, t - s) H (z, y, s) ) \, d z ds\\
+\amp \amp = - \int ^t _0 \int _{B (x_1 r_0) }\left( \frac{d}{ds}\varepsilon (r (x, z), t-s)\right) H(z, y, s)  \, d z ds\\
+\amp \amp + \int^t_0 \int _{B (x_1 r_0) }\varepsilon (r (x, z), t-s)\frac{d}{ds} H(z, y, s)  \, d z ds\\
+\amp \amp = - \int^t_0 \int _{B (x_1 r_0)} \tilde{\Delta} \varepsilon (r (x, z), t - s) H(z, y, s)  \, d z ds\\
+\amp \amp + \int^t_0 \int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z ds\text{.}
+\end{align*}
+</div>
+<p id="p-514">Using the Green's formula, under either the Dirichlet or Neumann boundary condition, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-35">
+\begin{align*}
+\lefteqn{\int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z}\\
+\amp \amp = \int _{B (x_1 r_0)}\Delta \varepsilon (r (x, z), t - s)  H(z, y, s)  \, d z\text{.}
+\end{align*}
+</div>
+<p id="p-515">Since <span class="process-math">\(H(\xi, y, s)  &gt; 0\text{,}\)</span> we just need to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{\Delta} \varepsilon (r (x, z), t - s)\leq \Delta  \varepsilon (r (x, z), t - s)\text{.}
+\end{equation*}
+</div>
+<p id="p-516">This essentially follows from the Laplacian comparison theorem: Let <span class="process-math">\(x = (r, \zeta ) , \zeta \in S^{n-1}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-36">
+\begin{align*}
+\tilde{\Delta } \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r) \frac{\partial }{\partial r} , m (r) \frac{\partial }{\partial r} \log { det} \sqrt{\tilde{g}}\\
+\Delta \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r,\zeta) \frac{\partial }{\partial r} , m (r,\zeta) \frac{\partial }{\partial r} \log { det} \sqrt{{g}}\text{.}
+\end{align*}
+</div>
+<p id="p-517">Since Ric<span class="process-math">\((M) \geq (n-1)_k\text{,}\)</span> using the volume comparison theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m (r, \zeta ) \leq m (r)\text{.}
+\end{equation*}
+</div>
+<p id="p-518">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \varepsilon}{\partial r} \lt  0
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{\Delta} \varepsilon (r, t-s) \leq \Delta \varepsilon (r, t - s)\text{.}
+\end{equation*}
+</div></article></div>
+<p id="p-519">In the above proof, we didn't take the cut-locus into account. Using some kind of limiting process, we can overcome the difficulty.</p></article></div>
+<article class="theorem theorem-like" id="theorem-35"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span>
+</h3>
+<p id="p-520">Let <span class="process-math">\(M\)</span> be a complete Riemannian manifold such that <span class="process-math">\(Ricci (M) \geq (n-1) k , n = \dim M\text{.}\)</span> We use <span class="process-math">\(B (x_0, r)\)</span> to denote the ball centered at <span class="process-math">\(x _0\)</span> with radius <span class="process-math">\(r\text{.}\)</span> Let <span class="process-math">\(V (k, r)\)</span> be the ball of radius <span class="process-math">\(r\)</span> in a simply connected space form. Then with the Dirichlet boundary condition, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 (B (x_0, r)) \leq \lambda _1 (V (k, r))\text{.}
+\end{equation*}
+</div></article><p id="p-521">\begin{proof} Let <span class="process-math">\(H(x, y, t)\)</span> and <span class="process-math">\(\varepsilon (x, y, t)\)</span> be the corresponding heat kernel. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-37">
+\begin{align*}
+H (x, y, t) \amp =\amp  \sum e^{-\lambda _1t}  \phi ^2 _1 (x)\\
+\varepsilon (x, y, t) \amp  = \amp  \sum e^{-\tilde{\lambda} _1t}  \tilde{\phi} ^2 _1 (x)\text{.}
+\end{align*}
+</div>
+<p id="p-522">If we let <span class="process-math">\(t \rightarrow \infty\text{,}\)</span> we get <span class="process-math">\(\lambda _1 \leq \tilde{\lambda}_1\text{.}\)</span> S.Y. Cheng concretely computed the upper bounds of the eigenvalue</p>
+<ol class="decimal">
+<li id="li-34"><p id="p-523">if Ric<span class="process-math">\((M) \geq 0\text{,}\)</span> then <span class="process-math">\(\lambda _1 \leq \frac{2n(n+4)}{d^2}\)</span></p></li>
+<li id="li-35"><p id="p-524">if Ric<span class="process-math">\((M) \geq n-1\text{,}\)</span> then <span class="process-math">\(\lambda _1 \leq n\frac{\pi^2}{d^2}\)</span></p></li>
+<li id="li-36"><p id="p-525">if Ric<span class="process-math">\((M) \geq (n-1) (-k)\text{,}\)</span> then</p></li>
+</ol>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_1 \leq \frac{1}{4} k + \frac{C_n}{d^2} \;\;\; C_k = 2n (n+4)\text{.}
+\end{equation*}
+</div>
+<p id="p-526">Unfortunately, for Neumann boundary condition, we don't have the comparison theorem for the 1st eigenvalues <em class="emphasis">directly</em>. Under, the Neumann boundary condition, the <em class="emphasis">first</em> eigenvalues are always 0. The comparison theorem for that is trivial.</p>
+<p id="p-527">It is thus interesting to have the following result.</p>
+<article class="theorem theorem-like" id="theorem-36"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span>
+</h3>
+<p id="p-528">If <span class="process-math">\(M\)</span> is a compact manifold without boundary, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 (M) \leq \lambda _1 \left(V \left(k, \frac{d}{2}\right)\right)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(d\)</span> is the diameter of <span class="process-math">\(M\text{.}\)</span></p></article><p id="p-529">Proof of a theorem of Brascamp and Lieb.</p>
+<article class="theorem theorem-like" id="theorem-37"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span>
+</h3>
+<p id="p-530">Let <span class="process-math">\(\Omega\)</span> be a bounded convex domain of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let <span class="process-math">\(u\)</span> be the first Dirichlet eigenfunction. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta u = - \lambda , u  \;\; u &gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-531">Then <span class="process-math">\(\log u\)</span> must be concave.</p></article><article class="hiddenproof" id="proof-26"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-26"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-26"><article class="hiddenproof"><p id="p-532">We choose any function <span class="process-math">\(u_0 &gt; 0 , u _0 |_{\partial \Omega} = 0\)</span> such that <span class="process-math">\(- \log u_0\)</span> is concave. Such a function always exists. For example, we can take the convex hull of the graph of <span class="process-math">\(- \log u\text{.}\)</span></p>
+<p id="p-533">Consider the flow</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial t}  = \Delta u + \lambda _i u \;\; \frac{u}{\partial \Omega} = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-534">We <em class="emphasis">assume</em> that <span class="process-math">\(u_t \rightarrow u\text{,}\)</span> the first eigenfunction. We are going to use the maximum principle. Let <span class="process-math">\(T\)</span> be the biggest number such that det<span class="process-math">\((- \Delta ^2 \log u)\)</span> is degenerated. Thus there is an <span class="process-math">\(x_0 \in M\)</span> and a direction <span class="process-math">\(i\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- ( \log u) _{ii} (x_0) = 0
+\end{equation*}
+</div>
+<p class="continuation">and for other <span class="process-math">\(j, (- \log u) _{jj} (x_0) \geq 0\text{.}\)</span> Let <span class="process-math">\(\phi = - \log u\text{.}\)</span> Then the envolution of <span class="process-math">\(\phi\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \phi}{\partial t}  = \Delta \phi - |\nabla \phi |^2 - \lambda _1\text{.}
+\end{equation*}
+</div>
+<p id="p-535">By the maximum principle, <span class="process-math">\(\phi_{iik}  = 0 , \frac{\partial \phi_{ii}}{\partial t} \leq 0 \Delta \phi _{ii} \geq 0\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-38">
+\begin{align*}
+0 \geq \frac{\partial \phi_{ii}}{\partial t} \amp  = \amp \Delta \phi_{ii} -2  \phi _k \phi_{kii} - 2 \phi ^2_{ki}\\
+\amp  \geq \amp  - 2 \phi_{ki}^2\text{.}
+\end{align*}
+</div>
+<p id="p-536">However, by convexity, <span class="process-math">\(\phi_{ki}^2 \leq \phi_{ii} \cdot \phi_{kk}=0, \phi_{ki} \equiv 0\text{.}\)</span> The theorem follows from strong maximum principle.</p>
+<p id="p-537">Let <span class="process-math">\(\Omega\)</span> be a bounded domain with smooth boundary. Let <span class="process-math">\(u\)</span> be the first Dirichlet eigenfunction with eigenvalue <span class="process-math">\(\lambda _1\text{.}\)</span> Then</p></article></div>
+<article class="lemma theorem-like" id="lemma-6"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.11</span><span class="period">.</span>
+</h3>
+<p id="p-538"><span class="process-math">\(u \geq 0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-27"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-27"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-27"><article class="hiddenproof"><p id="p-539">Otherwise, we may use <span class="process-math">\(|u|\)</span> in place of <span class="process-math">\(u\text{.}\)</span> From the Kato's inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla |u|| \leq |\nabla u|
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int |\nabla |u| |^2}{\int u^2} \leq \frac{\int |\nabla u|^2}{\int u^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-540">Since <span class="process-math">\(\frac{\int |\nabla u|^2}{\int u^2}\)</span> is minimal, we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int |\nabla |u| |^2}{\int u^2} = \frac{\int |\nabla u|^2}{\int u^2}
+\end{equation*}
+</div>
+<p class="continuation">and thus <span class="process-math">\(u\)</span> is an eigenfunction.</p></article></div>
+<article class="lemma theorem-like" id="lemma-7"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.12</span><span class="period">.</span>
+</h3>
+<p id="p-541"><span class="process-math">\(u &gt; 0\text{.}\)</span></p></article><p id="p-542">If not, assume that <span class="process-math">\(u (x_0) = 0\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u(x) = p^N (x) + 0 ( x ^{N+\varepsilon} )\text{.}
+\end{equation*}
+</div>
+<p id="p-543">By the equation <span class="process-math">\(\Delta u = - \lambda_1 u\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta p^N (x) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-544">Since <span class="process-math">\(u (x) \geq 0\text{,}\)</span> we have <span class="process-math">\(p^N (x) \geq 0\text{.}\)</span> This contradicts to the maximum principle.</p>
+<article class="lemma theorem-like" id="lemma-8"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.13</span><span class="period">.</span>
+</h3>
+<p id="p-545"><span class="process-math">\(\frac{\partial u}{\partial n} \neq 0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-28"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-28"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-28"><article class="hiddenproof"><p id="p-546">Using Taylor's expansion</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u(x) = p ^N (x) + 0 ( x ^{N+ \epsilon)} )\text{.}
+\end{equation*}
+</div>
+<p id="p-547">Again, <span class="process-math">\(\Delta p^N (x) = 0 , p^N (x) &gt; 0\)</span> in <span class="process-math">\(\Omega\text{.}\)</span> By the Hopf lemma</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial n} = \frac{\partial p^N}{\partial n} \neq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-548">Consider the flow</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial t} = \Delta u = \lambda _1 u, \frac{u}{\partial \Omega} = 0\text{.}
+\end{equation*}
+</div></article></div>
+<p id="p-549">We have</p>
+<article class="lemma theorem-like" id="lemma-9"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.14</span><span class="period">.</span>
+</h3>
+<p id="p-550">For any smooth initial <span class="process-math">\(u _0 &gt; 0\text{,}\)</span> the flow exists and converges to the first eigenfunction.</p></article><article class="hiddenproof" id="proof-29"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-29"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-29"><article class="hiddenproof"><p id="p-551">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_0 = \sum a _i f _i (x)\text{.}
+\end{equation*}
+</div>
+<p id="p-552">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u ( t, x) = \sum a_i e ^{(-a_{i} -  \lambda _{1} )t} f_i (x)
+\end{equation*}
+</div>
+<p class="continuation">solves the flow equation. Obviously,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{t \rightarrow  \infty} u(t, x) =  a _i f_1 (x)\text{.}
+\end{equation*}
+</div>
+<p id="p-553">If we choose the <span class="process-math">\(u_0\)</span> such that <span class="process-math">\(a _i \neq 0\text{.}\)</span> Then the flow converges to the first eigenfunction.</p></article></div>
+<article class="lemma theorem-like" id="lemma-10"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.15</span><span class="period">.</span>
+</h3>
+<p id="p-554">If <span class="process-math">\(u_0 &gt; 0\text{,}\)</span> then <span class="process-math">\(u (t, x) &gt;0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-30"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-30"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-30"><article class="hiddenproof"><p id="p-555">Maximum principle.</p></article></div>
+<article class="lemma theorem-like" id="lemma-11"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.1.16</span><span class="period">.</span>
+</h3>
+<p id="p-556">If <span class="process-math">\(\Omega\)</span> is convex, then near <span class="process-math">\(\partial \Omega (-\log u)\)</span> is convex.</p></article><article class="hiddenproof" id="proof-31"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-31"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-31"><article class="hiddenproof"><p id="p-557">We solve <span class="process-math">\(u ( x_1 \ldots, x_n) = 0\)</span> to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x _n = x_n (x _1 , \ldots , x _{n-1} )
+\end{equation*}
+</div>
+<p id="p-558"><span class="process-math">\(\Omega\)</span> is convex</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial ^ 2 x _n }{\partial x_i \partial x_j} &gt; 0 \;\;\;\mbox{(positive definite matrix)}\text{.}
+\end{equation*}
+</div>
+<p id="p-559">Using implicitly function theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-\frac{u_{ij}}{u_n} + \frac{u_{in} u_j}{u^2_n} + \frac{u_{jn} u_i}{u^2_n} - \frac{u_i u_j u_{nn}}{u_n^3} &gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-560">Thus for any <span class="process-math">\((a _1, \cdots , a_n)\)</span> if <span class="process-math">\(\sum a _i u_i = 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- u _{ij} a _i a_j \geq \varepsilon |a|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-561">For any <span class="process-math">\(a + \mu b , b = (u _1 \ldots, u_n )\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-39">
+\begin{align*}
+\amp  - \amp  u_{ij} (a_i + \mu b_i )( a_j + \mu b_j )\\
+\amp \amp  + \frac{1}{u} |\mu | ^2 |b| ^4 &gt; 0 \text{.}
+\end{align*}
+</div>
+<p id="p-562">Thus <span class="process-math">\(- \log u\)</span> is convex.</p>
+<p id="p-563">For the maximal principle, see page 84–A.</p>
+<p id="p-564">For initial function, take any <span class="process-math">\(\frac{u}{\partial \Omega } = 0 \ u e ^{- c \sum x_i ^2}\text{.}\)</span></p></article></div></section></div></main>
+</div>
+</body>
+</html>

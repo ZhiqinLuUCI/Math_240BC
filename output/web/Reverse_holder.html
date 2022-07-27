@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:47-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Reverse Hölder Inequality</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Special_topics.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Special_topics.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="GNY_cover.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Special_topics.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Special_topics.html" title="Up">Up</a><a class="next-button button toolbar-item" href="GNY_cover.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="active">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Reverse_holder"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">10.1</span> <span class="title">The Reverse Hölder Inequality</span>
+</h2>
+<p id="p-1591">In this section, we prove the classical Reverse Hölder inequality of Gehring (cite gehring).</p>
+<p id="p-1592">Let <span class="process-math">\(Q\)</span> be a tube in <span class="process-math">\(\R^n\text{.}\)</span> Let <span class="process-math">\(f(x)\)</span> be a measurable, bounded, and nonnegative function. Define the <em class="emphasis">maximum function</em> by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(f, x)=\sup_{r&gt;0}\,\fint_{B(x,r)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1593">In this section, we shall prove</p>
+<article class="theorem theorem-like" id="theorem-102"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reverse Hölder Inequality.</span>
+</h3>
+<p id="p-1594">Let <span class="process-math">\(q&gt;1\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(M(f^q,x))^{1/q}\leq b M(f,x)
+\end{equation*}
+</div>
+<p class="continuation">a.e. <span class="process-math">\(x\text{,}\)</span> where <span class="process-math">\(b\)</span> is a constant. Then there is an <span class="process-math">\(\eps=\eps(n,b,q)&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_Q f^{q+\eps}(x) dx\leq C \left(\fint_Q f(x) dx\right)^{q+\eps}\text{.}
+\end{equation*}
+</div></article><p id="p-1595">By rescaling, we may assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x0">
+\begin{equation}
+\fint_Q f^q(x) dx=1\text{.}\tag{10.1.1}
+\end{equation}
+</div>
+<p id="p-1596">Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+E(t)=\{x\in Q\mid f(x)&gt;t\}\text{.}
+\end{equation*}
+</div>
+<p id="p-1597">We first prove the following lemma</p>
+<article class="lemma theorem-like" id="lemma-45"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.1.2</span><span class="period">.</span>
+</h3>
+<p id="p-1598">For all <span class="process-math">\(t&gt;1\text{,}\)</span> there is a constant <span class="process-math">\(a=a(n,b,q)&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)} f^q(x) dx\leq at^{q-1}\int_{E(t)} f(x) dx\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-82"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-82"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-82"><article class="hiddenproof"><p id="p-1599">Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s=\alpha t\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\alpha&gt;1\)</span> is a constant to be determined. By assumption</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_Q f^q(x) dx=1\leq s^q\text{.}
+\end{equation*}
+</div>
+<p id="p-1600">We use the function <span class="process-math">\(f(x)\)</span> and the number <span class="process-math">\(s^q\)</span> to perform the <em class="emphasis">Calderón-Zygmund decomposition</em>. We then define a sequence of cubes <span class="process-math">\(Q_j\subset Q\)</span> such that</p>
+<ol class="decimal">
+<li id="li-103"><p id="p-1601">each side of <span class="process-math">\(Q_j\)</span> is parallel to a side of <span class="process-math">\(Q\text{;}\)</span> the interior of <span class="process-math">\(Q_j\)</span> are disjoint;</p></li>
+<li id="li-104"><div class="displaymath process-math" data-contains-math-knowls="" id="x1-1-a">
+\begin{equation}
+s^q\lt \fint_{Q_j} f^q(x) dx\leq 2^n s^q\text{.}\tag{10.1.2}
+\end{equation}
+</div></li>
+<li id="li-105"><p id="p-1603">for <em class="emphasis">a.e.</em> <span class="process-math">\(x\not\in \bigcup_j Q_j\text{,}\)</span> we have <span class="process-math">\(f(x)\leq s\text{.}\)</span></p></li>
+</ol>
+<p id="p-1604">Briefly speaking, the sequences can be defined inductively in the following way: we first divide <span class="process-math">\(Q\)</span> into <span class="process-math">\(2^n\)</span> sub-cubes like in Figure (ref fig2)</p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-1.svg" role="img" class="contained"></div>
+<p id="p-1605">Let <span class="process-math">\(Q'\)</span> be one of the sub-cubes. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx\leq \frac{1}{m(Q')}\int_Q f^q(x)dx\leq 2^n s^q\text{.}
+\end{equation*}
+</div>
+<p id="p-1606">If</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx&gt;s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we say <span class="process-math">\(Q'\)</span> is “good” and we assign <span class="process-math">\(Q'\)</span> as one of the <span class="process-math">\(Q_j\)</span>'s. If <span class="process-math">\(Q'\)</span> is not “good”, then since</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx\leq s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we can repeat the division as above. In this way, we get a sequence <span class="process-math">\(\{Q_j\}\)</span> such that they satisfy  <a href="" class="xref" data-knowl="./knowl/x1-1-a.html" title="Equation 10.1.2">(10.1.2)</a>. Now for all <span class="process-math">\(x\not\in \bigcup_j Q_j\text{,}\)</span> there is a sequence <span class="process-math">\(Q_j''\)</span> shrinking to <span class="process-math">\(x\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q_j''} f^q(x)dx\leq s^q\text{.}
+\end{equation*}
+</div>
+<p id="p-1607">Thus by the Lebesgue Theorem, for <em class="emphasis">a.e.</em> <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(f(x)\leq s\text{.}\)</span></p>
+<p id="p-1608">We define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G=\bigcup_jQ_j\text{.}
+\end{equation*}
+</div>
+<p id="p-1609">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(s)} f^q(x) dx=\int_G f^q(x)dx=\sum_j\int_{Q_j} f^q(x) dx\leq 2^n s^q m(G)\text{.}
+\end{equation*}
+</div>
+<p id="p-1610">On the other hand, let <span class="process-math">\(x\in Q_j\)</span> and let <span class="process-math">\(r={ diam}(Q_j)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{m(B(x,r))}\int_{B(x,r)} f^q(x) dx\geq \frac{1}{m(B(x,r))}\, m(Q_j) s^q\geq c_1 s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(c_1=c_1(n)&gt;0\)</span> is a constant. By the definition of the maximum function, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(f^q,x)\geq\fint_{B(x,r)} f^q(x) dx\geq c_1 s^q\text{.}
+\end{equation*}
+</div>
+<p id="p-1611">Thus by the assumption of the theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(f,x)\geq (c_1/b)^{1/q} s=(c_1/b)^{1/q} \alpha t&gt;\beta t\text{.}
+\end{equation*}
+</div>
+<p id="p-1612">If we choose <span class="process-math">\(\alpha\)</span> large enough, we can assume that <span class="process-math">\(\beta&gt;1\text{.}\)</span> By definition of the maximum function, for any <span class="process-math">\(x\text{,}\)</span> there is an <span class="process-math">\(r_x&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{B(x,r_x)} f(x)dx\geq \beta t\text{.}
+\end{equation*}
+</div>
+<p id="p-1613">Such a collection of balls <span class="process-math">\(B(x,r_x)\)</span> covers <span class="process-math">\(Q_j\text{.}\)</span> Thus by the Vitali Covering Theorem, there is a countable subset of balls <span class="process-math">\(B_j\)</span> which are disjoint and the union of <span class="process-math">\(5B_j\)</span> covers <span class="process-math">\(Q\text{.}\)</span> We therefore have the inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m(G)\leq 5^n\sum_j m(B_j)\text{.}
+\end{equation*}
+</div>
+<p id="p-1614">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta tm(B_j)\leq\int_{B_j} f(x) dx\leq\int_{B_j\cap E(t)} f(x) dx+tm(B_j)\text{.}
+\end{equation*}
+</div>
+<p id="p-1615">We therefore have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m(B_j)\leq\frac{1}{(\beta-1) t}\int_{B_j\cap E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1616">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+
+\end{equation*}
+</div>
+<p id="p-1617">On the other hand, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)\backslash E(s)} f^q(x) dx\leq s^{q-1}\int_{E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1618">Combining the above two inequalities completes the proof of the lemma.</p></article></div>
+<article class="hiddenproof" id="proof-83"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-83"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-83"><article class="hiddenproof"><p id="p-1619">Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(t)=\int_{E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1620">Then it is easy to verify that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)} f^r(x) dx=-\int_t^\infty s^{r-1} dh(s)\text{.}
+\end{equation*}
+</div>
+<p id="p-1621">Thus the lemma can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2a">
+\begin{equation}
+-\int_t^\infty s^{q-1} dh(s)\leq at^{q-1} h(t)\text{.}\tag{10.1.3}
+\end{equation}
+</div>
+<p id="p-1622">Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(r)=-\int_1^\infty t^{r-1}dh(t)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and for <span class="process-math">\(p&gt;q&gt;0\text{,}\)</span> define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+J=(p-q)\int_1^\infty t^{p-q-1}\left(-\int_t^\infty s^{q-1}dh(s)\right) dt\text{.}
+\end{equation*}
+</div>
+<p id="p-1623">Then by <a href="" class="xref" data-knowl="./knowl/x2a.html" title="Equation 10.1.3">(10.1.3)</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2a.html">
+\begin{equation*}
+J\leq (p-q)\int_1^\infty at^{p-2} h(t) dt=\frac{a(p-q)}{p-1}\int_1^\infty h(t) dt^{p-1}= \frac{a(p-q)}{p-1}(-I(1)+I(p))\text{.}
+\end{equation*}
+</div>
+<p id="p-1624">On the other hand, we use integration by parts to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+J=\int_1^\infty\left(-\int_t^\infty s^{q-1}dh(s)\right)dt^{p-q}=I(p)-I(q)\text{.}
+\end{equation*}
+</div>
+<p id="p-1625">Thus we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(p)-I(q)\leq \frac{a(p-q)}{p-1}(-I(1)+I(p))\text{.}
+\end{equation*}
+</div>
+<p id="p-1626">Thus for <span class="process-math">\(p\)</span> sufficiently close to <span class="process-math">\(q\text{,}\)</span> we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(p)\leq C(I(q)+I(1))\text{.}
+\end{equation*}
+</div></article></div>
+<article class="hiddenproof" id="proof-84"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-84"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-84"><article class="hiddenproof"><p id="p-1627">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)}f^q(x)dx\leq at^{q-1}\int_{E(t)} f(x) dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^\infty\left(t^{\eps-1}\int_{E(t)}f^q(x)dx\right) dt\leq a \int_1^\infty\left(t^{q-2+\eps}\int_{E(t)} f(x) dx \right)\text{.}
+\end{equation*}
+</div>
+<p id="p-1628">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+
+\end{equation*}
+</div>
+<p id="p-1629">Similarly, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+RHS=\frac{a}{q-1+\eps}\int_X(f^{q+\eps}(x)-f^{q-1+\eps}(x))dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1630">So the theorem is proved by assuming that <span class="process-math">\(\eps&gt;0\)</span> is sufficiently small.</p></article></div>
+<article class="remark remark-like" id="remark-14"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">10.1.3</span><span class="period">.</span>
+</h3>
+<p id="p-1631">Note that the last inequality is not homogeneous, which is fine, because we normalize the integral into <a href="" class="xref" data-knowl="./knowl/x0.html" title="Equation 10.1.1">(10.1.1)</a>.</p></article></section></div></main>
+</div>
+</body>
+</html>

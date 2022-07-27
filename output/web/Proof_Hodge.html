@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Proof of the Hodge Theorem</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="State_Hodge.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Hodge_theorem.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Ellipticity.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="State_Hodge.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Hodge_theorem.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Ellipticity.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="active">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Proof_Hodge"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.5</span> <span class="title">Proof of the Hodge Theorem</span>
+</h2>
+<p id="p-1261">The proof of the (real) Hodge theorem heavily depends on the analysis of the Laplacian <span class="process-math">\(\Delta\text{.}\)</span> The three basic PDE tools we are going to use are the Sobolev Lemma, the Rellich Lemma, and the Garding inequality. For the first two lemmas, we need to introduce the Sobolev <span class="process-math">\(s\)</span>-norms. The proof of the Garding inequality depends on the Weitzenböck formula.</p>
+<p id="p-1262">Let <span class="process-math">\(M\)</span> be a compact Riemannian manifold. <span class="process-math">\(X=\bigcup U_\alpha\)</span> be a finite cover such that each <span class="process-math">\((U_\alpha, \{x_\alpha^1,\cdots,
+x^{n}_\alpha\})\)</span> is a real local coordinate system.</p>
+<p id="p-1263">Let <span class="process-math">\(\{\rho_\alpha\}\)</span> be the partition of unity subordinating to the cover <span class="process-math">\(\{U_\alpha\}\text{.}\)</span> Let <span class="process-math">\(S\)</span> be a smooth function. For any nonnegative integer <span class="process-math">\(s\text{,}\)</span> define the Sobolev norm of <span class="process-math">\(S\)</span> to be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|S\|_s^2=\sum_\alpha\sum_{|K|\leq s}\int_M |D_\alpha^K (\rho_\alpha S)|^2 dV_M\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(K=(k_1,\cdots,k_{n})\)</span> is the multiple index; <span class="process-math">\(|K|=\sum k_i\text{;}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D_\alpha^K S=\frac{\pa^{k_1+\cdots+k_{n}}}{ \pa (x_\alpha^1)^{k_1}\cdots \pa (x_\alpha^{n})^{k_{n}}} S\text{.}
+\end{equation*}
+</div>
+<p id="p-1264">Obviously, the definition of the Sobolev norms depend on the choice of the cover <span class="process-math">\(\{U_\alpha\}\)</span> and the partition of unity <span class="process-math">\(\{\rho_\alpha\}\text{.}\)</span></p>
+<article class="exercise exercise-like" id="exercise-20"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-20"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.5.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-20"><article class="exercise exercise-like"><p id="p-1265">Prove that the Sobolev norms <span class="process-math">\(||||_s\text{,}\)</span> defined by different covers and partitions of unity, are equivalent. In particular, the norm <span class="process-math">\(\|\|_0\)</span> is equivalent to the <span class="process-math">\(L^2\)</span> inner product in <a href="" class="xref" data-knowl="./knowl/p-3.html" title="Equation 2.1.1">(2.1.1)</a>.</p></article></div>
+<p id="p-1266">There is a way to generalize the notation of Sobolev norms <span class="process-math">\(||||_s\)</span> from nonnegative integers <span class="process-math">\(s\)</span> to any nonnegative numbers <span class="process-math">\(s\text{,}\)</span> using pseudo-differential operators, or using the “elementary” definition as follows:</p>
+<p id="p-1267">We first define the Sobolev <span class="process-math">\(s\)</span>-norms for <span class="process-math">\(\rho_\alpha S\)</span> on each <span class="process-math">\(U_\alpha\text{.}\)</span> Since <span class="process-math">\(U_\alpha\)</span> is a coordinate patch, we can assume, without loss of generality, that <span class="process-math">\(U_\alpha\)</span> is an open set of a torus <span class="process-math">\(T=T_{n}=\R^{n}/\Z^{n}\text{.}\)</span> Thus the section <span class="process-math">\(\rho_\alpha S\)</span> can be extended as a smooth <span class="process-math">\(\C^r\)</span>-valued function on <span class="process-math">\(T\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho_\alpha S=\sum_{\xi\in\mathbb Z^{n}}S_\xi e^{i\langle\xi,x\rangle}
+\end{equation*}
+</div>
+<p class="continuation">be the Fourier expansion of <span class="process-math">\(S_\alpha\text{.}\)</span> We define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||\rho_\alpha S||_s^2=\sum_{\xi\in\mathbb Z^{n}}(1+||\xi||^2)^s |(\rho_\alpha S)_\xi|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-1268">The Sobolev <span class="process-math">\(s\)</span>-norm of <span class="process-math">\(S\)</span> is defined as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||S||_s^2=\sum_\alpha||\rho_\alpha S||_s^2\text{.}
+\end{equation*}
+</div>
+<p id="p-1269">Define <span class="process-math">\(\mathcal H_s^{p}(M)\)</span> to be the completion of the smooth <span class="process-math">\(p\)</span>-forms under the norm <span class="process-math">\(||||_s\text{.}\)</span> As before, it is independent of the choice of the cover and the partition of unity.</p>
+<article class="theorem theorem-like" id="theorem-84"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Sobolev Lemma.</span>
+</h3>
+<p id="p-1270"> Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{s}{\bigcap}\,\mathcal H^{p}_s(M)=\Lambda^{p}(M)\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-61"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-61"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-61"><article class="hiddenproof"><p id="p-1271">The theorem being local, we assume that <span class="process-math">\(S\)</span> is a <span class="process-math">\(\C^r\)</span>-valued smooth function of <span class="process-math">\(T\text{.}\)</span> By definition, for any <span class="process-math">\(s&gt;0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |S_\xi|^2\leq C \lt \infty\text{.}
+\end{equation*}
+</div>
+<p id="p-1272">Let <span class="process-math">\(K=(k_1,\cdots,k_{n})\)</span> be a multiple index. We consider the Fourier expansion of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D^K S\sim \sum_{\xi\in \mathbb Z^{n}} (i)^{|K|}\xi_1^{k_1}\cdots\xi_{n}^{k_{n}} S_\xi e^{i\langle\xi,x\rangle}\text{.}
+\end{equation*}
+</div>
+<p id="p-1273">By definition, if <span class="process-math">\(S\in\bigcap_s \mathcal H^{p}_s(M)\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{\xi\in \mathbb Z^n} |\xi_1^{k_1}\cdots \xi_{n}^{k_{n}}|^2 |S_\xi|^2\leq  \sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |S_\xi|^2\lt +\infty
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(K\text{.}\)</span> Thus <span class="process-math">\(D^K S\)</span> is well-defined. Since the differential operators <span class="process-math">\(D^K\)</span> are closed operators, we conclude that <span class="process-math">\(S\)</span> is <span class="process-math">\(K\)</span> differentiable and hence prove the result.</p></article></div>
+<p id="p-1274">In order to prove the Rellich Lemma, we give the following definition of <em class="emphasis">compact operators</em>. </p>
+<article class="definition definition-like" id="definition-12"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.5.3</span><span class="period">.</span>
+</h3>
+<p id="p-1275">Let <span class="process-math">\(\mathcal B_1,\mathcal B_2\)</span> be two Banach spaces. Let <span class="process-math">\(A: \mathcal B_1\rightarrow\mathcal B_2\)</span> be a linear operator from <span class="process-math">\(\mathcal B_1\)</span> to <span class="process-math">\(\mathcal B_2\text{.}\)</span> <span class="process-math">\(A\)</span> is a compact operator, if the image of the unit ball of <span class="process-math">\(\mathcal B_1\)</span> under <span class="process-math">\(T\)</span> is sequential compact in <span class="process-math">\(\mathcal B_2\text{.}\)</span> In other word, if <span class="process-math">\(\{x_i\}\)</span> is a bounded sequence of <span class="process-math">\(\mathcal B_1\text{,}\)</span> then a subsequence of <span class="process-math">\(\{Ax_i\}\)</span> converges to some point of <span class="process-math">\(\mathcal B_2\text{.}\)</span></p></article><p id="p-1276">The following is the basic fact about a self-adjoin compact operator.</p>
+<article class="theorem theorem-like" id="theorem-85"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5.4</span><span class="period">.</span>
+</h3>
+<p id="p-1277">Let <span class="process-math">\(\mathcal H\)</span> be a Hilbert space and let <span class="process-math">\(A: \mathcal H\to\mathcal H\)</span> be a compact operator. Then the essential spectrum <span class="process-math">\(\sigma_{ ess}(A)\subset\{0\}\text{.}\)</span> Moreover, if <span class="process-math">\(\sigma_{ ess}(A)=\emptyset\text{,}\)</span> then <span class="process-math">\(\mathcal H\)</span> is the direct sum of eigenspaces of each non-zero eigenvalues, that is, if <span class="process-math">\(E_m\)</span> is the eigenspaces of the eigenvalue <span class="process-math">\(\lambda_m\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal H=\bigoplus_m E_m\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-62"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-62"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-62"><article class="hiddenproof"><p id="p-1278">If <span class="process-math">\(\lambda\in\sigma_{rm ess}(A)\)</span> and <span class="process-math">\(\lambda\neq 0\text{.}\)</span> Then for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> by the Weyl's criterion, there exists an infinite dimensional vector space <span class="process-math">\(G_\eps\)</span> such that for any <span class="process-math">\(\phi\in G_\eps\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|A\phi-\lambda\phi\|\lt \eps\text{.}
+\end{equation*}
+</div>
+<p id="p-1279">We choose an orthonormal set <span class="process-math">\(\{\phi_i\}\subset G_\eps\text{.}\)</span> Since <span class="process-math">\(A\)</span> is compact, we may assume that <span class="process-math">\(A\phi_i\)</span> is convergent. Assume that for <span class="process-math">\(i,j\)</span> big enough but <span class="process-math">\(i\neq j\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|A\phi_i-A\phi_j\|\leq \eps\text{.}
+\end{equation*}
+</div>
+<p id="p-1280">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda\|\phi_i-\phi_j\|\leq \|A(\phi_i-\phi_j)\|+\|A\phi_i-\lambda\phi_i\|+\|A\phi_j-\lambda\phi_j\|\leq 3\eps\text{.}
+\end{equation*}
+</div>
+<p id="p-1281">Since <span class="process-math">\(\phi\perp\phi_j\text{,}\)</span> we have <span class="process-math">\(\|\phi_i-\phi_j\|=\sqrt 2\text{.}\)</span> Thus we have a contradiction</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt 2\,\lambda\leq 3\eps\text{.}
+\end{equation*}
+</div>
+<p id="p-1282">This proves the first part of the theorem. If <span class="process-math">\(\sigma_{ ess}(A)=\emptyset\text{,}\)</span> then is follows from the spectrum theorem that the whole space is the direct sum of the eigenspaces.</p></article></div>
+<article class="theorem theorem-like" id="theorem-86"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Rellich Lemma.</span>
+</h3>
+<p id="p-1283"> For <span class="process-math">\(s&gt;r\text{,}\)</span> the inclusion</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal \mathcal H_s^p(M) \rightarrow \mathcal H^{p}_r (M)
+\end{equation*}
+</div>
+<p class="continuation">is compact.</p></article><article class="hiddenproof" id="proof-63"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-63"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-63"><article class="hiddenproof"><p id="p-1284">Similar to the previous theorem, we can work on a torus <span class="process-math">\(T\text{.}\)</span> Assume that <span class="process-math">\(\{ u_k\}\)</span> is a bounded sequence of <span class="process-math">\(\mathcal H^{p}_s(T)\text{.}\)</span> We wish to prove that a subsequence of <span class="process-math">\(\{u_k\}\)</span> will converge in the <span class="process-math">\(|| ||_r\)</span> norm.</p>
+<p id="p-1285">Let <span class="process-math">\(\{(u_k)_\xi\}\)</span> be the Fourier coefficients of <span class="process-math">\(u_k\)</span> for <span class="process-math">\(k\geq 1\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2-5">
+\begin{equation}
+\sum_{\xi\in \mathbb Z^{n}} (1+||\xi||^2)^s |(u_k)_\xi|^2\leq C\tag{7.5.1}
+\end{equation}
+</div>
+<p class="continuation">for some constant <span class="process-math">\(C\)</span> independent of <span class="process-math">\(k\text{.}\)</span> For any fixed <span class="process-math">\(\xi\text{,}\)</span> a subsequence of <span class="process-math">\((1+||\xi||^2)^{s/2} (u_k)_\xi\)</span> converges. By the standard diagonalization, we can find a subsequence of <span class="process-math">\(\{u_k\}\text{,}\)</span> which we still denote as <span class="process-math">\(\{u_k\}\)</span> for abusing of notations, such that for each <span class="process-math">\(\xi\text{,}\)</span> <span class="process-math">\((1+|| \xi||^2)^{s/2} (u_k)_\xi\)</span> is convergent.</p>
+<p id="p-1286">We prove that <span class="process-math">\(\{u_k\}\)</span> is a Cauchy sequence under the normal <span class="process-math">\(||||_r\text{.}\)</span> For any <span class="process-math">\(\eps&gt;0\text{,}\)</span> we choose <span class="process-math">\(R\)</span> large so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2-26">
+\begin{equation}
+\frac{1}{(1+R^2)^{s-r}}\lt \eps\text{.}\tag{7.5.2}
+\end{equation}
+</div>
+<p id="p-1287">We consider all <span class="process-math">\(\xi\)</span> with <span class="process-math">\(||\xi||\leq R\text{.}\)</span> There are only finitely many such <span class="process-math">\(\xi\)</span>'s. By the assumption on the sequence <span class="process-math">\(\{u_k\}\text{,}\)</span> there is an <span class="process-math">\(N&gt;0\text{,}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{||\xi||\leq R} (1+||\xi||^2)^r |(u_k)_\xi-(u_l)_\xi|^2\lt \eps
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(k,l&gt;N\text{.}\)</span> Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||u_k-u_l||_r^2\leq\eps+\sum_{||\xi||&gt;R} (1+||\xi||^2)^r |(u_k)_\xi-(u_l)_\xi|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-1288">Using <a href="" class="xref" data-knowl="./knowl/x2-5.html" title="Equation 7.5.1">(7.5.1)</a> and  <a href="" class="xref" data-knowl="./knowl/x2-26.html" title="Equation 7.5.2">(7.5.2)</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2-5.html ./knowl/x2-26.html">
+\begin{equation*}
+||u_k-u_l||^2_s\lt (1+2C)\eps\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the theorem is proved.</p></article></div>
+<article class="exercise exercise-like" id="exercise-21"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-21"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.5.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-21"><article class="exercise exercise-like"><p id="p-1289">Let <span class="process-math">\(M\)</span> be a compact manifold. Define two Banach spaces of <span class="process-math">\(M\text{.}\)</span> Let <span class="process-math">\(\mathcal C^0(M)\)</span> be the space of continuous functions with the maximum norm, and let <span class="process-math">\(\mathcal C^1(M)\)</span> be the space of <span class="process-math">\(\mathcal C^1(M)\)</span> functions with the norm</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\max(|f|+|\nabla f|)\text{.}
+\end{equation*}
+</div>
+<p id="p-1290">Prove the Arzelá-Ascoli Theorem: the inclusion map</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\iota: \mathcal C^1(M)\to \mathcal C^0(M)
+\end{equation*}
+</div>
+<p class="continuation">is a compact operator.</p></article></div>
+<p id="p-1291">The standard method in proving the above theorem, like in that of the Rellich Lemma, is to use the diagonal subsequence method, which is widely used. In the following, we give a different proof, using the Tychonoff Theorem.</p>
+<p id="p-1292">We consider <span class="process-math">\(F(M)\text{,}\)</span> the space of all bounded functions with bound <span class="process-math">\(1\)</span> on <span class="process-math">\(M\text{.}\)</span> By the identification</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+F(M)=\prod_{x\in M}\mathbb [-1,1]\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and by the Tychonoff Theorem, we know that <span class="process-math">\(F(M)\)</span> is compact under the product topology. On the other hand, on <span class="process-math">\(\mathcal C^0(M)\text{,}\)</span> we can define the so-called compact-open topology, whose subbase composed of the set of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C(K,U)=\{f\mid F(K)\subset U\}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(K\)</span> is a compact subset of <span class="process-math">\(M\)</span> and <span class="process-math">\(U\)</span> is an open set of <span class="process-math">\(\mathbb R\text{.}\)</span> We can prove that when we restrict to the space <span class="process-math">\(\mathcal C^1(M)\text{,}\)</span> the product topology is the same as the compact-open topology. On the other hand, on <span class="process-math">\(\mathcal C^0(M)\text{,}\)</span> compact-open topology defines the same topology as in the Banach space <span class="process-math">\(\mathcal C^0(M)\text{,}\)</span> and the theorem is proved.</p>
+<article class="exercise exercise-like" id="exercise-22"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-22"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">7.5.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-22"><article class="exercise exercise-like"><p id="p-1293">Provide the details.</p></article></div>
+<p id="p-1294">Next we shall introduce the Garding inequality. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi,\psi\in\Gamma(X,\Lambda^p(M))\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathfrak D (\phi,\psi)=(\phi,\psi) +(d\phi, d\psi)+(\delta\phi, \delta\psi)=(\phi, (1+\Delta)\psi)\text{.}
+\end{equation*}
+</div>
+<p id="p-1295">Then <span class="process-math">\(\mathfrak D(\phi,\psi)\)</span> defines an inner product on <span class="process-math">\(\Lambda^p(M)\text{.}\)</span> Apparently we have the inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathfrak D(\phi,\phi)\leq C||\phi||_1^2
+\end{equation*}
+</div>
+<p class="continuation">for some constant <span class="process-math">\(C\text{.}\)</span> The Garding inequality states that the inverse inequality is also true so that the norms <span class="process-math">\(\sqrt{\mathfrak D(\phi,\phi)}\)</span> and <span class="process-math">\(||\phi||_1\)</span> are equivalent.</p>
+<article class="theorem theorem-like" id="theorem-87"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.5.8</span><span class="period">.</span><span class="space"> </span><span class="title">Garding Inequality.</span>
+</h3>
+<p id="p-1296"> For <span class="process-math">\(\phi\in\Lambda^p(M)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2-10">
+\begin{equation}
+||\phi||_1^2\leq C\,\mathfrak D(\phi,\phi)\text{,}\tag{7.5.3}
+\end{equation}
+</div>
+<p class="continuation">for some constant <span class="process-math">\(C&gt;0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-64"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-64"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-64"><article class="hiddenproof"><p id="p-1297">The proof of the inequality depends on the Weitzenböck formula, <a href="" class="xref" data-knowl="./knowl/thm6.html" title="Theorem 2.1.4: Weitzenböck formula">Theorem 2.1.4</a>. Let <span class="process-math">\(\phi\in\Lambda^p(M)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm6.html" id="men-32">
+\begin{equation}
+\Delta\phi=-\nabla^*\nabla\phi+E(\phi)\text{,}\tag{7.5.4}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(E\)</span> is a zero-th differential operator. Using integration by parts, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm6.html">
+\begin{equation*}
+(\Delta\phi,\phi)\geq\int|\nabla\phi|^2-C(\phi,\phi)\text{.}
+\end{equation*}
+</div>
+<p id="p-1298">It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathfrak D(\phi,\phi)\geq (\phi,\phi)+\frac{1}{2C}(\Delta\phi,\phi)\geq \frac{1}{2C}\int|\nabla\phi|^2+\frac 12 (\phi,\phi)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the inequality is proved.</p></article></div>
+<article class="hiddenproof" id="proof-65"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-65"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-65"><article class="hiddenproof"><p id="p-1299">For <span class="process-math">\(\phi\in\Lambda^p(M)\text{,}\)</span> we define a linear functional</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+l(\psi)=(\phi,\psi)
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(\psi\in\Lambda^p(M)\text{.}\)</span> With respect to the inner product <span class="process-math">\(\mathfrak D(\phi,\psi)\text{,}\)</span> <span class="process-math">\(l\)</span> is bounded:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|l(\psi)|\leq ||\phi||_0\sqrt{\mathfrak D(\psi,\psi)}\text{.}
+\end{equation*}
+</div>
+<p id="p-1300">Thus by the Riesz representation theorem, there is an <span class="process-math">\(\eta\)</span> such that</p>
+<ol class="decimal">
+<li id="li-76"><p id="p-1301"><span class="process-math">\((\phi,\psi)=(\eta, (1+\Delta)\psi)\)</span> for any <span class="process-math">\(\psi\in\Gamma(X,\mathcal A^{p,q}(E))\text{;}\)</span></p></li>
+<li id="li-77"><p id="p-1302"><span class="process-math">\(||\eta||_1^2\leq C\mathfrak D(\eta,\eta)\lt +\infty\text{.}\)</span> \text{ (G\aa rding inequality) }</p></li>
+</ol>
+<p id="p-1303">Let <span class="process-math">\(A: \Lambda^p(M)\rightarrow\Lambda^p(M)\)</span> be the linear operator defined by sending <span class="process-math">\(\phi\in\Lambda^p(M)\)</span> to the unique <span class="process-math">\(\eta\)</span> defined above. Since <span class="process-math">\(A\)</span> is a bounded operator, it can be extended to an operator on <span class="process-math">\(L^2(M)\text{.}\)</span> Then since <span class="process-math">\(\eta\)</span> is actually in <span class="process-math">\(\mathcal H^{p}(M)\text{,}\)</span> the operator <span class="process-math">\(A\)</span> is a compact operator by the Rellich Lemma. On the other hand, it is not hard to see that <span class="process-math">\(A\)</span> is a self-adjoint operator\footnote {Since <span class="process-math">\(A\)</span> is a bounded operator, in order to prove that <span class="process-math">\(A\)</span> is self-adjoint, we just need to verify the equality <span class="process-math">\((A\phi,\psi)=(\phi,A\psi)\)</span> for smooth <span class="process-math">\(\phi\)</span> and <span class="process-math">\(\psi\text{,}\)</span> which follows easily from integration by parts.}.</p>
+<p id="p-1304">According to the spectral theorem for compact, self-adjoint operators, there is a Hilbert-space decomposition</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Lambda^p(M)=\bigoplus_m E(\rho_m)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\rho_m\)</span> are the eigenvalues of <span class="process-math">\(A\)</span> and <span class="process-math">\(E(\rho_m)\)</span> are the finite-dimensional eigenspaces corresponding to the eigenvalue <span class="process-math">\(\rho_m\text{.}\)</span> Since <span class="process-math">\(A\)</span> is one-to-one, all <span class="process-math">\(\rho_m\neq 0\text{.}\)</span></p>
+<p id="p-1305">We claim that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathcal H^p(M)=E(1)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\mathcal H^{p}(M)\)</span> is the space of harmonic forms. To see this, we assume that <span class="process-math">\(\phi\in\mathcal H^{p}(M)\text{,}\)</span> and <span class="process-math">\(A\phi=\phi\text{.}\)</span> By the Weitzenböck formula, <span class="process-math">\(\Delta\)</span> is an elliptic operator. Using the Sobolev Lemma and Schauder estimate, we can prove that <span class="process-math">\(\phi\)</span> is smooth. Thus <span class="process-math">\((1+\Delta)\phi=\phi\)</span> and <span class="process-math">\(\phi\)</span> is harmonic. Since <span class="process-math">\(E(1)\)</span> is of finite dimensional, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\dim\,\mathcal H^{p}(M)\lt +\infty\text{.}
+\end{equation*}
+</div>
+<p id="p-1306">This proves the first assertion of the theorem. To prove the second assertion of the theorem, we note that the biggest possible eigenvalue of <span class="process-math">\(A\)</span> is <span class="process-math">\(1\text{.}\)</span> By the property of compact operators, there is a gap between the eigenvalue <span class="process-math">\(1\)</span> and the rest of the eigenvalues. Thus if <span class="process-math">\(\phi\in\mathcal H^{p}(M)^\perp\)</span> and if <span class="process-math">\(\phi\)</span> is smooth, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||\Delta\phi||_0\geq\eps||\phi||_0
+\end{equation*}
+</div>
+<p class="continuation">for some <span class="process-math">\(\eps&gt;0\text{.}\)</span> Thus we can define the inverse operator <span class="process-math">\(G\)</span> on <span class="process-math">\(\mathcal H^{p}(M)^\perp\text{,}\)</span> called the Green's operator, such that <span class="process-math">\(G=\Delta^{-1}|_{\mathcal H^{p}(M)^\perp}\text{.}\)</span></p>
+<p id="p-1307">If we compare <span class="process-math">\(G\)</span> to the operator <span class="process-math">\(A\)</span> (they have the same eigenspaces), we shall see that <span class="process-math">\(G\)</span> is also a compact operator because <span class="process-math">\(||G||\leq C||A||\)</span> for some constant <span class="process-math">\(C\text{.}\)</span> Furthermore, by the elliptic regularity, <span class="process-math">\(G\)</span> maps smooth <span class="process-math">\(p\)</span>-forms to smooth <span class="process-math">\(p\)</span> forms. Using this fact, the Hodge decomposition is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi=\eta_0+d\delta G\phi+\delta dG\phi\text{.}
+\end{equation*}
+</div>
+<p id="p-1308">This completes the proof of the Hodge Theorem.</p></article></div></section></div></main>
+</div>
+</body>
+</html>

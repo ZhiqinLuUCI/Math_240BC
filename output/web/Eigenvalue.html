@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eigenvalue</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Eigenvalue_problem.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Eigenvalue_II.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Eigenvalue_problem.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Eigenvalue_II.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="active">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Eigenvalue"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Eigenvalue</span>
+</h2>
+<p id="p-614">We first make different notations of the Laplace operator.</p>
+<p id="p-615">We assume that <span class="process-math">\(M\)</span> is a Riemannian manifold with the Riemannian metric</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+ds^2 = \sum g_{ij} d x _i d x _j\text{.}
+\end{equation*}
+</div>
+<p id="p-616">Let <span class="process-math">\((g^{ij}\)</span>) be the inverse matrix of <span class="process-math">\((g_{ij}\)</span>) and let <span class="process-math">\(g = { det}  (g_{ij})\text{.}\)</span> Then under the local coordinates <span class="process-math">\((x _1, \ldots, x _n )\text{,}\)</span> we define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = \frac{1}{\sqrt{g}} \frac{\partial }{\partial x_i} \left( g ^{ij} \sqrt{g} \frac{\partial }{\partial x_j} \right)\text{.}
+\end{equation*}
+</div>
+<p id="p-617">Apparently, we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta =   g^{ij}\frac{\partial^2 }{\partial x_i \partial x _j} +\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i} \left( g ^{ij} \sqrt{g} \right)\frac{\partial }{\partial x_j}\text{.}
+\end{equation*}
+</div>
+<p id="p-618">As before, we have the following computation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-47">
+\begin{align*}
+\lefteqn{\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i}  ( g^{ij} \sqrt{g} )}\\
+\amp \amp  = \frac{1}{2} g^{ij} \frac{\partial}{\partial x_i} \log g + \frac{\partial }{\partial x_i}  g ^{ij}\\
+\amp \amp  = \frac{1}{2} g^{ij}g^{kl}\frac{\partial g _{kl} }{\partial x_i} - g^{in} g^{jm} \frac{\partial g _{mn} }{\partial x_i}\\
+\amp \amp  = - g^{kl} \Gamma ^j _{kl} \text{.}
+\end{align*}
+</div>
+<p id="p-619">Thus we also have the following formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = g^{ij}   \frac{\partial^2 }{\partial x_i \partial x _j} - g ^{kl} \Gamma ^j_{kl}  \frac{\partial }{\partial x_j}\text{.}
+\end{equation*}
+</div>
+<p id="p-620">From the above representation, we have the following third formula for the Laplace operator.</p>
+<p id="p-621">Let <span class="process-math">\(ds^2 = \sum^n _{j=1} \omega ^2_j\text{.}\)</span> With respect to the frame, the connection <span class="process-math">\((\omega _{ij} )\)</span> is well-defined. We are above the define the covariant derivatives of a function like the following</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-48">
+\begin{align*}
+df \amp  = \amp  f _i \omega _i\\
+f_{ij} \omega _j \amp  = \amp  d f _i - f _s \omega _{si}\text{.}
+\end{align*}
+</div>
+<p id="p-622">Using the above notations, we can define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f = \sum^n_{i=1} f _{ii} = \sum _i \nabla _i \nabla _i f\text{.}
+\end{equation*}
+</div>
+<p id="p-623">Finally, we can define the Laplace operator on <span class="process-math">\(p\)</span>-forms as follows:</p>
+<p id="p-624">Let <span class="process-math">\(d : \wedge ^p (M) \rightarrow \wedge^{p+1} (M)\)</span> be the ordinary differential operator, where <span class="process-math">\(\wedge ^p(M)\)</span> be the space of smooth <span class="process-math">\(p\)</span>-forms. With respect to the Riemannian metric, <span class="process-math">\(\wedge^p(M)\)</span> becomes an infinite dimensional inner product space.</p>
+<p id="p-625">Let <span class="process-math">\(\delta\)</span> be the formal dual operator with respect to <span class="process-math">\(d\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\delta: \wedge ^p(M) \rightarrow   \wedge ^{p-1} (M)\text{.}
+\end{equation*}
+</div>
+<p id="p-626">We can <em class="emphasis">prove</em> that <span class="process-math">\(\delta\)</span> is also a differential operator of first order. The Laplace operator can be defined as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = d \delta + \delta d\text{.}
+\end{equation*}
+</div>
+<p id="p-627">In particular, on the space of functions, or <span class="process-math">\(0\)</span>-forms,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = \delta d\text{.}
+\end{equation*}
+</div>
+<p id="p-628">We have the following:</p>
+<article class="theorem theorem-like" id="theorem-41"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Weitzenböck formula.</span>
+</h3>
+<p id="p-629">For function <span class="process-math">\(f\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f = \delta d f = - \sum \nabla _i\nabla_i f\text{.}
+\end{equation*}
+</div>
+<p id="p-630">In general, we have the following</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta = - \sum \nabla _i \nabla _i +  \ \mbox{curvature terms}
+\end{equation*}
+</div>
+<p class="continuation">which is also called Weizenböck formula.</p>
+<p id="p-631">We go back to the Laplacian on functions. We know that <span class="process-math">\(\Delta = \sum \nabla _i \nabla _ i\)</span> is well-defined on <span class="process-math">\(C^\infty (M)\text{.}\)</span></p>
+<p id="p-632">Unfortunately, with the following <span class="process-math">\(L^2\)</span>-inner product</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\langle f \cdot g \rangle = \int _M fg d V
+\end{equation*}
+</div>
+<p id="p-633"><span class="process-math">\(C^\infty\)</span> (M) is not a complete metric space. The complete metric space is <span class="process-math">\(L^2(M)\text{.}\)</span> However, there is no way that we can extend <span class="process-math">\(\Delta\)</span> on <span class="process-math">\(L^2(M)\text{.}\)</span></p></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><p id="p-634">The key point is that any differential operator is a closed-graph operator. Thus if <span class="process-math">\(\Delta\)</span> is extendable, then by ***, <span class="process-math">\(\Delta\)</span> has to be a bounded operator, as by the example of Heaviside function.</p></article></div>
+<figure class="figure figure-like" id="figure-1"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.2<span class="period">.</span></span><span class="space"> </span>Heaviside Function</figcaption></figure><p id="p-635">Thus we can only extend the operator into a densely defined self-adjoint operator.</p>
+<p id="p-636">Recall that an operator <span class="process-math">\(\Delta\)</span> is self-adjoint if</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Dom} (\Delta) = { Dom} ( \Delta ^\ast)
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\langle \Delta f , g \rangle = \langle f, \Delta g \rangle
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(f, g \in { Dom} (\Delta)\text{.}\)</span></p>
+<p id="p-637">In functional analysis, we have the following theorem. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q (\phi, \psi)= \int \nabla \phi \nabla \psi\text{.}
+\end{equation*}
+</div>
+<p id="p-638">Then <span class="process-math">\(Q\)</span> is a non-negative quadratic form defined on <span class="process-math">\(H^1_0 (M)\text{.}\)</span> Then there is a unique densely defined operator <span class="process-math">\(A\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q (\phi, \psi) = - ( A \phi , \psi)\text{.}
+\end{equation*}
+</div>
+<p id="p-639">Such an operator <span class="process-math">\(A\)</span> is in fact called the Dirichlet Laplacian operator.</p>
+<p id="p-640">As an exercise, we prove that on an only manifold <span class="process-math">\(L^2\)</span> harmonic function must be constant. \end{proof}</p>
+<article class="theorem theorem-like" id="theorem-42"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span>
+</h3>
+<p id="p-641">Let <span class="process-math">\(A\)</span> be the Dirichlet extension of the Laplacian <span class="process-math">\(\Delta\text{.}\)</span> A function <span class="process-math">\(f\)</span> is called <span class="process-math">\(A\)</span>-harmonic, if <span class="process-math">\(f \in { Dom} (A)\)</span> and <span class="process-math">\(A f = 0\text{.}\)</span> If <span class="process-math">\(f \in L^2 (M)\text{,}\)</span> then <span class="process-math">\(f\)</span> is a constant.</p></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><p id="p-642">The key point is that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q (\rho ^2 f, f) = Q \langle  \rho^2 f , \Delta f \rangle = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-643">Thus using the same method as before, <span class="process-math">\(f\)</span> is a constant. If <span class="process-math">\(M\)</span> is a compact manifold with no boundary, we still use <span class="process-math">\(\Delta\)</span> to denote the Dirichlet extension of the Laplace operator. By the elliptic regularity, the spectrum of <span class="process-math">\(\Delta\)</span> are discrete. That is, there is a sequence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 = \lambda _0 \lt  \lambda _1  \leq \lambda _2 \leq \ldots
+\end{equation*}
+</div>
+<p class="continuation">such that for any <span class="process-math">\(\lambda_i\text{,}\)</span> there <span class="process-math">\(\exists f_i , f _i \in L^2\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f _i = - \lambda _i f_i\text{.}
+\end{equation*}
+</div>
+<p id="p-644">We have similar results for manifolds with boundary conditions. To be more precise, the Laplacians acting on functions with the following boundary conditions.</p>
+<ol class="decimal">
+<li id="li-40">
+<span class="heading"><span class="title">(A).</span></span><p id="p-645">Dirichlet boundary condition: <span class="process-math">\(\Delta\)</span> acting on <span class="process-math">\(f\)</span> vanishing on the boundary.</p>
+</li>
+<li id="li-41">
+<span class="heading"><span class="title">(B).</span></span><p id="p-646">Neumann boundary condition: <span class="process-math">\(\Delta\)</span> acting on functions such that <span class="process-math">\(\frac{\partial f}{\partial n} = 0\text{.}\)</span></p>
+</li>
+</ol>
+<p id="p-647">For eigenvalues, we have the following minimax principle. Assume that <span class="process-math">\(M\)</span> is a closed manifold, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 = \inf_{\int f = 0 } \frac{\int |\nabla f|^2}{\int f^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-648">To prove the above result, we let <span class="process-math">\(\phi\)</span> be any smooth function such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M \phi = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-649">Then by the definition of <span class="process-math">\(\lambda _1\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int | \nabla (f + \varepsilon \phi )|^2}{\int (f + \varepsilon \phi )^2} \geq \lambda _1\text{.}
+\end{equation*}
+</div>
+<p id="p-650">However, if we take the first order term, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (\delta f + \lambda _1 f ) \phi = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-651">Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (\Delta f + \lambda _ 1 f ) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-652">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f + \lambda _1 f \equiv 0
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\lambda _ 1\)</span> is the first eigenvalue.</p>
+<p id="p-653">By elliptic regularity, <span class="process-math">\(\lambda _ 1 &gt; 0\text{.}\)</span> Thus we have the following Poincaré-inequality: there exists a constant <span class="process-math">\(C\text{,}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int | \nabla f |^2 \geq C \int f^2
+\end{equation*}
+</div>
+<p class="continuation">for any function with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _M f = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-654">Before going further, let's prove the following co-area formula.</p></article></div>
+<article class="theorem theorem-like" id="theorem-43"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span>
+</h3>
+<p id="p-655">Let <span class="process-math">\(M\)</span> be a compact Riemannian manifold with boundary. Let <span class="process-math">\(f \in H^\prime (M)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _M g = \int ^{+ \infty}_{-\infty} \int _{ \{ f = 0 \}} \frac{g}{| \nabla f |} d \sigma\text{.}
+\end{equation*}
+</div></article><p id="p-656">\begin{proof} Without loss of generality, we assume that <span class="process-math">\(| \nabla f | \neq 0\text{.}\)</span> Thus by the implicit function theorem <span class="process-math">\(\{ f = \sigma \}\)</span> is a smooth manifold.</p>
+<p id="p-657">Using the cut-off function, we may assume that <span class="process-math">\({ supp}\,  g\)</span> is contained in a coordinate chart. Thus we may assume that the Riemannian metric is given under the global coordinates <span class="process-math">\((x_1, \ldots,
+x _n)\)</span> as follows</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d s^2 = \sum g _{ig} d x _i ds _j
+\end{equation*}
+</div>
+<p class="continuation">by definition</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _M g = \int_M g \sqrt{{ det} (g _{ij} ) } \ dx_1, \ldots, dx _n\text{.}
+\end{equation*}
+</div>
+<p id="p-658">Since <span class="process-math">\(\nabla f \neq 0\text{,}\)</span> we can solve the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \sigma
+\end{equation*}
+</div>
+<p class="continuation">by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1 = x_1 (\sigma , x_2, \ldots, x_n)
+\end{equation*}
+</div>
+<p class="continuation">or in other words, by the implicit function theory <span class="process-math">\((\sigma,
+x_2 , \ldots, x_n )\)</span> is a local coordinate system as well. The Jacobian of the transformation is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d x_1 \wedge \ldots \wedge d x _n = \frac{\partial x _1}{\partial \sigma} d \sigma \wedge d x_2 \wedge \ldots \wedge d x_n\text{.}
+\end{equation*}
+</div>
+<p id="p-659">On the other side, restricting to <span class="process-math">\(f = \sigma\text{,}\)</span> the Riemann metric can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(g_{11} \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} + g_{1l} \frac{\partial x _1}{\partial x_l } + g _{k1} \frac{\partial x _1}{\partial x_k} + g _{kl}\right) \, d x _k d x _l\text{.}
+\end{equation*}
+</div>
+<p id="p-660">If we choose local coordinates such that <span class="process-math">\(g_{kl} = \delta _{kl}\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left( \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} + \delta _{kl} \right) \, d x_k dx_l\text{.}
+\end{equation*}
+</div>
+<p id="p-661">The volume form of the above is</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-49">
+\begin{align*}
+\lefteqn{{ det} \left( \delta _{kl} + \frac{\partial x _1}{\partial x_k} \cdot \frac{\partial x _1}{\partial x_l} \right) = 1 + \sum \left|\frac{\partial x _1}{\partial x_k}\right| ^2}\\
+\amp \amp  = \frac{1}{| \frac{\partial f}{\partial x_1}|^2} \sum\left|\frac{\partial f}{\partial x_k}\right|^2 = \frac{|\nabla f |^2}{ | \frac{\partial f}{\partial x_1} | ^2} \text{.}
+\end{align*}
+</div>
+<p id="p-662">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-50">
+\begin{align*}
+\int_M g \amp  = \amp  \int_M g \sqrt{{ det} (g_{ij})} d x _1 \ldots d x _n\\
+\amp = \amp  \int_M \sqrt{{ det} (g_{ij})} \frac{\partial x_1}{\partial \sigma} d \sigma  \wedge d x_2 \ldots \wedge d x _n \text{.}
+\end{align*}
+</div>
+<p id="p-663">By (<span class="process-math">\(\triangle\)</span>), we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d V ds^2 = d V _{f = \sigma} \cdot  \frac{     \left|\frac{{\partial f }}{{\partial x_i}}\right|}{| \nabla f |}\text{.}
+\end{equation*}
+</div>
+<p id="p-664">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M g = \int ^{+ \infty}_{-\infty} \left( \int _{f=\sigma} \frac{g}{|\nabla f|}\right) d \sigma\text{.}
+\end{equation*}
+</div>
+<p id="p-665">Of course, in general, there are points such that <span class="process-math">\(\nabla f = 0\text{.}\)</span> But by a theorem of Sand, the set</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{ yf(y) | \nabla f (y) = 0 \right\}
+\end{equation*}
+</div>
+<p class="continuation">is of zero measure. Using the standard covering technique, we can prove the same result.</p>
+<p id="p-666">As an application of the above co-area formula, we prove the following result of Sobolev inequality.</p>
+<p id="p-667"><em class="emphasis">Sobolev inequality.</em> Let <span class="process-math">\(M\)</span> be a compact manifold with boundary. Then there is a constant <span class="process-math">\(C&gt; 0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C \left( \int_M |f| ^{\frac{n}{n-1}} \right)^{\frac{n-1}{n}}\leq \int_M |\nabla f |
+\end{equation*}
+</div>
+<p class="continuation">for any smooth function <span class="process-math">\(f /2M = 0\)</span> (<span class="process-math">\(D\)</span>-condition) or <span class="process-math">\(\int f = 0\)</span> (Neumann condition).</p>
+<p id="p-668"><em class="emphasis">Isopermetric inequality.</em> Let <span class="process-math">\(\Omega\)</span> be a domain in <span class="process-math">\(M, \Omega \subset \subset M\text{.}\)</span> Then there is a constant independent to <span class="process-math">\(\Omega\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C { vol} (\Omega ) ^{\frac{n-1}{n}} \leq { vol} (\partial \Omega)\text{.}
+\end{equation*}
+</div>
+<p id="p-669">We want to prove that the Isopermetric inequality is equivalent to the Sobolev inequality.</p>
+<p id="p-670">At least one-side of the implication was clear: assuming the Sobolev inequality, if we let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f _\varepsilon (x) = \left\{ \begin{array}{cl} 1 \amp  x \in \Omega , \ d (x , \partial \Omega ) \geq \varepsilon \\ \frac{d(x, \partial \Omega }{\varepsilon} \amp  x \in \Omega , \ d (x , \partial \Omega ) \leq \varepsilon\\ 0 \amp   { otherwise} \end{array}  \right\}\text{.}
+\end{equation*}
+</div>
+<p id="p-671">Then using the Sobolev inequality, the isopermetric inequality follows by letting <span class="process-math">\(\varepsilon \rightarrow 0\text{.}\)</span></p>
+<p id="p-672">In order to prove that the isopermetric inequality implies the Sobolev inequality, we use the co-area formula. We assume that <span class="process-math">\(f \geq 0\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M | \nabla f| = \int ^\infty_0  \ \mbox{Area}  \  (f = \sigma ) \, d \sigma\text{.}
+\end{equation*}
+</div>
+<p id="p-673">We also have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-51">
+\begin{align*}
+\int_M |f|  ^{\frac{n}{n-1}} \amp  =\amp  \int ^\infty_0 { vol} ( f ^{\frac{n}{n-1}}&gt; \lambda ) \, d \lambda\\
+\amp  = \amp   \frac{n}{n-1}\int^\infty_0 { vol} (f &gt; \sigma ) \sigma ^{\frac{n}{n-1}} d \sigma \text{.}
+\end{align*}
+</div>
+<p id="p-674">Using the isopermetric inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M |\nabla f| = \int ^\infty _0 { Area} (f = \sigma ) \, d \sigma \geq C \int^\infty _0 { vol} (f &gt; \sigma ) ^{\frac{n}{n-1}} d \sigma\text{.}
+\end{equation*}
+</div>
+<p id="p-675">Thus in order to prove the Sobolev inequality, we just need to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int ^\infty _0   { vol} (f &gt; \sigma ) ^{\frac{n}{n-1}} d \sigma \geq C \left( \int ^\infty _0 { vol}  (f &gt; \sigma ) \sigma ^{\frac{n}{n-1}} d \sigma \right) ^{\frac{n}{n-1}}\text{.}
+\end{equation*}
+</div>
+<p id="p-676">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-52">
+\begin{align*}
+F(\sigma) \amp  = \amp  { vol} (f &gt; \sigma)\\
+\phi (t) \amp  = \amp  \int^t_0 F(\sigma) ^{\frac{n}{n-1}} d \sigma\\
+\psi (t) \amp  = \amp   \left( \int ^t _0 F(sigma ) \sigma ^{\frac{n}{n-1}} d \sigma \right) ^{\frac{n-1}{n}}\text{.}
+\end{align*}
+</div>
+<p id="p-677">Then <span class="process-math">\(\phi (0) = \psi (0)\text{.}\)</span> Using the monotonicity of <span class="process-math">\(F(\sigma)\)</span> we can prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi ^\prime (t) \geq  \frac{n}{n-1} \psi^\prime (t)\text{.}
+\end{equation*}
+</div>
+<p id="p-678">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi (\infty) \geq \frac{n}{n-1} \psi (\infty)\text{.}
+\end{equation*}
+</div>
+<article class="corollary theorem-like" id="corollary-9"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
+</h3>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left( \int  f  ^{\frac{n-p}{np}}\right) ^{\frac{np}{n-p}}  \leq C\left( \int |\nabla f |^p \right) ^{\frac{1}{p}}
+\end{equation*}
+</div>
+<p id="p-679">for any <span class="process-math">\(p &gt; 1\text{.}\)</span></p></article><article class="definition definition-like" id="definition-8"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
+</h3>
+<p id="p-680">Let <span class="process-math">\(M\)</span> be a compact Riemannian manifold if <span class="process-math">\(\partial M \neq \emptyset\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h_D (M) = \inf \left\{ \left.\frac{{ vol} ( \partial \Omega )}{{ vol} ( \Omega)} \right| \Omega \subset \subset M\right\}
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(\partial M = \emptyset\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h_N = \inf  \left\{ \left.\frac{{ vol}( H )}{\min ({ vol} (M_1), { vol} (M_2) )} \right| H \ \mbox{is a hypersurface}  \right\}\text{.}
+\end{equation*}
+</div></article><article class="theorem theorem-like" id="theorem-44"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Cheeger.</span>
+</h3>
+<p id="p-681">For Dirichlet condition, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _ 1 \geq \frac{1}{4} h^2_D\text{.}
+\end{equation*}
+</div>
+<p id="p-682">For Neumann condition</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{1}{4} h^2_N (M)\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><p id="p-683">We only prove the case for Dirichlet condition. We first observe that, if there is a constant <span class="process-math">\(\mu\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M |\nabla \phi | \geq \mu \int_M |\phi |
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(\phi\)</span> with <span class="process-math">\(\phi |_{\partial M} = 0\text{.}\)</span> Then <span class="process-math">\(\lambda _1 \geq \frac{1}{4} \mu^2\text{.}\)</span> To see this, we consider <span class="process-math">\(\phi = f^2\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu \int _M f^2 \leq 2 \int_M |f| | \nabla f|\leq 2 \left( \int_M f^2 \right) ^{\frac{1}{2}} \left( \int |\nabla f|^2 \right) ^{\frac{1}{2}}\text{.}
+\end{equation*}
+</div>
+<p id="p-684">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{4} \mu^2 \int_M f ^2 \leq \int_M | \nabla f|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-685">Since the above is true for any function <span class="process-math">\(f\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{1}{4} \mu ^2\text{.}
+\end{equation*}
+</div>
+<p id="p-686">Finally, we prove a result which is well known but can't readily be found in the literature.</p></article></div>
+<article class="theorem theorem-like" id="theorem-45"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span>
+</h3>
+<p id="p-687">Let <span class="process-math">\(M\)</span> be a compact manifold with smooth boundary. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M_1 = \inf_{\int f = 0} \frac{\int | \nabla f|^2}{\int f ^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-688">Then we have the following result: let <span class="process-math">\(f\)</span> be a minimizer, and let <span class="process-math">\(f\)</span> be smooth. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f }{\partial n} = 0\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><p id="p-689">Let <span class="process-math">\(\phi\)</span> be a smooth function with compact support such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \phi = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-690">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int |\nabla (f + \varepsilon \phi )|^2 \geq \mu_1 \int (f + \varepsilon \phi )^2\text{.}
+\end{equation*}
+</div>
+<p id="p-691">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \nabla f \nabla \phi = - \mu _1 \int_M f \phi\text{.}
+\end{equation*}
+</div>
+<p class="continuation">by Green's formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M \nabla f \nabla \phi - \int _{\partial M} \phi \frac{\partial f }{\partial n} - \int_M \Delta f \phi\text{.}
+\end{equation*}
+</div>
+<p id="p-692">Thus since <span class="process-math">\(\Delta f = - \mu_1 f\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\partial M} \phi\frac{\partial f }{\partial n}  = 0
+\end{equation*}
+</div>
+<p class="continuation">and we must have <span class="process-math">\(\frac{\partial f }{\partial n}  = 0\text{.}\)</span></p></article></div></section></div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:48-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Using the property of the heat kernel, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\lefteqn{H(x, y, t) - \varepsilon (x, y, t)}\\
+\amp \amp = \int ^t _0 \int _{B (x_1 r_0)} \frac{d}{ds}  ( \varepsilon (x, z, t - s) H (z, y, s) ) \, d z ds\\
+\amp \amp = - \int ^t _0 \int _{B (x_1 r_0) }\left( \frac{d}{ds}\varepsilon (r (x, z), t-s)\right) H(z, y, s)  \, d z ds\\
+\amp \amp + \int^t_0 \int _{B (x_1 r_0) }\varepsilon (r (x, z), t-s)\frac{d}{ds} H(z, y, s)  \, d z ds\\
+\amp \amp = - \int^t_0 \int _{B (x_1 r_0)} \tilde{\Delta} \varepsilon (r (x, z), t - s) H(z, y, s)  \, d z ds\\
+\amp \amp + \int^t_0 \int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z ds\text{.}
+\end{align*}
+</div>
+<p>Using the Green's formula, under either the Dirichlet or Neumann boundary condition, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\lefteqn{\int _{B (x_1 r_0)}\varepsilon (r (x, z), t - s) \Delta H(z, y, s)  \, d z}\\
+\amp \amp = \int _{B (x_1 r_0)}\Delta \varepsilon (r (x, z), t - s)  H(z, y, s)  \, d z\text{.}
+\end{align*}
+</div>
+<p>Since <span class="process-math">\(H(\xi, y, s)  &gt; 0\text{,}\)</span> we just need to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{\Delta} \varepsilon (r (x, z), t - s)\leq \Delta  \varepsilon (r (x, z), t - s)\text{.}
+\end{equation*}
+</div>
+<p>This essentially follows from the Laplacian comparison theorem: Let <span class="process-math">\(x = (r, \zeta ) , \zeta \in S^{n-1}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\tilde{\Delta } \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r) \frac{\partial }{\partial r} , m (r) \frac{\partial }{\partial r} \log { det} \sqrt{\tilde{g}}\\
+\Delta \amp  = \amp  \frac{\partial ^2}{\partial r^2} + m (r,\zeta) \frac{\partial }{\partial r} , m (r,\zeta) \frac{\partial }{\partial r} \log { det} \sqrt{{g}}\text{.}
+\end{align*}
+</div>
+<p>Since Ric<span class="process-math">\((M) \geq (n-1)_k\text{,}\)</span> using the volume comparison theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m (r, \zeta ) \leq m (r)\text{.}
+\end{equation*}
+</div>
+<p>Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \varepsilon}{\partial r} \lt  0
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde{\Delta} \varepsilon (r, t-s) \leq \Delta \varepsilon (r, t - s)\text{.}
+\end{equation*}
+</div></article></body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:49-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>We assume that <span class="process-math">\(v&gt;0\)</span> on <span class="process-math">\(B_R\text{.}\)</span> Otherwise we can use <span class="process-math">\(v+\eps\)</span> instead.</p>
+<p>Since <span class="process-math">\(v\)</span> is a supersolution, <span class="process-math">\(v^{-1}\)</span> is a subsolution. By the above lemma, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\sup}\, v^{-p}\leq C\fint_{B_R} v^{-p} dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is equivalent to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}
+\end{equation*}
+</div>
+<p>We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\amp \underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}\\
+\amp =C\left(\fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\right)^{-1/p}\cdot\left(\fint_{B_R}v^p dx\right)^{1/p}\text{.}
+\end{align*}
+</div>
+<p>We just need to prove that there exists a <span class="process-math">\(p_0&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\leq C\text{.}
+\end{equation*}
+</div>
+<p>We let <span class="process-math">\(w=\log v-\beta\text{,}\)</span> where <span class="process-math">\(\beta\)</span> is a constant to be determined. We wish to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+\int_{B_R}e^{p|w|} dx\leq C\tag{9.1.3}
+\end{equation}
+</div>
+<p class="continuation">for some <span class="process-math">\(p&gt;0\text{.}\)</span> If the above inequality is true then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_R}e^{p\log v-p\beta} dx\leq C,\qquad \int_{B_R}e^{-p\log v+p\beta} dx\leq C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the lemma follows.</p>
+<p>The proof of  <a href="" class="xref" data-knowl="./knowl/wish.html" title="Equation 9.1.3">(9.1.3)</a> is somewhat complicated but the basic idea is still Moser iteration. Let <span class="process-math">\(v^{-1}\xi^2\)</span> be a test function, where <span class="process-math">\(\xi \in C_0^\infty(B_R)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/wish.html">
+\begin{equation*}
+0\geq\int a^{ij} v_i(v^{-1}\xi^2)_j=-\int \xi^2a^{ij}w_i w_j+2\int a^{ij} w_i \xi\xi_j\text{.}
+\end{equation*}
+</div>
+<p>Without loss of generality, we assume that <span class="process-math">\(R=1\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|Dw|^2\leq C
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(0\lt \sigma\lt 1\text{.}\)</span> By choosing suitable <span class="process-math">\(\beta\text{,}\)</span> we have the Poincaré inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|w|^2 dx\leq C\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\xi\in C_0^\infty(B_1)\)</span> and let <span class="process-math">\(\phi=\xi^2|w|^{2q}\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}\xi^2|w|^{2q}|D_i w|^2\leq 2q\int_{B_\sigma}\xi^2|w|^{2q-1} D_i w D_i|w|+2\int_{B_\sigma}\xi|w|^{2q}D_i wD_i \xi\text{.}
+\end{equation*}
+</div>
+<p>Using the Young's inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2q|w|^{2q-1}\leq\frac{2q-1}{2q}|w|^{2q}+(2q)^{2q-1}\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2q}\int_{B_\sigma}\xi^2|w|^{2q}|D_iw|^2\leq (2q)^{2q-1}\int_{B_\sigma}|D_i w|^2+4q\int_{B_\sigma}|w|^{2q}|D_i\xi|^2\text{.}
+\end{equation*}
+</div>
+<p>Finally, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|D(\xi^2|w|^{2q})|^2 dx\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\Lambda/\lambda\text{,}\)</span> and <span class="process-math">\((1-\sigma)^{-1}\text{.}\)</span> Let <span class="process-math">\(\kappa=n/(n-1)\text{.}\)</span> By Sobolev inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_\sigma}|w|^{2q\kappa} dx\right)^{1/\kappa}\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx\text{.}
+\end{equation*}
+</div>
+<p>We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q_i=\kappa^{i-1},\delta_0=\sigma, \delta_i=\delta_{i-1}-\frac{\sigma-1}{2^i}
+\end{equation*}
+</div>
+<p>Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_{\delta_i}}|w|^{2\kappa^i} dx\right)^{1/\kappa} \leq C(\kappa)^{2(i-1)\kappa^{i-1}}+C(4\kappa)^i\int_{B_{\delta_{i-1}}}|w|^{2\kappa^{i-1}}dx
+\end{equation*}
+</div>
+<p>Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_j=\left(\int_{B_{\delta_j}}|w|^{2\kappa^j}\right)^{1/2\kappa^j}\text{.}
+\end{equation*}
+</div>
+<p>Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_i\leq C^{1/\kappa^{i-1}}\kappa^{i-1}+C^{1/\kappa^{i-1}}(4\kappa)^{i/\kappa^{i-1}}I_{i-1}\text{.}
+\end{equation*}
+</div>
+<p>Running the iteration we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_j\leq C\kappa^j+cI_0\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||w||_{L^q(B_1)}\leq Cq\text{.}
+\end{equation*}
+</div>
+<p>If <span class="process-math">\(pCe\lt 1\text{,}\)</span> then we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_1}e^{p|w|}\leq C\text{.}
+\end{equation*}
+</div></article><span class="incontext"><a href="Moser_iteration.html#proof-69" class="internal">in-context</a></span>
+</body>
+</html>

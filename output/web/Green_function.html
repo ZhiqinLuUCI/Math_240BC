@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Green's function and parobolicity</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Heat_kernel_def.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Heat_kernel.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Eigenvalue_problem.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Heat_kernel_def.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Heat_kernel.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Eigenvalue_problem.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="active">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Green_function"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Green's function and parobolicity</span>
+</h2>
+<p id="p-565">Let <span class="process-math">\(M\)</span> be a complete non-compact Riemannian manifold. The Green's function is a smooth function on</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M \times M  \backslash { diag} (M)
+\end{equation*}
+</div>
+<p class="continuation">such that</p>
+<ol class="decimal">
+<li id="li-37"><p id="p-566"><span class="process-math">\(G (x, y) = G (y, x)\)</span> and fixing <span class="process-math">\(y\text{,}\)</span> we have <span class="process-math">\(\Delta _x G (x, y) = 0 \, \forall x \neq y\text{.}\)</span></p></li>
+<li id="li-38"><p id="p-567"><span class="process-math">\(G(x, y) \geq 0\text{.}\)</span></p></li>
+<li id="li-39"><p id="p-568">Fixing <span class="process-math">\(y\text{,}\)</span> when <span class="process-math">\(x \rightarrow y\text{,}\)</span> we have the following</p></li>
+</ol>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x, y) = \left\{ \begin{array}{ll} \rho _y (x) ^{2-n} (1 + 0(1) )\amp  n&gt;2 \\
+- \log \rho_y (x) (1 + 0(1)) \amp  n = 2
+\end{array}  \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-569">This last asymptotical expansion of the Green's function also implies that <span class="process-math">\(\Delta _x G(x, y) = - \delta _{x \cdot y}\text{.}\)</span></p>
+<p id="p-570">From the asymptotical behavior we can find that <span class="process-math">\(n = 2\)</span> and <span class="process-math">\(n&gt; 2\text{,}\)</span> the Green's functions are very different.</p>
+<p id="p-571">We make the following.</p>
+<article class="definition definition-like" id="definition-5"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h3>
+<p id="p-572">A complete manifold is said to be parabolic, if and only if it doesn't admit a positive Green's function. Otherwise it is said to be non-parabolic.</p></article><article class="definition definition-like" id="definition-6"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h3>
+<p id="p-573">An End, <span class="process-math">\(E\text{,}\)</span> with respect to a compact subset <span class="process-math">\(\Omega \subset M\)</span> is an unbounded connected component of <span class="process-math">\(M \backslash \Omega\text{.}\)</span> The number of ends with respect to <span class="process-math">\(\Omega\text{,}\)</span> denoted by <span class="process-math">\(N_{\Omega}(M)\text{,}\)</span> is the number of unbounded connected component of <span class="process-math">\(M \backslash \Omega\text{.}\)</span></p></article><article class="definition definition-like" id="definition-7"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h3>
+<p id="p-574">An End <span class="process-math">\(E\)</span> is said to be parabolic, if it doesn't admit a positive harmonic function <span class="process-math">\(f\)</span> satisfying</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f \equiv  \ \mbox{on}  \ \partial E
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\lim}{n\rightarrow E (\infty)} f(y) \lt   1
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(E(\infty)\)</span> denotes the infinity of <span class="process-math">\(E\text{.}\)</span> Otherwise, <span class="process-math">\(E\)</span> is said to be non-parabolic and the function <span class="process-math">\(f\)</span> is said to be a barrier function of <span class="process-math">\(E\text{.}\)</span></p>
+<p id="p-575">We prove the following result:</p></article><article class="theorem theorem-like" id="theorem-38"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h3>
+<p id="p-576">Let <span class="process-math">\(E\)</span> be an parabolic end. Let <span class="process-math">\(A(R) = E \cap \partial B(R)\)</span> where <span class="process-math">\(B(R)\)</span> is the ball of radius <span class="process-math">\(R\)</span> with respect to some reference point. Let <span class="process-math">\(f\)</span> be a harmonic function on <span class="process-math">\(E\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f|_{\partial E} = 1 , f | _{A(R) } = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-577">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{R\rightarrow \infty} \int_E |\nabla f|^2 \rightarrow 0\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-32"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-32"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-32"><article class="hiddenproof"><p id="p-578">Using the Green's formula, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _E |\nabla f|^2 = - \int _E \frac{\partial f}{\partial r}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\frac{\partial }{\partial r}\)</span> is the outer normal direction. We claim that <span class="process-math">\(\frac{\partial f}{\partial r} \rightarrow 0\text{.}\)</span> To see this, we take a sequence <span class="process-math">\(R_1 \lt  R_2 \lt  \ldots R_k \rightarrow \infty\text{.}\)</span> The corresponding harmonic function <span class="process-math">\(f_i = f_{R_{i}}\text{.}\)</span> By the maximal principle, <span class="process-math">\(f_i\)</span> are increasing sequence on any compact set of <span class="process-math">\(E\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{i \rightarrow \infty} f_i = f\text{.}
+\end{equation*}
+</div>
+<p id="p-579">Then <span class="process-math">\(f\)</span> must be a positive harmonic function. By the parabolicity, <span class="process-math">\(f \equiv 1\text{.}\)</span> By the maximal principle again</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f_i}{\partial r} \rightarrow 0
+\end{equation*}
+</div>
+<p class="continuation">as <span class="process-math">\(i \rightarrow \infty\text{.}\)</span></p></article></div>
+<p id="p-580">Examples: <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
+<p id="p-581">Let <span class="process-math">\(R &gt; 0\)</span> be a big number. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+F(R) = \{ f \in C^\infty _0 (\mathbb{R}^n) | f = 1 \; \mbox{for} \; |x| \lt  R, f \; \mbox{rotational symmetric}  \}\text{.}
+\end{equation*}
+</div>
+<p id="p-582">If <span class="process-math">\(n &gt; 2\text{,}\)</span> then for any <span class="process-math">\(C &gt; 0\text{,}\)</span> there exists an <span class="process-math">\(R_0\)</span> such that for any <span class="process-math">\(R &gt; R_0\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\mathbb{R}^n}|\nabla f | ^2 &gt; C
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(f \in F(R)\text{.}\)</span> If <span class="process-math">\(n = 2\text{,}\)</span> then for any <span class="process-math">\(\varepsilon &gt; 0\)</span> there exists <span class="process-math">\(R_0 &gt; 0\)</span> such that for any <span class="process-math">\(R&gt; R_0\text{,}\)</span> we can find an <span class="process-math">\(f_R \in F(R)\)</span> for which</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\mathbb{R}^2} | \nabla f|^2 \lt \varepsilon\text{.}
+\end{equation*}
+</div>
+<article class="hiddenproof" id="proof-33"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-33"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-33"><article class="hiddenproof"><p id="p-583">If <span class="process-math">\(n &gt; 2\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int ^\infty_{\mathbb{R}^2} \frac{1}{r^{n-1}} \, d r = \frac{1}{n-2} \frac{1}{R^{n-2}}\text{.}
+\end{equation*}
+</div>
+<p id="p-584">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-40">
+\begin{align*}
+\int_{\mathbb{R}^n} | \nabla f|^2 \amp \geq \amp (n-2) \subset R^{n-2} \int ^\infty_R r ^{n-1} \left( \frac{\partial f}{\partial r} \right)^2 dr \int^\infty_0 \frac{1}{r^{n-1}} dr\\
+\amp  \geq\amp  (n-1) \subset R^{n-2} \rightarrow + \infty \text{.}
+\end{align*}
+</div>
+<p id="p-585">However, for <span class="process-math">\(n = 2\text{,}\)</span> we define <span class="process-math">\(f_R = \sigma _R (|x|(\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sigma _R (t) = \left\{ \begin{array}{ll} 1 \amp  t \leq R\\ \left( 1 - \frac{\log R}{R}\right) ^{-1} \left( \frac{\log R}{\log t} - \frac{\log R}{R} \right) \amp  R \lt  t \lt  e ^R\\ 0 \amp  t \geq e^R \end{array}  \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-586">Then a straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int^\infty_0 + | \sigma ^\prime _R (t) |^2 dt \leq \frac{4}{3} \frac{1}{\log R} \; \;\;\; \mbox{for} \; R &gt;&gt;0\text{.}
+\end{equation*}
+</div>
+<p id="p-587">The main result of this section is the following characterization of parabolicity.</p></article></div>
+<article class="theorem theorem-like" id="theorem-39"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
+</h3>
+<p id="p-588">Let <span class="process-math">\(M\)</span> be a complete manifold. If <span class="process-math">\(M\)</span> is non-parabolic, then for any point <span class="process-math">\(p \in M\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int^\infty_1 \frac{dt}{Ap(t)} \lt  + \infty
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A_p (r)\)</span> denotes the area of <span class="process-math">\(\partial B_p (r)\text{.}\)</span></p></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><p id="p-589">For <span class="process-math">\(p\in M\text{,}\)</span> let <span class="process-math">\(G(p, y)\)</span> be the Green's function (assuming that it exists). Let <span class="process-math">\(G_i (p, y)\)</span> be the Green's function on <span class="process-math">\(B_p (R_i)\)</span> with the Dirichlet boundary condition, where <span class="process-math">\(R_i \rightarrow \infty\text{.}\)</span></p></article></div>
+<p id="p-590">For any <span class="process-math">\(|\lt  R\lt  R_i\text{,}\)</span> let's denote that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-41">
+\begin{align*}
+S_i(1) \amp  = \amp  \sup_{y \in \partial B_{p}(1)} \; G_i (p, y)\\
+i_i(R) \amp  = \amp  \inf_{y \in \partial B_{p}(R)} \; G_i (p, y)  \text{.}
+\end{align*}
+</div>
+<p id="p-591">Let <span class="process-math">\(f\)</span> be the harmonic function defined on <span class="process-math">\(B_p (R) \backslash B_p (1)\)</span> satisfying the boundary conditions</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-42">
+\begin{align*}
+\amp \amp f(y) = S_i (1) \; \;\mbox{on} \; \partial B_p(1)\\
+\amp \amp f(y) = G_i (p, y) \;\;\mbox{on} \; \partial B_p(R) \text{.}
+\end{align*}
+</div>
+<p id="p-592">The maximum principle implies that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f (y) \geq G_i (p, y) \;\mbox{on}  \; B_p (R) \backslash B_p (1)\text{.}
+\end{equation*}
+</div>
+<p id="p-593">In particular, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f}{\partial r} \leq \frac{\partial G_i}{\partial r} \; \mbox{on} \; \partial B_p (R)\text{.}
+\end{equation*}
+</div>
+<p id="p-594">On the other hand, since <span class="process-math">\(f(y)\)</span> is harmonic, Stokes theorem implies</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 = \int _{B_{p} (R) | B_{p} (1) } \Delta f = \int _{\partial B_{p} (R)} \frac{\partial f}{\partial r} - \int _{\partial B_{p} (1)}\frac{\partial f}{\partial r}\text{.}
+\end{equation*}
+</div>
+<p id="p-595">Also, we observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{\partial B_{p} (R)}  \frac{\partial G_{i}}{\partial r} = \int _{ B_{p} (R)}  \Delta G_i = - 1\text{.}
+\end{equation*}
+</div>
+<p id="p-596">Thus we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{\partial B_{p} (1)}  \frac{\partial f}{\partial r} \leq - 1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">consider <span class="process-math">\(h\)</span> to be the harmonic function defined on <span class="process-math">\(B_p (R) \backslash B_p (1)\)</span> satisfying the boundary conditions</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-43">
+\begin{align*}
+h(y) \amp  = \amp  S_i (1) \; \mbox{on} \; \partial B_p (1)\\
+h(y) \amp  = \amp  i_i (R) \; \mbox{on} \; \partial B_p (R) \text{.}
+\end{align*}
+</div>
+<p id="p-597">Again, the maximum principle implies that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(y) \leq f (y) \; \mbox{on} \; B_p (R) \backslash B_p (1)
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial h}{\partial r} \leq \frac{\partial h}{\partial r} \; \mbox{on} \; B_p (1)\text{.}
+\end{equation*}
+</div>
+<p id="p-598">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{\partial B_{p} (R)} \frac{\partial h}{\partial r} = \int _{\partial B_{p} (1) }\frac{\partial h}{\partial r} \leq - 1\text{.}
+\end{equation*}
+</div>
+<p id="p-599">Define the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(r) = (s_i (1) - i_i (R) ) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1} \int ^R_r \frac{dt}{A_p (t) } + i_i (R)\text{.}
+\end{equation*}
+</div>
+<p id="p-600">Then <span class="process-math">\(g (r (y))\)</span> will have the same boundary conditions as <span class="process-math">\(h(y)\text{.}\)</span> The Dirichlet integral minimizing property for harmonic functions implies that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-44">
+\begin{align*}
+\amp \int_{B_{p} (R) \backslash B_{p} (1)} |\nabla h |^2 \leq \int_{B_{p} (R) \backslash B_{p} (1)}  |\nabla g|^2\\
+\amp  =  \int^R_1 \left( ( s_i (1) - i _i (R)) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}  \frac{1}{A_p (r)} \right) ^2 \, A_p (r) \, dr\\
+\amp  =  \left(  s_i (1) - i _i (R)\right) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}\text{.}
+\end{align*}
+</div>
+<p id="p-601">On the other hand, integration by parts yields</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-45">
+\begin{align*}
+\int_{B_{p} (R) \backslash B_{p} (1)} |\nabla h |^2 \amp  = \amp  i_i(R)\int_{\partial B_{p} (R) } \frac{\partial h}{\partial r } -s_i(1) \int_{\partial B_{p} (R) }\frac{\partial h}{\partial r }\\
+\amp  \leq \amp     s_i (1) - i _i (R))  \text{.}
+\end{align*}
+</div>
+<p id="p-602">By taking the limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int ^k_1 \frac{dt}{A_p (t)}  \leq \sup _{y \in \partial B_{p} (1) } G (p, y) - \inf _{y \in \partial B_{p} (R)} G (p , y)\text{.}
+\end{equation*}
+</div>
+<article class="corollary theorem-like" id="corollary-7"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
+</h3>
+<p id="p-603">Let <span class="process-math">\(M\)</span> be a complete manifold such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ vol} (B (R)) \leq CR^2
+\end{equation*}
+</div>
+<p class="continuation">then <span class="process-math">\(M\)</span> has to be parabolic.</p></article><article class="corollary theorem-like" id="corollary-8"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span>
+</h3>
+<p id="p-604">Let <span class="process-math">\(M\)</span> be a Riemann surface such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M |k| \lt  + \infty
+\end{equation*}
+</div>
+<p id="p-605">Then <span class="process-math">\(M\)</span> is parabolic.</p></article><p id="p-606">Proof of a theorem of Brascamp and Lieb.</p>
+<article class="theorem theorem-like" id="theorem-40"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span>
+</h3>
+<p id="p-607">Let <span class="process-math">\(\Omega\)</span> be a bounded convex domain of <span class="process-math">\(\mathbb{R} ^n\text{.}\)</span> Let <span class="process-math">\(u\)</span> be the first Dirichlet eigenfunction. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta u = - \lambda _1 u \;\; u &gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-608">Then <span class="process-math">\(\log u\)</span> must be concave.</p></article><p id="p-609">\begin{proof} We choose any function <span class="process-math">\(u_0 &gt; 0 , u_0 |_{\partial \Omega} = 0\)</span> such that <span class="process-math">\(- \log u_0\)</span> is concave. Such a function always exists. For example, we can take the convex hull of the graph of <span class="process-math">\(-\log u\text{.}\)</span></p>
+<p id="p-610">Consider the flow</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial t} = \Delta u + \lambda _1 u \;\; \frac{u}{\partial \Omega} = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-611">We <em class="emphasis">assume</em> that <span class="process-math">\(u_t \rightarrow u\text{,}\)</span> the first eigenfunction. We are going to use the maximum principle. Let <span class="process-math">\(T\)</span> be the biggest number such that <span class="process-math">\(\det (- \nabla ^2 \log u)\)</span> is degenerated. Thus there is an <span class="process-math">\(x_0 \in M\)</span> and a direction <span class="process-math">\(i\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- ( \log u) _{ii} (x_0) = 0
+\end{equation*}
+</div>
+<p class="continuation">and for other <span class="process-math">\(j, ( - \log u) _{jj} (x_0) \geq 0\text{.}\)</span> Let <span class="process-math">\(\phi = - \log u\text{.}\)</span> Then the envolution of <span class="process-math">\(\phi\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \phi}{\partial t} = \Delta \phi - |\nabla \phi |^2 - \lambda _1\text{.}
+\end{equation*}
+</div>
+<p id="p-612">By the maximum principle, <span class="process-math">\(\phi _{ii} k = 0 , \frac{\partial \phi _{ii}}{\partial t} \leq 0 \; \Delta \phi _{ii} \geq 0\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-46">
+\begin{align*}
+0 \amp \geq \amp  \frac{\partial \phi _{ii}}{\partial t} = \Delta \phi_{ii} - 2 \phi _k \phi_{kii} - 2 \phi ^2_{kl}\\
+\amp \geq \amp  - 2 \phi _{ki}^2\text{.}
+\end{align*}
+</div>
+<p id="p-613">However by convexity, <span class="process-math">\(\phi_{ki}^2 - \phi _{ii} \phi_{kk}= 0, \phi_{ki} \equiv 0\text{.}\)</span> The theorem follows from the strong maximum principle.</p></section></div></main>
+</div>
+</body>
+</html>

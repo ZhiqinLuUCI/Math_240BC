@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-25T14:03:50-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s=\alpha t\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\alpha&gt;1\)</span> is a constant to be determined. By assumption</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_Q f^q(x) dx=1\leq s^q\text{.}
+\end{equation*}
+</div>
+<p>We use the function <span class="process-math">\(f(x)\)</span> and the number <span class="process-math">\(s^q\)</span> to perform the <em class="emphasis">Calderón-Zygmund decomposition</em>. We then define a sequence of cubes <span class="process-math">\(Q_j\subset Q\)</span> such that</p>
+<ol class="decimal">
+<li><p>each side of <span class="process-math">\(Q_j\)</span> is parallel to a side of <span class="process-math">\(Q\text{;}\)</span> the interior of <span class="process-math">\(Q_j\)</span> are disjoint;</p></li>
+<li><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+s^q\lt \fint_{Q_j} f^q(x) dx\leq 2^n s^q\text{.}\tag{10.1.2}
+\end{equation}
+</div></li>
+<li><p>for <em class="emphasis">a.e.</em> <span class="process-math">\(x\not\in \bigcup_j Q_j\text{,}\)</span> we have <span class="process-math">\(f(x)\leq s\text{.}\)</span></p></li>
+</ol>
+<p>Briefly speaking, the sequences can be defined inductively in the following way: we first divide <span class="process-math">\(Q\)</span> into <span class="process-math">\(2^n\)</span> sub-cubes like in Figure (ref fig2)</p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-1.svg" role="img" class="contained"></div>
+<p>Let <span class="process-math">\(Q'\)</span> be one of the sub-cubes. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx\leq \frac{1}{m(Q')}\int_Q f^q(x)dx\leq 2^n s^q\text{.}
+\end{equation*}
+</div>
+<p>If</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx&gt;s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we say <span class="process-math">\(Q'\)</span> is “good” and we assign <span class="process-math">\(Q'\)</span> as one of the <span class="process-math">\(Q_j\)</span>'s. If <span class="process-math">\(Q'\)</span> is not “good”, then since</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q'} f^q(x) dx\leq s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we can repeat the division as above. In this way, we get a sequence <span class="process-math">\(\{Q_j\}\)</span> such that they satisfy  <a href="" class="xref" data-knowl="./knowl/x1-1-a.html" title="Equation 10.1.2">(10.1.2)</a>. Now for all <span class="process-math">\(x\not\in \bigcup_j Q_j\text{,}\)</span> there is a sequence <span class="process-math">\(Q_j''\)</span> shrinking to <span class="process-math">\(x\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1-1-a.html">
+\begin{equation*}
+\fint_{Q_j''} f^q(x)dx\leq s^q\text{.}
+\end{equation*}
+</div>
+<p>Thus by the Lebesgue Theorem, for <em class="emphasis">a.e.</em> <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(f(x)\leq s\text{.}\)</span></p>
+<p>We define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G=\bigcup_jQ_j\text{.}
+\end{equation*}
+</div>
+<p>Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(s)} f^q(x) dx=\int_G f^q(x)dx=\sum_j\int_{Q_j} f^q(x) dx\leq 2^n s^q m(G)\text{.}
+\end{equation*}
+</div>
+<p>On the other hand, let <span class="process-math">\(x\in Q_j\)</span> and let <span class="process-math">\(r={ diam}(Q_j)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{m(B(x,r))}\int_{B(x,r)} f^q(x) dx\geq \frac{1}{m(B(x,r))}\, m(Q_j) s^q\geq c_1 s^q\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(c_1=c_1(n)&gt;0\)</span> is a constant. By the definition of the maximum function, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(f^q,x)\geq\fint_{B(x,r)} f^q(x) dx\geq c_1 s^q\text{.}
+\end{equation*}
+</div>
+<p>Thus by the assumption of the theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(f,x)\geq (c_1/b)^{1/q} s=(c_1/b)^{1/q} \alpha t&gt;\beta t\text{.}
+\end{equation*}
+</div>
+<p>If we choose <span class="process-math">\(\alpha\)</span> large enough, we can assume that <span class="process-math">\(\beta&gt;1\text{.}\)</span> By definition of the maximum function, for any <span class="process-math">\(x\text{,}\)</span> there is an <span class="process-math">\(r_x&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{B(x,r_x)} f(x)dx\geq \beta t\text{.}
+\end{equation*}
+</div>
+<p>Such a collection of balls <span class="process-math">\(B(x,r_x)\)</span> covers <span class="process-math">\(Q_j\text{.}\)</span> Thus by the Vitali Covering Theorem, there is a countable subset of balls <span class="process-math">\(B_j\)</span> which are disjoint and the union of <span class="process-math">\(5B_j\)</span> covers <span class="process-math">\(Q\text{.}\)</span> We therefore have the inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m(G)\leq 5^n\sum_j m(B_j)\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta tm(B_j)\leq\int_{B_j} f(x) dx\leq\int_{B_j\cap E(t)} f(x) dx+tm(B_j)\text{.}
+\end{equation*}
+</div>
+<p>We therefore have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m(B_j)\leq\frac{1}{(\beta-1) t}\int_{B_j\cap E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+
+\end{equation*}
+</div>
+<p>On the other hand, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)\backslash E(s)} f^q(x) dx\leq s^{q-1}\int_{E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p>Combining the above two inequalities completes the proof of the lemma.</p></article><span class="incontext"><a href="Reverse_holder.html#proof-82" class="internal">in-context</a></span>
+</body>
+</html>
