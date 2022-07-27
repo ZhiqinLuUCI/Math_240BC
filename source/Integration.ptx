@@ -2,7 +2,7 @@
   <title>Integration on manifolds</title>
   <p>
     Let <m>M</m> be an <m>n</m>-dimensional manifold and let <m>\omega</m> be an <m>n</m>-form on <m>M</m> with compact support.
-    The integration of <m>\omega</m> over <m>M</m> can be defined in the following way.
+    We define the integration of <m>\omega</m> over <m>M</m>  by  the following way.
   </p>
   <p>
     Let <m>\{ U_j\}</m> be a locally finite cover of <m>M</m> and let
@@ -16,7 +16,7 @@
       </li>
       <li>
         <p>
-          <m>{ supp}\,\rho_i\subset U_j</m> for all <m>j</m>;
+          <m>{\rm supp}\,\rho_i\subset U_j</m> for all <m>j</m>;
         </p>
       </li>
       <li>
@@ -27,13 +27,31 @@
     </ol>
   </p>
   <p>
-    Then we can define
+    Then we  define
     <me>
       \int_M\omega=\sum_j\int_{U_j}\rho_j\omega
     </me>,
     where the right hand side is a sum of integrations on Euclidean space,
     hence well defined.
   </p>
+
+
+
+    <assemblage permid="pOu">
+      <title>Additive Principle</title>
+      <idx><h>additive principle</h></idx>
+      <p permid="vSb">
+        The
+        <term>additive principle</term>
+        states that if event <m>A</m> can occur in <m>m</m> ways,
+        and event <m>B</m> can occur in <m>n</m>
+        <em>disjoint</em> ways, then the event
+        <q><m>A</m> or <m>B</m></q>
+        can occur in <m>m + n</m> ways.
+      </p>
+    </assemblage>
+
+    
   <exercise>
     <statement>
       <p>
