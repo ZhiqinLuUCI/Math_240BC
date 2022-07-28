@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Let <span class="process-math">\(f = H (x, y, t)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f ^2 = \int f ^{\frac{2n}{n+2}+ \frac{4}{n+2}}\leq \left(  \int f^{\frac{2n}{n-2}}\right) ^{\frac{n+2}{2n}}\left. \left( \int f \right) ^{\frac{4}{n+2}}\right)\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial }{\partial t}\int _M H(x, y, t)^2 \, dy  \leq - C \left( \int_M |H (x, y, t) ^2 | dy \right) ^{\frac{2+n}{n}}\text{.}
+\end{equation*}
+</div>
+<p>Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{t \rightarrow 0} H (x, x, t) = \infty\text{.}
+\end{equation*}
+</div>
+<p>Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H (x, x, 2t) \leq \left( \frac{4}{n} Ct \right) ^{-\frac{n}{2}}\text{.}
+\end{equation*}
+</div>
+<p>Using the same method as before, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _k \geq C \left( \frac{k}{{ vol} (M)}\right) ^{\frac{2}{n}}\text{.}
+\end{equation*}
+</div>
+<p>The second application of the heat kernel estimate is the following resolvent estimate.</p>
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h3>
+<p>For any <span class="process-math">\(\beta &gt; 0\)</span> there is <span class="process-math">\(n \in N, \alpha \lt  0 , C \subset \infty\)</span> such that the integral kernel <span class="process-math">\(g _{\alpha} ^{(\frac{n}{2})}(x, y)\)</span> of <span class="process-math">\((\Delta - \alpha) ^{-\frac{n}{2}}\)</span> satisfies.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g _{\alpha} ^{(\frac{n}{2})}(x, y)  \leq C \phi (x) ^2 e ^{-\beta d(x, y)}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\phi (x) = (v (B_1 (x))  ^{-\frac{1}{2}}\text{.}\)</span></p></article><article class="hiddenproof"><a href="" class="proof-knowl original" data-knowl="./knowl/proof-24-hidden.html" title="Proof 4.1.2.1"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span>
+</h3>
+<p>Let <span class="process-math">\(M\)</span> be a complete Riemannian manifold such that Ric<span class="process-math">\((M) \geq 0\text{.}\)</span> Fixing <span class="process-math">\(x \in M , r_0 &gt; 0\text{.}\)</span> The heat kernel <span class="process-math">\(H (x, y, t)\)</span> in <span class="process-math">\(B(x, r_0)\)</span> and the heat kernel <span class="process-math">\(\varepsilon (r (x, y) , t)\)</span> in <span class="process-math">\(V (k, r_0)\)</span> satisfies the following</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\varepsilon (r (x, y) , t) \leq H (x, y, t)\text{.}
+\end{equation*}
+</div>
+<p>(For both Dirichlet and Neumann conditions).</p></article><article class="hiddenproof"><a href="" class="proof-knowl original" data-knowl="./knowl/proof-25-hidden.html" title="Proof 4.1.2.2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><p>In the above proof, we didn't take the cut-locus into account. Using some kind of limiting process, we can overcome the difficulty.</p></article></body>
+</html>

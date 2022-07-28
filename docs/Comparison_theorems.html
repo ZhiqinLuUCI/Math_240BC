@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:44-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Comparison Theorems</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Gradient_estimate.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Gradient_estimate.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Maximal_principle.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Gradient_estimate.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Gradient_estimate.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Maximal_principle.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="active">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Comparison_theorems"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Comparison Theorems</span>
+</h2>
+<p id="p-276">Let <span class="process-math">\(X\)</span> be a Riemannian manifold with the Riemannian metric <span class="process-math">\(ds^2\text{.}\)</span> Let <span class="process-math">\(\omega_1, \ldots, \omega_n\)</span> be one forms such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d s^2 = \omega ^2_1 + \cdots + \omega ^2_n\text{.}
+\end{equation*}
+</div>
+<p id="p-277">Then by the theorem of Cartan, there are one forms <span class="process-math">\(\{ \omega_{ij} \}\)</span> with <span class="process-math">\(\omega_{ij} = - \omega _{ji}\text{,}\)</span> called the connection forms, such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{ \begin{array}{ll} d \omega_i = - \omega_{ij} \wedge \omega_j \\ d \omega _{ij} = - \omega _{ik} \wedge \omega_{kj} + \frac{1}{2} R_{ij kl} \, \omega _k \wedge \omega _l \end{array}  \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-278">The tensor <span class="process-math">\(R_{ij k l}\)</span> is called the curvature tensor of the Riemannian metric <span class="process-math">\(d s^2\text{.}\)</span></p>
+<p id="p-279">Let <span class="process-math">\(U \subset \mathbb{R} ^{n-1}\)</span> be an open set. Let <span class="process-math">\(\eta _2 , \ldots, \eta _n\)</span> be smooth one forms on <span class="process-math">\(U\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(ds^1)^2 = \eta ^2_2 + \cdots + \eta ^2_n
+\end{equation*}
+</div>
+<p class="continuation">defines a Riemannian metric on <span class="process-math">\(U\text{.}\)</span> Let <span class="process-math">\(\theta _2, \ldots, \theta _n\)</span> be local coordinates of <span class="process-math">\(U\text{.}\)</span> Let <span class="process-math">\(f (r, \theta)\)</span> be a positive function on <span class="process-math">\(\mathbb{R}^+ \times U\text{.}\)</span> Define a Riemannian metric</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+ds^2 = d r ^2 + f^2 (r, \theta) \sum ^n _{i=2} \eta ^2 _i
+\end{equation*}
+</div>
+<p class="continuation">on <span class="process-math">\(\mathbb{R} ^+ \times U\text{.}\)</span></p>
+<p id="p-280">Example of the above setting appears in the Euclidean metric under polar coordinates. For example, in <span class="process-math">\(\mathbb{R} ^2\text{,}\)</span> the Euclidean metric can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d s^2 = d r^2 + r ^2 d \theta^2\text{.}
+\end{equation*}
+</div>
+<p id="p-281">For this particular example, of course, the curvature of the above metric is zero. We shall see that, even in the more general setting, certainly components of the curvature tensor appear to be quite simple.</p>
+<p id="p-282">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-14">
+\begin{align*}
+\omega_1 \amp  = \amp d r\\
+\omega_k \amp  = \amp f (t , \theta ) \eta_k
+\end{align*}
+</div>
+<p class="continuation">for <span class="process-math">\(k&gt;1\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d s^2 = \omega ^2_1 + \cdots +\omega ^2_n\text{.}
+\end{equation*}
+</div>
+<p id="p-283">Let <span class="process-math">\(e_1 , \ldots,
+e _n\)</span> be the dual basis of <span class="process-math">\(\omega_1, \ldots, \omega_n\text{,}\)</span> and let <span class="process-math">\(\eta_{kl}\)</span> be the connection form for <span class="process-math">\((ds^1)^2\text{.}\)</span> Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-15">
+\begin{align*}
+\omega_{1l} \amp  = \amp  - e _1 (\log f) \omega_l;\\
+\omega_{kl} \amp  = \amp  \eta _{kl} - e _k (\log f) \omega_l + e _l (\log f) \omega _k
+\end{align*}
+</div>
+<p class="continuation">for <span class="process-math">\(k , l &gt; 1\text{.}\)</span> A straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega_i = - \omega_{ij} \wedge \omega_j\text{.}
+\end{equation*}
+</div>
+<p id="p-284">Note that <span class="process-math">\(e_1 = \frac{\partial }{\partial r}\text{.}\)</span> We claim that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega _{1l} + \omega _{1k} \wedge \omega _{kl} = - \frac{e_k \left( \frac{\partial f}{\partial r} \right)}{f} \omega _k \wedge \omega _l\text{.}
+\end{equation*}
+</div>
+<p id="p-285">Verification: Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\omega _{1l} = - \frac{\partial }{\partial r} (lg f) \omega_l\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega _{1l} = - e _{k}  \left(\frac{\partial }{\partial r}( \log f)  \right) \omega _k \wedge \omega_l - \frac{\partial }{\partial r}( \log f)  d\omega_l\text{.}
+\end{equation*}
+</div>
+<p id="p-286">On the other hand, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-16">
+\begin{align*}
+\lefteqn{\omega_{1k} \wedge \omega_{kl} }\\
+\amp \amp  = -\frac{\partial }{\partial r}( \log f)   \omega_k \wedge \left( \eta _{kl} - {e}_k (\log f) \omega_l +    e _l (\log f) \omega _k \right)\\
+\amp   \amp = \frac{\partial }{\partial r}   d \eta_l +  \frac{\partial }{\partial r}( \log f)     e _k (\log f) \omega_k \wedge \omega_l \text{.}
+\end{align*}
+</div>
+<p id="p-287">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{e} _m \left(\frac{\partial }{\partial r}  \log f\right)    = f^{-1} {e}_m \frac{\partial f}{\partial r}( \log f)    - { e}_m (\log f) \frac{\partial }{\partial r}( \log f)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega _{1l} + \omega _{1k} \wedge \omega_{kl} = - \frac{{e}_m \left( \frac{\partial f}{\partial r} \right) }{f} \omega _m \wedge \omega_l\text{.}
+\end{equation*}
+</div>
+<p id="p-288">The claim is proved. By the Cartan's formula, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R _{1l  m n} = - \delta _{ln}  \frac{{e}_m \left( \frac{\partial f}{\partial r} \right) }{f}  + \delta _{lm} \frac{{e}_n \left( \frac{\partial f}{\partial r} \right) }{f}\text{.}
+\end{equation*}
+</div>
+<p id="p-289">The Ricci curvature at <span class="process-math">\(\frac{\partial }{\partial r}\)</span> direction is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R_{11} = R_{1 l 1 l} = - (n-1) \frac{1}{f} \frac{\partial ^2 f}{\partial r^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-290">In general, A Riemannian metric under the polar coordinates can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+ds^2 = (dr)^2 + h _{ij} (r, \theta) d \theta _i d \theta_j\text{.}
+\end{equation*}
+</div>
+<p id="p-291">In order to compute/estimate the curvature, we use Uhlenbeck's trick which we introduce now.</p>
+<p id="p-292">Let <span class="process-math">\(\omega _1 = dr\)</span> and <span class="process-math">\(\omega _2 , \ldots, \omega_n\)</span> be defined such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h_{ij} d \theta_i d \theta_j = \sum_{j &gt; 1} \omega ^2 _j\text{.}
+\end{equation*}
+</div>
+<p id="p-293">We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \omega _j}{\partial r} =\sum_{j&gt;1} a_{ij} \omega _j
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(i&gt;1\)</span> for some matrix valued function <span class="process-math">\((a_{ij})\text{.}\)</span> The Uhlenbeck's trick is that, by an orthogonal change of the co-frame, we can make <span class="process-math">\((a_{ij})\)</span> a symmetric matrix.</p>
+<p id="p-294">To see this, we write the above equations into matrix form. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\omega = \left( \begin{array}{c} \omega_2 \\ \vdots\\ \omega_n \end{array} \right),   A = (a_{ij})\text{.}
+\end{equation*}
+</div>
+<p id="p-295">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \omega}{\partial r } = A \omega\text{.}
+\end{equation*}
+</div>
+<p id="p-296">Let <span class="process-math">\(A = B+C\)</span> be the decomposition of the matrix <span class="process-math">\(A\)</span> into symmetric and skew-symmetric parts. Let <span class="process-math">\(Q\)</span> be an orthogonal matrix-valued function. We solve the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial Q}{\partial r}    = - QC
+\end{equation*}
+</div>
+<p class="continuation">with the initial value <span class="process-math">\(Q(0)=I\text{.}\)</span> It is not hard to verify that <span class="process-math">\(Q\)</span> are orthogonal matrices: we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial (Q^TQ)}{\partial r}  = -\frac{\pa Q^T}{\pa r}Q+Q^T\frac{\pa Q}{\pa r}=0
+\end{equation*}
+</div>
+<p class="continuation">using the differential equation and the fact that <span class="process-math">\(C\)</span> is skew-symmetric.</p>
+<p id="p-297">Changing the co-frame from <span class="process-math">\(\omega\)</span> to <span class="process-math">\(Q\omega\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\pa}{\pa r}(Q\omega)=QBQ^T(Q\omega)\text{.}
+\end{equation*}
+</div>
+<p id="p-298">Since <span class="process-math">\(QBQ^T\)</span> is symmetric, up to an orthogonal change of the co-frame, we may assume thst the matrix <span class="process-math">\(A\)</span> is symmetric. This proves the Uhlenbeck's trick.</p>
+<p id="p-299">Now back to the computation of the curvature. Let <span class="process-math">\((\eta _{ij} )( i , j &gt; 1)\)</span> be the connection forms of the Riemannian metric</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h_{ij} d \theta _i d \theta _j\text{.}
+\end{equation*}
+</div>
+<p id="p-300">Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-17">
+\begin{align*}
+\omega_{i1} \amp  = \amp  \frac{\partial \omega_i}{\partial r};\\
+\omega _{ij } \amp  = \amp \eta_{ij}
+\end{align*}
+</div>
+<p class="continuation">for <span class="process-math">\(i,j&gt;1\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega _i = - \sum_{j=1}^n\omega_{ij} \wedge \omega_j
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(i &gt; 1\text{.}\)</span> On the other hand, since <span class="process-math">\(A\)</span> is symmetric, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\omega_{i1}\wedge\omega_i=0\text{.}
+\end{equation*}
+</div>
+<p id="p-301">Therefore, <span class="process-math">\(d\omega_1=0=-\omega_{1j}\wedge\omega_j\text{.}\)</span> Thus <span class="process-math">\((\omega_{ij})\)</span> is connection forms of <span class="process-math">\((ds)^2\)</span> with respect to the co-frame <span class="process-math">\((\omega_1,\cdots,\omega_n)\text{.}\)</span></p>
+<p id="p-302">We compute</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \omega _{i1} + \omega _{ik}  \wedge \omega _{k 1} = \frac{1}{2} R_{il  kl} \omega _k \wedge \omega _l\text{.}
+\end{equation*}
+</div>
+<p id="p-303">If we only count the terms of the form <span class="process-math">\(\{ d r \wedge \omega_i \}\)</span> in the above equation, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+dr\wedge\frac{\pa w_{i1}}{\pa r}=R_{i11j}\omega_1\wedge\omega_j\text{.}
+\end{equation*}
+</div>
+<p id="p-304">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Ric}\,\left(\frac{\pa}{\pa r}, \frac{\pa}{\pa r}\right)=R_{11}=\frac{\pa}{\pa r}\left(\sum_{i&gt;1}a_{ii}\right) +\sum_{i,j&gt;1}a_{ij}^2\text{.}
+\end{equation*}
+</div>
+<p id="p-305">On the other hand, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\pa}{\pa r}(\omega_1\wedge\cdots\wedge\omega_n)=(\sum_{i&gt;1} a_{ii})\omega_1\wedge\cdots\wedge\omega_n\text{.}
+\end{equation*}
+</div>
+<p id="p-306">Therefore we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{\partial\over \partial r} \sqrt{\det h_{ij}}  =\sum a_{ii}  \sqrt{\det h_{ij}}\text{.}
+\end{equation*}
+</div>
+<p id="p-307">Using the Cauchy inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x1">
+\begin{equation}
+{ Ric} \left( \frac{\partial }{\partial r}, \frac{\partial }{\partial r} \right) \geq\frac{\pa^2}{\pa r^2}\sqrt{\det h_{ij}}+\frac{1}{n-1}\left(\frac{\pa}{\pa r}\sqrt{\det h_{ij}}\right)^2\text{.}\tag{3.1.1}
+\end{equation}
+</div>
+<p id="p-308">Using the above computation, we get the following comparison theorem.</p>
+<article class="theorem theorem-like" id="theorem-21"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Laplacian comparison theorem.</span>
+</h3>
+<p id="p-309">Let <span class="process-math">\(X\)</span> be a complete Riemannian manifold of dimension <span class="process-math">\(n\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Ric} (X) \geq - (n - 1) K\text{.}
+\end{equation*}
+</div>
+<p id="p-310">Let <span class="process-math">\(N\)</span> be an <span class="process-math">\(n\)</span>-dimensional simply connected space form of constant sectional curvature <span class="process-math">\(-K\text{.}\)</span> Let <span class="process-math">\(\rho_M, \rho_N\)</span> be the distance functions to fixed reference points, respectively. If <span class="process-math">\(x \in X\)</span> and <span class="process-math">\(y \in N\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho_M (x) = \rho _N (y)\text{.}
+\end{equation*}
+</div>
+<p id="p-311">Then in the sense of distribution, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta \rho _M (x) \leq \Delta \rho _N (y)\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-20"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><p id="p-312">Outside the cut-locus and the reference points, the function <span class="process-math">\(\rho_M\)</span> is smooth. Since <span class="process-math">\(\rho_M\)</span> is the distance function,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla \rho_M|=1\text{.}
+\end{equation*}
+</div>
+<p id="p-313">The Laplacian can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta_M = \frac{1}{\sqrt{g}} \frac{\partial }{\partial x_i} \left( g^{ij} \sqrt{g} \frac{\partial }{\partial x_j}\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-314">Under the assumption that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+ds^2 = d\rho^2 +\sum_{i,j} h_{ij}\, d \theta_i d \theta_j\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+\Delta \rho = \frac{\partial f}{\partial r}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f=\sqrt{\det h_{ij}}\text{.}\)</span> By  <a href="" class="xref" data-knowl="./knowl/x1.html" title="Equation 3.1.1">(3.1.1)</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+\frac{\partial^2 f}{\partial r^2} + \left( \frac{\partial f}{\partial r} \right) ^2 \geq - { Ric} \left( \frac{\partial }{\partial r} , \frac{\partial }{\partial r} \right)\text{.}
+\end{equation*}
+</div>
+<p id="p-315">The corresponding function on <span class="process-math">\(N\)</span> satisfies the <em class="emphasis">equality</em></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2">
+\begin{equation}
+\frac{\partial^2 f_0}{\partial r^2} + \left( \frac{\partial f_0}{\partial r} \right) ^2 = ( n-1) K\text{.}\tag{3.1.2}
+\end{equation}
+</div>
+<p id="p-316">If <span class="process-math">\(r\to 0\text{,}\)</span> the asympototics <span class="process-math">\(f\)</span> and <span class="process-math">\(f_0\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f}{\partial r}  \sim \frac{n-1}{  r} ,  \;\;  \frac{\partial f_0}{\partial r} \sim  \frac{n-1}{\partial r}\text{.}
+\end{equation*}
+</div>
+<p id="p-317">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- { Ric} \left(    \frac{\partial }{\partial r} ,  \frac{\partial }{\partial r}  \right) \leq ( n - 1) K\text{,}
+\end{equation*}
+</div>
+<p id="p-318">By the maximum principle</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f}{\partial r}  \leq \frac{\partial f_0}{\partial r_0}\text{.}
+\end{equation*}
+</div>
+<p id="p-319">This proves the comparison theorem at the smooth points of <span class="process-math">\(f\text{.}\)</span></p>
+<p id="p-320">Solving the equation <a href="" class="xref" data-knowl="./knowl/x2.html" title="Equation 3.1.2">(3.1.2)</a>, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2.html">
+\begin{equation*}
+f_0(r) = \frac{1}{\cosh \,  \sqrt K} \cdot \sinh \, \sqrt K r\text{.}
+\end{equation*}
+</div>
+<p id="p-321">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta _N \rho = \frac{n-1}{\rho} k \rho \coth k\rho \leq \frac{n-1}{\rho}  (1 + k \rho)\text{.}
+\end{equation*}
+</div>
+<p id="p-322">Thus the Laplacian comparison theorem can be written in the following more useful form:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta _M \rho \leq \frac{n-1}{\rho} ( 1 + k \rho)\text{.}
+\end{equation*}
+</div>
+<p id="p-323">We shall prove that the above inequality is true even at singular points of <span class="process-math">\(\rho\text{,}\)</span> in the sense of distribution. To see this, we let <span class="process-math">\(\Omega\)</span> be the domain in <span class="process-math">\(X\)</span> such that <span class="process-math">\(\rho\)</span> is smooth on <span class="process-math">\(\Omega\text{.}\)</span> <span class="process-math">\(\Omega\)</span> is a star-like domain in <span class="process-math">\(X\text{.}\)</span> Apparently</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+X = \Omega \cup C u t (p)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(Cut(p)\)</span> is the cut-locus of <span class="process-math">\(X\text{.}\)</span> Since <span class="process-math">\(\rho\)</span> is at least continuous, and since the measure of <span class="process-math">\(Cut (p)\)</span> is zero, we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _X \rho \Delta \phi = \int _{\Omega}  \rho \Delta \phi
+\end{equation*}
+</div>
+<p class="continuation">for any smooth function <span class="process-math">\(\phi\text{.}\)</span> Let <span class="process-math">\(\Omega _\varepsilon\)</span> be an exhaustion of <span class="process-math">\(\Omega\)</span> in the sense that <span class="process-math">\(\Omega _\varepsilon  \subset \Omega\text{.}\)</span> <span class="process-math">\(\Omega _\varepsilon \subset \Omega  _{\varepsilon^{\prime}}\)</span> if <span class="process-math">\(\varepsilon &gt; \varepsilon ^\prime\text{,}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\varepsilon \rightarrow 0} \Omega _\varepsilon = \Omega\text{.}
+\end{equation*}
+</div>
+<p id="p-324">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-18">
+\begin{align*}
+\int_X \rho \Delta \phi \amp  = \amp  - \int_X \nabla \rho \nabla \rho\\
+\amp  = \amp  \lim _{\varepsilon \rightarrow 0} (-1) \int _{ \Omega \varepsilon} \nabla \rho \nabla \phi \text{.}
+\end{align*}
+</div>
+<p id="p-325">Using the Green's formula, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- \int _\Omega \nabla \rho \nabla \phi = \int _ \Omega \nabla u \cdot \phi - \int _{\partial \Omega \varepsilon } \phi \frac{\partial \rho}{\partial r}\text{.}
+\end{equation*}
+</div>
+<p id="p-326">On the boundary <span class="process-math">\(\partial \Omega \varepsilon\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \rho}{\partial r} \geq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-327">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- \int _\Omega \nabla \rho \nabla \phi \leq \int _ {\Omega \varepsilon} \Delta  \rho \cdot \phi \leq   \int _{\Omega \varepsilon } \frac{n-1}{\rho }  ( 1+k\rho)\phi
+\end{equation*}
+</div>
+<p id="p-328">Finally, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-19">
+\begin{align*}
+\int_X \rho \nabla \phi  \amp  \leq \amp  \lim_{\varepsilon \rightarrow 0} \int _{\Omega \varepsilon} \frac{n-1}{\rho} ( 1 + k \rho) \phi\\
+\amp  = \amp  \int_X \frac{n-1}{\rho}(1+ k \rho) \phi
+\end{align*}
+</div>
+<p class="continuation">which finishes the proof of the theorem.</p></article></div>
+<p id="p-329">Using exactly the same method, we have the following volume comparison theorem of Bishop.</p>
+<article class="theorem theorem-like" id="theorem-22"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h3>
+<p id="p-330">Let <span class="process-math">\(X\)</span> be an <span class="process-math">\(n\)</span>-dimensional complete Riemannian manifold. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Ric}(X) \geq - (n-1) k^2\text{.}
+\end{equation*}
+</div>
+<p id="p-331">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{{ vol} \, \partial B(R)}{{ vol} _k \,( \partial B (R))} \downarrow
+\end{equation*}
+</div>
+<p class="continuation">is a decreasing function.</p></article><article class="corollary theorem-like" id="corollary-3"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Bishop.</span>
+</h3>
+<p id="p-332">Let <span class="process-math">\(X\)</span> be an <span class="process-math">\(n\)</span>-dimensional Riemannian manifold. If <span class="process-math">\({ Ric} \geq (n-1) k\text{.}\)</span> Then for any <span class="process-math">\(R &gt; 0\)</span></p></article><div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html ./knowl/x2.html ./knowl/x1.html">
+\begin{equation*}
+\frac{{ vol}\, (B_X (R))}{{ vol} (k, R)}
+\end{equation*}
+</div>
+<p id="p-333">is a decreasing function. In particular</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ vol} B_X (R) \leq V (k, R)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(V(k, R)\)</span> is the volume of ball of radius <span class="process-math">\(R\)</span> in space form of curvature <span class="process-math">\(k\text{.}\)</span></p>
+<article class="remark remark-like" id="remark-2"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h3>
+<p id="p-334">The Bochner formula gives another proof of  <a href="" class="xref" data-knowl="./knowl/x1.html" title="Equation 3.1.1">(3.1.1)</a>. Let <span class="process-math">\(f\)</span> be a smooth function. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+\frac{1}{2} \Delta |\nabla f| ^2 = |\nabla ^2 f |^2 + \frac{\partial }{\partial r} \Delta f + { Ric} ( \nabla  f, \nabla f )\text{.}
+\end{equation*}
+</div>
+<p id="p-335">If we specialize <span class="process-math">\(f\)</span> to be <span class="process-math">\(r\text{,}\)</span> then <span class="process-math">\(|\nabla r |^2 = 1\)</span> and <span class="process-math">\(\Delta |\nabla r| ^2 \equiv 0\text{.}\)</span> On the other hand</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+| \nabla ^2 f |^2 \geq \sum_i f_{ii}^2 \geq \frac{1}{n-1} \left( \sum f_{ii} \right) ^2 = \frac{1}{n-1} ( \Delta f ) ^2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the inequality follows.</p></article><article class="remark remark-like" id="remark-3"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h3>
+<p id="p-336">The proof of the laplacian comparison theorem in this section is not that far away from the usual proof using the second variational formula of the geodesic distance. The fact that we can write the Riemannian metric in the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+dr^2 + h_{ij} d \theta_i d \theta_j
+\end{equation*}
+</div>
+<p class="continuation">is ensured by the Gauss Lemma, which is proved by the first variational formula of the geodesic distance function.</p></article></section></div></main>
+</div>
+</body>
+</html>

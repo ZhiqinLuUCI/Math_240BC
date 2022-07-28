@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:47-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
+<p>We first note that <span class="process-math">\(\frac{\partial h}{\partial n}|_{\partial\Omega_\varepsilon} = 0\)</span> on the part <span class="process-math">\(y = \varepsilon\phi_1(x)^2\)</span> can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla h(\varepsilon\nabla\phi_1^2, -1) = 0\text{.}
+\end{equation*}
+</div>
+<p>We define <span class="process-math">\(\widetilde{U}_\varepsilon\)</span> as follows</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\widetilde{U}_\varepsilon = \phi + y^2 \nabla\log\phi_1\nabla\phi\text{.}
+\end{equation*}
+</div>
+<p>Then a straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{\begin{array}{rcl} \Delta\widetilde{U}_\varepsilon + \lambda\widetilde{U}_\varepsilon \amp  = \amp O(\varepsilon^2) \\ \left.\frac{\partial\widetilde{U}_\varepsilon}{\partial n} \right|_{\partial\Omega_\varepsilon} \amp  = \amp  O(\varepsilon^2) \end{array} \right.\text{.}
+\end{equation*}
+</div>
+<p>From the above, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon = O(\varepsilon^2)\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\alpha\)</span> be a number such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha) = 0\text{.}
+\end{equation*}
+</div>
+<p>Then <span class="process-math">\(\alpha = O(\varepsilon)\text{.}\)</span> By the variational principle, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}|\nabla\widetilde{U}_\varepsilon|^2} {\int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha)^2}\text{.}
+\end{equation*}
+</div>
+<p>However, since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2 \geqq C\varepsilon\text{.}
+\end{equation*}
+</div>
+<p>We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}\lambda\widetilde{U}_\varepsilon^2} {\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2} + O(\varepsilon)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and the theorem is proved.</p></article><span class="incontext"><a href="Spectrum_gap.html#proof-49" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:44-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Spectrum gap of the first two eigenvalues</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Eigenvalue_gap.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Essential_spec.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Eigenvalue_gap.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Essential_spec.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="active">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Spectrum_gap"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.5</span> <span class="title">Spectrum gap of the first two eigenvalues</span>
+</h2>
+<section class="subsection" id="subsection-1"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.1</span> <span class="title">Heat flow proof of a theorem of Brascamp-Lieb</span>
+</h3>
+<p id="p-862">The following result was first proved by Brascamp-Lieb <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "blieb" missing or not unique]</code>. In Singer-Wong-Yau-Yau <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "swyy" missing or not unique]</code>, a simplified proof was given. In this subsection, we give a heat flow proof.</p>
+<article class="theorem theorem-like" id="theorem-56"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
+</h4>
+<p id="p-863">Let <span class="process-math">\(\Omega\)</span> be a bounded convex domain of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let <span class="process-math">\(u\)</span> be the first Dirichlet eigenfunction with the eigenvalue <span class="process-math">\(\lambda_1\text{.}\)</span> Then (up to a sign), <span class="process-math">\(u\)</span> is positive and <span class="process-math">\(\log u\)</span> is concave.</p></article><p id="p-864">We begin by the following lemmas.</p>
+<article class="lemma theorem-like" id="lemma-13"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
+</h4>
+<p id="p-865">Up to a sign, <span class="process-math">\(u \geqslant 0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-44"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-44"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-44"><article class="hiddenproof"><p id="p-866">Otherwise, we may use <span class="process-math">\(|u|\)</span> in place of <span class="process-math">\(u\text{,}\)</span> From Kato's inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla|u|| \leqslant |\nabla u|\text{.}
+\end{equation*}
+</div>
+<p id="p-867">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int |\nabla|u||^2}{\int u^2} \leqslant \frac{\int |\nabla u|^2}{\int u^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-868">By the variational characterizing of the first eigenvalue, we know that the right side of the above is minimized. Thus the equality must hold and <span class="process-math">\(|u|\)</span> is an eigenfunction of the first eigenvalue.</p>
+<p id="p-869">The multiplicity of the first eigenfunction must be one. Thus up to a sign, the eigenfunction must be non-negative.</p></article></div>
+<article class="lemma theorem-like" id="lemma-14"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span>
+</h4>
+<p id="p-870"><span class="process-math">\(u &gt; 0\)</span> inside <span class="process-math">\(\Omega\text{.}\)</span></p></article><article class="hiddenproof" id="proof-45"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-45"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-45"><article class="hiddenproof"><p id="p-871">If not, assume that <span class="process-math">\(u(x_0) = 0\)</span> at a point <span class="process-math">\(x_0\)</span> in the interior of <span class="process-math">\(\Omega\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u(x) = p^N(x) + O(x^{N+\varepsilon})
+\end{equation*}
+</div>
+<p class="continuation">be the Taylor's expansion of the eigenfunction at <span class="process-math">\(x_0\text{,}\)</span> where <span class="process-math">\(p^N(x)\)</span> is the polynomial of degree <span class="process-math">\(N\text{.}\)</span> From the equation <span class="process-math">\(\Delta u = -\lambda_1 u\text{,}\)</span> we have <span class="process-math">\(\Delta p^2(x) = 0\text{.}\)</span> Since <span class="process-math">\(u(x) \geqslant 0\text{,}\)</span> we must have <span class="process-math">\(p^2(x)\geqslant 0\text{,}\)</span> a contradiction to the maximal principal.</p></article></div>
+<article class="lemma theorem-like" id="lemma-15"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span>
+</h4>
+<p id="p-872">Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial n} \lt  0
+\end{equation*}
+</div>
+<p class="continuation">on <span class="process-math">\(\partial\Omega\text{,}\)</span> the boundary of <span class="process-math">\(\Omega\text{.}\)</span></p></article><article class="hiddenproof" id="proof-46"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-46"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-46"><article class="hiddenproof"><p id="p-873">This follows from the strong maximum principle. By the above lemma, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial n} \leqslant 0
+\end{equation*}
+</div>
+<p id="p-874">If <span class="process-math">\(\frac{\partial u}{\partial n} = 0\text{,}\)</span> then since the function <span class="process-math">\(u\)</span> vanishes on the boundary, we have <span class="process-math">\(\nabla u = 0\)</span> at the point. Using the Taylor's expansion for the boundary point, we get <span class="process-math">\(p^2 \geqslant 0\)</span> and <span class="process-math">\(\Delta p^2 = 0\text{.}\)</span> Since <span class="process-math">\(p^2\)</span> is harmonic, by the strong maximum principle, <span class="process-math">\(\partial p^2/\partial n \lt 0\)</span> unless <span class="process-math">\(p^2 =0\text{.}\)</span> But if <span class="process-math">\(p^2 \equiv 0\)</span> then <span class="process-math">\(u \equiv 0\text{.}\)</span> This completes the proof.</p></article></div>
+<p id="p-875">\end{proof}</p>
+<p id="p-876">We now consider the heat flow</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial t} = \Delta u + \lambda_1 u, \ \ u|_{\partial\Omega} = 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<article class="lemma theorem-like" id="lemma-16"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.5</span><span class="period">.</span>
+</h4>
+<p id="p-877">For any smooth initial function <span class="process-math">\(u_0 &gt; 0\text{,}\)</span> the flow exists and converges to the first eigenfunction.</p></article><article class="hiddenproof" id="proof-47"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-47"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-47"><article class="hiddenproof"><p id="p-878">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_1 = \sum a_j f_j(x)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f_j(x)\)</span> is the eigenfunction of the <span class="process-math">\(j\)</span>-th eigenvalue. Then the solution of the equation is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u(t, x) = \sum a_j e^{-(\lambda_j-\lambda_i)t}f_j(x)
+\end{equation*}
+</div>
+<p id="p-879">Obviously, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{t\rightarrow\infty} u(t,x) = a_1 f_1(x)\text{.}
+\end{equation*}
+</div>
+<p id="p-880">If we choose <span class="process-math">\(u_0\)</span> such that <span class="process-math">\(a_1 \neq 0\text{,}\)</span> then the flow converges to the first eigenfunction. <span class="process-math">\(f_1(x) &gt; 0\)</span> by the above lemmas. By our choice of <span class="process-math">\(u_0\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_1 = \int_{\Omega} u_0 f_1(x) &gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-881">The proof is complete.</p></article></div>
+<article class="lemma theorem-like" id="lemma-17"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.6</span><span class="period">.</span>
+</h4>
+<p id="p-882">Let <span class="process-math">\(w\)</span> be any smooth positive function on <span class="process-math">\(\Omega\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w|_{\partial\Omega} = 0 \mbox{ and }  \nabla w|_{\partial\Omega} \neq 0
+\end{equation*}
+</div>
+<p id="p-883">Then near the boundary of <span class="process-math">\(\Omega\text{,}\)</span> <span class="process-math">\(\log w\)</span> is concave.</p></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><p id="p-884">Since <span class="process-math">\(w\)</span> is a smooth function vanishes on the boundary, it can be viewed as the defining function of <span class="process-math">\(\Omega\text{.}\)</span> By the implicit function theorem, we solve the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w(x_1, \cdots, x_n) = 0
+\end{equation*}
+</div>
+<p class="continuation">to get the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_n = x_n(x_1, \cdots, x_{n-1})\text{.}
+\end{equation*}
+</div>
+<p id="p-885">If <span class="process-math">\(\Omega\)</span> is convex, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial^2 x_n}{\partial x_i \partial x_j} &gt; 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">is a positive definite matrix. Using the chain rule, the above inequality is equivalent to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-\frac{w_{ij}}{w_n} + \frac{w_{in} w_j}{w_n^2} + \frac{w_{jn} w_i}{w_n^2} -\frac{w_i w_j w_{nn}}{w_n^3} &gt; 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(1\leqslant i, j \leqslant n-1\text{.}\)</span> However, if we allow <span class="process-math">\(i\)</span> or <span class="process-math">\(j\)</span> to be <span class="process-math">\(n\text{,}\)</span> then as the <span class="process-math">\(n\times n\)</span> matrix, we still have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-\frac{w_{ij}}{w_n} + \frac{w_{in}w_j}{w_n^2} + \frac{w_{jn}w_i}{w_n^2} -\frac{w_i w_j w_{nn}}{w_n^3} \geqslant 0\text{.}
+\end{equation*}
+</div>
+<p id="p-886">Moreover, for any <span class="process-math">\((a_1, \cdots, a_n)\text{,}\)</span> if <span class="process-math">\(\sum a_j w_j = 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-w_{ij} a_i a_j \geqslant \varepsilon |a|^2
+\end{equation*}
+</div>
+<p class="continuation">for some positive <span class="process-math">\(\varepsilon &gt; 0\text{.}\)</span> A generic vector has the form <span class="process-math">\(a+\mu b\text{,}\)</span> where <span class="process-math">\(b = (w_1, \cdots, w_n)\text{.}\)</span> For <span class="process-math">\(w\)</span> small enough, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-w_{ij}(a_i + \mu b_i)(a_j + \mu b_j) + \frac{1}{w} |\mu|^2 |b|^4 &gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-887">Thus <span class="process-math">\(\nabla^2\log w\text{,}\)</span> whose matrix entries are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{w_{ij}}{w} - \frac{w_i w_j}{w^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">is negative definite for <span class="process-math">\(w\)</span> small enough.</p></article></div>
+<article class="remark remark-like" id="remark-8"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.5.7</span><span class="period">.</span>
+</h4>
+<p id="p-888">The above proof is purely elementary. We can use differential geometry to give another proof. Assume <span class="process-math">\(e_1, \cdots,
+e_n\)</span> are the local frame fields at the boundary point such that <span class="process-math">\(e_n\)</span> is normal to the boundary and the rest are tangent to the boundary. Then for <span class="process-math">\(1\leqslant i, j \leqslant n-1\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla^2 (e_i,e_j) w = e_i(e_j(w)) - \nabla e_i e_j w = h_{ij} \frac{\partial w}{\partial n}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(h_{ij}\)</span> is the second fundamental form, and <span class="process-math">\(\frac{\partial}{\partial n}\)</span> is the outward normal vector field. Thus <span class="process-math">\(\frac{\partial w}{\partial n} \leqslant 0\text{.}\)</span> To prove</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{w_{ij}}{w} - \frac{w_i w_j}{w^2}
+\end{equation*}
+</div>
+<p class="continuation">is negative definite, we write <span class="process-math">\(V=V_1 + \mu e_n\text{,}\)</span> where <span class="process-math">\(V_1\)</span> is tangent to <span class="process-math">\(\partial\Omega\text{.}\)</span> Then there is a constant <span class="process-math">\(C\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla^2 \log w(V,V) \leqslant w^{-1}\left|\frac{\partial w}{\partial n}\right| (\pi(V_1, V_1) + C \mu \|V_1\| +C \mu^2) - w^{-2} \mu^2 \left|\frac{\partial w}{\partial n}\right|^4\text{.}
+\end{equation*}
+</div>
+<p id="p-889">Since <span class="process-math">\(\frac{\partial w}{\partial n} \neq 0\text{,}\)</span> for points sufficient close to the boundary, <span class="process-math">\(w\)</span> is small enough. Using the Cauchy inequality, we can prove the above negativeness.</p></article><p id="p-890">Now we begin to prove the theorem: We will choose a function <span class="process-math">\(u_0\)</span> such that <span class="process-math">\(u_0 &gt; 0\)</span> and <span class="process-math">\(\log u_0\)</span> is concave. Then we shall prove that the log-concavity is preserved under the heat flow. The theorem thus follows from the above lemmas.</p>
+<p id="p-891">To construct the required <span class="process-math">\(u_0\text{,}\)</span> we first pick up any smooth function <span class="process-math">\(w&gt;0\)</span> on <span class="process-math">\(\Omega\)</span> with <span class="process-math">\(w|_{\partial\Omega} = 0\text{,}\)</span> <span class="process-math">\(\nabla w|_{\partial \Omega} \neq 0\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_0 = w e^{-C\sum x_j^2}
+\end{equation*}
+</div>
+<p class="continuation">for a constant <span class="process-math">\(C &gt; 0\)</span> sufficiently large. By the above lemma, the function is log-concave near the boundary. Away from the boundary, since <span class="process-math">\(w &gt; \delta &gt; 0\)</span> for some constant <span class="process-math">\(\delta &gt; 0\text{,}\)</span> we can choose <span class="process-math">\(C\)</span> large enough so that <span class="process-math">\(u_0\)</span> is log-concave.</p>
+<p id="p-892">Using the matrix version of the maximum principle, we can prove that the flow keeps the log-concavity. Let <span class="process-math">\(\phi = \log u\text{,}\)</span> where <span class="process-math">\(u\)</span> is the solution of the heat equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial u}{\partial t} = \Delta u + \lambda_1 u\text{.}
+\end{equation*}
+</div>
+<p id="p-893">The flow of <span class="process-math">\(\phi\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x2-1-2">
+\begin{equation}
+\frac{\partial\phi}{\partial t} = \Delta\phi - |\nabla\phi|^2 - \lambda_1\text{.}\tag{5.5.1}
+\end{equation}
+</div>
+<p id="p-894">By the maximum principle, if <span class="process-math">\(T\)</span> is the first time the matrix <span class="process-math">\(\nabla^2\phi\)</span> is generated, then there is an <span class="process-math">\(x_0\in M\)</span> and a direction <span class="process-math">\(i\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-\phi_{ii} = 0
+\end{equation*}
+</div>
+<p class="continuation">and for other <span class="process-math">\(j\)</span>'s, <span class="process-math">\(-\phi_{jj} \geqslant 0\text{.}\)</span> Moreover, at <span class="process-math">\(x_0\text{,}\)</span> <span class="process-math">\(\phi_{iik} = 0\text{,}\)</span> <span class="process-math">\(\frac{\partial\phi_{ii}}{\partial t} \leqslant 0\)</span> and <span class="process-math">\(\Delta\phi_{ii} \geqslant 0\text{.}\)</span></p>
+<p id="p-895">Differentiating <a href="" class="xref" data-knowl="./knowl/x2-1.html" title="Equation 5.3.2">(5.3.2)</a> by <span class="process-math">\(i,i\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2-1.html">
+\begin{equation*}
+0 \geqslant \frac{\partial\phi_{ii}}{\partial t} = \Delta\phi_{ii} - 2\phi_k\phi_{kii} - 2\phi_{ki}^2 \geqslant -2\phi_{ki}^2\text{.}
+\end{equation*}
+</div>
+<p id="p-896">By the convexity, <span class="process-math">\(\phi_{ki}^2 \leqslant \phi_{ii}\phi_{kk} = 0\text{.}\)</span> Thus <span class="process-math">\(\phi_{ki} = 0\)</span> for <span class="process-math">\(k\neq i\text{.}\)</span> The theorem follows from the strong maximum principle.</p>
+<p id="p-897">This completes the proof of the Brascamp-Lieb theorem.</p>
+<p id="p-898">\end{proof}</p></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.2</span> <span class="title">Gap of the first two eigenvalues</span>
+</h3>
+<p id="p-899">For the sake of simplicity, we only consider bounded smooth domain in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
+<p id="p-900">Let <span class="process-math">\(\Omega\)</span> be a bounded domain in <span class="process-math">\(\mathbb{R}^n\)</span> with smooth boundary. Let <span class="process-math">\(\lambda_1, \lambda_2\)</span> be the Dirichlet first two eigenvalues. Since <span class="process-math">\(\lambda_1\)</span> must be simple (of multiplicity one) we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_2 - \lambda_1&gt; 0\text{.}
+\end{equation*}
+</div>
+<p id="p-901">The question we would like to answer is that, how to get the lower bound estimate of <span class="process-math">\(\lambda_2 - \lambda_1\text{?}\)</span></p>
+<p id="p-902">Let <span class="process-math">\(\phi_1, \phi_2\)</span> be the eigenfunctions with respect to <span class="process-math">\(\lambda_1, \lambda_2\text{.}\)</span> We set</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi = \frac{\phi_2}{\phi_1}\text{.}
+\end{equation*}
+</div>
+<p id="p-903">Then a straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta\phi + \partial\nabla\log\phi_1\nabla\phi = -\lambda\phi\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\lambda = \lambda_2 - \lambda_1\text{.}\)</span> Moreover, since <span class="process-math">\(\phi_1|_{\partial\Omega} = 0\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left.\frac{\partial\phi}{\partial n}\right|_{\partial\Omega} = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-904">We have a notion of Bakry-Émery Ricci tensor. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \phi_1^2
+\end{equation*}
+</div>
+<p id="p-905">Then the Bakry-Émery Laplacian is defined as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f = \Delta + \nabla\log f\nabla
+\end{equation*}
+</div>
+<p class="continuation">which is a self-adjoint operator with respect to the volume form <span class="process-math">\(\phi_1^2 dV\text{.}\)</span></p>
+<p id="p-906">The Bakry-Émery Ricci tensor is defined as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-\nabla^2 \log f
+\end{equation*}
+</div>
+<p id="p-907">By the Brascamp-Lieb theorem, the Barkey-Emery Ricci curvature is non-negative.</p>
+<p id="p-908">We make the following conjecture:</p>
+<article class="conjecture theorem-like" id="conjecture-4"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.8</span><span class="period">.</span>
+</h4>
+<p id="p-909">The method of gradient estimates can be generalized to the Bakry-Émery case without additional difficulties.</p></article><p id="p-910">The above conjecture, if true, will give a unified proof between the estimation of the first eigenvalue and gap estimate.</p>
+<p id="p-911">We can go one more step further. Since the Barkey-Emery Ricci tensor comes from the setting <span class="process-math">\((M, ds^2, e^f dV)\text{,}\)</span> which can be considered as the limit of the wrap product</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+e^f dr^2 + ds^2
+\end{equation*}
+</div>
+<p class="continuation">we make the following definition.</p>
+<p id="p-912">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Omega_\varepsilon = \{(x,y)|x\in \Omega, 0\leqslant y \leqslant \varepsilon \phi_1^2(x)\}\text{.}
+\end{equation*}
+</div>
+<p id="p-913">Let <span class="process-math">\(\mu_\varepsilon\)</span> be the first Neumann eigenvalue. Then</p>
+<article class="conjecture theorem-like" id="conj4"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.9</span><span class="period">.</span>
+</h4>
+<p id="p-914">Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_2 - \lambda_1 = \lim_{\varepsilon\rightarrow 0} \mu_\varepsilon\text{.}
+\end{equation*}
+</div></article><p id="p-915">Similarly, we make the following</p>
+<article class="conjecture theorem-like" id="conjecture-6"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.10</span><span class="period">.</span>
+</h4>
+<p id="p-916">Let <span class="process-math">\((\mu_\varepsilon)^k\)</span> be the <span class="process-math">\(k\)</span>-th Neumann eigenvalue of <span class="process-math">\(\Omega_\varepsilon\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\varepsilon\rightarrow 0}(\mu_\varepsilon)^k = \lambda_{k+1} - \lambda_1\text{.}
+\end{equation*}
+</div></article><p id="p-917">We can prove the following</p>
+<article class="theorem theorem-like" id="theorem-57"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.11</span><span class="period">.</span>
+</h4>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_2 - \lambda_1 \geqslant \lim_{\varepsilon\rightarrow 0}\mu_\varepsilon\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"><p id="p-918">We first note that <span class="process-math">\(\frac{\partial h}{\partial n}|_{\partial\Omega_\varepsilon} = 0\)</span> on the part <span class="process-math">\(y = \varepsilon\phi_1(x)^2\)</span> can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla h(\varepsilon\nabla\phi_1^2, -1) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-919">We define <span class="process-math">\(\widetilde{U}_\varepsilon\)</span> as follows</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\widetilde{U}_\varepsilon = \phi + y^2 \nabla\log\phi_1\nabla\phi\text{.}
+\end{equation*}
+</div>
+<p id="p-920">Then a straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{\begin{array}{rcl} \Delta\widetilde{U}_\varepsilon + \lambda\widetilde{U}_\varepsilon \amp  = \amp O(\varepsilon^2) \\ \left.\frac{\partial\widetilde{U}_\varepsilon}{\partial n} \right|_{\partial\Omega_\varepsilon} \amp  = \amp  O(\varepsilon^2) \end{array} \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-921">From the above, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon = O(\varepsilon^2)\text{.}
+\end{equation*}
+</div>
+<p id="p-922">Let <span class="process-math">\(\alpha\)</span> be a number such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-923">Then <span class="process-math">\(\alpha = O(\varepsilon)\text{.}\)</span> By the variational principle, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}|\nabla\widetilde{U}_\varepsilon|^2} {\int_{\Omega_\varepsilon}(\widetilde{U}_\varepsilon - \alpha)^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-924">However, since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2 \geqq C\varepsilon\text{.}
+\end{equation*}
+</div>
+<p id="p-925">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_\varepsilon \leqslant \frac{\int_{\Omega_\varepsilon}\lambda\widetilde{U}_\varepsilon^2} {\int_{\Omega_\varepsilon}\widetilde{U}_\varepsilon^2} + O(\varepsilon)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and the theorem is proved.</p></article></div>
+<p id="p-926">\end{proof}</p>
+<article class="remark remark-like" id="remark-9"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.5.12</span><span class="period">.</span>
+</h4>
+<p id="p-927">We consider the wrap product</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+e^f dr^2 + d^2
+\end{equation*}
+</div>
+<p class="continuation">over <span class="process-math">\(\Omega_\varepsilon\text{,}\)</span> we see the relation between two settings. This also gives the relation between the Barkey-Emery geometry with respect to the ordinary Riemannian geometry.</p></article><p id="p-928">Some applications.</p>
+<article class="theorem theorem-like" id="theorem-58"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.13</span><span class="period">.</span><span class="space"> </span><span class="title">Singer-Wong-Yau-Yau, Yu-Zhong.</span>
+</h4>
+<p id="p-929">Let <span class="process-math">\(\Omega\)</span> be a convex domain in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_2 - \lambda_1 \geqslant \frac{\pi^2}{d^2}\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-50"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-50"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-50"><article class="hiddenproof"><p id="p-930">We consider the domain <span class="process-math">\(\Omega_\varepsilon\)</span> and let <span class="process-math">\(U_\varepsilon\)</span> be the first Neumann eigenfunction. By what we proved in the last lecture, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_\varepsilon \geqslant \frac{\pi^2}{d_\varepsilon^2}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(d_\varepsilon\)</span> is the diameter of <span class="process-math">\(\Omega_\varepsilon\text{.}\)</span> Since <span class="process-math">\(d_\varepsilon\rightarrow d\text{,}\)</span> the theorem is proved.</p></article></div>
+<article class="question example-like" id="question-1"><a href="" data-knowl="" class="id-ref question-knowl original" data-refid="hk-question-1"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">5.5.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-1"><article class="question example-like"><p id="p-931">How to recover the recent result of Yau?</p></article></div>
+<p id="p-932">We are going to use the following result of Chen-Li.</p>
+<article class="theorem theorem-like" id="theorem-59"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.15</span><span class="period">.</span>
+</h4>
+<p id="p-933">Let <span class="process-math">\(M\)</span> be an <span class="process-math">\(m\)</span>-dimensional domain in <span class="process-math">\(\mathbb{R}^m\text{.}\)</span> Let <span class="process-math">\(M\)</span> be star-shaped. Let <span class="process-math">\(R\)</span> be the radius of the largest ball centered at <span class="process-math">\(p\in M\)</span> contained in <span class="process-math">\(M\)</span> and let <span class="process-math">\(R_0\)</span> be the smallest ball centered at <span class="process-math">\(p\)</span> containing <span class="process-math">\(M\text{.}\)</span> Then there is a constant <span class="process-math">\(C\text{,}\)</span> depending only on <span class="process-math">\(m\text{,}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\eta_1 \geqslant C\frac{R^m}{R_0^{m+2}}
+\end{equation*}
+</div></article><p id="p-934">Let <span class="process-math">\(U_\varepsilon\)</span> be the first Neumann eigenfunction of <span class="process-math">\(\Omega_\varepsilon\text{.}\)</span> Then asymptotically we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+U_\varepsilon \sim \phi + y^2 \nabla\log \phi_1 \nabla\phi
+\end{equation*}
+</div>
+<p id="p-935">In general, power series method can be used to prove the conjecture.</p>
+<article class="remark remark-like" id="remark-10"><h4 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.5.16</span><span class="period">.</span>
+</h4>
+<p id="p-936"><a href="" class="xref" data-knowl="./knowl/conj4.html" title="Conjecture 5.5.9">Conjecture 5.5.9</a> was proved by Lu-Rowlett <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lu-rowlett" missing or not unique]</code>.</p></article></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.3</span> <span class="title">Appendix: Eigenvalues of collapsing domain</span>
+</h3>
+<p id="p-937">It is important to study the asymptotic behavior of eigenvalues when a domain collapses. In this appendix, we give some preliminary results in this direction.</p>
+<p id="p-938">We begin with the following observation. Consider the sector</p>
+<p id="p-939">What is the asymptotic behavior of the Dirichlet eigenvalues when <span class="process-math">\(\alpha\rightarrow 0\text{?}\)</span></p>
+<p id="p-940">As is well-known, the eigenfunctions of the sector are of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(r)\sin\frac{\theta}{\alpha}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f(r)\)</span> is the so-called Bessel function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'' + \frac{1}{r}f' + \frac{1}{r^2}(r^2 - \frac{1}{\alpha^2})f = -\lambda f
+\end{equation*}
+</div>
+<p id="p-941">If we set</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(r) = \sqrt{r} f(r)
+\end{equation*}
+</div>
+<p id="p-942">Then the corresponding equation becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-g''(r) + \frac{1}{r^2}(\frac{1}{\alpha^2}-\frac{1}{4})g = \lambda g
+\end{equation*}
+</div>
+<p id="p-943">When <span class="process-math">\(\alpha\rightarrow 0\text{,}\)</span> we take the following renomorization: set <span class="process-math">\(1 - r = \alpha^{2/3}x\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{r^2} - 1 \sim 2x\alpha^{2/3}
+\end{equation*}
+</div>
+<p id="p-944">Let <span class="process-math">\(\lambda = \widetilde\lambda + \frac{1}{\alpha^2}\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-g''(r) + \left(\frac{1}{r^2}\left(\frac{1}{\alpha^2}-\frac{1}{4}\right)- \frac{1}{\alpha^2}\right)g = \widetilde\lambda g
+\end{equation*}
+</div>
+<p class="continuation">and if <span class="process-math">\(\alpha\rightarrow 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-g'' + 2xg = \lambda g
+\end{equation*}
+</div>
+<p id="p-945">This is the Airy's function.</p>
+<p id="p-946">Friedlander and Solomyak was able to generalize the above result in the following setting:</p>
+<p id="p-947">Let <span class="process-math">\(h(x) &gt; 0\)</span> be a piecewise linear function defined on <span class="process-math">\([-a, b]\text{,}\)</span> where <span class="process-math">\(a,
+b &gt; 0\text{.}\)</span> We assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(x) = \left\{ \begin{array}{ll} M-C_+x \amp  x &gt; 0 \\ M-C_-x \amp  x \lt  0 \end{array} \right.
+\end{equation*}
+</div>
+<p class="continuation">where the choice of <span class="process-math">\(M, C_+, C_-\)</span> are so that <span class="process-math">\(h(-a) = h(b) = 0\text{.}\)</span></p>
+<p id="p-948">For any positive <span class="process-math">\(\varepsilon &gt; 0\text{,}\)</span> let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Omega_\varepsilon = \{(x,y)|x\in I, 0\leqslant y \leqslant \varepsilon h(x)\}
+\end{equation*}
+</div>
+<article class="theorem theorem-like" id="theorem-60"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.17</span><span class="period">.</span><span class="space"> </span><span class="title">Friedlander-Solomyak.</span>
+</h4>
+<p id="p-949">Let <span class="process-math">\(\alpha = 2/3\text{.}\)</span> Let <span class="process-math">\(l_j(\varepsilon)\)</span> be the Dirichlet eigenvalues of <span class="process-math">\(\Omega_\varepsilon\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mu_j = \lim_{\varepsilon\rightarrow 0} \varepsilon^{2\alpha} \left(l_j(\varepsilon) - \frac{\pi^2}{M^2\varepsilon^2}\right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">exists. Then <span class="process-math">\(\{\mu_j\}\)</span> are eigenvalues of the Schrödinger operator <span class="process-math">\(H\)</span> on <span class="process-math">\(L^2(\mathbb{R})\text{,}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H = -\frac{d^2}{dx^2} + q(x)
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q(x) = \left\{ \begin{array}{ll} 2\pi^2 M^{-3} C_+x \amp  x &gt; 0 \\ 2\pi^2 M^{-3} C_-x \amp  x \lt  0 \end{array} \right.
+\end{equation*}
+</div></article><p id="p-950">Note that if <span class="process-math">\(C_+ = C_-\text{,}\)</span> then <span class="process-math">\(H\)</span> turns to the harmonic oscillator. If <span class="process-math">\(C_+ = +\infty\text{,}\)</span> then it turns to the above discussed case.</p>
+<article class="theorem theorem-like" id="theorem-61"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.18</span><span class="period">.</span><span class="space"> </span><span class="title">Lu-Rowlett.</span>
+</h4>
+<p id="p-951">Let <span class="process-math">\(M\)</span> be a triangle and let <span class="process-math">\(d\)</span> be the diameter of <span class="process-math">\(M\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d^2(\lambda_2 - \lambda_1) \rightarrow +\infty
+\end{equation*}
+</div>
+<p class="continuation">if the triangle collapses. In other words, the “gap” function is a proper function on the moduli space of triangles.</p></article><p id="p-952">The original proof of the above result is independent to the work of Friedlander <em class="emphasis">et.la.</em></p>
+<article class="question example-like" id="question-2"><a href="" data-knowl="" class="id-ref question-knowl original" data-refid="hk-question-2"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">5.5.19</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-2"><article class="question example-like"><p id="p-953">Let <span class="process-math">\(h(x) &gt; 0\)</span> be a piecewise smooth function on a bounded domain <span class="process-math">\(\Omega\)</span> of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Omega_\varepsilon = \{(x,y)|x\in\Omega, 0\leqslant y\leqslant\varepsilon h(x)\}
+\end{equation*}
+</div>
+<p id="p-954">Then what is the asymptotical behavior of the Dirichlet (Neumann) eigenvalues of <span class="process-math">\(\Omega_\varepsilon\text{.}\)</span></p></article></div>
+<p id="p-955">The question is very important in answering the following conjecture of Van den Berg and Yau.</p>
+<article class="conjecture theorem-like" id="conjecture-7"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.20</span><span class="period">.</span>
+</h4>
+<p id="p-956">Let <span class="process-math">\(\Omega\)</span> be a convex bounded domain in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_2 - \lambda_1 \geqslant \frac{3\pi^2}{d^2}
+\end{equation*}
+</div></article><p id="p-957">The conjecture is asymptotically optimal for thin rectangles.</p>
+<p id="p-958">In some sense, the result of Friedlander gives the compactification of the Laplacians on the moduli space. Namely, if <span class="process-math">\(\alpha\rightarrow 0\text{,}\)</span> then the Laplace operators tend to the Schrödinger operator defined above.</p>
+<p id="p-959">As an application, we relate the result to the following conjecture.</p>
+<article class="conjecture theorem-like" id="conjecture-8"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.21</span><span class="period">.</span>
+</h4>
+<p id="p-960">Does it exist a number <span class="process-math">\(N\)</span> such that the first <span class="process-math">\(N\)</span> Dirichlet eigenvalues determine to triangle.</p></article><p id="p-961">The result of Chang-Deturck gives partial answer to the above conjecture:</p>
+<article class="theorem theorem-like" id="theorem-62"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.22</span><span class="period">.</span>
+</h4>
+<p id="p-962">There exists <span class="process-math">\(N = N(\lambda_1, \lambda_2)\)</span> such that <span class="process-math">\(\lambda_1, \cdots, \lambda_N\)</span> determines the triangle.</p></article><p id="p-963">Unfortunately, if <span class="process-math">\(\alpha\rightarrow 0\text{,}\)</span> <span class="process-math">\(N = N(\lambda_1,\lambda_2)\rightarrow +\infty\text{.}\)</span></p>
+<p id="p-964">In order to solve this “hearing the shape of a triangle” problem, we consider the following parametrization of the moduli space of a triangle when one of the angle is small</p>
+<p id="p-965">where <span class="process-math">\(b\leqslant 1\text{,}\)</span> and we use <span class="process-math">\((\alpha, b)\)</span> as coordinates.</p>
+<article class="conjecture theorem-like" id="conjecture-9"><h4 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">5.5.23</span><span class="period">.</span>
+</h4>
+<p id="p-966">Let <span class="process-math">\(\xi = \alpha^{2/3}\text{.}\)</span> Define two functions</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-61">
+\begin{align*}
+\nonumber P(\zeta, b) \amp  = \amp  \lambda_2 / \lambda_1\\
+\nonumber Q(\zeta, b) \amp  = \amp  (\lambda_3 - \lambda_2)/(\lambda_2 - \lambda_1)
+\end{align*}
+</div>
+<p id="p-967">Then <span class="process-math">\(P,Q\)</span> are analytic functions on <span class="process-math">\([0, \varepsilon) \times[\frac{1}{2}, 1]\text{.}\)</span></p></article><p id="p-968">Note that by the result of Friedlander-Solomyak, we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-62">
+\begin{align*}
+\nonumber P(\zeta, b) \amp  = \amp  1 + a\zeta + O(\zeta)\\
+\nonumber Q(\zeta, b) \amp  = \amp  1 + o(1)
+\end{align*}
+</div>
+<p id="p-969">The hearing problem is implied by proving</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\zeta, b) \mapsto (P,Q)
+\end{equation*}
+</div>
+<p class="continuation">is invertible.</p>
+<p id="p-970">Since the limit of the Laplacian is the <span class="process-math">\(1\)</span>-d Schrödinger operator, we must first solve the problem of hearing the Schrödinger operator. Gelfand-Levitan theory doesn't apply directly here.</p></section></section></div></main>
+</div>
+</body>
+</html>

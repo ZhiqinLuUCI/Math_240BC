@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:44-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Variational characterization of spectrum</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Operator_extension.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Weyl_criteria.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Operator_extension.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Weyl_criteria.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="active">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Var_principle"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Variational characterization of spectrum</span>
+</h2>
+<p id="p-171">Let <span class="process-math">\(\Delta\)</span> be the Laplace operator on functions of a manifold <span class="process-math">\(M\text{.}\)</span> As in the last section, we make the convention that the operator is a negative operator.</p>
+<p id="p-172">Let <span class="process-math">\(\lambda\)</span> be a complex number, <span class="process-math">\((\lambda I-\Delta)^{-1}\)</span> is called the resolvent of <span class="process-math">\(\Delta\text{.}\)</span> If for some <span class="process-math">\(\lambda\text{,}\)</span> <span class="process-math">\((\lambda I-\Delta)^{-1}\)</span> doesn't exist, or it does exist but is an unbounded operator, then we call <span class="process-math">\(\lambda\)</span> spectrum point of <span class="process-math">\(\Delta\text{.}\)</span> We use <span class="process-math">\(\sigma(\Delta)\)</span> or <span class="process-math">\({ Spec}\, (\Delta)\)</span> to denote the set.</p>
+<article class="theorem theorem-like" id="theorem-11"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
+</h3>
+<p id="p-173">Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ Spec} \,(\Delta)\neq\emptyset\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><p id="p-174">This is a general fact about the spectrum of any linear operator on a Banach space. We assume that <span class="process-math">\(\Delta\)</span> is densely defined in a Banach space <span class="process-math">\(\mathcal B\text{.}\)</span> Assume that <span class="process-math">\({ Spec} \,(\Delta)=\emptyset\text{.}\)</span> Let <span class="process-math">\(f\in \mathcal B\)</span> and let <span class="process-math">\(\ell\)</span> be abounded linear functional on <span class="process-math">\(\mathcal B\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\ell((\lambda I-\Delta)^{-1}f)
+\end{equation*}
+</div>
+<p class="continuation">is a bounded holomorphic function of <span class="process-math">\(\C\text{,}\)</span> which has to be a constant. More over, it must be the zero function. Since <span class="process-math">\(\ell\)</span> and <span class="process-math">\(f\)</span> are arbitrary, we conclude that <span class="process-math">\((\lambda I-\Delta)^{-1}=0\)</span> which is not possible for all <span class="process-math">\(\lambda\text{.}\)</span> This is a contradiction.</p></article></div>
+<p id="p-175">When <span class="process-math">\(M\)</span> is a compact manifold, the best possible things happen: by the Hodge theorem, the spectrum of <span class="process-math">\(\Delta\)</span> is made from eigenvalues. More precisely, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0=\lambda_0\lt \lambda_1\leq\lambda_2\cdots\leq\lambda_k\to +\infty\text{,}
+\end{equation*}
+</div>
+<p class="continuation">such that for each <span class="process-math">\(\lambda_j\text{,}\)</span> the space</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+E_j=\{f\mid\Delta f=-\lambda_j f\}
+\end{equation*}
+</div>
+<p class="continuation">is not trivial and is of finite dimensional. By the above result, we can prove the following variational (or min-max) principal.</p>
+<article class="theorem theorem-like" id="theorem-12"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
+</h3>
+<p id="p-176">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="men-2">
+\begin{equation}
+\lambda_k = \inf \left\{ \left. \frac{ \int_{\Omega} |\nabla f |^2 }{\int_{\Omega} f^2 } \, \right| \, \, \, \left. f\right|_{\pa \Omega} = 0, \, f \not\equiv 0 = \int_{\Omega} f \phi_j, \, \, \forall \, j \lt  k \right\}\text{,}\tag{2.3.1}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(\phi_j\)</span> are the eigenfunctions of <span class="process-math">\(\lambda_j\text{.}\)</span></p></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><p id="p-177">Let <span class="process-math">\(\{ f_\alpha\}\)</span> be a sequence such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M f_\alpha\phi_j=0, \qquad \forall j\lt k\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M|\nabla f_\alpha|^2}{\int_M f_\alpha^2}\to\lambda_k\text{.}
+\end{equation*}
+</div>
+<p id="p-178">If we normalize <span class="process-math">\(f_\alpha\)</span> such that <span class="process-math">\(\int_M f_\alpha^2=1\text{,}\)</span> then the sequence <span class="process-math">\(\{f_\alpha\}\)</span> is bounded in <span class="process-math">\(H_1(M)\text{.}\)</span> Therefore, there is an <span class="process-math">\(f\in H_1(M)\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f_\alpha\to f
+\end{equation*}
+</div>
+<p class="continuation">in the weak sense. In particular, for any <span class="process-math">\(\phi\)</span> smooth, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\nabla f_\alpha\nabla\phi\to\int_M\nabla f\nabla\phi\text{.}
+\end{equation*}
+</div>
+<p id="p-179">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left|\int_M\nabla f\nabla\phi\right|\leq\int_M\nabla f_\alpha\nabla\phi\leq ||\nabla f_\alpha||_{L^2}||\nabla\phi||_{L^2}\to\sqrt{\lambda_k}||\nabla\phi||_{L^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-180">Since smooth functions are dense in <span class="process-math">\(H_1(M)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla f|^2\leq\liminf_{k\to\infty}\int_M|\nabla f_\alpha|^2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is known as the Fatou Lemma.</p>
+<p id="p-181">On the other hand, by the Rellich Lemma, <span class="process-math">\(f_\alpha\to f\)</span> strongly in <span class="process-math">\(L^2(M)\text{.}\)</span> Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_Mf^2=1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">hence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_k=\frac{\int_M|\nabla f|^2}{\int_M f^2}
+\end{equation*}
+</div>
+<p id="p-182">Let <span class="process-math">\(\phi\)</span> be a smooth function such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\phi\phi_j=0
+\end{equation*}
+</div>
+<p id="p-183">Then for any <span class="process-math">\(\eps\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M|\nabla f+\eps\nabla\phi|^2}{\int_M (f+\eps\phi)^2}\geq\frac{\int_M|\nabla f|^2}{\int_M f^2}
+\end{equation*}
+</div>
+<p id="p-184">Since this is true for any <span class="process-math">\(\eps\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f=-\lambda_k f
+\end{equation*}
+</div>
+<p class="continuation">in the weak sense. By the elliptic regularity, <span class="process-math">\(f\)</span> has to be smooth.</p></article></div>
+<p id="p-185">Unlike in the case of compact manifold, in general, a complete non-compact manifold doesn't admit any pure point spectrum. For example, there are no <span class="process-math">\(L^2\)</span>-eigenvalues on <span class="process-math">\(\mathbb R^n\text{.}\)</span> That is, for any <span class="process-math">\(\lambda\in\mathbb R\text{,}\)</span> if <span class="process-math">\(\Delta f+\lambda f=0\)</span> and <span class="process-math">\(f\in L^2(\mathbb R^n)\text{,}\)</span> then we have <span class="process-math">\(f\equiv 0\text{.}\)</span></p>
+<p id="p-186">Let <span class="process-math">\(\Delta\)</span> be the Laplace operator on a complete non-compact manifold <span class="process-math">\(M\text{.}\)</span> We extend <span class="process-math">\(\Delta\)</span> naturally to a self-adjoint densely defined operator on <span class="process-math">\(L^2(M)\text{,}\)</span> which we still denote as <span class="process-math">\(\Delta\)</span> for the sake of simplicity.</p>
+<p id="p-187">The pure point spectrum of <span class="process-math">\(\Delta\)</span> are those <span class="process-math">\(\lambda\in\mathbb R\)</span> such that</p>
+<ol class="decimal">
+<li id="li-16">
+<p id="p-188">there exists an <span class="process-math">\(L^2\)</span> function <span class="process-math">\(f\neq 0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f+\lambda f=0\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-17"><p id="p-189">the multiplicity of <span class="process-math">\(\lambda\)</span> is finite;</p></li>
+<li id="li-18"><p id="p-190">in a neighborhood of <span class="process-math">\(\lambda\text{,}\)</span> it is the only spectrum point.</p></li>
+</ol>
+<p id="p-191">From the above discussion, <span class="process-math">\(\sigma(\Delta)\)</span> decomposes as the union of pure point spectrum, and the so-called essential spectrum, which is, by definition, the complement of the pure point spectrum.</p>
+<p id="p-192">The set of the essential spectrum is denoted as <span class="process-math">\(\sigma_{ess}(\Delta)\text{.}\)</span> Using the above definition, <span class="process-math">\(\lambda\in\sigma_{ess}(\Delta)\text{,}\)</span> if either</p>
+<ol class="decimal">
+<li id="li-19">
+<span class="heading"><span class="title">\ding{172}.</span></span><p id="p-193"><span class="process-math">\(\lambda\)</span> is an eigenvalue of infinite multiplicity, or</p>
+</li>
+<li id="li-20">
+<span class="heading"><span class="title">\ding{173}.</span></span><p id="p-194"><span class="process-math">\(\lambda\)</span> is the limiting point of <span class="process-math">\(\sigma(\Delta)\text{.}\)</span></p>
+</li>
+</ol>
+<p id="p-195">The following theorems in functional analysis are well-known.</p>
+<article class="theorem theorem-like" id="theorem-13"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
+</h3>
+<p id="p-196">A necessary and sufficient condition for the interval <span class="process-math">\((-\infty,\lambda)\)</span> to intersect the essential spectrum of an self-adjoint densely defined operator <span class="process-math">\(A\)</span> is that, for all <span class="process-math">\(\eps&gt;0\text{,}\)</span> there exists an infinite dimensional subspace <span class="process-math">\(G_\eps\subset \mathcal Dom(A)\text{,}\)</span> for which <span class="process-math">\((Af-\lambda f-\eps f,f)\lt 0\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-14"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span>
+</h3>
+<p id="p-197">A necessary and sufficient condition for the interval <span class="process-math">\((\lambda-a,\lambda+a)\)</span> to intersect the essential spectrum of <span class="process-math">\(A\)</span> is that there exists an infinite dimensional subspace <span class="process-math">\(G_\eps\subset \mathcal Dom(A)\)</span> for which <span class="process-math">\(||(A-\lambda I)f||\leq a||f||\)</span> for all <span class="process-math">\(f\in G_\eps\text{.}\)</span></p></article><p id="p-198">Using the above result, we give the following variational characterization of the lower bound of spectrum and the lower bound of essential spectrum.</p>
+<article class="theorem theorem-like" id="theorem-15"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="period">.</span>
+</h3>
+<p id="p-199">Using the above notations, define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_0=\inf_{f\in C_0^\infty(M)}\frac{\int_M|\nabla f|^2}{\int_M f^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_{ess}=\sup_K\inf_{f\in C_0^\infty(M\backslash K)}\frac{\int_M|\nabla f|^2}{\int_M f^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(K\)</span> is a compact set running through an exhaustion of the manifold. Then <span class="process-math">\(\lambda_0\)</span> and <span class="process-math">\(\lambda_{ess}\)</span> are the least lower bound of <span class="process-math">\(\sigma(\Delta)\)</span> and <span class="process-math">\(\sigma_{ess}(\Delta)\text{,}\)</span> respectively.</p></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><p id="p-200">We prove the formula for <span class="process-math">\(\lambda_{ess}\text{.}\)</span> The formula for <span class="process-math">\(\lambda_0\)</span> is similar. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda'_{ess}=\inf \sigma_{ess}(\Delta)\text{.}
+\end{equation*}
+</div>
+<p id="p-201">If <span class="process-math">\(\sigma_{ess}(\Delta)=\emptyset\text{,}\)</span> we define <span class="process-math">\(\lambda'_{ess}=+\infty\text{.}\)</span> When <span class="process-math">\(\lambda'_{ess}=+\infty\text{,}\)</span> we prove that <span class="process-math">\(\lambda_{ess}\)</span> is also infinity.</p>
+<p id="p-202">Assume not, then there is a constant <span class="process-math">\(C\text{,}\)</span> such that for any compact set <span class="process-math">\(K\text{,}\)</span> there is a function <span class="process-math">\(f\in \mathcal C_0^\infty(M\backslash K)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M |\nabla f|^2}{\int_M f^2}\lt C\text{.}
+\end{equation*}
+</div>
+<p id="p-203">By inductively choosing <span class="process-math">\(f\text{,}\)</span> we can make sure that the support of these functions are disjoint. Thus the functions span an infinite dimensional space <span class="process-math">\(G\)</span> with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\Delta f-Cf,f)\lt 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which contradicts to the fact that the essential spectrum is an empty set.</p>
+<p id="p-204">The proof of the general case is similar. We fist prove that <span class="process-math">\(\lambda_{ess}\leq\lambda_{ess}'\)</span> By definition, for <span class="process-math">\(\eps&gt;0\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\infty,\lambda_{ess}'+\eps)\cap \sigma_{ess}(\Delta)\neq\emptyset\text{.}
+\end{equation*}
+</div>
+<p id="p-205">Therefore we can find infinite dimensional space <span class="process-math">\(V\)</span> such that for any <span class="process-math">\(f\in V\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(-\Delta f-(\lambda_{ess}'+\eps) f, f)\lt 0\text{.}
+\end{equation*}
+</div>
+<p id="p-206">In what follows, we shall prove that, using the cut-off functions, there exist infinitely many elements in <span class="process-math">\(V\)</span> such that their supports are disjoint.</p>
+<p id="p-207">We assume that <span class="process-math">\(K\)</span> is a compact set. Let <span class="process-math">\(K'\)</span> be a large ball containing <span class="process-math">\(K\text{.}\)</span> Let <span class="process-math">\(\rho\)</span> be the cut-off function such that <span class="process-math">\(\rho=1\)</span> on <span class="process-math">\(K\)</span> but <span class="process-math">\(\rho=0\)</span> outside <span class="process-math">\(K'\text{.}\)</span> We claim that for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> there is an <span class="process-math">\(f\in V\)</span> with <span class="process-math">\(\int f^2=1\)</span> but</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\lt \eps\text{.}
+\end{equation*}
+</div>
+<p id="p-208">If the above is not true, then there is an <span class="process-math">\(\eps_0&gt;0\)</span> such that for any <span class="process-math">\(f\in V\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\geq\eps_0\text{,}
+\end{equation*}
+</div>
+<p id="p-209">Since the set <span class="process-math">\(f\in V\)</span> is of infinite dimensional, the set <span class="process-math">\(\rho f\)</span> is of infinite dimensional as well, otherwise the above inequality is not valid. Thus we can find an orthogonal basis</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f_if_j=0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(i\neq j\text{,}\)</span> while we still keeping <span class="process-math">\(\int_Mf_i^2=1\text{.}\)</span> We consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla(\rho f_i)|^2\leq 2\int_M|\nabla \rho|^2 f_i^2+2\int_M|\nabla f_i|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-210">By <span class="process-math">\(\int_M|\nabla f_i|^2\leq \lambda'_{ess}+\eps\text{,}\)</span> we have Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_M|\nabla(\rho f_i)|^2}{\int_M(\rho f_i)^2} \leq \frac{2C+2(\lambda_{ess}'+\eps)}{\eps_0}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(i\text{.}\)</span> This is a contradiction because on the compact set <span class="process-math">\(K'\text{,}\)</span> the are only finitely many eigenvalues (counting multiplicity) below a fixed number.</p>
+<p id="p-211">Now we can prove our theorem. For all <span class="process-math">\(\eps&gt;0\text{.}\)</span> We can find an <span class="process-math">\(f\)</span> with <span class="process-math">\(\int_M f^2=1\)</span> but</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho^2f^2\lt \eps\text{.}
+\end{equation*}
+</div>
+<p id="p-212">We take <span class="process-math">\(K=B(r)\)</span> and <span class="process-math">\(K'=B(R+1)\)</span> of balls of radius <span class="process-math">\(r, R+1\text{,}\)</span> respectively. Both <span class="process-math">\(r,R\)</span> are large numbers. Let <span class="process-math">\(\tilde\rho\)</span> be a cut-off function such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{\tilde\rho=1\}\subset B(R)\text{.}
+\end{equation*}
+</div>
+<p id="p-213">We also assume that <span class="process-math">\(|\nabla\tilde\rho|\leq C\text{.}\)</span> Let <span class="process-math">\(\rho_1=1-\tilde\rho\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ supp}\,\rho_1\cap K=\emptyset\text{.}
+\end{equation*}
+</div>
+<p id="p-214">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla(\rho_1f)|^2=\int_M\rho_1^2|\nabla f|^2+2\int_M\rho_1f\nabla\rho_1\nabla f+\int_M f^2|\nabla \rho_1|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-215">From</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M f^2|\nabla \rho_1|^2\leq C\eps\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2\int_M\rho_1 f\nabla \rho_1\nabla f\leq 2 \sqrt{\int_M |\nabla(\rho_1 f)|^2}\cdot \sqrt{\int_M |\nabla\rho_1|^2f^2}\leq C\sqrt\eps \sqrt{\int_M |\nabla(\rho_1 f)|^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla (\rho_1f)|^2\leq\lambda_{ess}'+C\eps\text{.}
+\end{equation*}
+</div>
+<p id="p-216">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho_1^2f^2\geq 1-C\eps\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_{ess}\leq\frac{\lambda_{ess}'+C\eps}{1-C\eps}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and thus <span class="process-math">\(\lambda_{ess}\leq\lambda'_{ess}\text{.}\)</span> The other direction is easier to prove.</p></article></div>
+<p id="p-217">It is particularly interesting to get the lower bound estimate for the essential spectrum because of the following theorem.</p>
+<article class="theorem theorem-like" id="theorem-16"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Variational principal.</span>
+</h3>
+<p id="p-218">Suppose <span class="process-math">\(\lambda_0\lt \lambda_{ess}\text{,}\)</span> then <span class="process-math">\(\lambda_0\)</span> is en eigenvalue of <span class="process-math">\(M\)</span> with finite dimensional eigenspace.</p></article><p id="p-219">That is, there exists an <span class="process-math">\(L^2\)</span> function <span class="process-math">\(f\neq 0\text{,}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f=-\lambda_0 f\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is a very strong result.</p>
+<article class="example example-like" id="example-5"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-220">Let <span class="process-math">\(H=-\Delta+|x|^2\)</span> on <span class="process-math">\(\mathbb R^n\text{.}\)</span> Then the set of essential spectrum is empty. As a result, all spectrum of <span class="process-math">\(H\)</span> are eingevalues of finite multiplicity.</p></article></div></section></div></main>
+</div>
+</body>
+</html>

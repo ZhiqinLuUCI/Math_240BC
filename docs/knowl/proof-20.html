@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>Outside the cut-locus and the reference points, the function <span class="process-math">\(\rho_M\)</span> is smooth. Since <span class="process-math">\(\rho_M\)</span> is the distance function,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\nabla \rho_M|=1\text{.}
+\end{equation*}
+</div>
+<p>The Laplacian can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta_M = \frac{1}{\sqrt{g}} \frac{\partial }{\partial x_i} \left( g^{ij} \sqrt{g} \frac{\partial }{\partial x_j}\right)\text{.}
+\end{equation*}
+</div>
+<p>Under the assumption that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+ds^2 = d\rho^2 +\sum_{i,j} h_{ij}\, d \theta_i d \theta_j\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+\Delta \rho = \frac{\partial f}{\partial r}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f=\sqrt{\det h_{ij}}\text{.}\)</span> By  <a href="" class="xref" data-knowl="./knowl/x1.html" title="Equation 3.1.1">(3.1.1)</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x1.html">
+\begin{equation*}
+\frac{\partial^2 f}{\partial r^2} + \left( \frac{\partial f}{\partial r} \right) ^2 \geq - { Ric} \left( \frac{\partial }{\partial r} , \frac{\partial }{\partial r} \right)\text{.}
+\end{equation*}
+</div>
+<p>The corresponding function on <span class="process-math">\(N\)</span> satisfies the <em class="emphasis">equality</em></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+\frac{\partial^2 f_0}{\partial r^2} + \left( \frac{\partial f_0}{\partial r} \right) ^2 = ( n-1) K\text{.}\tag{3.1.2}
+\end{equation}
+</div>
+<p>If <span class="process-math">\(r\to 0\text{,}\)</span> the asympototics <span class="process-math">\(f\)</span> and <span class="process-math">\(f_0\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f}{\partial r}  \sim \frac{n-1}{  r} ,  \;\;  \frac{\partial f_0}{\partial r} \sim  \frac{n-1}{\partial r}\text{.}
+\end{equation*}
+</div>
+<p>Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- { Ric} \left(    \frac{\partial }{\partial r} ,  \frac{\partial }{\partial r}  \right) \leq ( n - 1) K\text{,}
+\end{equation*}
+</div>
+<p>By the maximum principle</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial f}{\partial r}  \leq \frac{\partial f_0}{\partial r_0}\text{.}
+\end{equation*}
+</div>
+<p>This proves the comparison theorem at the smooth points of <span class="process-math">\(f\text{.}\)</span></p>
+<p>Solving the equation <a href="" class="xref" data-knowl="./knowl/x2.html" title="Equation 3.1.2">(3.1.2)</a>, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2.html">
+\begin{equation*}
+f_0(r) = \frac{1}{\cosh \,  \sqrt K} \cdot \sinh \, \sqrt K r\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta _N \rho = \frac{n-1}{\rho} k \rho \coth k\rho \leq \frac{n-1}{\rho}  (1 + k \rho)\text{.}
+\end{equation*}
+</div>
+<p>Thus the Laplacian comparison theorem can be written in the following more useful form:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta _M \rho \leq \frac{n-1}{\rho} ( 1 + k \rho)\text{.}
+\end{equation*}
+</div>
+<p>We shall prove that the above inequality is true even at singular points of <span class="process-math">\(\rho\text{,}\)</span> in the sense of distribution. To see this, we let <span class="process-math">\(\Omega\)</span> be the domain in <span class="process-math">\(X\)</span> such that <span class="process-math">\(\rho\)</span> is smooth on <span class="process-math">\(\Omega\text{.}\)</span> <span class="process-math">\(\Omega\)</span> is a star-like domain in <span class="process-math">\(X\text{.}\)</span> Apparently</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+X = \Omega \cup C u t (p)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(Cut(p)\)</span> is the cut-locus of <span class="process-math">\(X\text{.}\)</span> Since <span class="process-math">\(\rho\)</span> is at least continuous, and since the measure of <span class="process-math">\(Cut (p)\)</span> is zero, we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _X \rho \Delta \phi = \int _{\Omega}  \rho \Delta \phi
+\end{equation*}
+</div>
+<p class="continuation">for any smooth function <span class="process-math">\(\phi\text{.}\)</span> Let <span class="process-math">\(\Omega _\varepsilon\)</span> be an exhaustion of <span class="process-math">\(\Omega\)</span> in the sense that <span class="process-math">\(\Omega _\varepsilon  \subset \Omega\text{.}\)</span> <span class="process-math">\(\Omega _\varepsilon \subset \Omega  _{\varepsilon^{\prime}}\)</span> if <span class="process-math">\(\varepsilon &gt; \varepsilon ^\prime\text{,}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\varepsilon \rightarrow 0} \Omega _\varepsilon = \Omega\text{.}
+\end{equation*}
+</div>
+<p>Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\int_X \rho \Delta \phi \amp  = \amp  - \int_X \nabla \rho \nabla \rho\\
+\amp  = \amp  \lim _{\varepsilon \rightarrow 0} (-1) \int _{ \Omega \varepsilon} \nabla \rho \nabla \phi \text{.}
+\end{align*}
+</div>
+<p>Using the Green's formula, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- \int _\Omega \nabla \rho \nabla \phi = \int _ \Omega \nabla u \cdot \phi - \int _{\partial \Omega \varepsilon } \phi \frac{\partial \rho}{\partial r}\text{.}
+\end{equation*}
+</div>
+<p>On the boundary <span class="process-math">\(\partial \Omega \varepsilon\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial \rho}{\partial r} \geq 0\text{.}
+\end{equation*}
+</div>
+<p>Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- \int _\Omega \nabla \rho \nabla \phi \leq \int _ {\Omega \varepsilon} \Delta  \rho \cdot \phi \leq   \int _{\Omega \varepsilon } \frac{n-1}{\rho }  ( 1+k\rho)\phi
+\end{equation*}
+</div>
+<p>Finally, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\int_X \rho \nabla \phi  \amp  \leq \amp  \lim_{\varepsilon \rightarrow 0} \int _{\Omega \varepsilon} \frac{n-1}{\rho} ( 1 + k \rho) \phi\\
+\amp  = \amp  \int_X \frac{n-1}{\rho}(1+ k \rho) \phi
+\end{align*}
+</div>
+<p class="continuation">which finishes the proof of the theorem.</p></article><span class="incontext"><a href="Comparison_theorems.html#proof-20" class="internal">in-context</a></span>
+</body>
+</html>

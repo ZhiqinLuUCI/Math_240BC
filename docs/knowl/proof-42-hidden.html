@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:46-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Let <span class="process-math">\(u\)</span> be the normalized first eigenfunction. That is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 = \sup u &gt; \inf u \geqslant -1\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\beta &gt; 1\text{.}\)</span> Consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x) = \frac{|\nabla u|^2}{(\beta - u)^2}\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(x_0\)</span> be the maximum point of <span class="process-math">\(G(x)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla G(x_0) = 0, \Delta G(x_0) \leqslant 0\text{.}
+\end{equation*}
+</div>
+<p>Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x)(\beta - u)^2 = |\nabla u|^2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta G(\beta - u)^2 +2\nabla G \nabla(\beta-u)^2 + G\Delta(\beta - u)^2 = \Delta|\nabla u|^2\text{.}
+\end{equation*}
+</div>
+<p>Thus at <span class="process-math">\(x_0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\nonumber 0 \amp  \geqslant \amp  \Delta |\nabla u|^2 - G \Delta (\beta - u)^2\\
+\nonumber \amp  = \amp  2\sum u_{ij}^2 + 2\sum u_i u_{ijj} - 2G[(\beta - u)(-\Delta u) + |\nabla u|^2]\\
+\nonumber \amp  = \amp  2u_{ij}^2 + 2u_i(\Delta u_i)_i\\
+\nonumber \amp  + \amp  2Ric(\nabla u, \nabla u) - 2G[\lambda_1 u (\beta - u) + |\nabla u|^2]\text{.}
+\end{align*}
+</div>
+<p>That is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_{ij}^2 - \lambda_1 |\nabla u|^2 - (n-1)K|\nabla u|^2 - G(\lambda_1 u (\beta - u) + |\nabla u|^2) \leqslant 0\text{.}
+\end{equation*}
+</div>
+<p>We choose a local coordinate system at <span class="process-math">\(x_0\)</span> such that <span class="process-math">\(u_j = 0\)</span> <span class="process-math">\((j=2,\cdots,n)\text{,}\)</span> <span class="process-math">\(u_1 = |\nabla u|\text{.}\)</span> Then <span class="process-math">\(u_1 \neq 0\)</span> (or otherwise, <span class="process-math">\(G(x_0) = 0\)</span> which is not possible). From <span class="process-math">\(\nabla G(x_0) = 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\{\begin{array}{l} u_{11} = -|\nabla u|^2 (\beta -u)^{-1} \\ u_{1i} = 0, i \neq 1 \end{array} \right.\text{.}
+\end{equation*}
+</div>
+<p>Using the following trick</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\nonumber \sum_{i\cdot j=2}^n u_{ij}^2 \amp  \geqslant \amp \sum_{i=2}^n u_{ii}^2 \geqslant \frac{1}{n-1}\left(\sum_{i=2}^n u_{ii}\right)^2 = \frac{1}{n-1}(\Delta u - u_{11})^2\\
+\nonumber \amp  = \amp  \frac{1}{n-1}(\lambda u + u_{11})^2 = \frac{1}{n-1}(\lambda^2 u^2 + 2\lambda u u_{11} + u_{11}^2)\\
+\nonumber \amp  \geqslant \amp  \frac{u_{11}^2}{2(n-1)} - \frac{1}{n-1}\lambda^2 u^2\text{,}
+\end{align*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2(n-1)}\frac{|\nabla u|^4}{(\beta - u)^2} - \frac{\lambda^2 u^2}{n-1} - (\lambda_1 + (n-1)K)|\nabla u|^2 - \lambda_1\frac{|\nabla u|^2 u}{\beta - u} \leqslant 0\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\alpha = u(\beta - u)^{-1}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\alpha \leqslant \frac{1}{\beta - u} \leqslant \frac{1}{\beta - 1}\text{.}
+\end{equation*}
+</div>
+<p>Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2(n-1)}G^2 - \frac{\lambda^2}{n-1}\alpha^2 - (\lambda_1 + (n-1)K)G -\lambda_1 G\alpha \leqslant 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x) \leqslant G(x_0) \leqslant 4(n-1) \left(\frac{\lambda\beta}{\beta-1} + (n-1)K\right)\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(l\)</span> be the geodesic line connecting <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{,}\)</span> where <span class="process-math">\(u(x_1) = 0\text{,}\)</span> <span class="process-math">\(u(x_2) = \sup u = 1\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\log\frac{\beta}{\beta - 1} \leqslant \int_\gamma \frac{|\nabla u|}{\beta - u} \leqslant \left[4(n-1)\left(\frac{\beta\lambda_1}{\beta-1}+(n-1)K\right)\right]^{1/2}d\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or in other words</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_1 \geqslant \frac{\beta-1}{\beta}\left[\frac{1}{4(n-1)d^2} \left(\log\frac{\beta}{\beta - 1}\right)^2 - (n-1)K\right]
+\end{equation*}
+</div>
+<p>Choosing <span class="process-math">\(\beta_0\)</span> such that the right side above maximized, we proved the theorem.</p></article></body>
+</html>

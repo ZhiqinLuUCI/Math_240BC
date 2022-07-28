@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:48-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(t)=\int_{E(t)} f(x) dx\text{.}
+\end{equation*}
+</div>
+<p>Then it is easy to verify that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{E(t)} f^r(x) dx=-\int_t^\infty s^{r-1} dh(s)\text{.}
+\end{equation*}
+</div>
+<p>Thus the lemma can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+-\int_t^\infty s^{q-1} dh(s)\leq at^{q-1} h(t)\text{.}\tag{10.1.3}
+\end{equation}
+</div>
+<p>Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(r)=-\int_1^\infty t^{r-1}dh(t)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">and for <span class="process-math">\(p&gt;q&gt;0\text{,}\)</span> define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+J=(p-q)\int_1^\infty t^{p-q-1}\left(-\int_t^\infty s^{q-1}dh(s)\right) dt\text{.}
+\end{equation*}
+</div>
+<p>Then by <a href="" class="xref" data-knowl="./knowl/x2a.html" title="Equation 10.1.3">(10.1.3)</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x2a.html">
+\begin{equation*}
+J\leq (p-q)\int_1^\infty at^{p-2} h(t) dt=\frac{a(p-q)}{p-1}\int_1^\infty h(t) dt^{p-1}= \frac{a(p-q)}{p-1}(-I(1)+I(p))\text{.}
+\end{equation*}
+</div>
+<p>On the other hand, we use integration by parts to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+J=\int_1^\infty\left(-\int_t^\infty s^{q-1}dh(s)\right)dt^{p-q}=I(p)-I(q)\text{.}
+\end{equation*}
+</div>
+<p>Thus we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(p)-I(q)\leq \frac{a(p-q)}{p-1}(-I(1)+I(p))\text{.}
+\end{equation*}
+</div>
+<p>Thus for <span class="process-math">\(p\)</span> sufficiently close to <span class="process-math">\(q\text{,}\)</span> we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I(p)\leq C(I(q)+I(1))\text{.}
+\end{equation*}
+</div></article><span class="incontext"><a href="Reverse_holder.html#proof-83" class="internal">in-context</a></span>
+</body>
+</html>

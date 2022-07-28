@@ -10,7 +10,7 @@
       <format>html</format>
       <source>source/main.ptx</source>
       <publication>publication/publication.ptx</publication>
-      <output-dir>output/web</output-dir>
+      <output-dir>docs</output-dir>
       <stringparam key="html.css.extra" value="external/custom-styles.css"/>
     </target>
     <target name="print" pdf-method="xelatex">

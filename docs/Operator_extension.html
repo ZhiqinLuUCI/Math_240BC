@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-28T08:26:44-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Self-adjoint extension of the Laplace operator</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Laplace_operator.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Var_principle.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Laplace_operator.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Var_principle.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="active">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Operator_extension"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Self-adjoint extension of the Laplace operator</span>
+</h2>
+<p id="p-123">In this section, we assume that <span class="process-math">\(M\)</span> is Riemannian manifold, not necessarily compact nor complete.</p>
+<p id="p-124">Let <span class="process-math">\(\Lambda^p(M)\)</span> be the space of smooth <span class="process-math">\(p\)</span>-forms and let <span class="process-math">\(L^2(\Lambda^p(M))\)</span> be the metric space completion of <span class="process-math">\(\Lambda^p(M)\)</span> under the inner product product defined in  <a href="" class="xref" data-knowl="./knowl/p-3.html" title="Equation 2.1.1">(2.1.1)</a>.</p>
+<article class="exercise exercise-like" id="exercise-16"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-16"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-16"><article class="exercise exercise-like"><p id="p-125">Prove that we can identify <span class="process-math">\(L^2(\Lambda^p(M))\)</span> to be the space of <span class="process-math">\(p\)</span>-forms <span class="process-math">\(\omega\text{,}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\omega=a_{i_1\cdots i_p}\omega_{i_1}\wedge\cdots\wedge\omega_{i_p}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">such that <span class="process-math">\(a_{i_1\cdots i_p}\)</span> are locally <span class="process-math">\(L^2\)</span> integrable functions.</p></article></div>
+<p id="p-126">The reason we would like to use <span class="process-math">\(L^2(\Lambda^p(M))\)</span> in stead of <span class="process-math">\(\Lambda^p(M)\)</span> is, of course, that <span class="process-math">\(L^2(\Lambda^p(M))\)</span> is complete, allowing many applications in analysis.</p>
+<p id="p-127">Unfortunately, it is not possible to extend <span class="process-math">\(\Delta\)</span> to <span class="process-math">\(L^2(\Lambda^p(M))\)</span> as a symmetric linear operator. In what follows, we briefly explain the reason.</p>
+<p id="p-128">First, the Laplace operator is not a bounded operator on <span class="process-math">\(\Lambda^p(M)\text{.}\)</span> We can give counterexamples even in one-dimensional case: let <span class="process-math">\(f\)</span> be a smooth function on <span class="process-math">\([0,1]\text{.}\)</span> Then there doesn't exist a constant <span class="process-math">\(C\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^1(f''(t))^2 dt\leq C\int_0^1(f(t))^2 dt\text{.}
+\end{equation*}
+</div>
+<p id="p-129">Second, like most differential operators, the Laplace operator is a closed-graph operator. That is, if <span class="process-math">\(\eta_j\to \eta\)</span> and <span class="process-math">\(\Delta\eta_j\to\eta'\)</span> in <span class="process-math">\(L^2\)</span> and <span class="process-math">\(\eta\in\Lambda^p(M)\text{,}\)</span> then we must have <span class="process-math">\(\eta'=\Delta\eta\text{.}\)</span> To see this, we consider any smooth <span class="process-math">\(p\)</span> form <span class="process-math">\(\omega\text{:}\)</span> We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int\langle\eta'-\Delta\eta,\omega\rangle=\lim_{j\to\infty}\int \langle\Delta\eta_j,\omega\rangle-\lim_{j\to\infty}\int\langle\eta_j,\Delta\omega\rangle=0\text{.}
+\end{equation*}
+</div>
+<p id="p-130">Thus we have <span class="process-math">\(\eta'=\Delta\eta\text{.}\)</span></p>
+<p id="p-131">If <span class="process-math">\(\Delta\)</span> could be extended to a linear operator of <span class="process-math">\(L^2(\Lambda^p(M))\text{,}\)</span> then by the <em class="emphasis">Closed Graph Theorem</em>, <span class="process-math">\(\Delta\)</span> could have been bounded, which is a contradiction.</p>
+<p id="p-132">Because of the above result, the best we can do is to extend the Laplacian operator into a <em class="emphasis">densely defined</em> self-adjoint operator. Of course, <span class="process-math">\(\Lambda^p(M)\)</span> is dense in <span class="process-math">\(L^2(\Lambda^p(M))\text{.}\)</span> But for such an operator (i.e, <span class="process-math">\(\Delta\)</span> and its domain <span class="process-math">\({\mathcal Dom}(\Delta))\text{,}\)</span> we don't have the so-called spectral theorem. So in order to get meaningful results, we have to extend the Laplace operator first.</p>
+<article class="definition definition-like" id="definition-4"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h3>
+<p id="p-133">Let <span class="process-math">\(H\)</span> be a Hilbert space, Given a densely defined linear operator <span class="process-math">\(A\)</span> on <span class="process-math">\(H\text{,}\)</span> its adjoint <span class="process-math">\(A^*\)</span> is defined as follows:</p>
+<ol class="decimal">
+<li id="li-14">
+<p id="p-134">The domain <span class="process-math">\({\mathcal Dom}(A^*)\)</span> of <span class="process-math">\(A^*\)</span> consists of vectors <span class="process-math">\(x\)</span> in <span class="process-math">\(H\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y\mapsto \langle x, Ay\rangle
+\end{equation*}
+</div>
+<p class="continuation">is a bounded linear functional, where <span class="process-math">\(y\in{\mathcal Dom}(A)\text{;}\)</span></p>
+</li>
+<li id="li-15">
+<p id="p-135">By the <em class="emphasis">Riesz Representation Theorem</em> for linear functionals, if <span class="process-math">\(x\)</span> is in the domain of <span class="process-math">\(A^*\text{,}\)</span> there is a unique vector <span class="process-math">\(z\)</span> in <span class="process-math">\(H\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\langle x,Ay\rangle=\langle z,y\rangle
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(y\in {\mathcal Dom}(A)\text{.}\)</span> This vector <span class="process-math">\(z\)</span> is defined to be <span class="process-math">\(A^*x\text{.}\)</span> It can be shown that the dependence of <span class="process-math">\(z\)</span> on <span class="process-math">\(x\)</span> is linear.</p>
+</li>
+</ol>
+<p id="p-136">If <span class="process-math">\(A^*=A\)</span> (which implies that <span class="process-math">\({\mathcal Dom}\, (A^*)={\mathcal Dom}\,(A)\)</span>), then <span class="process-math">\(A\)</span> is called self-adjoint.</p></article><p id="p-137">For a (densely-defined) self-adjoint operator <span class="process-math">\(A\text{,}\)</span> we have the <em class="emphasis">Spectral Theorem</em>. That is, there is a spectral measure such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=\int_{-\infty}^{+\infty}\lambda dE\text{.}
+\end{equation*}
+</div>
+<p id="p-138">A densely defined self-adjoint operator <span class="process-math">\(\bar\Delta\)</span> is called an extension of <span class="process-math">\(\Delta\text{,}\)</span> if <span class="process-math">\({\mathcal Dom}\, (\Delta)\subset {\mathcal Dom}\, (\bar\Delta)\text{,}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta=\bar\Delta\,|_{{\mathcal Dom}\, (\Delta)}\text{.}
+\end{equation*}
+</div>
+<p id="p-139">For the rest of the section, we shall study the extensions of <span class="process-math">\(\Delta\text{.}\)</span> We shall prove that the extension of <span class="process-math">\(\Delta\)</span> always exists, but in general, they are not unique in general.</p>
+<p id="p-140">Define <span class="process-math">\(H^1(M)\)</span> to be the Sobolev space of the completion of <span class="process-math">\(\Lambda^p(M)\)</span> under the norm</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||\eta||_1=\sqrt{\int_M|\eta|^2 dV_M}+\sqrt{\int_M|\nabla\eta|^2\, dV_M}\text{.}
+\end{equation*}
+</div>
+<p id="p-141">Similarly, let <span class="process-math">\(\Lambda_0^p(M)\)</span> be the space of smooth <span class="process-math">\(p\)</span>-forms with compact support and define <span class="process-math">\(H_0^1(M)\)</span> to be the Sobolev space of the completion of <span class="process-math">\(\Lambda_0^p(M)\)</span> under the above norm. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H_0^1(M)\subset H^1(M)\text{.}
+\end{equation*}
+</div>
+<p id="p-142">In general, the above two spaces are not equal. However, we have</p>
+<article class="theorem theorem-like" id="thm7"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h3>
+<p id="p-143">If <span class="process-math">\(M\)</span> is a complete Riemannian manifold, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H_0^1(M)= H^1(M)\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-11"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><p id="p-144">Let <span class="process-math">\(\phi\in H^1(M)\text{.}\)</span> Then there exists a sequence <span class="process-math">\(\{\phi_j\}\in \Lambda^p(M)\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi_j\to \phi, j\to\infty
+\end{equation*}
+</div>
+<p class="continuation">in the <span class="process-math">\(\|\|_1\)</span> norm.</p>
+<p id="p-145">Let <span class="process-math">\(p\in M\)</span> be a fixed point and let <span class="process-math">\(\rho\)</span> be a smooth function on <span class="process-math">\(\mathbb R\)</span> with compact support such that in a neighborhood of <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(\rho\)</span> is the constant <span class="process-math">\(1\text{.}\)</span> Let <span class="process-math">\(d(x,y)\)</span> be the distance function. Define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho_j(x)=\rho(j^{-1}\,d(p,x))\text{.}
+\end{equation*}
+</div>
+<p id="p-146">Then we can prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho_j\,\phi_j\to\phi
+\end{equation*}
+</div>
+<p class="continuation">in the <span class="process-math">\(\|\|_1\)</span> norm.</p></article></div>
+<article class="exercise exercise-like" id="exercise-17"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-17"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-17"><article class="exercise exercise-like"><p id="p-147">Provide the detailed proof of the above theorem.</p></article></div>
+<p id="p-148">We define the quadratic form <span class="process-math">\(Q\)</span> by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q(\omega,\eta)=\int_M\left(\langle d\omega,d\eta \rangle +\langle\delta\omega,\delta\eta\rangle\right) dV_M
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(\omega,\eta\in H_0^1(M)\text{.}\)</span> By the Weitzenböck formula, we have</p>
+<article class="proposition theorem-like" id="prop1"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h3>
+<p id="p-149">If the curvature is bounded, then <span class="process-math">\(\sqrt{Q(\phi,\phi)+\|\phi\|_{L^2}^2}\)</span> is equivalent to the <span class="process-math">\(\|\phi\|_1\text{.}\)</span></p></article><p id="p-150">The <em class="emphasis">Friedrichs extension</em> <span class="process-math">\(\bar\Delta\)</span> of <span class="process-math">\(\Delta\)</span> is defined by the following. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-10">
+\begin{align*}
+\amp {\mathcal Dom}(\bar \Delta)=\left\{\phi\in H_0^1(M)\mid\right.\\
+\amp \left.\forall\psi\in \Lambda^p(M), \exists f\in L^2(\Lambda^p(M)), s.t.\, Q(\phi,\psi)=( f,\psi)\right\}\text{.}
+\end{align*}
+</div>
+<article class="lemma theorem-like" id="lemma-5"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h3>
+<p id="p-151">Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{\mathcal Dom}(\bar\Delta)={\mathcal Dom}(\bar\Delta^*)\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof"><p id="p-152">For any <span class="process-math">\(\phi,\psi\in{\mathcal Dom}(\bar\Delta)\text{,}\)</span> <span class="process-math">\((\bar\Delta\phi,\psi)=Q(\psi,\phi)=(\phi,\bar\Delta\psi)\)</span> is a bounded functional. Thus <span class="process-math">\(\phi\in {\mathcal Dom}(\bar\Delta^*)\text{.}\)</span> On the other hand, if <span class="process-math">\(\phi\in {\mathcal Dom}(\Delta^*)\text{,}\)</span> then the functional <span class="process-math">\(\psi\mapsto (\Delta\psi,\phi)\)</span> is bounded. By the Riesz representation theorem, there is a unique <span class="process-math">\(f\in L^2(\Lambda^p(M))\)</span> such that <span class="process-math">\((\bar\Delta\psi,\phi)=(f,\psi)\text{.}\)</span> Thus we must have <span class="process-math">\(Q(\phi,\psi)=(\bar\Delta\psi,\phi)=(f,\psi)\text{,}\)</span> and <span class="process-math">\(\phi\in {\mathcal Dom}(\bar\Delta)\text{.}\)</span></p></article></div>
+<article class="theorem theorem-like" id="theorem-8"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h3>
+<p id="p-153">The Laplace operator has a self-adjoint extension.</p></article><article class="theorem theorem-like" id="theorem-9"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
+</h3>
+<p id="p-154">Let <span class="process-math">\(M\)</span> be a complete Riemannian manifold. Then the extension of the Laplace operator is unique.</p></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><p id="p-155">Let <span class="process-math">\(\Delta_2\)</span> be another self-adjoint extension of <span class="process-math">\(\Delta\text{.}\)</span> Then for <span class="process-math">\(\phi\in {\mathcal Dom}(\bar\Delta)\)</span> the functional</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop1.html">
+\begin{equation*}
+\psi\mapsto(\phi,\Delta\psi)+(\phi,\psi)=(\Delta_2\phi,\psi)+(\phi,\psi)
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(\psi\in\Lambda_0^p(M)\)</span> is bounded under the norm <span class="process-math">\(\|\|_1\text{.}\)</span> By <a href="" class="xref" data-knowl="./knowl/prop1.html" title="Proposition 2.2.5">Proposition 2.2.5</a>, it is also bounded under the norm</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop1.html">
+\begin{equation*}
+\sqrt{Q(\cdot,\cdot)+(\cdot,\cdot)}\text{.}
+\end{equation*}
+</div>
+<p id="p-156">By the Riesz representation theorem, there exists an element <span class="process-math">\(\mu\in H^1(M)\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\phi,\Delta\psi)+(\phi,\psi)=Q(\mu,\psi)+(\mu,\psi)\text{.}
+\end{equation*}
+</div>
+<p id="p-157">Therefore <span class="process-math">\(\phi=\psi\in H^1(M)\text{.}\)</span> Since <span class="process-math">\(M\)</span> is complete, By <a href="" class="xref" data-knowl="./knowl/thm7.html" title="Theorem 2.2.3">Theorem 2.2.3</a>, <span class="process-math">\(\phi\in H_0^1(M)\text{.}\)</span> For any <span class="process-math">\(\psi\in\Lambda_0^p(M)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm7.html">
+\begin{equation*}
+(\Delta_2\phi,\psi)=(\phi,\Delta\psi)=Q(\phi,\psi)
+\end{equation*}
+</div>
+<p class="continuation">and by taking limit, the above equality is also true for any <span class="process-math">\(\psi\in H_0^1(M)\text{.}\)</span> Thus we prove</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm7.html">
+\begin{equation*}
+{\mathcal Dom}\,(\Delta_2)\subset {\mathcal Dom}\,(\bar\Delta)\text{.}
+\end{equation*}
+</div>
+<p id="p-158">On the other hands, since both <span class="process-math">\(\bar\Delta\)</span> and <span class="process-math">\(\Delta_2\)</span> are self-adjoint, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{\mathcal Dom}\,(\bar\Delta)={\mathcal Dom}\,(\bar\Delta^*)\subset{\mathcal Dom}\,(\Delta_2^*)={\mathcal Dom}\,(\Delta_2)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and thus we prove</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{\mathcal Dom}\,(\bar\Delta)={\mathcal Dom}\,(\Delta_2)\text{.}
+\end{equation*}
+</div>
+<p id="p-159">Thus <span class="process-math">\(\Delta_2=\bar\Delta\text{,}\)</span> and the extension is unique.</p></article></div>
+<p id="p-160">In general, the self-adjoint extension is not unique.</p>
+<article class="example example-like" id="example-3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-161">Let <span class="process-math">\(M\)</span> be a compact orientable manifold with smooth boundary. Let <span class="process-math">\(\mathcal C_0^\infty(M)\)</span> be the space of smooth functions whose supports are within the interior of <span class="process-math">\(M\text{,}\)</span> and let <span class="process-math">\(\mathcal C^\infty(M)\)</span> be the space of smooth functions (smooth up to the boundary). We can define two kinds of Laplacians: the first one <span class="process-math">\(\Delta_D\)</span> is called the Dirichlet Laplacian, which is the same as the Friedrichs extension <span class="process-math">\(\bar\Delta\text{.}\)</span> The second one <span class="process-math">\(\Delta_N\)</span> is called the Neumann Laplacian, defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-11">
+\begin{align*}
+\amp {\mathcal Dom}(\Delta_N)=\left\{\phi\in H^1(M)\mid\right.\\
+\amp \left.\forall\psi\in \mathcal C^\infty(M) \,\,s.t. \frac{\pa\psi}{\pa n}=0, \exists f\in L^2(M), s.t.\, Q(\phi,\psi)=( f,\psi)\right\}\text{.}
+\end{align*}
+</div>
+<p id="p-162">For <span class="process-math">\(\phi,\psi\in \mathcal C^\infty(M)\text{,}\)</span> we have the Green's formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\Delta\phi,\psi)=\int_{\pa M}\frac{\pa\phi}{\pa n}\,\psi-\int_M\phi\,\frac{\pa\psi}{\pa n}+(\phi,\Delta\psi)\text{.}
+\end{equation*}
+</div>
+<p id="p-163">Therefore, if <span class="process-math">\(\phi\in {\mathcal Dom}(\Delta_D)\cap\mathcal C^\infty(M)\text{,}\)</span> we have <span class="process-math">\(\phi|_{\pa M}=0\text{,}\)</span> and if <span class="process-math">\(\phi\in{\mathcal Dom}(\Delta_N)\cap \mathcal C^\infty(M)\text{,}\)</span> we have <span class="process-math">\(\frac{\pa\phi}{\pa n}=0\text{.}\)</span> These justify the names.</p></article></div>
+<p id="p-164">Many results related to the Laplace operator are true even on noncomplete manifolds.</p>
+<article class="theorem theorem-like" id="theorem-10"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span>
+</h3>
+<p id="p-165">Let <span class="process-math">\(f\in { ker}\,(\bar\Delta)\text{.}\)</span> Assume that <span class="process-math">\(f\in L^2(M)\text{.}\)</span> Then <span class="process-math">\(f\)</span> is a constant.</p></article><p id="p-166">This is a theorem of Yau in the case of complete manifold. But we shall prove that it is also true for any noncompete manifold.</p>
+<article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><p id="p-167">Let <span class="process-math">\(\rho_j\)</span> be the smooth function defined in <a href="" class="xref" data-knowl="./knowl/thm7.html" title="Theorem 2.2.3">Theorem 2.2.3</a>. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm7.html">
+\begin{equation*}
+0=(\bar\Delta f, \rho_j^2 f)=Q(f,\rho_j^2 f)\text{.}
+\end{equation*}
+</div>
+<p id="p-168">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho_j^2|\nabla f|^2=-2\int_M \rho_j\, f\nabla\rho_j\nabla f\leq 2\sqrt{\int_M|\nabla \rho_j|^2 f^2\, dV_M} \cdot\sqrt{\int_M\rho_j^2|\nabla f|^2\, dV_M}\text{.}
+\end{equation*}
+</div>
+<p id="p-169">It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\rho_j^2|\nabla f|^2\,dV_M\leq \frac{C}{j^2}\int_Mf^2\, dV_M\to 0
+\end{equation*}
+</div>
+<p class="continuation">and the theorem is proved.</p></article></div>
+<article class="example example-like" id="example-4"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-170">Let <span class="process-math">\(M=\mathbb R^n-\{0\}\text{.}\)</span> Then any <span class="process-math">\(L^2\)</span> harmonic function extends to the origin. Thus by the theorem of Yau, we know that it has to be a constant. Let <span class="process-math">\(M\)</span> be a bounded domain. Then the fact that <span class="process-math">\(f\)</span> is in the domain of the Laplace operator implies that <span class="process-math">\(f\)</span> vanishes on the boundary. Hence <span class="process-math">\(f\)</span> is zero.</p></article></div></section></div></main>
+</div>
+</body>
+</html>
