@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-31T10:41:44-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The lower bound of \lambda_2 - \lambda _1</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="First_eigenvalue.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Spectrum_gap.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="First_eigenvalue.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Eigenvalue_problem.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Spectrum_gap.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="active">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Eigenvalue_gap"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.4</span> <span class="title">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></span>
+</h2>
+<p id="p-818">Let <span class="process-math">\(\Omega\)</span> be a smooth bounded domain in <span class="process-math">\(\mathbb{R}^n , \lambda _1 \lambda _2\)</span> be the first two eigenvalues with respect to the Dirichlet boundary condition. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2 - \lambda _1 \geq \frac{\bar{\pi}^2}{4 d ^2}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(d\)</span> is the diameter.</p>
+<p id="p-819">\begin{proof} Let <span class="process-math">\(u_2, u_1\)</span> be the second and the first eigenfunctions, respectively. By the variational principle, we must have <span class="process-math">\(u_1 (x) &gt; 0\text{.}\)</span> Furthermore, near the boundary, we must have <span class="process-math">\(\nabla u_1 (x) \neq 0\text{.}\)</span> Thus the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v = \frac{u_2}{u_1}
+\end{equation*}
+</div>
+<p class="continuation">is smooth up to the boundary. By a simple computation, we obtained</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta v = - \lambda v - 2 ( \nabla v \cdot \nabla \log u_1)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\lambda = \lambda _2 - \lambda _1 &gt; 0\text{.}\)</span> Let <span class="process-math">\(G\)</span> be the function <span class="process-math">\(\bar{\Omega} \rightarrow \mathbb{R}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G = |\nabla v | ^2 + \lambda (u - v ) ^2 \; \mu &gt; \sup v\text{.}
+\end{equation*}
+</div>
+<p id="p-820">Then <span class="process-math">\(G\)</span> is a smooth function. Let <span class="process-math">\(x_0 \in \bar{\Omega}\)</span> be the maximum point of <span class="process-math">\(G\text{.}\)</span> Then we claim that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G \leq \sup_{\Omega} \lambda ( u - v )^2\text{.}
+\end{equation*}
+</div>
+<p id="p-821">In fact, if <span class="process-math">\(x_0 \in \partial \Omega\text{.}\)</span> By choosing an orthonormal frame <span class="process-math">\(\{ \ln_1 , \ldots, \ln_n \}\)</span> such that <span class="process-math">\(\ln_1\)</span> be the out normal direction if we let <span class="process-math">\(\frac{\ln_1}{\partial \Omega} = \frac{\partial }{\partial x _1}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial G}{\partial x _1} (x_0)  = 2 \sum^n_{i=1} v_i v_{i1} -  2 \lambda v _1 (\mu - v )\text{.}
+\end{equation*}
+</div>
+<p id="p-822">We claim that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial G}{\partial x _1} (x_0) \geq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-823">To see this, we first observed that <span class="process-math">\(\frac{\partial v }{\partial x _1} = 0\text{.}\)</span> This can be proved using the variational principle. Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\partial G}{\partial x _1} (x_0)  = 2 \sum^n_{i=2} v_i v_{i1}\text{.}
+\end{equation*}
+</div>
+<p id="p-824">Using the definition of the second fundamental form, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v _{i1} = - \sum h_{ij} v _j\text{.}
+\end{equation*}
+</div>
+<p id="p-825">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \leq \frac{\partial G}{\partial x _1} (x_0)  = -2 \sum   h_{ij} v_{j}\text{.}
+\end{equation*}
+</div>
+<p id="p-826">Since <span class="process-math">\(\Omega\)</span> is assumed to be convex, all <span class="process-math">\(v_i = 0\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x) \leq \sup_{x \in \bar{\Omega}} \lambda ( \mu - v )^2\text{.}
+\end{equation*}
+</div>
+<p id="p-827">Next we assume that <span class="process-math">\(x_0 \in \Omega\text{.}\)</span> Then at the maximum point, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\nabla G (x_0) = 0 , \; \Delta G (x_0) \leq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-828">We apply the standard gradient estimate: assume that at <span class="process-math">\(x_o, \nabla v \neq 0\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-59">
+\begin{align*}
+0 \amp = \amp G_i (x_0) = 2 v_j v_{ji} - 2  \lambda ( \mu - v ) v _i\\
+0 \geq \Delta G \amp = \amp 2 \sum v ^2 _{ij} + 2 v _j v_{jii} + 2 \lambda \sum v ^2_i - 2 \lambda ( \mu - v) \sum v_{ii} \text{.}
+\end{align*}
+</div>
+<p id="p-829">Since <span class="process-math">\(\nabla v \neq 0\text{,}\)</span> we can choose local orthonormal frame such that <span class="process-math">\(v _1 \neq 0 , v _i = 0 (i &gt; 1)\text{.}\)</span> Thus at <span class="process-math">\(x_0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-60">
+\begin{align*}
+\amp \amp  v _{11} (x_0) = \lambda ( \mu - v )\\
+\amp \amp  v_{i1} (x_0) = 0 \;  2 \leq i \leq n \text{.}
+\end{align*}
+</div>
+<p id="p-830">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \geq \Delta G = 2 \sum v^2_{ij} + 2 \lambda ( \mu - v) v - 4 v ^2_1 (\log u_1 ) _{11}\text{.}
+\end{equation*}
+</div>
+<p id="p-831">Using a result of Brascamp and Lieb, <span class="process-math">\(\log u_1\)</span> is a concave function. Thus <span class="process-math">\((\log u) _{11} (x_0) \leq 0\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum v ^2 _{ij} + \lambda ^2 ( \mu - v) \nu \leq 0
+\end{equation*}
+</div>
+<p class="continuation">or, in other words,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v^2_{11} + \lambda ^2 v (\mu - v ) |_{x_{0}} \leq 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">which is not possible. Thus we must have <span class="process-math">\(\nabla v = 0\)</span> at <span class="process-math">\(x_0\)</span> and thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x) \leq \sup \lambda ( \mu - r) ^2\text{.}
+\end{equation*}
+</div>
+<p id="p-832">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt{\lambda} \geq \frac{|\nabla v |^2}{\sqrt{(\sup v - \inf v )^2 - (\sup v - v )^2}}\text{.}
+\end{equation*}
+</div>
+<p id="p-833">Using the same method as in the estimate of the first eigenvalue, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 \geq \frac{\pi^2}{4d^2}\text{.}
+\end{equation*}
+</div>
+<article class="remark remark-like" id="remark-7"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
+</h3>
+<p id="p-834">Using the method of Zhong-Yang, Zhong-Yu was able to modify the above estimate to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2 - \lambda _1 \geq \frac{\pi^2}{d^2}\text{.}
+\end{equation*}
+</div></article><p id="p-835">However, even the above estimate is not optimal. Van de Berg (see also Yau, Problem session) conjectured that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2 - \lambda _1 \geq \frac{3\pi^2}{d^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-836">The estimate is asymptotically accurate for a very thin rectangular.</p>
+<p id="p-837">Not much progress was made in the direction of this conjecture. In JFA, 176, 368–399 (2000). Banuelos and Mendez-Hernandez proved that if <span class="process-math">\(\Omega\)</span> is a convex domain in <span class="process-math">\(\mathbb{R} ^2\)</span> which is symmetric with respect to both <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axises, then the Van der Berg conjecture is true.</p>
+<p id="p-838">For a triangle, Lu and Rowlett proved the following.</p>
+<article class="theorem theorem-like" id="theorem-55"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
+</h3>
+<p id="p-839">Let <span class="process-math">\(\triangle\)</span> be a triangle and let <span class="process-math">\(d = d (\triangle)\)</span> be the diameter of <span class="process-math">\(\triangle\text{.}\)</span> That is, <span class="process-math">\(d\)</span> is the longest side of the triangle. Then <span class="process-math">\(\forall  C &gt; 0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+( \lambda _2 (\triangle ) - \lambda _1 (\triangle )) d^2 (\triangle ) \leq C
+\end{equation*}
+</div>
+<p class="continuation">is a compact set.</p></article><article class="hiddenproof" id="proof-43"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-43"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-43"><article class="hiddenproof"><p id="p-840">When a sequence of triangles doesn't converge, then the smallest angle must go to zero. We assume that the smallest angle is <span class="process-math">\(\alpha \pi\)</span> and we assume that the diameter <span class="process-math">\(d = 1\text{.}\)</span></p></article></div>
+<figure class="figure figure-like" id="figure-2"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.4.3<span class="period">.</span></span><span class="space"> </span>Figure</figcaption></figure><p id="p-841">The key part of the proof is the following cutting lemma. Let <span class="process-math">\(P_1, P_2\)</span> be two points on <span class="process-math">\(BC\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+| P_1 C| = \alpha ^3 , \; |P_2 C |= 2 \alpha ^\varepsilon
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\varepsilon &gt; \frac{2}{q}\text{.}\)</span> For the sake of simplicity, we assume that <span class="process-math">\(\lt  A CB = \pi/2\text{.}\)</span> We are going to prove that the eigenvalues of <span class="process-math">\(ABC\)</span> and <span class="process-math">\(A \theta_2 P_2 C\)</span> are almost the same, thus cutting an acute angle won't make too much difference.</p>
+<p id="p-842">We let <span class="process-math">\(U - A \theta _1 P_1 C\)</span> and <span class="process-math">\(U^\prime = A \theta _2 P_2 C\text{.}\)</span></p>
+<p id="p-843">Let <span class="process-math">\(f_i\)</span> be the eigenfunctions for <span class="process-math">\(\lambda _i = \lambda _i (ABC), i = 1, 2\text{.}\)</span> The height of <span class="process-math">\(V = ABC \backslash U\)</span> is at most</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+( 1 - \alpha ^\varepsilon ) \tan \alpha \pi\approx (1 - a ^\varepsilon ) a\text{.}
+\end{equation*}
+</div>
+<p id="p-844">Above we have dropped a constant factor of <span class="process-math">\(\pi\)</span> on the right side for simplicity in the arguments to follow. By the one-dimensional Poincaré inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int _u {|\nabla f_i|^2}}{\int_V f_i^2 } \geq \frac{1}{( 1 - \alpha ^\varepsilon )^2 \alpha ^2} \frac{\int _{V^{\prime}}  |\nabla f_i|^2}{\int_{V^{\prime}} |f_i|^2 } \geq \frac{1}{( 1 - 2 d ^\varepsilon )^2 \alpha ^2}
+\end{equation*}
+</div>
+<p class="continuation">where as before <span class="process-math">\(V = ABC\backslash U , V ^\prime = ABC \backslash V^\prime\text{.}\)</span></p>
+<p id="p-845">On the other hand, we always have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int_u | \nabla f _i|^2}{\int_u f_i^2 } \geq \frac{1}{\alpha^2} , \; \frac{\int_{u^{\prime}} | \nabla f _i|^2}{\int_{u^{\prime}} f_i^2 }\geq \frac{1}{\alpha^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-846">We normalize <span class="process-math">\(f_i\)</span> to be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{ABC} f _i ^2 = 1\text{.}
+\end{equation*}
+</div>
+<p id="p-847">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _V f_i^2 = \beta\text{.}
+\end{equation*}
+</div>
+<p id="p-848">Then by the variational principle, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\beta}{(1- a ^{\varepsilon} )^2 \alpha ^2} + \frac{1-\beta}{\alpha ^2} \leq \int_V | \nabla f_i |^2 + \int_u |\nabla f _i |^2 = \lambda _i\text{.}
+\end{equation*}
+</div>
+<p id="p-849">By the asymptotic estimate of the eigenvalues using the Bessel functions, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _i (ABC) \sim \frac{1}{\alpha^2} + \frac{C_2 }{\alpha ^\frac{4}{3}}\text{.}
+\end{equation*}
+</div>
+<p id="p-850">Therefore we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta \leq \frac{\alpha ^{\frac{2}{3}} C_2 ( 1 - \alpha ^\varepsilon )^2}{\alpha ^\varepsilon ( 2 - \alpha ^\varepsilon)} \leq \frac{C_2}{2} \alpha ^{\frac{2}{3} - \varepsilon}\text{.}
+\end{equation*}
+</div>
+<p id="p-851">For simplicity in the arguments to follow, we will replace the constant factor <span class="process-math">\(C_2 / 2\)</span> by a constant factor 1, since we are considering <span class="process-math">\(\alpha \rightarrow 0\text{.}\)</span></p>
+<p id="p-852">Let <span class="process-math">\(\rho\)</span> be a smooth compactly supported function so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho |_v \equiv 1, \; \rho |_{v^{\prime }}  \equiv 0\text{.}
+\end{equation*}
+</div>
+<p id="p-853">We may also assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+| \nabla \rho | \leq \frac{1}{d ^\varepsilon} , |\Delta \rho |, | \Delta \rho^2 |\leq \frac{1}{d ^{ 2 \varepsilon }}\text{.}
+\end{equation*}
+</div>
+<p id="p-854">For the arguments to follow, we use the sign convention for Euclidean Laplacian so that <span class="process-math">\(- \Delta\)</span> has positive spectrum. Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+- ( \rho f_i) \Delta ( \rho f_i) = \lambda _i \rho ^2 f _i ^2 - f _i ^2 \rho \Delta \rho - 2 f _i \rho \nabla \rho \nabla f _i\text{.}
+\end{equation*}
+</div>
+<p id="p-855">In the estimates to follow, we will absorb all constants multiplying factors of <span class="process-math">\(a ^\delta\)</span> for <span class="process-math">\(\delta &gt; 0\)</span> into a factor of one, since it is clear that as <span class="process-math">\(\alpha \rightarrow 0\text{,}\)</span> no generality is lost by this assumption.</p>
+<p id="p-856">1. Estimate for <span class="process-math">\(\lambda _i (v ^\prime)\text{.}\)</span> We may use <span class="process-math">\(\rho f_i\)</span> as a test function for the Rayleigh quotient on <span class="process-math">\(v ^\prime\)</span> to estimate <span class="process-math">\(\lambda _1 (v^\prime)\)</span> for above. By (<span class="process-math">\(\star\)</span>), we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_1 (v ^\prime) \leq \lambda _1 (ABC) + \frac{\int_{v^{\prime}} - \rho \Delta \rho f _1^2 - 2 \rho \nabla \rho f _1 \nabla f_1}{\int _{v^{\prime}} \rho ^2 f ^2_1}\text{.}
+\end{equation*}
+</div>
+<p id="p-857">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{v^{\prime}} \rho \nabla \rho f _1 \nabla f_1 = \frac{1}{2} \int _{v^{\prime}} \nabla \rho^2 \nabla f_1^2 = - \frac{1}{2} \int _{v^{\prime}} \Delta \rho^2   f_1^2
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\nabla \rho, \Delta \rho = 0\)</span> on <span class="process-math">\(v\text{,}\)</span> we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{u^{\prime}} -\rho \Delta \rho f _1^2 - 2  \rho\nabla \rho f_1  \nabla f _1 \leq  \frac{1}{d^{2 \varepsilon}} \int _{v^{\prime} - v}   f _1^2 \leq  \alpha ^{\frac{2}{3} - 3 \varepsilon}\text{.}
+\end{equation*}
+</div>
+<p id="p-858">Noting that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _{u^{\prime}}  \rho ^2 f ^2_1 \geq \int_u \rho^2 f ^2_1 \geq 1 - \beta \geq 1 - \alpha ^{\frac{2}{3} - \gamma}
+\end{equation*}
+</div>
+<p class="continuation">we then have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 (v^\prime) \leq \lambda _1 (ABC) + \frac{\alpha ^{\frac{2}{3} - 3 \varepsilon}}{1 - \alpha _{\frac{2}{3} - \varepsilon}} \leq \lambda _1 (ABC) + \alpha ^{ \frac{2}{3} -  3 \varepsilon}\text{.}
+\end{equation*}
+</div>
+<p id="p-859">By modifying the above argument, we are able to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2 (v ^\prime) - \lambda _2 (ABC) \leq \alpha ^{ \frac{2}{3} -  3 \varepsilon}  + ( \lambda _2 - \lambda _1) \alpha ^{ \frac{2}{3} -  3 \varepsilon}\text{.}
+\end{equation*}
+</div>
+<p id="p-860">Solving the above inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2 - \lambda _1 \geq \lambda _2 (v ^\prime) - \lambda _1 ( v ^\prime) - 0 (\alpha ^{ \frac{2}{3} -  3 \varepsilon} )\text{.}
+\end{equation*}
+</div>
+<p id="p-861">By the gap theorem, and using the fact that the diameter of <span class="process-math">\(v ^\prime\)</span> is at most <span class="process-math">\(4 \alpha ^\varepsilon\text{,}\)</span> we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _2  (v ^\prime) - \lambda _1 ( v ^\prime)  \geq \frac{\pi^2}{16 \alpha ^{2 \varepsilon}}
+\end{equation*}
+</div>
+<p class="continuation">the compactness theorem follows.</p></section></div></main>
+</div>
+</body>
+</html>

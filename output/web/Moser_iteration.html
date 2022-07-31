@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-31T10:41:45-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>De Giorgi-Nash-Moser Estimates</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="PDEs.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="PDEs.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ABP_principle.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="PDEs.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="PDEs.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ABP_principle.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="active">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Moser_iteration"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">De Giorgi-Nash-Moser Estimates</span>
+</h2>
+<p id="p-1404">In classical Schauder estimates or <span class="process-math">\(W^{2,p}\)</span> estimates, the continuity of the coefficients is required. Therefore, the methods are not usable in nonlinear case. In 1957, De Giorgi obtained the Hölder estimate on elliptic equations of divergence form with <em class="emphasis">measurable</em> coefficients. In 1958, Nash independently got the similar estimates on parabolic equations. In 1960, Moser obtained a simplified proof and the Harnark inequality. These methods now becomes crucial in geometric analysis.</p>
+<p id="p-1405">We consider the following elliptic equation of divergence form:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="div">
+\begin{equation}
+-D_j(a^{ij}D_iu)+b^iD_i u+cu=0\tag{9.1.1}
+\end{equation}
+</div>
+<p class="continuation">such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-82">
+\begin{align*}
+\amp  \lambda|\xi|^2\leq a^{ij}\xi_i\xi_j\leq\Lambda|\xi|^2,\qquad \forall x\in\Omega,\,\xi\in\R^n\\
+\amp \sum_{i,j}||a^{ij}||_{L^\infty}+\sum_i||b^i||_{L^\infty}+||c||_{L^\infty}\leq\Lambda\text{.}
+\end{align*}
+</div>
+<p id="p-1406">For the sake of simplicity, we only consider the following equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="div-1">
+\begin{equation}
+-D_j(a^{ij}D_iu)=0\text{.}\tag{9.1.2}
+\end{equation}
+</div>
+<article class="lemma theorem-like" id="lemma-35"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.1.1</span><span class="period">.</span>
+</h3>
+<p id="p-1407">Let <span class="process-math">\(\phi(s)\in C_{loc}^{0,1}(\R)\)</span> be a convex function</p>
+<ol class="decimal">
+<li id="li-95"><p id="p-1408">If <span class="process-math">\(u\)</span> is <a href="" class="xref" data-knowl="./knowl/div-1.html" title="Equation 9.1.2">(9.1.2)</a>'s weak subsolution, <span class="process-math">\(\phi'(s)\geq 0\text{.}\)</span> Then <span class="process-math">\(v=\phi(u)\)</span> is also a weak subsolution;</p></li>
+<li id="li-96"><p id="p-1409">If <span class="process-math">\(u\)</span> is <a href="" class="xref" data-knowl="./knowl/div-1.html" title="Equation 9.1.2">(9.1.2)</a>'s weak supersolution, <span class="process-math">\(\phi'(s)\leq 0\text{.}\)</span> Then <span class="process-math">\(v=\phi(u)\)</span> is also a weak subsolution.</p></li>
+</ol></article><p id="p-1410">\end{proof}</p>
+<article class="lemma theorem-like" id="lemma-36"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Local maximum principle.</span>
+</h3>
+<p id="p-1411">Let <span class="process-math">\(v\in H^{1,2}(B_R)\)</span> be a weak subsolution. Then for any <span class="process-math">\(p&gt;0\text{,}\)</span> <span class="process-math">\(0\lt \theta\lt 1\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{{B_{\theta R}}}{ess\,sup}\, v\leq C\left(\fint_{B_R}(v^+)^p\right)^{1/p}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\Lambda/\lambda\text{,}\)</span> <span class="process-math">\(p\text{,}\)</span> and <span class="process-math">\((1-\theta)^{-1}\text{.}\)</span></p></article><p id="p-1412">\begin{proof} The lemma is true even if <span class="process-math">\(v\)</span> is not bounded. However, for the sake of simplicity, we assume that <span class="process-math">\(v\)</span> is essentially bounded.</p>
+<p id="p-1413">We first assume that <span class="process-math">\(p\geq 2\text{.}\)</span> Since <span class="process-math">\(v\)</span> is a weak subsolution, so is <span class="process-math">\(v^+\text{.}\)</span> Thus we can assume that <span class="process-math">\(v\geq 0\text{.}\)</span></p>
+<p id="p-1414">For any testing function <span class="process-math">\(\phi\geq 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_R} a^{ij}D_ivD_j\phi \leq 0\text{.}
+\end{equation*}
+</div>
+<p id="p-1415">We let <span class="process-math">\(\xi\in C_0^\infty(B_R)\)</span> and <span class="process-math">\(\phi=\xi^2v^{p-1}\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(p-1)\int_{B_R}(a^{ij} D_i v D_j v)v^{p-2}\xi^2 dx \leq -2\int_{B_R}a^{ij} v^{p-1}\xi D_i v D_j\xi dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1416">Thus there is a constant <span class="process-math">\(C\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_R}|D(\xi v^{p/2})|^2 dx\leq C\int_{B_R}|D\xi|^2v^p dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1417">Using the Sobolev inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_R}(\xi v^{p/2})^{2^*} dx\right)^{2/2^*}\leq C\int_{B_R}|D\xi|^2 v^p dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2^*=\frac{2n}{n-2}\text{.}
+\end{equation*}
+</div>
+<p id="p-1418">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R_k=R\left(\theta+\frac{1-\theta}{2^k}\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-1419">Define <span class="process-math">\(\xi_k\in C_0^\infty(B_{R_k})\)</span> such that <span class="process-math">\(\xi_k\equiv 1\)</span> on <span class="process-math">\(B_{R_{k+1}}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|D\xi_k|\leq\frac{2^{k+1}}{(1-\theta) R}\text{.}
+\end{equation*}
+</div>
+<p id="p-1420">Using this we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_{R_{k+1}}}v^{\frac{np}{n-2}}dx\right)^{\frac{n-2}{n}}\leq\frac{C\cdot 4^k}{(1-\theta)^2R^2}\int_{B_{R_k}}v^p dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1421">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||v||_{L^{\frac{np}{n-2}}}(B_{R_{k+1}})\leq (C\cdot 4^k)^{1/p}||v||_{L^p}(B_{R_k})\text{.}
+\end{equation*}
+</div>
+<p id="p-1422">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+p_1=\frac{np}{n-2},\cdots, p_k=\left(\frac{n}{n-2}\right)^k p\text{.}
+\end{equation*}
+</div>
+<p id="p-1423">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||v||_{L^{p_{k+1}}}(B_{R_{k+1}})\leq (C\cdot 4^k)^{1/p_k}||v||_{L^{p_k}}(B_{R_k})\text{.}
+\end{equation*}
+</div>
+<p id="p-1424">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\log\left(\prod_{k=1}^\infty (C\cdot 4^k)^{1/p_k}\right) =\sum_{k=1}^\infty\frac{1}{p_k}(\log C+k\log 4)\lt C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">there is a constant <span class="process-math">\(C\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||v||_{L^\infty}(B_{\theta R})\leq\frac{C}{((1-\theta)R)^{n/p}}\frac{1}{R^n}||v||_{L^p}(B_R)\text{.}
+\end{equation*}
+</div>
+<p id="p-1425">It remains to prove that the lemma is true for <span class="process-math">\(0\lt p\lt 2\text{.}\)</span> To see this we first use the inequality for <span class="process-math">\(p=2\text{.}\)</span> That is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sup_{B_{\theta R}}\, v\leq\frac{C}{(1-\theta)^{n/2}}\left(\fint_{B_R}u^2\right)^{1/2}\text{.}
+\end{equation*}
+</div>
+<p id="p-1426">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_R}v^2\right)^{1/2}\leq\sup_{B_R}\, v^{1-p/2}\cdot\left(\int_{B_R}v^p\right)^{1/2}\text{.}
+\end{equation*}
+</div>
+<p id="p-1427">Using Young's inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi(\theta R)=(1-\frac p2)\phi(R)+\frac{C}{((1-\theta)R)^{n/p}}||v||_{L^p}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi(s)=\sup_{B_s}\, v\text{.}
+\end{equation*}
+</div>
+<p id="p-1428">Thus we have the inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi(t)\leq (1-\frac p2)\phi(s)+\frac{A}{(t-s)^\alpha}||v||_{L^p}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(t\geq s\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+t_0=R_0\lt R,\qquad t_{i+1}=t_i+(1-\tau)t^i(R-R_0)
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(0\lt \tau\lt 1\)</span> to be determined later. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi(t_i)\leq(1-\frac p2)\phi(t_{i+1})+\frac{A}{((1-\tau)t^i(R-R_0))^\alpha}||u||_{L^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-1429">By iteration, we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\phi(R_0)\leq A||u||_{L^2}\frac{1}{((1-\tau)t^i(R-R_0))^\alpha} \left((1-\frac p2)\tau^\alpha+(1-\frac p2)^2\tau^{-2\alpha}+\cdots\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-1430">We can choose <span class="process-math">\(\tau\)</span> close to <span class="process-math">\(1\)</span> such that <span class="process-math">\((1-p/2)t^{-\alpha}\lt 1\text{.}\)</span> Then the above sequence is convergent and the theorem is proved.</p>
+<article class="lemma theorem-like" id="lemma-37"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">9.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Weak Harnarck inequality.</span>
+</h3>
+<p id="p-1431">Let <span class="process-math">\(v\)</span> be the weak supersolution of <a href="" class="xref" data-knowl="./knowl/div-1.html" title="Equation 9.1.2">(9.1.2)</a>. Then there is a <span class="process-math">\(p_0&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/div-1.html">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq\frac{1}{C}\left(\fint_{B_R}v^{p_0} dx\right)^{1/p_0}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-69"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-69"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-69"><article class="hiddenproof"><p id="p-1432">We assume that <span class="process-math">\(v&gt;0\)</span> on <span class="process-math">\(B_R\text{.}\)</span> Otherwise we can use <span class="process-math">\(v+\eps\)</span> instead.</p>
+<p id="p-1433">Since <span class="process-math">\(v\)</span> is a supersolution, <span class="process-math">\(v^{-1}\)</span> is a subsolution. By the above lemma, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\sup}\, v^{-p}\leq C\fint_{B_R} v^{-p} dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is equivalent to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}
+\end{equation*}
+</div>
+<p id="p-1434">We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-83">
+\begin{align*}
+\amp \underset{B_{\theta R}}{{ ess}\,\inf}\, v\geq C \left(\fint_{B_R} v^{-p} dx\right)^{-\frac 1p}\\
+\amp =C\left(\fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\right)^{-1/p}\cdot\left(\fint_{B_R}v^p dx\right)^{1/p}\text{.}
+\end{align*}
+</div>
+<p id="p-1435">We just need to prove that there exists a <span class="process-math">\(p_0&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\fint_{B_R}v^{-p} dx\cdot\fint_{B_R}v^p dx\leq C\text{.}
+\end{equation*}
+</div>
+<p id="p-1436">We let <span class="process-math">\(w=\log v-\beta\text{,}\)</span> where <span class="process-math">\(\beta\)</span> is a constant to be determined. We wish to prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="wish">
+\begin{equation}
+\int_{B_R}e^{p|w|} dx\leq C\tag{9.1.3}
+\end{equation}
+</div>
+<p class="continuation">for some <span class="process-math">\(p&gt;0\text{.}\)</span> If the above inequality is true then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_R}e^{p\log v-p\beta} dx\leq C,\qquad \int_{B_R}e^{-p\log v+p\beta} dx\leq C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the lemma follows.</p>
+<p id="p-1437">The proof of  <a href="" class="xref" data-knowl="./knowl/wish.html" title="Equation 9.1.3">(9.1.3)</a> is somewhat complicated but the basic idea is still Moser iteration. Let <span class="process-math">\(v^{-1}\xi^2\)</span> be a test function, where <span class="process-math">\(\xi \in C_0^\infty(B_R)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/wish.html">
+\begin{equation*}
+0\geq\int a^{ij} v_i(v^{-1}\xi^2)_j=-\int \xi^2a^{ij}w_i w_j+2\int a^{ij} w_i \xi\xi_j\text{.}
+\end{equation*}
+</div>
+<p id="p-1438">Without loss of generality, we assume that <span class="process-math">\(R=1\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|Dw|^2\leq C
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(0\lt \sigma\lt 1\text{.}\)</span> By choosing suitable <span class="process-math">\(\beta\text{,}\)</span> we have the Poincaré inequality</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|w|^2 dx\leq C\text{.}
+\end{equation*}
+</div>
+<p id="p-1439">Let <span class="process-math">\(\xi\in C_0^\infty(B_1)\)</span> and let <span class="process-math">\(\phi=\xi^2|w|^{2q}\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}\xi^2|w|^{2q}|D_i w|^2\leq 2q\int_{B_\sigma}\xi^2|w|^{2q-1} D_i w D_i|w|+2\int_{B_\sigma}\xi|w|^{2q}D_i wD_i \xi\text{.}
+\end{equation*}
+</div>
+<p id="p-1440">Using the Young's inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2q|w|^{2q-1}\leq\frac{2q-1}{2q}|w|^{2q}+(2q)^{2q-1}\text{.}
+\end{equation*}
+</div>
+<p id="p-1441">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2q}\int_{B_\sigma}\xi^2|w|^{2q}|D_iw|^2\leq (2q)^{2q-1}\int_{B_\sigma}|D_i w|^2+4q\int_{B_\sigma}|w|^{2q}|D_i\xi|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-1442">Finally, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\sigma}|D(\xi^2|w|^{2q})|^2 dx\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\Lambda/\lambda\text{,}\)</span> and <span class="process-math">\((1-\sigma)^{-1}\text{.}\)</span> Let <span class="process-math">\(\kappa=n/(n-1)\text{.}\)</span> By Sobolev inequality, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_\sigma}|w|^{2q\kappa} dx\right)^{1/\kappa}\leq C(2q)^{2q}+C\tau^{-2}q^2\int_{B_{\sigma+\tau}}|w|^{2q} dx\text{.}
+\end{equation*}
+</div>
+<p id="p-1443">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q_i=\kappa^{i-1},\delta_0=\sigma, \delta_i=\delta_{i-1}-\frac{\sigma-1}{2^i}
+\end{equation*}
+</div>
+<p id="p-1444">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_{\delta_i}}|w|^{2\kappa^i} dx\right)^{1/\kappa} \leq C(\kappa)^{2(i-1)\kappa^{i-1}}+C(4\kappa)^i\int_{B_{\delta_{i-1}}}|w|^{2\kappa^{i-1}}dx
+\end{equation*}
+</div>
+<p id="p-1445">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_j=\left(\int_{B_{\delta_j}}|w|^{2\kappa^j}\right)^{1/2\kappa^j}\text{.}
+\end{equation*}
+</div>
+<p id="p-1446">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_i\leq C^{1/\kappa^{i-1}}\kappa^{i-1}+C^{1/\kappa^{i-1}}(4\kappa)^{i/\kappa^{i-1}}I_{i-1}\text{.}
+\end{equation*}
+</div>
+<p id="p-1447">Running the iteration we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+I_j\leq C\kappa^j+cI_0\text{.}
+\end{equation*}
+</div>
+<p id="p-1448">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||w||_{L^q(B_1)}\leq Cq\text{.}
+\end{equation*}
+</div>
+<p id="p-1449">If <span class="process-math">\(pCe\lt 1\text{,}\)</span> then we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_1}e^{p|w|}\leq C\text{.}
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-93"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Harnack Inequality.</span>
+</h3>
+<p id="p-1450">Let <span class="process-math">\(u\)</span> be a nonnegative solution of  <a href="" class="xref" data-knowl="./knowl/div-1.html" title="Equation 9.1.2">(9.1.2)</a>. Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/div-1.html">
+\begin{equation*}
+\underset{B_{\theta R}}{{ ess}\,\sup}\,u\leq C \underset{B_{\theta R}}{{ ess}\,\inf}\,u
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n, \lambda/\lambda, (1-\theta)^{-1}\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-94"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Hölder estimate.</span>
+</h3>
+<p id="p-1451">Using the above notations, <span class="process-math">\(u\)</span> is Hölder continuous in <span class="process-math">\(B_{\theta R}\text{.}\)</span></p></article><article class="hiddenproof" id="proof-70"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-70"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-70"><article class="hiddenproof"><p id="p-1452">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(R)=\underset{B_{\theta R}}{{ ess}\,\sup}\,u, m(R)=\underset{B_{\theta R}}{{ ess}\,\inf}\,u\text{.}
+\end{equation*}
+</div>
+<p id="p-1453">Let <span class="process-math">\(w(R)=M(R)-m(R)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u-m(R)\geq 0
+\end{equation*}
+</div>
+<p class="continuation">on <span class="process-math">\(B_{\theta R}\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(\theta R)-m(R)\leq C(m(\theta R)-m(R))\text{.}
+\end{equation*}
+</div>
+<p id="p-1454">Therefore</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w(\theta R)\leq \left(1-\frac 1C\right)w(R)
+\end{equation*}
+</div>
+<p class="continuation">hence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w(\theta^s R)\leq \left(1-\frac 1C\right)^sw(R)\text{.}
+\end{equation*}
+</div>
+<p id="p-1455">Let <span class="process-math">\(R'\lt R\text{.}\)</span> Let <span class="process-math">\(s\)</span> be such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\theta^{s+1}R\leq R'\lt \theta^s R\text{.}
+\end{equation*}
+</div>
+<p id="p-1456">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w(R')\leq w(\theta^sR)\leq \left(1-\frac 1C\right)^sw(R)\text{.}
+\end{equation*}
+</div>
+<p id="p-1457">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s=\left[\frac{\log (R'/R)}{\log\theta}\right]-1\text{,}
+\end{equation*}
+</div>
+<p id="p-1458">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w(R')\leq\left(\frac{R'}{R}\right)^rw(R)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r=\left(1-\frac 1C\right)^{(\log\theta)^{-1}}\lt 1
+\end{equation*}
+</div>
+<p id="p-1459">Let <span class="process-math">\(x,y\in  B(\theta R)\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|u(x)-u(y)|\leq C|x-y|^r
+\end{equation*}
+</div>
+<p class="continuation">and the Hölder continuity follows.</p></article></div></section></div></main>
+</div>
+</body>
+</html>
