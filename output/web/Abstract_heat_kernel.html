@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:27-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Heat kernel</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Semi_group_and_generator.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Semi_group.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="PDEs.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Semi_group_and_generator.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Semi_group.html" title="Up">Up</a><a class="next-button button toolbar-item" href="PDEs.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="active">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="Abstract_heat_kernel"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.2</span> <span class="title">Heat kernel</span>
+</h2>
+<p id="p-1360">In this section, we construct the heat kernels. That is, we are going to find smooth function <span class="process-math">\(H(x,y,t)\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T_t(f)(x)=\int_M H(x,y,t) f(y) dy\text{.}
+\end{equation*}
+</div>
+<p id="p-1361">For the sake of simplicity, we shall only consider the Laplace operator on functions. Moreover, the sign convention is that on the Euclidean space, <span class="process-math">\(\Delta=\sum\frac{\pa^2}{\pa x_j^2}\text{.}\)</span> The semigroup is formally defined as <span class="process-math">\(T_t=e^{\Delta t}\text{.}\)</span></p>
+<p id="p-1362">The main result of this section is the following</p>
+<article class="theorem theorem-like" id="theorem-90"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.1</span><span class="period">.</span>
+</h3>
+<p id="p-1363">Let <span class="process-math">\(M\)</span> be a Riemannian manifold, then there is a heat kernel</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x,y,t)\in C^\infty(M\times M\times\mathbb R^+)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(T_t f)(x)=\int_M H(x,y,t) f(y)dy
+\end{equation*}
+</div>
+<p class="continuation">satisfying</p>
+<ol class="decimal">
+<li id="li-87"><p id="p-1364"><span class="process-math">\(H(x,y,t)=H(y,x,t)\text{;}\)</span></p></li>
+<li id="li-88"><p id="p-1365"><span class="process-math">\(\underset{t\to 0^+}{\lim}\, H(x,y,t)=\delta_x(y)\text{;}\)</span></p></li>
+<li id="li-89"><p id="p-1366"><span class="process-math">\((\Delta-\frac{\pa}{\pa t})H=0\text{;}\)</span></p></li>
+<li id="li-90"><p id="p-1367"><span class="process-math">\(H(x,y,t)=\int_M H(x,z,t-s)H(z,y,s) dz\)</span> for any <span class="process-math">\(0\lt s\leq t\text{.}\)</span></p></li>
+</ol></article><p id="p-1368">Before proving the theorem, we first <em class="emphasis">formally</em> construct the heat kernel. This formal construction also outlines the proof of the theorem.</p>
+<p id="p-1369">The <span class="process-math">\(k\)</span>-simplex <span class="process-math">\(\Delta_k\)</span> is the following subset of <span class="process-math">\(\mathbb R^k\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{(t_1,\cdots,t_k)\mid 0\leq t_1\leq\cdots\leq t_k\leq 1\}\text{.}
+\end{equation*}
+</div>
+<p id="p-1370">For <span class="process-math">\(t&gt;0\text{,}\)</span> we write <span class="process-math">\(t\Delta_k\)</span> for the rescaled simplex</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{(t_1,\cdots,t_k)\mid 0\leq t_1\leq\cdots\leq t_k\leq t\}\text{.}
+\end{equation*}
+</div>
+<p id="p-1371">We assume that <span class="process-math">\(U(x,y,t)\)</span> be a function on <span class="process-math">\(M\times M\times\mathbb R^+\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\limt U(x,y,t)=\delta_x(y)
+\end{equation*}
+</div>
+<p class="continuation">be the the Dirac function. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R(x,y,t)=\frac{d U(x,y,t)}{dt}-\Delta_x U(x,y,t)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\Delta_x\)</span> means the Laplace operator for the variable <span class="process-math">\(x\text{.}\)</span> Note that formally, any function <span class="process-math">\(g(x,y,t)\)</span> defines one-parameter family of operators <span class="process-math">\(G_t\)</span> by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G_t f(x)=\int_M g(x,y,t) f(y) dy\text{.}
+\end{equation*}
+</div>
+<p id="p-1372">We use the <span class="process-math">\(R_t, U_t\)</span> to denote the corresponding families of operators with respect to the functions <span class="process-math">\(R(x,y,t)\)</span> and <span class="process-math">\(U(x,y,t)\text{,}\)</span> respectively. For any <span class="process-math">\(k\geq 1\text{,}\)</span> define the operator</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q_t^k=\int_{t\Delta_k} U_{t-t_k}R_{t_k-t_{k-1}}\cdots R_{t_2-t_1}R_{t_1} dt_1\cdots dt_k\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(Q_t^0=U_t\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R^{(k)} (s)=\int_{s\Delta_{k-1}}R_{s-t_{k-1}}\cdots R_{t_2-t_1} R_{t_1} dt_1\cdots dt_{k-1}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(R^{(0)}(s)=0\text{.}\)</span> Since the derivative of the integral of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^t a(t-s) b(s) ds
+\end{equation*}
+</div>
+<p class="continuation">is equal to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^t\frac{da}{dt}(t-s) b(s) ds+a(0) b(t)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\frac{\pa}{\pa t}-\Delta\right )Q_t^k=R^{(k+1)} (t)+R^{(k)} (t)\text{.}
+\end{equation*}
+</div>
+<p id="p-1373">As a result, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\frac{\pa}{\pa t}-\Delta\right )\sum_{k=0}^\infty (-1)^k Q_t^k=0\text{.}
+\end{equation*}
+</div>
+<p id="p-1374">For <span class="process-math">\(\mathbb R^n\text{,}\)</span> the fundamental solution of the heat equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\Delta-\frac{\pa}{\pa t}) u=0
+\end{equation*}
+</div>
+<p class="continuation">is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(r=d(x,y)\)</span> is the Euclidean distance of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span></p>
+<p id="p-1375">We wish to find the the following form of the fundamental solution of the heat equation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="formal">
+\begin{equation}
+U(x,y,t)\sim (4\pi t)^{-\frac n2} e^{-d^2(x,y)/4t}\left\{\sum_{i\geq 0}\phi_i(x,y) t^i\right\}\tag{8.2.1}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(d(x,y)\)</span> is the distance function on the Riemannian manifold. <span class="process-math">\(U(x,y,t)\)</span> should satisfy</p>
+<ol class="decimal">
+<li id="li-91"><p id="p-1376"><span class="process-math">\(\limt U(x,y,t)=\delta_x(y)\text{,}\)</span> where <span class="process-math">\(\delta_x(y)\)</span> is the Dirac function at <span class="process-math">\(x\text{;}\)</span></p></li>
+<li id="li-92"><p id="p-1377">For any <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(\limt (\Delta-\frac{\pa}{\pa t})U(x,y,t)=O(t^N)\text{.}\)</span></p></li>
+</ol>
+<p id="p-1378">The function <span class="process-math">\(U(x,y,t)\)</span> is called the <em class="emphasis">paramatrix</em> of the heat kernel.</p>
+<p id="p-1379">We pick a normal coordinate system <span class="process-math">\((y_1,\cdots,y_n)\text{,}\)</span> and let <span class="process-math">\(r=d(x,y)\)</span> be the Riemannian distance. We identify a neighborhood of <span class="process-math">\(y\)</span> to a small ball of <span class="process-math">\(T_y(M)\)</span> by the exponential map. Under this map, the coordinates of <span class="process-math">\(x\)</span> can be written as <span class="process-math">\((x_1,\cdots,x_n)\text{.}\)</span> On the other hand, let <span class="process-math">\((\theta_1,\cdots,\theta_{n-1})\)</span> be a coordinate system on <span class="process-math">\(S^{n-1}\text{,}\)</span> then <span class="process-math">\((r,\theta_1,\cdots,\theta_{n-1})\)</span> gives a coordinate system at <span class="process-math">\(y\)</span> also, and this coordinate system is called the polar coordinates.</p>
+<article class="exercise exercise-like" id="exercise-23"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-23"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.2.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-23"><article class="exercise exercise-like"><p id="p-1380">Let <span class="process-math">\(ds^2\)</span> be the Riemannian metric. Then we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+ds^2=dr^2+\sum_{i,j=1}^{n-1} r^2s_{ij}(x) d\theta_i d\theta_j\text{.}
+\end{equation*}
+</div>
+<p id="p-1381">That is, prove that <span class="process-math">\(\frac{\pa}{\pa r}\)</span> is orthogonal to any <span class="process-math">\(\frac{\pa}{\pa\theta_j}\text{.}\)</span></p></article></div>
+<p id="p-1382">Let <span class="process-math">\(\psi(r)\)</span> be a function of <span class="process-math">\(r\text{,}\)</span> and let <span class="process-math">\(g=\det (s_{ij})\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-78">
+\begin{align*}
+\amp  \Delta\psi=\frac{d^2\psi}{dr^2}+\frac nr\cdot\frac{\pa\psi}{\pa r}+\left(\frac{d\log \sqrt g}{dr}\right)\frac{d\psi}{dr},\\
+\amp \Delta(\phi\psi)=\phi\Delta\psi+\psi\Delta\phi+2\frac{d\phi}{dr}\frac{d\psi}{dr}\text{.}
+\end{align*}
+</div>
+<p id="p-1383">We let</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-79">
+\begin{align*}
+\amp  \psi=\frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}},\\
+\amp \phi=\phi_0+\phi_1 t+\cdots+\phi_Nt^N\text{,}
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(\phi_j=\phi_j(x,y)\)</span> are smooth local functions on <span class="process-math">\(M\times M\text{.}\)</span> We assume that under our coordinate system, <span class="process-math">\(y\)</span> is the origin<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a>. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u_N=\psi\phi=\frac{1}{(4\pi t)^{n/2}}e^{-\frac{r^2}{4t}} \sum_{i=0}^N\phi_i t^i\text{.}
+\end{equation*}
+</div>
+<p id="p-1384">Therefore</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\Delta-\frac{\pa}{\pa t}\right) u_N=\phi\left(\Delta\psi-\frac{\pa\psi}{\pa t}\right)+\psi\left(\Delta\phi-\frac{\pa\phi}{\pa t}\right)+2\frac{\pa\phi}{\pa r}\frac{d\psi}{dr}\text{.}
+\end{equation*}
+</div>
+<p id="p-1385">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-80">
+\begin{align*}
+\amp \Delta\psi-\frac{\pa\psi}{\pa t}=\frac{d\log\sqrt g}{dr}\frac{d\psi}{dr},\\
+\amp \frac{d\psi}{dr}=-\frac{r}{2t}\psi\text{.}
+\end{align*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x17">
+\begin{equation}
+\left(\Delta-\frac{\pa}{\pa t}\right)u_N=\frac{\psi}{t}\sum_{k=0}^N\left[ \Delta\phi_{k-1}-\left(k+\frac r2\frac{d\log\sqrt g}{dr}\right)\phi_k-r\frac{d\phi_k}{dr}\right] t^k\text{.}\tag{8.2.2}
+\end{equation}
+</div>
+<p id="p-1386">Thus in order to find the paramatrix, we set</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r\frac{d\phi_k}{dr}+\left(k+\frac r2\frac{d\log\sqrt g}{dr}\right)\phi_k=\Delta\phi_{k-1}
+\end{equation*}
+</div>
+<p class="continuation">for <span class="process-math">\(k=0,\cdots,N\text{,}\)</span> where we let <span class="process-math">\(\phi_{-1}=0\text{.}\)</span> The solutions of the above ordinary differential equations are</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-81">
+\begin{align}
+\begin{split} \amp  \phi_0(x,y)=g^{-\frac 14}(x);\tag{8.2.3}\\
+\amp \phi_k(x,y)=g^{-\frac 14}(x)r(x,y)^{-k}\int_0^{r(x,y)} r^{k-1}(\Delta\phi_{k-1})\left(\frac{rx}{r(x,y)}\right) g\left(\frac{rx}{r(x,y)}\right)^{\frac 14}dr. \end{split}\notag
+\end{align}
+</div>
+<p id="p-1387">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\Delta-\frac{\pa}{\pa t}\right)u_N=\frac{\psi}{t}(\Delta\phi_N)t^N\text{.}
+\end{equation*}
+</div>
+<p id="p-1388">From the above, we prove that</p>
+<article class="lemma theorem-like" id="lemma-33"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">8.2.3</span><span class="period">.</span>
+</h3>
+<p id="p-1389">There is a unique formal solution <span class="process-math">\(U(x,y,t)\)</span> of the heat equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/formal.html ./knowl/phi-1.html">
+\begin{equation*}
+\left(\Delta-\frac{\pa}{\pa t}\right)U(x,y,t)=0
+\end{equation*}
+</div>
+<p class="continuation">of the form  <a href="" class="xref" data-knowl="./knowl/formal.html" title="Equation 8.2.1">(8.2.1)</a> such that <span class="process-math">\(\phi_i(x,y)\)</span> are defined in  <a href="" class="xref" data-knowl="./knowl/phi-1.html" title="Equation 8.2.3">(8.2.3)</a>.</p></article><p id="p-1390">\end{proof}</p>
+<p id="p-1391">Let <span class="process-math">\(\eta\)</span> be a smooth function such that <span class="process-math">\(\eta=1\)</span> for <span class="process-math">\(t\lt 1\)</span> and <span class="process-math">\(\eta=0\)</span> for <span class="process-math">\(t&gt;2\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+p(x,y)=\eta\left(\frac{2r(x,y)}{\delta}\right)
+\end{equation*}
+</div>
+<p class="continuation">be the cut-off function, where <span class="process-math">\(\delta\)</span> is the injectivity radius at <span class="process-math">\(y\text{.}\)</span> Then for any <span class="process-math">\(N\text{,}\)</span> we consider the function <span class="process-math">\(u_N(x,y,t)=p(x,y)u_N(x,y,t)\text{.}\)</span> We shall prove that</p>
+<article class="lemma theorem-like" id="lemma-34"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">8.2.4</span><span class="period">.</span>
+</h3>
+<p id="p-1392">For any <span class="process-math">\(N\)</span> sufficiently large, we have</p>
+<ol class="decimal">
+<li id="li-93"><p id="p-1393"><span class="process-math">\(\limt u_N(x,y,t)=\delta_x(y)\text{;}\)</span></p></li>
+<li id="li-94">
+<p id="p-1394">The kernel <span class="process-math">\(R_N(x,y,t)=\left(\Delta_y-\frac{\pa}{\pa t}\right)u_N(x,y,t)\)</span> satisfies the estimate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||R_N(x,y,t)||_{\mathcal  C^l}\leq C(l)t^{N-l/2-1}\text{.}
+\end{equation*}
+</div>
+</li>
+</ol></article><p id="p-1395">\end{proof}</p>
+<p id="p-1396">Using  <a href="" class="xref" data-knowl="./knowl/x17.html" title="Equation 8.2.2">(8.2.2)</a> and the solutions of <span class="process-math">\(\phi_k\text{,}\)</span> we know that for <span class="process-math">\(N\gg 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x17.html">
+\begin{equation*}
+||R_N(x,y,t)||_{\mathcal  C^l}\leq Ct^\alpha\text{.}
+\end{equation*}
+</div>
+<p id="p-1397">It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||R^{(k)}(s)||_{\mathcal  C^l}\leq\frac{s^{k\alpha}(\alpha!)^k}{(\alpha k)!}\text{.}
+\end{equation*}
+</div>
+<p id="p-1398">Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_k\frac{s^{k\alpha}(\alpha!)^k}{(\alpha k)!}\lt +\infty\text{,}
+\end{equation*}
+</div>
+<p class="continuation">our formal construction is convergent to the heat kernel.</p>
+<article class="theorem theorem-like" id="theorem-91"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.5</span><span class="period">.</span>
+</h3>
+<p id="p-1399">The <span class="process-math">\(\Delta_p\)</span> on <span class="process-math">\(L^p(M)\)</span> is well defined as the infinitesimal generator of the heat semi-group.</p></article><p id="p-1400">\end{proof}</p>
+<p id="p-1401">For any self-adjoint extension <span class="process-math">\(\tilde\Delta\)</span> of <span class="process-math">\(\Delta\text{,}\)</span> the corresponding heat kernel is</p>
+<article class="theorem theorem-like" id="theorem-92"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.6</span><span class="period">.</span>
+</h3>
+<p id="p-1402">Using the above notations, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde  H(x,y,t)=U(x,y,t)-\int_0^te^{\tilde \Delta(t-s)}\left(\frac{\pa}{\pa t}-\Delta_x\right) U(x,y,s) ds\text{.}
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-24"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-24"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">8.2.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-24"><article class="exercise exercise-like"><p id="p-1403">Construct heat kernels of the Laplacian of bundle-valued <span class="process-math">\(p\)</span>-forms.</p></article></div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn">We use the obvious fact that there exists a smooth family of normal coordinate systems parametrized by any point of <span class="process-math">\(M\text{.}\)</span> So all the functions we define below are smooth not only with respect to <span class="process-math">\(x\)</span> but <span class="process-math">\(y\text{.}\)</span>
+</div></div>
+</div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:30-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>The proof of this theorem is quite long so we divide it into the following 5 steps.</p>
+<p><em class="emphasis">Step 1.</em> Using rescaling</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x\mapsto\frac{x-y}{2R}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we assume that <span class="process-math">\(y=0\text{,}\)</span> <span class="process-math">\(R=1/2\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde u=u+\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_1)}, \Gamma=\{x\in B_1\mid\tilde u(x)\geq 1\}\text{.}
+\end{equation*}
+</div>
+<p>We want to prove that there exists <span class="process-math">\(C&gt;0\text{,}\)</span> <span class="process-math">\(0\lt \delta\lt 1\)</span> such that whenever</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+|\Gamma\cap K_\alpha|\geq\delta|K_\alpha|\text{,}\tag{9.3.4}
+\end{equation}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+\inf_{K_{3\alpha}}\,\tilde u\geq C^{-1}\text{,}\tag{9.3.5}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(K_\alpha\)</span> is the tube centered at <span class="process-math">\(0\)</span> with side length <span class="process-math">\(2\alpha\text{,}\)</span> <span class="process-math">\(\alpha=1/(6\sqrt n)\text{,}\)</span> <span class="process-math">\(C,\delta\)</span> only depends on <span class="process-math">\(n,\gamma\text{.}\)</span></p>
+<p>For any <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+w=\log(\tilde u+\eps)^{-1}, g=\frac{f}{\tilde u+\eps}\text{.}
+\end{equation*}
+</div>
+<p>Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-a^{ij}D_{ij} w=\frac{1}{\tilde u+\eps}a^{ij} D_{ij} u-a^{ij}D_iwD_jw \leq -g-a^{ij} D_iw D_jw\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\eta=(1-|x|^2)^\beta\text{.}\)</span> Let <span class="process-math">\(v=\eta w\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\amp  Lv=\eta Lw+w L\eta-2a^{ij}D_i wD_j \eta\\
+\amp \leq -\eta g-\eta a^{ij}D_i w D_j w-2a^{ij} D_iw D_j\eta+vL\eta/\eta\\
+\amp \leq -\eta g+\frac 1\eta a^{ij} D_i\eta D_j\eta+\frac{v L\eta}{\eta}\text{.}
+\end{align*}
+</div>
+<p>By <a href="" class="xref" data-knowl="./knowl/x26.html" title="Equation 9.3.3">(9.3.3)</a>, we know when</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x26.html">
+\begin{equation*}
+(2\beta-1)\lambda|x|^2\geq n\Lambda\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have <span class="process-math">\(L\eta\leq 0\text{.}\)</span> Let <span class="process-math">\(\alpha\in(0,1)\text{.}\)</span> If <span class="process-math">\(|x|&gt;\alpha\text{,}\)</span> we take</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x26.html">
+\begin{equation*}
+\beta-1\geq\frac{n\gamma}{2\alpha^2}\text{.}
+\end{equation*}
+</div>
+<p>Then we have <span class="process-math">\(L\eta\leq 0\)</span> for <span class="process-math">\(|x|\geq \alpha\text{.}\)</span> Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Lv\leq|g|+4\beta^2\Lambda+\sup_{B_\alpha}\left(\frac{L\eta}{\eta}\right)\chi(B_\alpha) v\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\chi(B_\alpha)\)</span> is the characteristic function of <span class="process-math">\(B_\alpha\text{.}\)</span> Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left|\left|\frac{g}{\lambda}\right|\right|_{L^n(B_1)}\leq 1\text{.}
+\end{equation*}
+</div>
+<p>By the Aleksandrov maximum principle, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+\sup_{B_1} v\leq C[1+||v^+||_{L^n(B_\alpha)}]\text{,}\tag{9.3.6}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n,\gamma,\alpha\text{.}\)</span></p>
+<p>In order to use the measure theory, we change ball into cube. We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sup_{B_1} v\leq C[1+||v^+||_{L^n(B_\alpha)}]\leq C(1+|K_\alpha^+|^{1/n}\sup_{B_1} v)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+K_\alpha^+=\{x\in K_\alpha\mid v&gt;0\}=\{x\in K_\alpha\mid\tilde u+\eps\lt 1\}\text{.}
+\end{equation*}
+</div>
+<p>If</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{|K_\alpha^+|}{K_\alpha}\leq\theta\overset{\Delta}{=}\frac{1}{(2C)^n|K_\alpha|}=\frac{1}{(4C\alpha)^n}\text{.}
+\end{equation*}
+</div>
+<p>Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sup_{B_1} v\leq 2C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or equivalently</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{B_{1/2}}\,(\tilde u+\eps)\geq\frac 1C\text{.}
+\end{equation*}
+</div>
+<p>Letting <span class="process-math">\(\eps\to 0\text{,}\)</span> we get <a href="" class="xref" data-knowl="./knowl/x27.html" title="Equation 9.3.5">(9.3.5)</a>. On the other hand, if <span class="process-math">\(\frac{|K_\alpha^+|}{K_\alpha}&gt;\theta\text{,}\)</span> we let <span class="process-math">\(\delta=1-\theta\text{,}\)</span> <span class="process-math">\(\alpha=\frac{1}{6\sqrt n}\text{.}\)</span> Then we have <span class="process-math">\(K_{3\alpha}\subset B_{1/2}\text{.}\)</span> If <span class="process-math">\(|\Gamma\cap K_\alpha|\geq\delta|K_\alpha|\text{,}\)</span> then by <a href="" class="xref" data-knowl="./knowl/x20.html" title="Lemma 9.3.2">Lemma 9.3.2</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x27.html ./knowl/x20.html ./knowl/x27-1.html">
+\begin{equation*}
+|K_\alpha^+|=|K_\alpha\backslash (\Gamma\cap K_\alpha)|\leq\theta|K_\alpha|
+\end{equation*}
+</div>
+<p class="continuation">which contradicts to the assumption <a href="" class="xref" data-knowl="./knowl/x27-1.html" title="Equation 9.3.4">(9.3.4)</a>.</p>
+<p><em class="emphasis">Step 2.</em> For any positive integer <span class="process-math">\(m\text{,}\)</span> if</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\Gamma\cap K_\alpha|\geq\delta^m|K_\alpha|\text{,}
+\end{equation*}
+</div>
+<p class="continuation">then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{K_\alpha}\tilde u\geq C^{-m}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> is the constant in Step 1.</p>
+<p>If <span class="process-math">\(m=1\text{,}\)</span> the statement is proved by the above step. Assume that the claim is true for <span class="process-math">\(m\geq 1\text{.}\)</span> Assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\Gamma\cap K_\alpha|\geq\delta^{m+1}|K_\alpha|\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\tilde K_0=K_\alpha\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Gamma_\delta=\bigcup\{K_{3r}(x)\cap \tilde K_0\mid K_r(x)\subset\tilde K_0, |\Gamma\cap K_r(x)|\geq\delta|K_r(x)|\}\text{.}
+\end{equation*}
+</div>
+<p>By <a href="" class="xref" data-knowl="./knowl/x20.html" title="Lemma 9.3.2">Lemma 9.3.2</a>, we have either</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x20.html">
+\begin{equation*}
+\Gamma_\delta=\tilde K_0, { or} |\Gamma\cap\tilde K_0|\leq\delta|\Gamma_\delta|\text{.}
+\end{equation*}
+</div>
+<p>By the definition of <span class="process-math">\(\Gamma_\delta\)</span> and Step 1, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{\Gamma_\delta}\tilde u\geq C^{-1}\text{.}
+\end{equation*}
+</div>
+<p>If <span class="process-math">\(\Gamma_\delta=\tilde K_0=K_\alpha\text{,}\)</span> then the above implies the claim. If <span class="process-math">\(|\Gamma\cap\tilde K_0|\leq\delta|\Gamma_\delta|\text{.}\)</span> Let <span class="process-math">\(v=Cu\text{.}\)</span> Then <span class="process-math">\(v\)</span> satisfiws</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+-a^{ij}D_{ij} v\geq Cf\text{.}
+\end{equation*}
+</div>
+<p>Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde v=v+\left|\left|\frac{Cf}{\lambda}\right|\right|_{L^n(B_1)}=C\tilde u\text{.}
+\end{equation*}
+</div>
+<p>Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde\Gamma=\{x\in B_1\mid\tilde v\geq 1\}\text{.}
+\end{equation*}
+</div>
+<p>Then <span class="process-math">\(\Gamma_\delta\subset\tilde\Gamma\)</span> and we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\tilde\Gamma\cap\tilde K_0|\geq|\Gamma_\delta|\geq\frac{1}{\delta}|\Gamma\cap\tilde K_0| =\frac 1\delta|\Gamma\cap K_\alpha|\geq\delta^m|K_\alpha|=\delta^m|\tilde K_0|\text{.}
+\end{equation*}
+</div>
+<p>By the inductive assumption, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{K_\alpha}\tilde v\geq C^{-m}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is equivalent to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{K_\alpha}\tilde u\geq C^{-(m+1)}\text{.}
+\end{equation*}
+</div>
+<p><em class="emphasis">Step 3.</em> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Gamma_t=\{x\in B_1\mid\tilde u(x)&gt;t\}\text{.}
+\end{equation*}
+</div>
+<p>Then there is a <span class="process-math">\(C&gt;1, \mu&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+|B_\alpha\cap \Gamma_t|\leq C|B_\alpha|\left(\frac{\inf_{B_\alpha}\tilde u}{t}\right)^\mu\text{,}\tag{9.3.7}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> and <span class="process-math">\(\mu\)</span> depend only on <span class="process-math">\(n,\gamma\text{.}\)</span></p>
+<p>Let <span class="process-math">\(v=u/t\)</span> and <span class="process-math">\(\tilde v=\tilde u/t\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\tilde\Gamma\overset{\Delta}{=}\{x\in B_1\mid\tilde v(x)&gt;1\}=\Gamma_t\text{.}
+\end{equation*}
+</div>
+<p>If <span class="process-math">\(|B_\alpha\cap\Gamma_t|=0\text{,}\)</span> then <a href="" class="xref" data-knowl="./knowl/plk.html" title="Equation 9.3.7">(9.3.7)</a> is obvious. Now assume that <span class="process-math">\(|B_\alpha\cap\Gamma_t|\neq 0\text{,}\)</span> then there is a positive number <span class="process-math">\(m\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/plk.html">
+\begin{equation*}
+\delta^m|K_\alpha|\leq|\tilde\Gamma\cap K_\alpha|\leq\delta^{m-1}|K_\alpha|\text{.}
+\end{equation*}
+</div>
+<p>That it,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\log\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\cdot(\log\delta)^{-1}\leq m\leq 1+\log\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\cdot(\log\delta)^{-1}\text{.}
+\end{equation*}
+</div>
+<p>By Step 2, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\inf_{K_\alpha}\tilde v\geq C^{-m}\geq C^{-1}\left[\frac{|\tilde\Gamma\cap K_\alpha|}{K_\alpha}\right]^{\frac{\log C}{\log \delta^{-1}}}\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(\mu=\log\delta^{-1}/\log C\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\Gamma_t\cap K_\alpha|\leq (C\inf_{K_\alpha}\tilde v)^\mu|K_\alpha|\text{.}
+\end{equation*}
+</div>
+<p><em class="emphasis">Step 4.</em> There is a <span class="process-math">\(p&gt;0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\fint_{B_\alpha}u^p dx\right)^{1/p}\leq C\left( \inf_{B_\alpha} u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)\text{.}
+\end{equation*}
+</div>
+<p>We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_{\alpha}} u^p dx=p\int_0^\infty t^{p-1}|B_\alpha\cap\Gamma_t| dt =p\int_0^b  t^{p-1}|B_\alpha\cap\Gamma_t| dt+p\int_b^\infty  t^{p-1}|B_\alpha\cap\Gamma_t| dt\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(b\)</span> is a number to be determined. Therefore, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_{\alpha}} u^p dx\leq p\int_0^b\int_0^b t^{p-1}|B_\alpha| dt+p\int_b^\infty Cm_0^\mu|B_\alpha| t^{p-\mu-1} dt\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(m_0={\displaystyle \inf_{B_\alpha}}\,\tilde u\text{.}\)</span> Let <span class="process-math">\(p=\mu/2\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\alpha} u^p dx\leq b^p|B_\alpha|+Cm_0^{2p}b^{-p}|B_\alpha|\text{.}
+\end{equation*}
+</div>
+<p>Let <span class="process-math">\(b=C^{1/2p}m_0\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_\alpha}u^p dx\leq 2C^{1/2}m_0^p\leq 2C^{1/2}\left(\inf_{B_\alpha} u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)^p\text{.}
+\end{equation*}
+</div>
+<p><em class="emphasis">Step 5.</em> Using covering technique to prove</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\int_{B_{1/2}}u^p dx\right)^{1/p}\leq C\left(\inf_{B_{1/2}} \, u+\left|\left|\frac f\lambda\right|\right|_{L^n(B_1)}\right)\text{.}
+\end{equation*}
+</div>
+<p>We note that <span class="process-math">\(u\in W^{2,n}(B_{\frac 12})\text{,}\)</span> there is a <span class="process-math">\(x_0\in\bar{B_{1/2}}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+u(x_0)=\inf_{B_{\frac 12}}\,u\text{.}
+\end{equation*}
+</div>
+<p>Consider the integration</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_{\frac 12+\frac\alpha 4}}dy\cdot\int_{B_{\frac\alpha 4}(y)} u^p dx\geq|B_{\frac \alpha 4}| \int_{B_{\frac 12}}u^p(y) dy\text{.}
+\end{equation*}
+</div>
+<p>Using the mean value theorem, there is a <span class="process-math">\(y\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y_0\in {B_{\frac 12+\frac\alpha 4}}
+\end{equation*}
+</div>
+<p class="continuation">such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B(y_0)} u^p dx\geq\int_{B_{\frac 12}}u^p dx\text{.}
+\end{equation*}
+</div>
+<p>The theorem is proved.</p></article></body>
+</html>

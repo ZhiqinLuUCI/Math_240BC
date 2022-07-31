@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:26-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The new Weyl criteria</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Var_principle.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Inequalities.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Var_principle.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Laplacian.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Inequalities.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="active">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Weyl_criteria"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">The new Weyl criteria</span>
+</h2>
+<p id="p-221">Let <span class="process-math">\(\mathfrak X\)</span> be Hilbert space. Let <span class="process-math">\(\mathscr B(\mathbb C)\)</span> and let <span class="process-math">\(\mathcal P(X)\)</span> be the space of self-adjoint projection operators. A spectral measure is a function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+E: \mathscr(\mathbb C)\to \mathcal (X)
+\end{equation*}
+</div>
+<p class="continuation">satisfying the following properties</p>
+<ol class="decimal">
+<li id="li-21"><p id="p-222"><span class="process-math">\(E(\emptyset)=0, E(\mathbb C)=I\text{;}\)</span></p></li>
+<li id="li-22"><p id="p-223"><span class="process-math">\(E(\bigcup B_n)=\sum E(B_n)\)</span> for disjoint Borel sets <span class="process-math">\(\{B_n\}\text{.}\)</span></p></li>
+</ol>
+<p id="p-224">Let <span class="process-math">\(f\)</span> be a measurable function and let <span class="process-math">\(x,y\in X\text{.}\)</span> Define the operator</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=\int_{-\infty}^\infty f\,dE
+\end{equation*}
+</div>
+<p class="continuation">such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(Ax,y)=\int_{-\infty}^\infty f \,dE_{(x,y)}\text{.}
+\end{equation*}
+</div>
+<p id="p-225">Let <span class="process-math">\(H\)</span> be a self-adjoint operator on a Hilbert space <span class="process-math">\(X\text{.}\)</span> The norm and inner product in <span class="process-math">\(X\)</span> are respectively denoted by <span class="process-math">\(\|\cdot\|\)</span> and <span class="process-math">\((\cdot,\cdot)\text{.}\)</span> Let <span class="process-math">\(\sigma(H), \sigma_\mathrm{ess}(H)\)</span> be the spectrum and the essential spectrum of <span class="process-math">\(H\text{,}\)</span> respectively. Let <span class="process-math">\({ Dom}\,(H)\)</span> be the domain of <span class="process-math">\(H\text{.}\)</span> The Classical Weyl criterion states that</p>
+<article class="theorem theorem-like" id="Thm_Weyl"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Classical Weyl's criterion.</span>
+</h3>
+<p id="p-226">A nonnegative real number <span class="process-math">\(\lambda\)</span> belongs to <span class="process-math">\(\sigma(H)\)</span> if, and only if, there exists a sequence <span class="process-math">\(\{\psi_n\}_{n \in \mathbb N} \subset { Dom}(H)\)</span> such that</p>
+<ol class="decimal">
+<li id="li-23"><p id="p-227"><span class="process-math">\(\forall n\in\mathbb N, \|\psi_n\|=1\)</span> ,</p></li>
+<li id="li-24"><p id="p-228"><span class="process-math">\((H-\lambda)\psi_n \to 0, \text{ as } n\to\infty \text{ in } \mathcal H\text{.}\)</span></p></li>
+</ol>
+<p id="p-229">Moreover, <span class="process-math">\(\lambda\)</span> belongs to <span class="process-math">\(\sigma_\mathrm{ess}(H)\)</span> of <span class="process-math">\(H\)</span> if, and only if, in addition to the above properties</p>
+<ol class="decimal"><li id="li-25"><p id="p-230"><span class="process-math">\(\psi_n \to 0 \text{ weakly as } n\to\infty \text{ in } \mathcal H\text{.}\)</span></p></li></ol></article><p id="p-231">We have the following functional analytic result, which generalizes the weak Weyl criterion. To the authors' knowledge, this result seems to be new.</p>
+<article class="theorem theorem-like" id="Thm_Weyl_bis-2"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Charalambous-Lu.</span>
+</h3>
+<p id="p-232">Let <span class="process-math">\(f\)</span> be a bounded positive continuous function over <span class="process-math">\([0,\infty)\text{.}\)</span> A nonnegative real number <span class="process-math">\(\lambda\)</span> belongs to the spectrum <span class="process-math">\(\sigma(H)\)</span> if, and only if, there exists a sequence <span class="process-math">\(\{\psi_n\}_{n \in \mathbb N} \subset { Dom}(H)\)</span> such that</p>
+<ol class="decimal">
+<li id="li-26"><p id="p-233"><span class="process-math">\(\forall n\in\mathbb N, \|\psi_n\|=1\)</span> ,</p></li>
+<li id="li-27"><p id="p-234"><span class="process-math">\(\displaystyle (f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)\to 0, \text{ as } n\to\infty {and}\)</span></p></li>
+<li id="li-28"><p id="p-235"><span class="process-math">\((\psi_n, (H-\lambda)\psi_n) \to 0, \text{ as } n\to\infty\text{.}\)</span></p></li>
+</ol>
+<p id="p-236">Moreover, <span class="process-math">\(\lambda\)</span> belongs to <span class="process-math">\(\sigma_\mathrm{ess}(H)\)</span> of <span class="process-math">\(H\)</span> if, and only if, in addition to the above properties</p>
+<ol class="decimal"><li id="li-29"><p id="p-237"><span class="process-math">\(\psi_n \to 0, \text{ weakly as } n\to\infty\)</span> \text{ in } <span class="process-math">\(\mathcal H\text{.}\)</span></p></li></ol></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><p id="p-238">Since <span class="process-math">\(H\)</span> is a densely defined self-adjoint operator, the spectral measure <span class="process-math">\(E\)</span> exists and we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="decomp">
+\begin{equation}
+H=\int_0^\infty \lambda\, dE\text{.}\tag{2.4.1}
+\end{equation}
+</div>
+<p id="p-239">Assume that <span class="process-math">\(\lambda\in\sigma(H)\text{.}\)</span> Then by Weyl's criterion, there exists a sequence <span class="process-math">\(\{\psi_n\}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|(H-\lambda)\psi_n\|\to 0,  \|\psi_n\|=1
+\end{equation*}
+</div>
+<p class="continuation">as <span class="process-math">\(n\to\infty\text{.}\)</span></p>
+<p id="p-240">We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\psi_n=\int_0^\infty d E(t)\psi_n
+\end{equation*}
+</div>
+<p class="continuation">as its spectral decomposition. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)=\int_0^\infty f(t)(t-\lambda)^2 d\|E(t)\psi_n\|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-241">Since <span class="process-math">\(f\)</span> is a bounded positive function, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)\leq C\int_0^\infty (t-\lambda)^2 d\|E(t)\psi_n\|^2=C\|(H-\lambda)\psi_n\|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-242">Moreover,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\psi_n, (H-\lambda)\psi_n)\leq C\,\|\psi_n\|\cdot\|(H-\lambda)\psi_n\|\text{.}
+\end{equation*}
+</div>
+<p id="p-243">Thus the necessary part of the theorem is proved.</p>
+<p id="p-244">Now assume that <span class="process-math">\(\lambda&gt;0\)</span> and <span class="process-math">\(\lambda\notin\sigma(H)\text{.}\)</span> Then there is a <span class="process-math">\(\lambda&gt;\eps&gt;0\)</span> such that <span class="process-math">\(E(\lambda+\eps)-E(\lambda-\eps)=0\text{.}\)</span> We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="fgh">
+\begin{equation}
+\psi_n=\psi_n^1+\psi_n^2\text{,}\tag{2.4.2}
+\end{equation}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\psi_n^1=\int_0^{\lambda-\eps} dE(t)\psi_n\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\psi_n^2=\psi_n-\psi_n^1\text{.}\)</span></p>
+<p id="p-245">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-12">
+\begin{align*}
+\amp (f(H) (H-\lambda)\psi_n, (H-\lambda)\psi_n)\\
+\amp =(f(H) (H-\lambda)\psi_n^1, (H-\lambda)\psi_n^1) +(f(H) (H-\lambda)\psi^2_n, (H-\lambda)\psi_n^2)\\
+\amp  \geq c_1\|\psi_n^1\|^2+(f(H) (H-\lambda)\psi^2_n, (H-\lambda)\psi_n^2)\geq c_1\|\psi_n^1\|^2\text{,}
+\end{align*}
+</div>
+<p class="continuation">where the positive number <span class="process-math">\(c_1\)</span> is the infimum of the function <span class="process-math">\(f(t)(t-\lambda)^2\)</span> on <span class="process-math">\([0,\lambda-\eps]\text{.}\)</span> Therefore</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\psi_n^1\|\to 0
+\end{equation*}
+</div>
+<p class="continuation">by <em class="emphasis">(2)</em>. On the other hand, we similarly get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(\psi_n, (H-\lambda)\psi_n)\geq \eps\|\psi_n^2\|^2-\lambda\|\psi_n^1\|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-246">If the criteria <em class="emphasis">(2), (3)</em> are satisfied, then, by the two {estimates} above, we conclude that both <span class="process-math">\(\psi_n^1, \psi_n^2\)</span> go to zero. This contradicts <span class="process-math">\(\|\psi_n\|=1\text{,}\)</span> and the theorem is proved.</p>
+<p id="p-247">Note that for <span class="process-math">\(\lambda=0\text{,}\)</span> <span class="process-math">\(\psi_n^1\)</span> is automatically zero, and the second half of the proof would give the contradiction.</p></article></div>
+<article class="theorem theorem-like" id="theorem-19"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Charalambous-Lu.</span>
+</h3>
+<p id="p-248">Let <span class="process-math">\(\sigma_p(M)\)</span> be the spectrum of the Laplacian on <span class="process-math">\(p\)</span>-forms. If <span class="process-math">\(\lambda\in\sigma_p(\Delta)\)</span> and <span class="process-math">\(\lambda\neq 0\text{,}\)</span> then <span class="process-math">\(\lambda\in\sigma_{p-1}(\Delta)\)</span> or <span class="process-math">\(\lambda \in\sigma_{p+1}(\Delta)\text{.}\)</span></p></article><article class="remark remark-like" id="remark-1"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
+</h3>
+<p id="p-249">If <span class="process-math">\(M\)</span> is a compact manifold, then the result is trivially true: if <span class="process-math">\(f\neq 0\)</span> is the eigenform of the eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f-\lambda f=0\text{.}
+\end{equation*}
+</div>
+<p id="p-250">Since <span class="process-math">\(d\Delta=\Delta d\text{,}\)</span> <span class="process-math">\(\delta\Delta=\Delta\delta\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta df-\lambda df=0,  \Delta\delta f-\lambda \delta f=0\text{.}
+\end{equation*}
+</div>
+<p id="p-251">Since <span class="process-math">\(\lambda\neq 0\text{,}\)</span> we have either <span class="process-math">\(df\neq 0\text{,}\)</span> or <span class="process-math">\(\delta f\neq 0\text{.}\)</span> The result follows.</p></article><article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"><p id="p-252">If <span class="process-math">\(0\neq\lambda\in\sigma_p(\Delta)\text{,}\)</span> then for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> there exists <span class="process-math">\(f\neq 0\)</span> smooth with compact support, such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\Delta f-\lambda f\|_{L^2}\leq\eps\|f\|_{L^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-253">We then have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left|\|df\|^2_{L^2}+\|\delta f\|^2_{L^2}-\lambda\|f\|^2_{L^2}\right|=|(f,\Delta f-\lambda f)|\leq\eps \|f\|_{L^2}^2\text{.}
+\end{equation*}
+</div>
+<p id="p-254">In particular, if <span class="process-math">\(\eps\)</span> is small enough, we must have either</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|df\|^2_{L^2}\geq\frac\lambda 4\|f\|^2_{L^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\delta f\|^2_{L^2}\geq\frac\lambda 4\|f\|^2_{L^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-255">For the rest of the proof, we assume that the former is correct. Using our new Weyl Criterion, we need to prove</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(df, (\Delta-\lambda) df)|\leq\eps\|f\|^2_{L^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-256">But this follows from</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|(\delta df, (\Delta-\lambda)f)|\leq\|(\Delta-\lambda)f\|_{L^2}\cdot\|\delta df\|_{L^2}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the fact that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\Delta f|^2=\int_M |df|^2+\int_M|\delta f|^2\geq \int_M | df|^2\text{.}
+\end{equation*}
+</div>
+<p id="p-257">Similarly, we can prove that for function <span class="process-math">\(g(t)=(t+1)^{-1}\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|(g(\Delta)(\Delta-\lambda) df, (\Delta-\lambda) df)|\leq\eps\|df\|^2_{L^2}\text{.}
+\end{equation*}
+</div></article></div>
+<article class="corollary theorem-like" id="corollary-2"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span>
+</h3>
+<p id="p-258">Let <span class="process-math">\(X\)</span> be a Kähler manifold and let <span class="process-math">\(L\to X\)</span> be a positive line bundle. Let <span class="process-math">\(\Delta_0\text{,}\)</span> <span class="process-math">\(\Delta_1\)</span> be the Laplacians of <span class="process-math">\(L^m\)</span>-valued sections and <span class="process-math">\((0,1)\)</span>-forms, respectively. We assume that both of them are self-adjoint. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sigma_0(\Delta_0)\subset \{0\}\cup\sigma_1(\Delta_1)\text{.}
+\end{equation*}
+</div>
+<p id="p-259">Moreover, if <span class="process-math">\(0\in\sigma_0(\Delta_0)\text{,}\)</span> then holomorphic sections exists.</p></article></section></div></main>
+</div>
+</body>
+</html>

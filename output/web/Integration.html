@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:25-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Integration on manifolds</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Preliminaries.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Preliminaries.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="LC_connection.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Preliminaries.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Preliminaries.html" title="Up">Up</a><a class="next-button button toolbar-item" href="LC_connection.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="active">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="internal">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Integration"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Integration on manifolds</span>
+</h2>
+<p id="p-1">Let let  <span class="process-math">\(M\)</span> be an <span class="process-math">\(n\)</span>-dimensional manifold and let <span class="process-math">\(\omega\)</span> be an <span class="process-math">\(n\)</span>-form on <span class="process-math">\(M\)</span> with compact support. We define the integration of <span class="process-math">\(\omega\)</span> over <span class="process-math">\(M\)</span>  by  the following way.</p>
+<p id="p-2">Let <span class="process-math">\(\{ U_j\}\)</span> be a locally finite cover of <span class="process-math">\(M\)</span> and let <span class="process-math">\(\{\rho_j\}\)</span> be the partition of unity subordinating to the cover. That is</p>
+<ol class="decimal">
+<li id="li-1"><p id="p-3"><span class="process-math">\(\rho_j\geq 0\text{;}\)</span></p></li>
+<li id="li-2"><p id="p-4"><span class="process-math">\({\rm supp}\,\rho_i\subset U_j\)</span> for all <span class="process-math">\(j\text{;}\)</span></p></li>
+<li id="li-3"><p id="p-5"><span class="process-math">\(\sum _j\rho_j=1\text{.}\)</span></p></li>
+</ol>
+<p id="p-6">Then we  define</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M\omega=\sum_j\int_{U_j}\rho_j\omega\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where the right hand side is a sum of integrations on Euclidean space, hence well defined.</p>
+<article class="assemblage assemblage-like" id="pOu"><h3 class="heading"><span class="title">Additive Principle.</span></h3>
+<p id="vSb">The <dfn class="terminology">additive principle</dfn> states that if event <span class="process-math">\(A\)</span> can occur in <span class="process-math">\(m\)</span> ways, and event <span class="process-math">\(B\)</span> can occur in <span class="process-math">\(n\)</span> <em class="emphasis">disjoint</em> ways, then the event “<span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span>” can occur in <span class="process-math">\(m + n\)</span> ways.</p></article><article class="exercise exercise-like" id="exercise-1"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-8">Prove that the definition of integral is independent to the choices of cover and the partition of unity.</p></article></div>
+<p id="p-9">The definition of integration can be generalized to manifold with boundary. A manifold with boundary is a topological space such that</p>
+<ol class="decimal">
+<li id="li-4">
+<p id="p-10">It  can be covered by  <span class="process-math">\(\{U_j\}\text{,}\)</span> where <span class="process-math">\(U_j\)</span> is either the unit ball of <span class="process-math">\(\mathbb R^n\text{,}\)</span> or the upper half of the unit ball of <span class="process-math">\(\mathbb R^n\)</span> defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{(x_1,\cdots,x_n)\mid\sum x_i^2\lt 1,x_n\geq 0\}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-5"><p id="p-11">The transition functions are smooth (up to the boundary).</p></li>
+</ol>
+<p id="p-12">Let <span class="process-math">\(M\)</span> be a manifold with boundary. Let <span class="process-math">\(\pa M\)</span> be the boundary of <span class="process-math">\(M\text{.}\)</span> Then we have</p>
+<ol class="decimal">
+<li id="li-6"><p id="p-13"><span class="process-math">\(\pa M\)</span> is a smooth manifold;</p></li>
+<li id="li-7"><p id="p-14"><span class="process-math">\(\pa M\)</span> is a manifold without boundary. That is <span class="process-math">\(\pa\pa M=0\text{,}\)</span> or <span class="process-math">\(\pa^2=0\text{.}\)</span></p></li>
+</ol>
+<p id="p-15">The theorem of partition of unity can be generalized into the following setting.</p>
+<article class="theorem theorem-like" id="theorem-1"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h3>
+<p id="p-16">Let <span class="process-math">\(\{U_j\}_I\)</span> be a locally finite cover of <span class="process-math">\(M\text{.}\)</span> Then there exists a partition of unity subordinating to the cover <span class="process-math">\(\{\rho_j\}\text{.}\)</span> Moreover, let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+J=\{j\in I\mid U_j\cap \pa M=\emptyset\}\text{.}
+\end{equation*}
+</div>
+<p id="p-17">Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{U_j\cap\pa M\}_{j\in J},\qquad \rho_j|_{\pa M\cap U_j}
+\end{equation*}
+</div>
+<p class="continuation">is a partition of unity subordinating to the corresponding cover.</p></article><article class="exercise exercise-like" id="exercise-2"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-18">Prove the above theorem.</p></article></div>
+<p id="p-19">A manifold is called orientable, if there is a cover <span class="process-math">\(\{U_j\}\)</span> on <span class="process-math">\(M\)</span> such that if <span class="process-math">\(x_j^1,\cdots,x_j^n\)</span> are the coordinates on <span class="process-math">\(U_j\text{,}\)</span> then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\det\frac{\pa (x_j^1,\cdots,x_j^n)}{\pa(x_i^1,\cdots,x_i^n)}&gt;0
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(U_i\cap U_j\neq\emptyset\text{.}\)</span> Such a set of coordinate charts is called an orientation of the manifold.</p>
+<article class="exercise exercise-like" id="exercise-3"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-20">If <span class="process-math">\(M\)</span> is an orientable manifold with boundary, prove that <span class="process-math">\(\pa M\)</span> is also an orientable manifold.</p></article></div>
+<article class="theorem theorem-like" id="theorem-2"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Stokes' Theorem.</span>
+</h3>
+<p id="p-21">Let <span class="process-math">\(M\)</span> be an orientable manifold with the given orientation. Then there is a natural orientation on <span class="process-math">\(\pa M\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M d\omega=\int_{\pa M}\omega
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\((n-1)\)</span> forms on <span class="process-math">\(M\text{.}\)</span></p></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-22">Let <span class="process-math">\(\{U_i\}\)</span> be a locally finite cover and let <span class="process-math">\(\{\phi_i\}\)</span> be the partition of unity subordinating to the cover. Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d\sum_j\rho_j=0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-1">
+\begin{align*}
+\amp \int_M d\omega=\sum_{j\in I}\int_{U_j}\rho_jd\omega=\sum_{j\in I}\int_{U_j}d(\rho_j\omega), \qquad and\\
+\amp \int_{\pa M}\omega=\sum_{j\in J}\int_{\pa M\cap U_j}\rho_j\omega\text{.}
+\end{align*}
+</div>
+<p id="p-23">The Stokes' theorem follows from the following statements:</p>
+<ol class="decimal">
+<li id="li-8"><div class="displaymath process-math" data-contains-math-knowls="" id="p-24">
+\begin{equation*}
+\int_{U_j}d(\rho_j\omega)=0,\qquad j\not\in J;
+\end{equation*}
+</div></li>
+<li id="li-9"><div class="displaymath process-math" data-contains-math-knowls="" id="p-25">
+\begin{equation*}
+\int_{U_j}d(\rho_j\omega)=\int_{U_j\cap\{x_n=0\}}\rho_j\omega,\qquad j\in J\text{.}
+\end{equation*}
+</div></li>
+</ol>
+<p id="p-26">In the first case, we may assume that <span class="process-math">\(U_j\)</span> is the unit ball of <span class="process-math">\(\mathbb R^n\text{,}\)</span> and <span class="process-math">\({ supp}\,(\rho_j\omega)\subset U_j\text{.}\)</span> Write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\rho_j\omega=\sum_i (-1)^i f_i dx_1\wedge\cdots \hat{dx_i}\wedge\cdots\wedge dx_n\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\hat{}\)</span> means omit the term. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{U_j} d(\rho_j\omega)=\sum_{i=1}^n\frac{\pa f_i}{\pa x_i} dx_1\wedge\cdots\wedge dx_n\text{.}
+\end{equation*}
+</div>
+<p id="p-27">Since <span class="process-math">\(f_j\)</span> vanishes on the boundary of <span class="process-math">\(\pa U_j\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{U_j}d(\rho_j\omega)=0
+\end{equation*}
+</div>
+<p class="continuation">by the fundamental theorem of Calculus.</p>
+<p id="p-28">The proof of the second assertion is similar. We assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+U_j=\{(x_1,\cdots,x_n)\mid\sum x_j^2\lt 1, x_n\geq 0\}\text{.}
+\end{equation*}
+</div>
+<p id="p-29">Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d(\rho_j\omega)=\sum_{i=1}^n \frac{\pa f_i}{\pa x_i}dx_1\wedge\cdots\wedge dx_n\text{.}
+\end{equation*}
+</div>
+<p id="p-30">If <span class="process-math">\(i\neq n\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{U_j}\frac{\pa f_i}{\pa x_i}dx_1\wedge\cdots\wedge dx_n=0\text{.}
+\end{equation*}
+</div>
+<p id="p-31">With the appropriate orientation, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{U_j}\frac{\pa f_n}{\pa x_n}dx_1\wedge\cdots\wedge dx_n=\int_{U_j\cap \{x_n=0\}} f_n dx_1\wedge\cdots\wedge d x_{n-1}\text{.}
+\end{equation*}
+</div>
+<p id="p-32">The theorem follows from the above two equations.</p></article></div>
+<article class="exercise exercise-like" id="exercise-4"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-33">Provided the details in the last part of the proof of Stokes' Theorem.</p></article></div>
+<article class="lemma theorem-like" id="lemma-1"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">1.1.7</span><span class="period">.</span>
+</h3>
+<p id="p-34">On an orientable Riemannian manifold, the <span class="process-math">\(n\)</span>-form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt{\det(g_{ij})}\, dx_1\wedge\cdots\wedge dx_n
+\end{equation*}
+</div>
+<p class="continuation">is globally defined.</p></article><article class="definition definition-like" id="definition-1"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span>
+</h3>
+<p id="p-35">Let <span class="process-math">\(f\)</span> be a smooth function with compact support in a Riemannian manifold. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M fdV_M=\int_M f\sqrt{\det(g_{ij})} \,dx_1\wedge\cdots\wedge dx_n\text{.}
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-5"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.9</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-36">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+X=\sum a^i\frac{\pa}{\pa x_i}
+\end{equation*}
+</div>
+<p class="continuation">be a vector field of <span class="process-math">\(M\text{.}\)</span> The divergence of the vector field <span class="process-math">\(X\)</span> is defined to be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{ div}\, X=\sum_i\frac{\pa a^i}{\pa x^i}+\frac 12 a^i\frac{\pa}{\pa x_i}\log\det(g_{k\ell})\text{.}
+\end{equation*}
+</div>
+<p id="p-37">Prove that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M{ div}\, X dV_M=0\text{.}
+\end{equation*}
+</div></article></div></section></div></main>
+</div>
+</body>
+</html>

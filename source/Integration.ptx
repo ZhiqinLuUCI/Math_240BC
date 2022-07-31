@@ -1,11 +1,11 @@
 <section xml:id="Integration">
   <title>Integration on manifolds</title>
   <p>
-    Let <m>M</m> be an <m>n</m>-dimensional manifold and let <m>\omega</m> be an <m>n</m>-form on <m>M</m> with compact support.
+    Let let  <m>M</m> be an <m>n</m>-dimensional manifold and let <m>\omega</m> be an <m>n</m>-form on <m>M</m> with compact support.
     We define the integration of <m>\omega</m> over <m>M</m>  by  the following way.
   </p>
   <p>
-    Let <m>\{ U_j\}</m> be a locally finite cover of <m>M</m> and let
+    Let <m>\{ U_j\}</m> be a locally finite cover of <m>M</m> and let 
     <m>\{\rho_j\}</m> be the partition of unity subordinating to the cover.
     That is
     <ol>

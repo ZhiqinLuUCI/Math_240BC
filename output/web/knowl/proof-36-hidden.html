@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:28-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>The key point is that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q (\rho ^2 f, f) = Q \langle  \rho^2 f , \Delta f \rangle = 0\text{.}
+\end{equation*}
+</div>
+<p>Thus using the same method as before, <span class="process-math">\(f\)</span> is a constant. If <span class="process-math">\(M\)</span> is a compact manifold with no boundary, we still use <span class="process-math">\(\Delta\)</span> to denote the Dirichlet extension of the Laplace operator. By the elliptic regularity, the spectrum of <span class="process-math">\(\Delta\)</span> are discrete. That is, there is a sequence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 = \lambda _0 \lt  \lambda _1  \leq \lambda _2 \leq \ldots
+\end{equation*}
+</div>
+<p class="continuation">such that for any <span class="process-math">\(\lambda_i\text{,}\)</span> there <span class="process-math">\(\exists f_i , f _i \in L^2\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f _i = - \lambda _i f_i\text{.}
+\end{equation*}
+</div>
+<p>We have similar results for manifolds with boundary conditions. To be more precise, the Laplacians acting on functions with the following boundary conditions.</p>
+<ol class="decimal">
+<li>
+<span class="heading"><span class="title">(A).</span></span><p>Dirichlet boundary condition: <span class="process-math">\(\Delta\)</span> acting on <span class="process-math">\(f\)</span> vanishing on the boundary.</p>
+</li>
+<li>
+<span class="heading"><span class="title">(B).</span></span><p>Neumann boundary condition: <span class="process-math">\(\Delta\)</span> acting on functions such that <span class="process-math">\(\frac{\partial f}{\partial n} = 0\text{.}\)</span></p>
+</li>
+</ol>
+<p>For eigenvalues, we have the following minimax principle. Assume that <span class="process-math">\(M\)</span> is a closed manifold, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda _1 = \inf_{\int f = 0 } \frac{\int |\nabla f|^2}{\int f^2}\text{.}
+\end{equation*}
+</div>
+<p>To prove the above result, we let <span class="process-math">\(\phi\)</span> be any smooth function such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M \phi = 0\text{.}
+\end{equation*}
+</div>
+<p>Then by the definition of <span class="process-math">\(\lambda _1\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\int | \nabla (f + \varepsilon \phi )|^2}{\int (f + \varepsilon \phi )^2} \geq \lambda _1\text{.}
+\end{equation*}
+</div>
+<p>However, if we take the first order term, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (\delta f + \lambda _1 f ) \phi = 0\text{.}
+\end{equation*}
+</div>
+<p>Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (\Delta f + \lambda _ 1 f ) = 0\text{.}
+\end{equation*}
+</div>
+<p>Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f + \lambda _1 f \equiv 0
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\lambda _ 1\)</span> is the first eigenvalue.</p>
+<p>By elliptic regularity, <span class="process-math">\(\lambda _ 1 &gt; 0\text{.}\)</span> Thus we have the following Poincaré-inequality: there exists a constant <span class="process-math">\(C\text{,}\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int | \nabla f |^2 \geq C \int f^2
+\end{equation*}
+</div>
+<p class="continuation">for any function with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int _M f = 0\text{.}
+\end{equation*}
+</div>
+<p>Before going further, let's prove the following co-area formula.</p></article></body>
+</html>
