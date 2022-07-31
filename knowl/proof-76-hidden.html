@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:30-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>By assumption, there is a sequence <span class="process-math">\(\{u_m\}\subset \mathcal C^2(\bar\Omega)\)</span> such that <span class="process-math">\(u_m\to u\)</span> in <span class="process-math">\(W_{{ loc}}^{2,n}(\Omega)\text{.}\)</span> That is, for any <span class="process-math">\(\Omega'\subset\subset\Omega\text{,}\)</span> if <span class="process-math">\(m\to\infty, u_m\to u\)</span> in <span class="process-math">\(W^{2,n}(\Omega')\text{.}\)</span> For any <span class="process-math">\(\eps&gt;0\text{,}\)</span> let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Omega_\eps=\{x\in\Omega\mid { dist}(x,\pa\Omega)&gt;\eps\}\text{.}
+\end{equation*}
+</div>
+<p>Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\amp v_\eps=u-\sup_{\Omega\backslash\Omega_\eps} u-\eps\\
+\amp  v_{m,\eps}=u_m-\sup_{\Omega\backslash\Omega_\eps} u_m-\eps
+\end{align*}
+</div>
+<p>By <a href="" class="xref" data-knowl="./knowl/x19.html" title="Lemma 9.2.11: Aleksandrov type estimate">Theorem 9.2.11</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x19.html">
+\begin{equation*}
+\sup_\Omega v_{m,\eps}\leq\frac{d}{\sqrt[n]{w_n}}\left(\int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u_m) dx\right)^{1/n}\text{.}
+\end{equation*}
+</div>
+<p>Since <span class="process-math">\(\Gamma^+_{m,\eps}\subset\Omega_\eps\text{,}\)</span> we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\amp \int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u_m) dx\\
+\amp =\int_{\Gamma_{v_{m,\eps}}^+}(\det(-D^2 u_m) -\det(-D^2 u))dx+\int_{\Gamma_{v_{m,\eps}}^+}\det(-D^2 u) dx\\
+\amp =I_{1,m}+I_{2,m}
+\end{align*}
+</div>
+<p>Obviously, we have <span class="process-math">\(I_{1,m}\to 0\)</span> as <span class="process-math">\(m\to\infty\text{.}\)</span> On the other hand, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\varlimsup_{m\to\infty}\Gamma_{v_{m,\eps}}^+\subset\Gamma_{v_\eps}^+\text{.}
+\end{equation*}
+</div>
+<p>In fact, if</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_0\in\varlimsup_{m\to\infty}\Gamma_{v_{m,\eps}}^+\text{.}
+\end{equation*}
+</div>
+<p>Then there is a subsequence <span class="process-math">\(m_k\)</span> such that <span class="process-math">\(x_0\in\Gamma_{v_{m_k,\eps}}\text{.}\)</span> By <a href="" class="xref" data-knowl="./knowl/x15.html" title="Lemma 9.2.7">Lemma 9.2.7</a>,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/x15.html">
+\begin{equation*}
+|p_k|\leq\frac{4\sup |u_m|}{{ dist}(x,\pa\Omega)}\leq\frac{4}{\eps}\sup |u_m|
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(p_k\in\chi_{v_{m_k,\eps}}(x_0)\text{.}\)</span></p>
+<p>Assuming <span class="process-math">\(p_k\to p_0\text{.}\)</span> Then <span class="process-math">\(p_0\in\chi_{v_\eps}(x_0)\text{,}\)</span> hence <span class="process-math">\(x_0\in\Gamma^+_{v_\eps}\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\varlimsup_{m\to\infty} I_{2,m}\leq\int_{\Gamma^+_{v_\eps}}\det(-D^2 u) dx\text{.}
+\end{equation*}
+</div>
+<p>The theorem is proved.</p></article></body>
+</html>

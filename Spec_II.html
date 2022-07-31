@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-29T13:38:27-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>On the essential spectrum of complete non-compact manifold</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Geometric Analysis@ UCI">
+<meta property="book:author" content="Zhiqin Lu">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
+                --++ (0, -1);
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5)
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1)
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+\newcommand{\limt}{\lim_{t\to 0^+}\,}
+\newcommand{\limh}{\lim_{h\to 0^+}\,}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\blue}[1]{\colorlet{oldcolor}{.}\color{blue}#1\color{oldcolor}}
+\newcommand{\violet}[1]{\colorlet{oldcolor}{.}\color{violet}#1\color{oldcolor}}
+\newcommand{\green}[1]{\colorlet{oldcolor}{.}\color{dg}#1\color{oldcolor}}
+\newcommand{\red}[1]{\colorlet{oldcolor}{.}\color{red}#1\color{oldcolor}}
+\newcommand{\black}{\color{black}}
+\newcommand{\dblue}[1]{\colorlet{oldcolor}{.}\color{db}#1\color{oldcolor}}
+\newcommand{\brown}[1]{\colorlet{oldcolor}{.}\color{brown}(#1) \color{oldcolor}}
+\DeclareMathOperator{\sech}{sech}
+\newcommand{\R}{\mathbb R}
+\newcommand{\pa}{\partial}
+\newcommand{\x}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\newcommand{\q}{\textbf{q}}
+\newcommand{\nn}{\textbf{n}}
+\newcommand{\uu}{\textbf{u}}
+\newcommand{\vv}{\textbf{v}}
+\newcommand{\ww}{\textbf{w}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\yy}{\textbf{y}}
+\newcommand{\zz}{\textbf{z}}
+\newcommand{\bb}{\textbf{b}}
+\newcommand{\ee}{\textbf{e}}
+\newcommand{\ff}{\textbf{f}}
+\newcommand{\spc}{{\vspace{.1in}}}
+\newcommand{\spcd}{{\vspace{2in}}}
+\newcommand{\spce}{{\vspace{3in}}}
+\newcommand{\spcf}{{\vspace{4in}}}
+\renewcommand{\proofname}{Proof.}
+\newcommand{\elinkname}{External Link.}
+\newcommand{\cs}{$\clubsuit$}
+\newcommand{\zl}{\vspace{.4in}{\color{blue}\cs\cs}{\color{red}{\Large Stopped Here on \today, anything below hasn't  been carefully edited.}}{\color{blue}\cs\cs}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Geometric Analysis@ UCI</span></a></h1>
+<p class="byline">Zhiqin Lu</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Lp_spectrum.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Essential_spec.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Hodge_theorem.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Lp_spectrum.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Essential_spec.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Hodge_theorem.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="Preliminaries.html" data-scroll="Preliminaries" class="internal"><span class="codenumber">1</span> <span class="title">Preliminaries</span></a><ul>
+<li><a href="Integration.html" data-scroll="Integration" class="internal">Integration on manifolds</a></li>
+<li><a href="LC_connection.html" data-scroll="LC_connection" class="internal">The extension of the Levi-Civita connection</a></li>
+<li><a href="Cov_derivatives.html" data-scroll="Cov_derivatives" class="internal">Covariant derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Laplacian.html" data-scroll="Laplacian" class="internal"><span class="codenumber">2</span> <span class="title">The Laplacian</span></a><ul>
+<li><a href="Laplace_operator.html" data-scroll="Laplace_operator" class="internal">The Laplace operator</a></li>
+<li><a href="Operator_extension.html" data-scroll="Operator_extension" class="internal">Self-adjoint extension of the Laplace operator</a></li>
+<li><a href="Var_principle.html" data-scroll="Var_principle" class="internal">Variational characterization of spectrum</a></li>
+<li><a href="Weyl_criteria.html" data-scroll="Weyl_criteria" class="internal">The new Weyl criteria</a></li>
+<li><a href="Inequalities.html" data-scroll="Inequalities" class="internal">Poincaré inequality and Sobolev inequality</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Gradient_estimate.html" data-scroll="Gradient_estimate" class="internal"><span class="codenumber">3</span> <span class="title">Gradient estimates</span></a><ul>
+<li><a href="Comparison_theorems.html" data-scroll="Comparison_theorems" class="internal">Comparison Theorems</a></li>
+<li><a href="Maximal_principle.html" data-scroll="Maximal_principle" class="internal">Gradient estimates and maximal principle</a></li>
+<li><a href="Harmonic_functions.html" data-scroll="Harmonic_functions" class="internal">Harmonic functions revisited</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Heat_kernel.html" data-scroll="Heat_kernel" class="internal"><span class="codenumber">4</span> <span class="title">Heat kernel and Green's functions on complete manifold</span></a><ul>
+<li><a href="Heat_kernel_def.html" data-scroll="Heat_kernel_def" class="internal">Heat kernel</a></li>
+<li><a href="Green_function.html" data-scroll="Green_function" class="internal">Green's function and parobolicity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Eigenvalue_problem.html" data-scroll="Eigenvalue_problem" class="internal"><span class="codenumber">5</span> <span class="title">Eigenvalue problems</span></a><ul>
+<li><a href="Eigenvalue.html" data-scroll="Eigenvalue" class="internal">Eigenvalue</a></li>
+<li><a href="Eigenvalue_II.html" data-scroll="Eigenvalue_II" class="internal">Eigenvalue problems(II)</a></li>
+<li><a href="First_eigenvalue.html" data-scroll="First_eigenvalue" class="internal">first Eigenvalue</a></li>
+<li><a href="Eigenvalue_gap.html" data-scroll="Eigenvalue_gap" class="internal">The lower bound of <span class="process-math">\(\lambda_2 - \lambda _1\)</span></a></li>
+<li><a href="Spectrum_gap.html" data-scroll="Spectrum_gap" class="internal">Spectrum gap of the first two eigenvalues</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Essential_spec.html" data-scroll="Essential_spec" class="internal"><span class="codenumber">6</span> <span class="title">Essential Spectrum on complete non-compact manifold</span></a><ul>
+<li><a href="Spectrum_on_manifold.html" data-scroll="Spectrum_on_manifold" class="internal">Spectrum on complete non-compact manifolds</a></li>
+<li><a href="Lp_spectrum.html" data-scroll="Lp_spectrum" class="internal">The <span class="process-math">\(L^p\)</span>-spectrum of the Laplacian</a></li>
+<li><a href="Spec_II.html" data-scroll="Spec_II" class="active">On the essential spectrum of complete non-compact manifold</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Hodge_theorem.html" data-scroll="Hodge_theorem" class="internal"><span class="codenumber">7</span> <span class="title">The Hodge Thoerem</span></a><ul>
+<li><a href="Poincare_Lemma.html" data-scroll="Poincare_Lemma" class="internal">The Poincaré Lemma</a></li>
+<li><a href="de-Rham_theorem.html" data-scroll="de-Rham_theorem" class="internal">de Rham Theorem</a></li>
+<li><a href="Formal_Hodge.html" data-scroll="Formal_Hodge" class="internal">Formal Hodge Theorem</a></li>
+<li><a href="State_Hodge.html" data-scroll="State_Hodge" class="internal">The Hodge theorem</a></li>
+<li><a href="Proof_Hodge.html" data-scroll="Proof_Hodge" class="internal">Proof of the Hodge Theorem</a></li>
+<li><a href="Ellipticity.html" data-scroll="Ellipticity" class="internal">More about elliptic regularity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Semi_group.html" data-scroll="Semi_group" class="internal"><span class="codenumber">8</span> <span class="title">Semigroups and heat kernels</span></a><ul>
+<li><a href="Semi_group_and_generator.html" data-scroll="Semi_group_and_generator" class="internal">Semigroup and its generator</a></li>
+<li><a href="Abstract_heat_kernel.html" data-scroll="Abstract_heat_kernel" class="internal">Heat kernel</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="PDEs.html" data-scroll="PDEs" class="internal"><span class="codenumber">9</span> <span class="title">The PDEs</span></a><ul>
+<li><a href="Moser_iteration.html" data-scroll="Moser_iteration" class="internal">De Giorgi-Nash-Moser Estimates</a></li>
+<li><a href="ABP_principle.html" data-scroll="ABP_principle" class="internal">Aleksandrov maximum principle</a></li>
+<li><a href="Krylov-Safonov.html" data-scroll="Krylov-Safonov" class="internal">Krylov-Safonov Estimates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Special_topics.html" data-scroll="Special_topics" class="internal"><span class="codenumber">10</span> <span class="title">Special topics</span></a><ul>
+<li><a href="Reverse_holder.html" data-scroll="Reverse_holder" class="internal">The Reverse Hölder Inequality</a></li>
+<li><a href="GNY_cover.html" data-scroll="GNY_cover" class="internal">The Grigor'yan-Netrusov-Yau cover</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Spec_II"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.3</span> <span class="title">On the essential spectrum of complete non-compact manifold</span>
+</h2>
+<p id="p-1165">Let <span class="process-math">\(M\)</span> be a complete non-compact manifold. We assume that there exists a small constant <span class="process-math">\(\delta(n) &gt; 0\text{,}\)</span> depending only on <span class="process-math">\(n\)</span> such that for some point <span class="process-math">\(q\in M\text{,}\)</span> the Ricci curvature satisfies</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Ric(M) \geqslant -\delta(n)\frac{1}{r^2}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(r(x)\text{,}\)</span> the distance from <span class="process-math">\(x\)</span> to <span class="process-math">\(q\)</span> is sufficiently large. J-P. Wang (cite Wang) proved the following theorem:</p>
+<article class="theorem theorem-like" id="theorem-77"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span>
+</h3>
+<p id="p-1166">Let <span class="process-math">\(M\)</span> be the complete non-compact Riemannian manifold defined above. Then the spectrum of the Laplacian <span class="process-math">\(\Delta_p\)</span> acting on the space <span class="process-math">\(L^p(M)\)</span> is <span class="process-math">\([0, \infty)\)</span> for all <span class="process-math">\(p\in[1,\infty)\text{.}\)</span></p></article><article class="corollary theorem-like" id="corollary-11"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
+</h3>
+<p id="p-1167">Let <span class="process-math">\(M\)</span> be a complete manifold with non-negative Ricci curvature, then the <span class="process-math">\(L^2\)</span> essential spectrum of the Laplacian is <span class="process-math">\([0, +\infty)\text{.}\)</span></p></article><p id="p-1168">By the Bishop volume comparison theorem, we know that for any complete non-compact manifold with non-negative Ricci curvature, the volume growth is at most polynomial. In general, it is not correct to have the lower bound estimate. However, we have the following:</p>
+<article class="theorem theorem-like" id="theorem-78"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
+</h3>
+<p id="p-1169">Let <span class="process-math">\(M\)</span> be a complete non-compact Riemannian manifold, and let <span class="process-math">\(Ric(M)\geqslant 0\text{.}\)</span> Then there is a constant <span class="process-math">\(C = C(n,v(B_1(p)))\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v(B_p(R)) \geqslant C(n,v(B_1(p)))R\text{.}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-56"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-56"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-56"><article class="hiddenproof"><p id="p-1170">Let <span class="process-math">\(p\in M\)</span> be a fixed point. Let <span class="process-math">\(\rho\)</span> be the distance function with respect to <span class="process-math">\(p\text{,}\)</span> Let <span class="process-math">\(R&gt;0\)</span> be a large number. Fixing <span class="process-math">\(x_0\in \partial B_R(p)\text{.}\)</span> By the Laplacian comparison theorem, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta\rho^2 \leqslant 2n\text{.}
+\end{equation*}
+</div>
+<p id="p-1171">It follows that for any <span class="process-math">\(\phi\in C_0^\infty(M)\text{,}\)</span> <span class="process-math">\(\phi\geqslant 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="x4-1">
+\begin{equation}
+\int_M \phi\Delta\rho^2 \leqslant 2n\int_M\phi\text{.}\tag{6.3.1}
+\end{equation}
+</div>
+<p id="p-1172">We choose a standard cut-off function <span class="process-math">\(\phi=\psi(\rho(x))\text{,}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\psi(t) = \left\{\begin{array}{lcl} 1 \amp  \amp  0 \leqslant t \leqslant R-1 \\ \frac{1}{2}(R+1-t) \amp  \amp  R-1 \leqslant t \leqslant R+1 \\ 0 \amp  \amp  t \geqslant R+1 \end{array} \right.\text{.}
+\end{equation*}
+</div>
+<p id="p-1173">By the Stoke's theorem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M \phi\Delta\rho^2 = -2\int_M \rho\nabla\phi\nabla\rho = -2\int_M \psi ' \rho\text{.}
+\end{equation*}
+</div>
+<p id="p-1174">By the definition of <span class="process-math">\(\psi\text{,}\)</span> the right hand side of the above is equal to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B_{R+1}(x_0)\backslash B_{R-1}(x_0)} \rho \geqslant (R-1)v(B_{R+1}(x_0)\backslash B_{R-1}(x_0))\text{.}
+\end{equation*}
+</div>
+<p id="p-1175">Combining the above equation with <span class="process-math">\(\circledast\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(R-1)v(B_{R+1}(x_0)-B_{R-1}(x_0)) \leqslant 2n\int\phi \leqslant 2nv_{R+1}(x_0)\text{.}
+\end{equation*}
+</div>
+<p id="p-1176">Obviously, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+B_1(p) \subset B_{R+1}(x_0)\backslash B_{R-1}(x_0)\text{.}
+\end{equation*}
+</div>
+<p id="p-1177">Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2nv_{R+1}(x_0)\geqslant (R-1)v_1(p)\text{.}
+\end{equation*}
+</div>
+<p id="p-1178">Since <span class="process-math">\(B_{2(R+1)}(p) \supset B_{R+1}(x_0)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2nv_{2(R+1)}(p) \geqslant (R-1)v_1(p)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">or in other word,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v_{2(R+1)}(p) \geqslant \frac{R-1}{2n}v_1(p)\text{.}
+\end{equation*}
+</div></article></div>
+<p id="p-1179">What Wang observed was the following inverse Laplacian comparison theorem: We don't have a lower bound for the Laplacian. However, we have the following:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-73">
+\begin{align*}
+\nonumber \int_{B(R)\backslash K} |\Delta\rho| \amp  \leqslant \amp \int_{B(R)\backslash K} \partial n + \int_{B(R)\backslash K} |\partial n - \Delta \rho|\\
+\nonumber \amp  \leqslant \amp  CR^n - \int_{\partial B(R)}\frac{\partial\rho} {\partial n} + \int_{\partial K}\frac{\partial\rho}{\partial n}\\
+\nonumber \amp  \leqslant \amp  CR^n\text{.}
+\end{align*}
+</div>
+<p id="p-1180">Thus we can also estimate <span class="process-math">\(\int\Delta\rho\)</span> from below.</p>
+<p id="p-1181">Using the above observation, Wang computed the <span class="process-math">\(L^1\)</span>-spectrum. Using the theorem of Sturm, all <span class="process-math">\(L^p\)</span>-spectrum, in particular the <span class="process-math">\(L^2\)</span>-spectrum we are interested, are the same.</p>
+<p id="p-1182">It is possible to compute the <span class="process-math">\(L^2\)</span>-spectrum directly, but that would be more or less the same as repeating the proof of Sturm's theorem. In fact, we can get a little more information than Wang's theorem provided.</p>
+<article class="lemma theorem-like" id="lemma-29"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
+</h3>
+<p id="p-1183">Let <span class="process-math">\(M\)</span> be a complete non-compact manifold with non-negative Ricci curvature. Let <span class="process-math">\(B(R)\)</span> be a very large ball of radius <span class="process-math">\(R\text{.}\)</span> Let <span class="process-math">\(\lambda\)</span> be a Dirichlet eigenvalue and let <span class="process-math">\(f\)</span> be its eigenfunction of <span class="process-math">\(B(R)\text{.}\)</span> Then there is a constant <span class="process-math">\(C &gt; 0\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B(R)\cdot B(R-1)} f^2 \leqslant C\int_{B(R)} f^2\text{.}
+\end{equation*}
+</div></article><p id="p-1184">For the rest of this lecture we are seeking possible extensions of Wang's theorem. While we observe that Sturm's theorem is self-dual (<span class="process-math">\(M\)</span> could be of infinite volume or finite volume), Wang's theorem is not. In what follows, we shall construct an example that all <span class="process-math">\(L^p\)</span>-spectrum are the same of finite volume, <span class="process-math">\(L^1\)</span>-spectrum computable, but doesn't satisfy the assumption of Wang.</p>
+<p id="p-1185">The manifold we construct is of <span class="process-math">\(2\)</span> dimensional rotational symmetric outside a compact set, and the Riemannian metric <span class="process-math">\(g\)</span> can be written as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g = dr^2 + f(r)^2 d\theta^2, r &gt; 1
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f(r) = \frac{1}{r^\alpha}\)</span> for some <span class="process-math">\(\alpha\)</span> large.</p>
+<p id="p-1186">The Gauss curvature of <span class="process-math">\(g\)</span> is <span class="process-math">\(-f''/f = -\alpha(\alpha + 1)\frac{1}{r^2}\text{.}\)</span> Thus the manifold doesn't satisfy Wang's assumption.</p>
+<p id="p-1187">We prove that the volume of <span class="process-math">\(M\)</span> grows uniformly and sub-exponentially. To see this, we observe that for any point <span class="process-math">\((x)\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v(B_1(x)) \geqslant \frac{C}{r(x)^\alpha}
+\end{equation*}
+</div>
+<p class="continuation">for some constant <span class="process-math">\(C &gt; 0\text{.}\)</span> On the other hand, if <span class="process-math">\(\alpha &gt; 1\text{,}\)</span> the volume of manifold is finite. Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v(B_r(x)) \leqslant C \leqslant e^{\varepsilon r}\frac{C(\varepsilon)}{r^\alpha}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(r \gg 0\text{.}\)</span></p>
+<p id="p-1188">Thus the manifold satisfies the assumption of Sturm and as a result, all <span class="process-math">\(L^p\)</span>-spectrum of <span class="process-math">\(M\)</span> are the same.</p>
+<p id="p-1189">We compute the <span class="process-math">\(L^1\)</span>-spectrum concretely. Following Wang, we pick up a large number <span class="process-math">\(k\text{.}\)</span> Let <span class="process-math">\(\psi\)</span> be a cut-off function whose support is in <span class="process-math">\([1,4]\text{,}\)</span> and is identically <span class="process-math">\(1\)</span> on <span class="process-math">\([2,3]\text{.}\)</span> Consider the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g = \psi(\frac{r}{k}) e^{i\sqrt{\lambda}r}\text{.}
+\end{equation*}
+</div>
+<p id="p-1190">We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta g = \Delta \psi e^{i\sqrt{\lambda}r} + 2\nabla\psi\nabla e^{i\sqrt{\lambda}r} + \psi\Delta e^{i\sqrt{\lambda}r}\text{.}
+\end{equation*}
+</div>
+<p id="p-1191">We have the following estimate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\nabla\psi\nabla e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{K} (V(4k) - V(k))\text{.}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(V(r)\)</span> is the volume of the manifold of radius <span class="process-math">\(r\text{.}\)</span> A straightforward computation gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\nabla\psi\nabla e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{k^\alpha}\text{.}
+\end{equation*}
+</div>
+<p id="p-1192">By the same reason</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\Delta\psi e^{i\sqrt{\lambda}r}\|_{L^1} \leqslant \frac{C}{k^\alpha} + \frac{C}{k}\int_{B(4k)\backslash B(k)}|\Delta r|\text{.}
+\end{equation*}
+</div>
+<p id="p-1193">Since <span class="process-math">\(dS^2 = dr^2 + f(r)^2 d\theta^2\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\Delta r| \leqslant \frac{\alpha}{r}\text{.}
+\end{equation*}
+</div>
+<p id="p-1194">Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{B(4k)\backslash(k)}|\Delta r| = \int_k^{4k}\frac{\alpha}{r^{\alpha+1}}dr \leqslant \frac{C}{k^\alpha}\text{.}
+\end{equation*}
+</div>
+<p id="p-1195">Finally</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\psi\Delta e^{i\sqrt{\lambda}r} + \lambda g\|_{L^1} = \|\sqrt{\lambda}\psi e^{i\sqrt{\lambda}r} \Delta r\|_{L^1} \leqslant \frac{C}{k^\alpha}\text{.}
+\end{equation*}
+</div>
+<p id="p-1196">On the other hand</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|g\|_{L^1} \geqslant \int_{2k}^{3k} 1 \geqslant V(3k) - V(2k) \geqslant \frac{C_1}{k^{\alpha-1}}\text{.}
+\end{equation*}
+</div>
+<p id="p-1197">Thus if <span class="process-math">\(k\)</span> is sufficiently large</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\Delta g + \lambda g\|_{L^1} \leqslant \varepsilon\|g\|_{L^1}
+\end{equation*}
+</div>
+<p id="p-1198">Thus there should be a finite volume version of Wang's theorem.</p>
+<p id="p-1199">We end the lecture by some speculations of the essential spectrum.</p>
+<article class="definition definition-like" id="definition-10"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.3.5</span><span class="period">.</span>
+</h3>
+<p id="p-1200">A discrete group <span class="process-math">\(G\)</span> is called amenable, if there is a measure such that</p>
+<ol class="decimal">
+<li id="li-70"><p id="p-1201">The measure is a probability measure;</p></li>
+<li id="li-71"><p id="p-1202">The measure is finitely additive;</p></li>
+<li id="li-72"><p id="p-1203">The measure is left-invariant: given a subset <span class="process-math">\(A\)</span> and an element <span class="process-math">\(g\)</span> of <span class="process-math">\(G\text{,}\)</span> the measure of <span class="process-math">\(A\)</span> equals to the measure of <span class="process-math">\(gA\text{.}\)</span></p></li>
+</ol></article><p id="p-1204">In one sentence, <span class="process-math">\(G\)</span> is amenable if it has finitely-additive left-invariant probability measure.</p>
+<p id="p-1205">The following theorem of R. Brooks <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "brooks" missing or not unique]</code> is remarkable:</p>
+<article class="theorem theorem-like" id="theorem-79"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.3.6</span><span class="period">.</span>
+</h3>
+<p id="p-1206">([Brooks] Let <span class="process-math">\(M\)</span> be a compact Riemannian manifold and let <span class="process-math">\(\widetilde M\)</span> be the universal cover of <span class="process-math">\(M\text{.}\)</span> We assume that <span class="process-math">\(\widetilde M\)</span> is non-compact, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda_0(\widetilde M) = 0 \Leftrightarrow \pi_1(M) \mbox{ is amenable}\text{.}
+\end{equation*}
+</div></article><p id="p-1207">It would be interesting to ask</p>
+<article class="conjecture theorem-like" id="conjecture-11"><h3 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">6.3.7</span><span class="period">.</span>
+</h3>
+<p id="p-1208">Using the same assumptions as above. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sigma_{ess}(\widetilde M) = [0, \infty)\text{.}
+\end{equation*}
+</div></article><p id="p-1209">In the case when <span class="process-math">\(\pi_1(M) = \mathbb{Z}^n\text{,}\)</span> the above conjecture is true.</p>
+<article class="lemma theorem-like" id="lemma-30"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">6.3.8</span><span class="period">.</span>
+</h3>
+<p id="p-1210">Suppose <span class="process-math">\(M = T^n\text{,}\)</span> <span class="process-math">\(\widetilde M = \mathbb{R}^n\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sigma_{ess}(\widetilde M) = [0, \infty)
+\end{equation*}
+</div></article><p id="p-1211">Here the metric on <span class="process-math">\(M\)</span> is an arbitrary metric.</p>
+<article class="hiddenproof" id="proof-57"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-57"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-57"><article class="hiddenproof"><p id="p-1212">Let <span class="process-math">\(N\)</span> be any finite cover of <span class="process-math">\(M\text{.}\)</span> Let <span class="process-math">\(\lambda\)</span> be an eigenvalue of <span class="process-math">\(N\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lambda\in\sigma_{ess}(\widetilde M)
+\end{equation*}
+</div>
+<p id="p-1213">In fact, let <span class="process-math">\(\rho\)</span> be a cut-off function. Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta f + \lambda f = 0 \mbox{ on }  N
+\end{equation*}
+</div>
+<p id="p-1214">Then on <span class="process-math">\(\widetilde M\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\Delta(\rho f) + \lambda\rho f\|_{L^2} \leqq \|f\Delta\rho\|_{L^2} + \|\alpha\nabla\rho\nabla f\|_{L^2}
+\end{equation*}
+</div>
+<p id="p-1215">If <span class="process-math">\(|\nabla\rho|\text{,}\)</span> <span class="process-math">\(|\Delta\rho|\)</span> are small, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\|\Delta(f\rho) + \lambda\rho f\|_{L^2} \leqslant \varepsilon \|f\rho\|_{L^2}
+\end{equation*}
+</div>
+<p id="p-1216">If the result is not true, since <span class="process-math">\(\sigma_{ess}(\Delta)\)</span> is a closed set, there is an interval <span class="process-math">\((a,b)\)</span> such that for any <span class="process-math">\(N\text{,}\)</span> there is no eigenvalues in <span class="process-math">\((a,b)\text{.}\)</span></p>
+<p id="p-1217">We prove this by contradiction. Let <span class="process-math">\(\lambda\text{,}\)</span> <span class="process-math">\(\mu\)</span> be two consecutive eigenvalues such that <span class="process-math">\(\lambda \lt  a\)</span> and <span class="process-math">\(\mu &gt; b\text{.}\)</span> By the above argument, we can find a <span class="process-math">\(C_0^\infty\)</span> function on <span class="process-math">\(\widetilde M\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-74">
+\begin{align*}
+\nonumber \|\Delta f + \lambda f\|_{L^2} \amp  \lt  \amp  \varepsilon\|f\|_{L^2}\\
+\nonumber \|\Delta g + \mu g\|_{L^2} \amp  \lt  \amp  \varepsilon\|g\|_{L^2}
+\end{align*}
+</div>
+<p id="p-1218">Let <span class="process-math">\(k,l\)</span> be integers such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{k\int|\nabla f|^2 + l\int|\nabla g|^2}{k\int f^2 + l\int g^2}\in(a,b)
+\end{equation*}
+</div>
+<p id="p-1219">Then by repeating <span class="process-math">\(f\)</span> <span class="process-math">\(k\)</span>-times and <span class="process-math">\(g\)</span> <span class="process-math">\(l\)</span>-times we are done.</p></article></div>
+<article class="remark remark-like" id="remark-12"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.3.9</span><span class="period">.</span>
+</h3>
+<p id="p-1220">Recently, Lu-Zhou <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lu-zhou" missing or not unique]</code> proved that the essential spectrum is <span class="process-math">\([0,+\infty)\)</span> for any complete non-compact manifold with asymptotic nonnegative Ricci curvature, generalizing Wang's result.</p></article></section></div></main>
+</div>
+</body>
+</html>
