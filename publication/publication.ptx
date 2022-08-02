@@ -13,7 +13,7 @@
         <!-- chapter.  @level says how deep (chapter->section->subsection)-->
         <!-- numbering should appear.                                     -->
         <!-- For use with a book organized by parts                       -->
-        <divisions chapter-start="0" level="2"/>
+        <divisions chapter-start="1" level="2"/>
         <!-- The next elements say how the levels deep to break up the    -->
         <!-- numbering of the respective elements. Can't be more than the -->
         <!-- @level on divisions above.                                   -->
@@ -57,14 +57,14 @@
         />
         <!-- specify the style of the html by giving names to      -->
         <!-- override defaults.  Ex: to use "style_oscarlevin.css" -->
-        <!-- put <css style="oscarlevin"/>                         -->
+   put <css style="oscarlevin"/>                         
         <!-- @colors currently unimplementd.                       -->
-        <css style="oscarlevin"/>
+      <css style="oscarlevin"/> 
         <!-- Magic IDs identify HTML pages to analytics services   -->
         <!-- Presence implies relevant Javascript will be added    -->
-        <analytics google-gst="UA-66485406-1"/>
+        <!-- <analytics google-gst="UA-66485406-1"/>  -->
         <!-- Google search, via masthead textbox is switched on    -->
         <!-- and associated with a Google account via CX number    -->
-        <search google-cx="000445521324161818100:qhc2ahxtur8"/>
+       <!--   <search google-cx="000445521324161818100:qhc2ahxtur8"/> --> 
     </html>
 </publication>

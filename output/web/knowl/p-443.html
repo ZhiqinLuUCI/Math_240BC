@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,13 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Thus <span class="process-math">\(u^{-1}\)</span> is a subsolution. Using the above lemma, for any <span class="process-math">\(p\text{,}\)</span> we have</p>
+<p>Thus we must have</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\sup _{B(\theta)} u^{-p} \leq C \int_{B(1)} u ^{-p}\text{.}
-\end{equation*}
+\begin{align*}
+\inf _{B(\theta)}u \amp  \geq \amp  C ^{-\frac{1}{p}} \left( \int_{B_{1}} u^{-p} d x \right) ^{-\frac{1}{p}}\\
+\amp  = \amp C ^{-\frac{1}{p}} \left[\int_{B_{1}} u^{-p} \cdot \int_{B_{1}} u^{p} \right] ^{\frac{1}{p}}\\
+\amp     \times\amp  \left( \int_{B_{1}} u^{p} \right) ^{\frac{1}{p}} \text{.}
+\end{align*}
 </div>
 <span class="incontext"><a href="Harmonic_functions.html#p-443" class="internal">in-context</a></span>
 </body>

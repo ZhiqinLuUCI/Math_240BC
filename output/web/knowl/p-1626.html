@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:19:00-07:00       *-->
+<!--*       on 2022-08-01T12:24:42-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,10 +15,16 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Thus for <span class="process-math">\(p\)</span> sufficiently close to <span class="process-math">\(q\text{,}\)</span> we get</p>
+<p>Since</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-I(p)\leq C(I(q)+I(1))\text{.}
+\int_{E(t)}f^q(x)dx\leq at^{q-1}\int_{E(t)} f(x) dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^\infty\left(t^{\eps-1}\int_{E(t)}f^q(x)dx\right) dt\leq a \int_1^\infty\left(t^{q-2+\eps}\int_{E(t)} f(x) dx \right)\text{.}
 \end{equation*}
 </div>
 <span class="incontext"><a href="Reverse_holder.html#p-1626" class="internal">in-context</a></span>

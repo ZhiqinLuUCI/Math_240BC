@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,14 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Apparently, we can write</p>
+<p>As before, we have the following computation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\Delta =   g^{ij}\frac{\partial^2 }{\partial x_i \partial x _j} +\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i} \left( g ^{ij} \sqrt{g} \right)\frac{\partial }{\partial x_j}\text{.}
-\end{equation*}
+\begin{align*}
+\lefteqn{\frac{1}{\sqrt{g} } \frac{\partial }{\partial x_i}  ( g^{ij} \sqrt{g} )}\\
+\amp \amp  = \frac{1}{2} g^{ij} \frac{\partial}{\partial x_i} \log g + \frac{\partial }{\partial x_i}  g ^{ij}\\
+\amp \amp  = \frac{1}{2} g^{ij}g^{kl}\frac{\partial g _{kl} }{\partial x_i} - g^{in} g^{jm} \frac{\partial g _{mn} }{\partial x_i}\\
+\amp \amp  = - g^{kl} \Gamma ^j _{kl} \text{.}
+\end{align*}
 </div>
 <span class="incontext"><a href="Eigenvalue.html#p-617" class="internal">in-context</a></span>
 </body>

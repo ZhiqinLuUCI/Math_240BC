@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,13 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Define the function</p>
+<p>Then <span class="process-math">\(g (r (y))\)</span> will have the same boundary conditions as <span class="process-math">\(h(y)\text{.}\)</span> The Dirichlet integral minimizing property for harmonic functions implies that</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-g(r) = (s_i (1) - i_i (R) ) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1} \int ^R_r \frac{dt}{A_p (t) } + i_i (R)\text{.}
-\end{equation*}
+\begin{align*}
+\amp \int_{B_{p} (R) \backslash B_{p} (1)} |\nabla h |^2 \leq \int_{B_{p} (R) \backslash B_{p} (1)}  |\nabla g|^2\\
+\amp  =  \int^R_1 \left( ( s_i (1) - i _i (R)) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}  \frac{1}{A_p (r)} \right) ^2 \, A_p (r) \, dr\\
+\amp  =  \left(  s_i (1) - i _i (R)\right) \left( \int^R_1 \frac{dt}{A_p (t)} \right) ^{-1}\text{.}
+\end{align*}
 </div>
 <span class="incontext"><a href="Green_function.html#p-599" class="internal">in-context</a></span>
 </body>

@@ -36,20 +36,7 @@
   </p>
 
 
-
-    <assemblage permid="pOu">
-      <title>Additive Principle</title>
-      <idx><h>additive principle</h></idx>
-      <p permid="vSb">
-        The
-        <term>additive principle</term>
-        states that if event <m>A</m> can occur in <m>m</m> ways,
-        and event <m>B</m> can occur in <m>n</m>
-        <em>disjoint</em> ways, then the event
-        <q><m>A</m> or <m>B</m></q>
-        can occur in <m>m + n</m> ways.
-      </p>
-    </assemblage>
+ 
 
     
   <exercise>
@@ -100,38 +87,38 @@
     </ol>
   </p>
   <p>
-    The theorem of partition of unity can be generalized into the following setting.
+    The theorem of partition of unity can be generalized into the following case.
   </p>
-  <theorem>
+  <proposition xml:id="partition_of_unity">
     <statement>
       <p>
         Let <m>\{U_j\}_I</m> be a locally finite cover of <m>M</m>.
-        Then there exists a partition of unity subordinating to the cover <m>\{\rho_j\}</m>.
+        Then there exists a partition of unity  <m>\{\rho_j\}</m> subordinating to the cover <m>\{U_j\}_I</m>.
         Moreover, let
         <me>
-          J=\{j\in I\mid U_j\cap \pa M=\emptyset\}
+          J=\{j\in I\mid U_j\cap \pa M\neq \emptyset\}
         </me>.
       </p>
       <p>
         Then
-        <me>
-          \{U_j\cap\pa M\}_{j\in J},\qquad \rho_j|_{\pa M\cap U_j}
-        </me>
-        is a partition of unity subordinating to the corresponding cover.
+        <m>
+      \rho_j|_{\pa M\cap U_j}
+        </m>
+        is a partition of unity subordinating to the   cover <m>\{U_j\cap\pa M\}_{j\in J}</m> of <m>\partial M</m>.
       </p>
     </statement>
-  </theorem>
+  </proposition>
   <exercise>
     <statement>
       <p>
-        Prove the above theorem.
+        Prove the above proposition.
       </p>
     </statement>
   </exercise>
   <p>
     A manifold is called orientable,
     if there is a cover <m>\{U_j\}</m> on <m>M</m> such that if
-    <m>x_j^1,\cdots,x_j^n</m> are the coordinates on <m>U_j</m>,
+    <m>\{x_j^1,\cdots,x_j^n\}</m> are the coordinates on <m>U_j</m> for all <m> j\in J</m>,
     then we have
     <me>
       \det\frac{\pa (x_j^1,\cdots,x_j^n)}{\pa(x_i^1,\cdots,x_i^n)}>0
@@ -148,7 +135,7 @@
     </statement>
   </exercise>
   <theorem>
-    <title>Stokes' Theorem</title>
+    <title>(Stokes' Theorem)</title>
     <statement>
       <p>
         Let <m>M</m> be an orientable manifold with the given orientation.
@@ -173,9 +160,10 @@
         <mrow>\amp \int_M d\omega=\sum_{j\in I}\int_{U_j}\rho_jd\omega=\sum_{j\in I}\int_{U_j}d(\rho_j\omega), \qquad and</mrow>
         <mrow>\amp \int_{\pa M}\omega=\sum_{j\in J}\int_{\pa M\cap U_j}\rho_j\omega</mrow>
       </md>.
+      where <m>I, J</m> are defined in <xref ref="partition_of_unity"> Proposition </xref>.
     </p>
     <p>
-      The Stokes' theorem follows from the following statements:
+      The Stokes' theorem follows from the following twostatements:
       <ol>
         <li>
           <p>

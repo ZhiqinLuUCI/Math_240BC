@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,10 +15,16 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>If the above is not true, then there is an <span class="process-math">\(\eps_0&gt;0\)</span> such that for any <span class="process-math">\(f\in V\text{,}\)</span></p>
+<p>Since the set <span class="process-math">\(f\in V\)</span> is of infinite dimensional, the set <span class="process-math">\(\rho f\)</span> is of infinite dimensional as well, otherwise the above inequality is not valid. Thus we can find an orthogonal basis</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\int_M\rho^2f^2\geq\eps_0\text{,}
+\int_M\rho^2f_if_j=0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(i\neq j\text{,}\)</span> while we still keeping <span class="process-math">\(\int_Mf_i^2=1\text{.}\)</span> We consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_M|\nabla(\rho f_i)|^2\leq 2\int_M|\nabla \rho|^2 f_i^2+2\int_M|\nabla f_i|^2\text{.}
 \end{equation*}
 </div>
 <span class="incontext"><a href="Var_principle.html#p-208" class="internal">in-context</a></span>

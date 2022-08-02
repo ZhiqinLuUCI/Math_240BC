@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:19:00-07:00       *-->
+<!--*       on 2022-08-01T12:24:42-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,34 +15,14 @@
 </head>
 <body class="ignore-math">
 <article class="theorem theorem-like"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Aleksandrov maximum principle.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">local maximum principle.</span>
 </h3>
-<p>Let <span class="process-math">\(u\in \mathcal C(\bar\Omega)\cap W_{{ loc}}^{2,n}(\Omega)\)</span> such that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<p>Assume equation <a href="" class="xref" data-knowl="./knowl/div-2.html" title="Equation 9.4">(9.4)</a>. Let <span class="process-math">\(u\in W^{2,n}(\Omega)\)</span> and let <span class="process-math">\(Lu\leq f\)</span> almost everywhere on <span class="process-math">\(\Omega\text{.}\)</span> Let <span class="process-math">\(f/\lambda\in L^n(\Omega)\text{.}\)</span> Then for any <span class="process-math">\(p&gt;0\text{,}\)</span> <span class="process-math">\(B_{2R}\subset\Omega\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/div-2.html">
 \begin{equation*}
-Lu\leq f\text{,}
+\sup_{B_R(y)} u\leq C\left[\fint_{B_{2R}(y)}(u^+)^p dx\right]^{1/p}+R\left|\left|\frac{f}{\lambda}\right|\right|_{L^n(B_{2R}(y))}\text{,}
 \end{equation*}
 </div>
-<p class="continuation">where</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-Lu=-a^{ij}D_{ij} u+b^i D_i u+cu=f\text{.}
-\end{equation*}
-</div>
-<p>Assume that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\amp  (a^{ij})\geq 0\qquad \text{ on }  \Omega\\
-\amp \sum_i\left|\left|\frac{b^i}{\mathcal D^*}\right|\right|_{L^n(\Omega)}\leq\beta\\
-\amp  c\geq 0
-\end{align*}
-</div>
-<p>Then</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\sup_\Omega u\leq\sup_{\pa\Omega} u^++C\left|\left|\frac{b^i}{\mathcal D^*}\right|\right|_{L^n(\Gamma_u)}\text{,}
-\end{equation*}
-</div>
-<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n,\beta\)</span> and <span class="process-math">\({ diam}\,\Omega\text{.}\)</span></p></article><span class="incontext"><a href="ABP_principle.html#theorem-97" class="internal">in-context</a></span>
+<p class="continuation">where <span class="process-math">\(C\)</span> only depends on <span class="process-math">\(n,\gamma,p\text{.}\)</span></p></article><span class="incontext"><a href="Krylov-Safonov.html#theorem-97" class="internal">in-context</a></span>
 </body>
 </html>

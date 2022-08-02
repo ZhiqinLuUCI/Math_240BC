@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:19:00-07:00       *-->
+<!--*       on 2022-08-01T12:24:42-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,10 +15,16 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Then we have</p>
+<p>Since</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-||v||_{L^{p_{k+1}}}(B_{R_{k+1}})\leq (C\cdot 4^k)^{1/p_k}||v||_{L^{p_k}}(B_{R_k})\text{.}
+\log\left(\prod_{k=1}^\infty (C\cdot 4^k)^{1/p_k}\right) =\sum_{k=1}^\infty\frac{1}{p_k}(\log C+k\log 4)\lt C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">there is a constant <span class="process-math">\(C\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+||v||_{L^\infty}(B_{\theta R})\leq\frac{C}{((1-\theta)R)^{n/p}}\frac{1}{R^n}||v||_{L^p}(B_R)\text{.}
 \end{equation*}
 </div>
 <span class="incontext"><a href="Moser_iteration.html#p-1423" class="internal">in-context</a></span>

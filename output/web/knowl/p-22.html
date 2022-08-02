@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:39-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,19 +15,19 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Let <span class="process-math">\(\{U_i\}\)</span> be a locally finite cover and let <span class="process-math">\(\{\phi_i\}\)</span> be the partition of unity subordinating to the cover. Since</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<p>The Stokes' theorem follows from the following statements:</p>
+<ol class="decimal">
+<li><div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-d\sum_j\rho_j=0\text{,}
+\int_{U_j}d(\rho_j\omega)=0,\qquad j\not\in J;
 \end{equation*}
-</div>
-<p class="continuation">we have</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\amp \int_M d\omega=\sum_{j\in I}\int_{U_j}\rho_jd\omega=\sum_{j\in I}\int_{U_j}d(\rho_j\omega), \qquad and\\
-\amp \int_{\pa M}\omega=\sum_{j\in J}\int_{\pa M\cap U_j}\rho_j\omega\text{.}
-\end{align*}
-</div>
+</div></li>
+<li><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{U_j}d(\rho_j\omega)=\int_{U_j\cap\{x_n=0\}}\rho_j\omega,\qquad j\in J\text{.}
+\end{equation*}
+</div></li>
+</ol>
 <span class="incontext"><a href="Integration.html#p-22" class="internal">in-context</a></span>
 </body>
 </html>

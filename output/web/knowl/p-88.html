@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,17 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>We compute</p>
+<p>The first and the third term of the above can be consolidated because</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align}
-\begin{split} \amp \qquad\qquad d_{\nabla^2}\eta=d_\nabla\left((\nabla\eta)_{I,k}\omega_k\otimes\omega_I\right)\tag{0.1}\\
-\amp =-\left(d(\nabla\eta)_{I,k}-(\nabla\eta)_{I_r,k}\omega_{r i_s}-(\nabla\eta)_{I,r}\omega_{rk}\right)\wedge \omega_k\otimes\omega_I. \end{split}\notag
-\end{align}
+\begin{equation*}
+d(\nabla\eta)_{I,k}\wedge\omega_k-(\nabla\eta)_{I,r}\omega_{rk}\wedge\omega_k =d((\nabla\eta)_{I,k}\omega_k)
+\end{equation*}
+</div>
+<p class="continuation">by the first Cartan's formula. Thus we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d(\nabla\eta)_{I,k}\wedge\omega_k-(\nabla\eta)_{I,r}\omega_{rk}\wedge\omega_k =d(d a_{I_r}-a_{I_r}\omega_{ri_s})=-da_{I_r}\wedge\omega_{r i_s}-a_{I_r}d\omega_{r i_s}\text{.}
+\end{equation*}
 </div>
 <span class="incontext"><a href="Cov_derivatives.html#p-88" class="internal">in-context</a></span>
 </body>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:59-07:00       *-->
+<!--*       on 2022-08-01T12:24:41-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,12 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Next we assume that <span class="process-math">\(x_0 \in \Omega\text{.}\)</span> Then at the maximum point, we have</p>
+<p>We apply the standard gradient estimate: assume that at <span class="process-math">\(x_o, \nabla v \neq 0\text{.}\)</span> Then we have</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\nabla G (x_0) = 0 , \; \Delta G (x_0) \leq 0\text{.}
-\end{equation*}
+\begin{align*}
+0 \amp = \amp G_i (x_0) = 2 v_j v_{ji} - 2  \lambda ( \mu - v ) v _i\\
+0 \geq \Delta G \amp = \amp 2 \sum v ^2 _{ij} + 2 v _j v_{jii} + 2 \lambda \sum v ^2_i - 2 \lambda ( \mu - v) \sum v_{ii} \text{.}
+\end{align*}
 </div>
 <span class="incontext"><a href="Eigenvalue_gap.html#p-827" class="internal">in-context</a></span>
 </body>

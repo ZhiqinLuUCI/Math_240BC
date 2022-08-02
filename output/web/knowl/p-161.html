@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-07-31T11:18:58-07:00       *-->
+<!--*       on 2022-08-01T12:24:40-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,11 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span class="process-math">\(M\)</span> be a compact orientable manifold with smooth boundary. Let <span class="process-math">\(\mathcal C_0^\infty(M)\)</span> be the space of smooth functions whose supports are within the interior of <span class="process-math">\(M\text{,}\)</span> and let <span class="process-math">\(\mathcal C^\infty(M)\)</span> be the space of smooth functions (smooth up to the boundary). We can define two kinds of Laplacians: the first one <span class="process-math">\(\Delta_D\)</span> is called the Dirichlet Laplacian, which is the same as the Friedrichs extension <span class="process-math">\(\bar\Delta\text{.}\)</span> The second one <span class="process-math">\(\Delta_N\)</span> is called the Neumann Laplacian, defined by</p>
+<p>For <span class="process-math">\(\phi,\psi\in \mathcal C^\infty(M)\text{,}\)</span> we have the Green's formula</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\amp {\mathcal Dom}(\Delta_N)=\left\{\phi\in H^1(M)\mid\right.\\
-\amp \left.\forall\psi\in \mathcal C^\infty(M) \,\,s.t. \frac{\pa\psi}{\pa n}=0, \exists f\in L^2(M), s.t.\, Q(\phi,\psi)=( f,\psi)\right\}\text{.}
-\end{align*}
+\begin{equation*}
+(\Delta\phi,\psi)=\int_{\pa M}\frac{\pa\phi}{\pa n}\,\psi-\int_M\phi\,\frac{\pa\psi}{\pa n}+(\phi,\Delta\psi)\text{.}
+\end{equation*}
 </div>
 <span class="incontext"><a href="Operator_extension.html#p-161" class="internal">in-context</a></span>
 </body>
